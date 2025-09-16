@@ -3,12 +3,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from typing import Optional, List
-import os, io, csv
+import os, io, csv, logging
 
 from db import call_proc, query, exec_sql
 
-app = FastAPI(title="MIL-STD-6016 Mini API", version="0.2.0")
+app = FastAPI(title="MIL-STD-6016 Mini API", version="0.2.1")
 
+# ---------- CORS ----------
 origins = [o.strip() for o in os.getenv("CORS_ORIGINS", "*").split(",") if o.strip()]
 app.add_middleware(
     CORSMiddleware,
@@ -18,11 +19,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+logger = logging.getLogger("uvicorn.error")
+
+
 class BindFieldBody(BaseModel):
     concept: str
     field_id: int
     confidence: Optional[float] = 0.95
     notes: Optional[str] = None
+
 
 @app.get("/api/health")
 def health():
@@ -32,13 +37,45 @@ def health():
     except Exception as e:
         raise HTTPException(500, detail=str(e))
 
+
 @app.get("/api/search")
-def search(q: str = Query(..., min_length=1)):
+def search(
+    q: Optional[str] = Query(None, description="关键词；可空"),
+    j: Optional[str] = Query(None, description="J系列筛选，如 J3/J7；可空"),
+    fuzzy: int = Query(1, ge=0, le=1, description="1=模糊(默认)，0=精确"),
+):
+    """
+    - j:   J 系列筛选（可空）
+    - fuzzy: 1=模糊(默认)，0=精确（后置等值过滤）
+    - 继续复用存储过程 sp_search_free(q)
+    """
     try:
+        if not q or not q.strip():
+            return {"query": "", "j": j or "", "fuzzy": int(bool(fuzzy)), "results": []}
+
+        q = q.strip()
         sets = call_proc("sp_search_free", (q,))
-        return {"query": q, "results": sets[0] if sets else []}
+        rows = sets[0] if sets else []
+
+        if j:
+            j_up = j.strip().upper()
+            rows = [
+                r for r in rows
+                if str(r.get("j_series", "")).upper() == j_up
+                or str(r.get("j", "")).upper() == j_up
+                or str(r.get("message_j_series", "")).upper() == j_up
+            ]
+
+        if not fuzzy:
+            q_low = q.lower()
+            KEYS = ("hit_name", "canonical_name", "di_name", "field_name", "word_label")
+            rows = [r for r in rows if any(str(r.get(k, "")).lower() == q_low for k in KEYS)]
+
+        return {"query": q, "j": j or "", "fuzzy": int(bool(fuzzy)), "results": rows}
     except Exception as e:
+        logger.exception("search failed")
         raise HTTPException(500, detail=str(e))
+
 
 @app.get("/api/compare")
 def compare(q: str = Query(..., min_length=1)):
@@ -53,6 +90,7 @@ def compare(q: str = Query(..., min_length=1)):
     except Exception as e:
         raise HTTPException(500, detail=str(e))
 
+
 @app.get("/api/review/top")
 def review_top():
     try:
@@ -64,6 +102,7 @@ def review_top():
         return rows
     except Exception as e:
         raise HTTPException(500, detail=str(e))
+
 
 @app.get("/api/audit/quick")
 def audit_quick():
@@ -78,6 +117,7 @@ def audit_quick():
     except Exception as e:
         raise HTTPException(500, detail=str(e))
 
+
 @app.post("/api/exports/refresh")
 def refresh_exports():
     try:
@@ -86,31 +126,47 @@ def refresh_exports():
     except Exception as e:
         raise HTTPException(500, detail=str(e))
 
+
 @app.post("/api/bind/field")
 def bind_field(body: BindFieldBody):
     try:
-        exec_sql("CALL sp_bind_field_exact(%s,%s,%s,%s)",
-                 (body.concept, body.field_id, body.confidence, body.notes))
+        exec_sql(
+            "CALL sp_bind_field_exact(%s,%s,%s,%s)",
+            (body.concept, body.field_id, body.confidence, body.notes),
+        )
         return {"ok": True}
     except Exception as e:
         raise HTTPException(500, detail=str(e))
 
+
 @app.get("/api/specs")
 def list_specs():
-    return query("SELECT spec_id, code, edition, part_label FROM spec ORDER BY code, edition, part_label")
+    return query(
+        "SELECT spec_id, code, edition, part_label FROM spec ORDER BY code, edition, part_label"
+    )
+
 
 @app.get("/api/messages")
 def list_messages(spec_id: Optional[int] = None):
     if spec_id:
-        return query("SELECT message_id, j_series FROM message WHERE spec_id=%s ORDER BY j_series", (spec_id,))
+        return query(
+            "SELECT message_id, j_series FROM message WHERE spec_id=%s ORDER BY j_series",
+            (spec_id,),
+        )
     return query("SELECT message_id, j_series, spec_id FROM message ORDER BY spec_id, j_series")
 
+
 WHITELIST = {
-    "export_concept_fields": ["canonical_name","eq_type","confidence","dfi","dui","di_name","field_id","field_name","start_bit","end_bit","bit_len","word_label","j_series","code","edition","part_label"],
+    "export_concept_fields": [
+        "canonical_name","eq_type","confidence","dfi","dui","di_name",
+        "field_id","field_name","start_bit","end_bit","bit_len","word_label",
+        "j_series","code","edition","part_label"
+    ],
     "export_concept_by_spec": ["name","c","e","p","field_bindings","data_item_bindings"],
     "export_word_coverage": ["wl","j","c","e","p","covered_bits","total_bits","coverage_pct"],
-    "export_unbound_topN": ["data_item_id","di_name","refs"]
+    "export_unbound_topN": ["data_item_id","di_name","refs"],
 }
+
 
 def _fetch_all(table: str, limit: Optional[int] = None):
     cols = ", ".join(WHITELIST[table])
@@ -120,11 +176,13 @@ def _fetch_all(table: str, limit: Optional[int] = None):
         return query(sql, (int(limit),))
     return query(sql)
 
+
 @app.get("/api/export/snapshot")
 def export_snapshot(table: str = Query(...), limit: Optional[int] = Query(200)):
     if table not in WHITELIST:
         raise HTTPException(400, "table not allowed")
     return _fetch_all(table, limit)
+
 
 @app.get("/api/export/csv")
 def export_csv(table: str = Query(...), filename: Optional[str] = None):
@@ -138,5 +196,8 @@ def export_csv(table: str = Query(...), filename: Optional[str] = None):
     writer.writerows(data)
     sio.seek(0)
     fn = filename or f"{table}.csv"
-    return StreamingResponse(sio, media_type="text/csv",
-                             headers={"Content-Disposition": f"attachment; filename={fn}"})
+    return StreamingResponse(
+        sio,
+        media_type="text/csv",
+        headers={"Content-Disposition": f"attachment; filename={fn}"},
+    )
