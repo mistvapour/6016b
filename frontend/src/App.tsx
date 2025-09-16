@@ -7,7 +7,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Search, GitCompare, TrendingUp, Database, FileText, Zap, Globe, Shield, Filter } from "lucide-react";
 
-/** 新增：shadcn 选择器与开关 */
 import {
   Select,
   SelectContent,
@@ -18,7 +17,7 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 
-const API = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+const API = import.meta.env.VITE_API_BASE_URL || ""; // 开发期推荐走 Vite 代理，避免 CORS
 
 async function fetchData<T>(path: string): Promise<T> {
   const res = await fetch(`${API}${path}`);
@@ -35,21 +34,23 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>("");
 
-  /** 新增：J 系列与模糊搜索 */
+  // 视图模式：concept（原有列）| word（word_label 专用列）
+  const [viewMode, setViewMode] = useState<"concept" | "word">("concept");
+
+  // J 系列与模糊开关
   const [jSeries, setJSeries] = useState<string>("all"); // "all"=全部
   const [fuzzy, setFuzzy] = useState<boolean>(true);
 
   useEffect(() => {
-    // 添加错误处理，但不显示错误，因为这是可选数据
     fetchData<any[]>("/api/review/top")
       .then(setTop)
       .catch((err) => {
-        console.warn("无法加载热门概念数据，后端可能未启动:", err);
-        // 设置一些模拟数据用于测试
+        console.warn("无法加载热门概念，可能是后端未启动或跨域：", err);
+        // 提供占位数据，保证页面不空
         setTop([
           { canonical_name: "Altitude", fields: 15, data_items: 8, messages: 3, specs: 2 },
           { canonical_name: "Heading", fields: 12, data_items: 6, messages: 2, specs: 2 },
-          { canonical_name: "Speed", fields: 10, data_items: 5, messages: 2, specs: 1 }
+          { canonical_name: "Speed", fields: 10, data_items: 5, messages: 2, specs: 1 },
         ]);
       });
   }, []);
@@ -59,7 +60,6 @@ export default function App() {
       setError("请输入要比较的概念");
       return;
     }
-    
     setLoading(true);
     setError("");
     try {
@@ -78,39 +78,92 @@ export default function App() {
       setError("请输入搜索关键词或选择 J 系列");
       return;
     }
-    
     setLoading(true);
     setError("");
     try {
       const params = new URLSearchParams();
       if (q.trim()) params.set("q", q.trim());
-      if (jSeries && jSeries !== "all") params.set("j", jSeries);          // 例如 J3、J7、J10…
-      params.set("fuzzy", fuzzy ? "1" : "0");         // 1=模糊，0=精确
+      if (jSeries && jSeries !== "all") params.set("j", jSeries);
+      params.set("fuzzy", fuzzy ? "1" : "0");
       const data = await fetchData<any>(`/api/search?${params.toString()}`);
       setSearch(data.results || []);
+      setViewMode("concept"); // 切回概念/字段视图
     } catch (e) {
-      setError("搜索失败，请检查网络连接或稍后重试");
+      setError("搜索失败，后端可能未启动或网络连接问题");
       console.error("搜索失败:", e);
+      // 提供一些模拟数据用于演示
+      setSearch([
+        {
+          source: "示例来源",
+          hit_name: q || "示例命中",
+          canonical_name: "示例规范名称",
+          code: "MIL-STD-6016",
+          edition: "A", 
+          part_label: "Part 1",
+          j_series: jSeries !== "all" ? jSeries : "J3",
+          word_label: "示例字",
+          field_name: "示例字段",
+          start_bit: 0,
+          end_bit: 15
+        }
+      ]);
     } finally {
       setLoading(false);
     }
   }
 
-  /** 回车触发搜索 */
+  async function doSearchWord() {
+    if (!q.trim() && jSeries === "all") {
+      setError("请输入 word_label 或选择 J 系列");
+      return;
+    }
+    setLoading(true);
+    setError("");
+    try {
+      const params = new URLSearchParams();
+      if (q.trim()) params.set("q", q.trim());
+      if (jSeries && jSeries !== "all") params.set("j", jSeries);
+      params.set("fuzzy", fuzzy ? "1" : "0");
+      const data = await fetchData<any>(`/api/word/search?${params.toString()}`);
+      setSearch(data.results || []);
+      setViewMode("word"); // 切换到按字视图
+    } catch (e) {
+      setError("按字搜索失败，后端可能未启动或数据库字段不匹配");
+      console.error("按字搜索失败:", e);
+      // 提供一些模拟数据用于演示
+      setSearch([
+        {
+          word_label: q || "示例字段",
+          dfi: "DFI001",
+          dui: "DUI001", 
+          descriptor: "示例字段描述",
+          position_bits: "0-15",
+          resolution_coding: "示例编码",
+          j_series: jSeries !== "all" ? jSeries : "J3",
+          code: "MIL-STD-6016",
+          edition: "A",
+          part_label: "Part 1"
+        }
+      ]);
+      setViewMode("word");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   function onEnter(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") doSearch();
   }
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      {/* 背景：固定铺满视口 */}
+      {/* 背景 */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply blur-xl opacity-10" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-200 rounded-full mix-blend-multiply blur-xl opacity-10" />
         <div className="absolute top-40 left-1/2 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply blur-xl opacity-10 hidden md:block" />
       </div>
 
-      {/* 中心容器：定宽+居中 */}
       <main className="relative mx-auto w-full max-w-[1200px] px-6 py-6">
         {/* 头部 */}
         <div className="text-center space-y-4 pb-4">
@@ -154,12 +207,12 @@ export default function App() {
                   <Search className="h-5 w-5 text-blue-600" /> 智能搜索
                 </CardTitle>
                 <CardDescription className="text-slate-600 text-sm">
-                  关键词 + J 系列筛选；可选择模糊匹配
+                  关键词 + J 系列筛选；可选择模糊匹配。支持“以字搜索（word_label）”。
                 </CardDescription>
               </CardHeader>
 
               <CardContent className="flex flex-col gap-4 p-6">
-                {/* 查询条件行 */}
+                {/* 查询条件 */}
                 <div className="flex flex-wrap items-center gap-3">
                   <div className="relative flex-1 min-w-[280px]">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
@@ -167,7 +220,7 @@ export default function App() {
                       value={q}
                       onChange={(e) => setQ(e.target.value)}
                       onKeyDown={onEnter}
-                      placeholder="输入关键词，如 Altitude、Heading…"
+                      placeholder="输入关键词或 word_label，如 Altitude、Heading…"
                       className="pl-10 h-12 text-lg border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
                     />
                   </div>
@@ -194,12 +247,13 @@ export default function App() {
                     </Select>
                   </div>
 
-                  {/* 模糊匹配开关 */}
+                  {/* 模糊匹配 */}
                   <div className="flex items-center gap-2 pl-1">
                     <Switch id="fuzzy" checked={fuzzy} onCheckedChange={setFuzzy} />
                     <Label htmlFor="fuzzy" className="text-slate-700 select-none">模糊匹配</Label>
                   </div>
 
+                  {/* 搜索按钮 */}
                   <Button
                     onClick={doSearch}
                     disabled={loading}
@@ -216,6 +270,16 @@ export default function App() {
                       </div>
                     )}
                   </Button>
+
+                  {/* 以字搜索 */}
+                  <Button
+                    variant="secondary"
+                    onClick={doSearchWord}
+                    disabled={loading}
+                    className="h-12 px-6"
+                  >
+                    以字搜索（word_label）
+                  </Button>
                 </div>
 
                 {/* 错误提示 */}
@@ -229,9 +293,14 @@ export default function App() {
                 {(jSeries !== "all" || q || fuzzy !== true) && (
                   <div className="flex flex-wrap items-center gap-2">
                     {q && <Badge variant="outline" className="bg-slate-50">关键词：{q}</Badge>}
-                    {jSeries && jSeries !== "all" && <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">J系列：{jSeries}</Badge>}
+                    {jSeries && jSeries !== "all" && (
+                      <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">J系列：{jSeries}</Badge>
+                    )}
                     <Badge variant="outline" className="bg-purple-50 text-purple-700 border-purple-200">
                       匹配：{fuzzy ? "模糊" : "精确"}
+                    </Badge>
+                    <Badge variant="outline" className="bg-amber-50 text-amber-700 border-amber-200">
+                      视图：{viewMode === "word" ? "按字" : "概念/字段"}
                     </Badge>
                   </div>
                 )}
@@ -247,42 +316,80 @@ export default function App() {
                     <div className="max-h-[56vh] overflow-auto">
                       <Table>
                         <TableHeader>
-                          <TableRow className="bg-slate-50/50">
-                            <TableHead>来源</TableHead>
-                            <TableHead>命中名称</TableHead>
-                            <TableHead>规范名称</TableHead>
-                            <TableHead>规范</TableHead>
-                            <TableHead>J系列</TableHead>
-                            <TableHead>字</TableHead>
-                            <TableHead>字段</TableHead>
-                            <TableHead>位</TableHead>
-                          </TableRow>
+                          {viewMode === "word" ? (
+                            <TableRow className="bg-slate-50/50">
+                              <TableHead>word_label</TableHead>
+                              <TableHead>DFI</TableHead>
+                              <TableHead>DUI</TableHead>
+                              <TableHead>DATA FIELD DESCRIPTOR</TableHead>
+                              <TableHead>POSITION BITS</TableHead>
+                              <TableHead>RESOLUTION / CODING</TableHead>
+                              <TableHead>J系列</TableHead>
+                              <TableHead>规范</TableHead>
+                            </TableRow>
+                          ) : (
+                            <TableRow className="bg-slate-50/50">
+                              <TableHead>来源</TableHead>
+                              <TableHead>命中名称</TableHead>
+                              <TableHead>规范名称</TableHead>
+                              <TableHead>规范</TableHead>
+                              <TableHead>J系列</TableHead>
+                              <TableHead>字</TableHead>
+                              <TableHead>字段</TableHead>
+                              <TableHead>位</TableHead>
+                            </TableRow>
+                          )}
                         </TableHeader>
                         <TableBody>
-                          {search.map((r: any, i: number) => (
-                            <TableRow key={i} className="hover:bg-blue-50/50">
-                              <TableCell>
-                                <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">{r.source}</Badge>
-                              </TableCell>
-                              <TableCell className="font-medium text-slate-800">{r.hit_name}</TableCell>
-                              <TableCell className="text-slate-600">{r.canonical_name || ""}</TableCell>
-                              <TableCell>
-                                <Badge variant="secondary" className="bg-slate-100 text-slate-700">
-                                  {[r.code, r.edition, r.part_label].filter(Boolean).join(" ")}
-                                </Badge>
-                              </TableCell>
-                              <TableCell className="text-slate-600">{r.j_series || ""}</TableCell>
-                              <TableCell className="text-slate-600">{r.word_label || ""}</TableCell>
-                              <TableCell className="text-slate-600">{r.field_name || ""}</TableCell>
-                              <TableCell>
-                                {r.start_bit != null && (
-                                  <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
-                                    {r.start_bit}–{r.end_bit}
-                                  </Badge>
-                                )}
-                              </TableCell>
-                            </TableRow>
-                          ))}
+                          {viewMode === "word"
+                            ? search.map((r: any, i: number) => (
+                                <TableRow key={i} className="hover:bg-blue-50/50">
+                                  <TableCell className="font-medium text-slate-800">{r.word_label}</TableCell>
+                                  <TableCell className="text-slate-600">{r.dfi ?? ""}</TableCell>
+                                  <TableCell className="text-slate-600">{r.dui ?? ""}</TableCell>
+                                  <TableCell className="text-slate-600">{r.descriptor ?? ""}</TableCell>
+                                  <TableCell>
+                                    {r.position_bits ? (
+                                      <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                                        {r.position_bits}
+                                      </Badge>
+                                    ) : null}
+                                  </TableCell>
+                                  <TableCell className="max-w-[360px] truncate" title={r.resolution_coding ?? ""}>
+                                    {r.resolution_coding ?? ""}
+                                  </TableCell>
+                                  <TableCell className="text-slate-600">{r.j_series ?? ""}</TableCell>
+                                  <TableCell>
+                                    <Badge variant="secondary" className="bg-slate-100 text-slate-700">
+                                      {[r.code, r.edition, r.part_label].filter(Boolean).join(" ")}
+                                    </Badge>
+                                  </TableCell>
+                                </TableRow>
+                              ))
+                            : search.map((r: any, i: number) => (
+                                <TableRow key={i} className="hover:bg-blue-50/50">
+                                  <TableCell>
+                                    <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">{r.source}</Badge>
+                                  </TableCell>
+                                  <TableCell className="font-medium text-slate-800">{r.hit_name}</TableCell>
+                                  <TableCell className="text-slate-600">{r.canonical_name || ""}</TableCell>
+                                  <TableCell>
+                                    <Badge variant="secondary" className="bg-slate-100 text-slate-700">
+                                      {[r.code, r.edition, r.part_label].filter(Boolean).join(" ")}
+                                    </Badge>
+                                  </TableCell>
+                                  <TableCell className="text-slate-600">{r.j_series || ""}</TableCell>
+                                  <TableCell className="text-slate-600">{r.word_label || ""}</TableCell>
+                                  <TableCell className="text-slate-600">{r.field_name || ""}</TableCell>
+                                  <TableCell>
+                                    {r.start_bit != null && (
+                                      <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                                        {r.start_bit}–{r.end_bit}
+                                      </Badge>
+                                    )}
+                                  </TableCell>
+                                </TableRow>
+                              ))}
                         </TableBody>
                       </Table>
                     </div>
@@ -337,7 +444,6 @@ export default function App() {
                   </Button>
                 </div>
 
-                {/* 错误提示 */}
                 {error && (
                   <div className="bg-red-50 border border-red-200 rounded-lg p-3">
                     <p className="text-red-700 text-sm">{error}</p>
@@ -347,7 +453,7 @@ export default function App() {
                 {bySpec.length > 0 ? (
                   <div className="bg-white rounded-xl border border-slate-200 shadow overflow-hidden">
                     <div className="bg-gradient-to-r from-slate-50 to-slate-100 px-4 py-3 border-b">
-                      <h3 className="text-base font-semibold text-slate-800 flex items-center gap-2">
+                       <h3 className="text-base font-semibold text-slate-800 flex items-center gap-2">
                         <GitCompare className="h-4 w-4 text-indigo-600" /> 比较结果 ({bySpec.length} 个规范)
                       </h3>
                     </div>
@@ -389,7 +495,7 @@ export default function App() {
 
           {/* 热门概念 */}
           <TabsContent value="top" className="space-y-4">
-            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow">
+             <Card className="bg-white/80 backdrop-blur-sm border-0 shadow">
               <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-t-lg">
                 <CardTitle className="flex items-center gap-2 text-xl">
                   <TrendingUp className="h-5 w-5 text-purple-600" /> 热门概念
