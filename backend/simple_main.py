@@ -122,3 +122,4 @@ def export_csv(table: str = Query(...), filename: Optional[str] = None):
     fn = filename or f"{table}.csv"
     return StreamingResponse(sio, media_type="text/csv",
                              headers={"Content-Disposition": f"attachment; filename={fn}"})
+
