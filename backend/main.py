@@ -6,8 +6,21 @@ from typing import Optional
 import os, io, csv, logging, re
 
 from db import call_proc, query, exec_sql
+from pdf_api import include_pdf_routes
+from import_yaml import import_yaml_to_database, batch_import_yaml_files
+from mqtt_api import router as mqtt_router
+from universal_import_api import include_universal_routes # 统一多格式导入API
 
 app = FastAPI(title="MIL-STD-6016 Mini API", version="0.5.0")
+
+# 包含PDF处理路由
+include_pdf_routes(app)
+
+# 包含MQTT处理路由
+app.include_router(mqtt_router)
+
+# 包含统一多格式导入路由
+include_universal_routes(app)
 
 # ---------- CORS ----------
 origins = [o.strip() for o in os.getenv("CORS_ORIGINS", "*").split(",") if o.strip()]
@@ -433,3 +446,32 @@ def export_csv(table: str = Query(...), filename: Optional[str] = None):
         media_type="text/csv",
         headers={"Content-Disposition": f"attachment; filename={fn}"},
     )
+
+
+# ---------- YAML导入接口 ----------
+@app.post("/api/import/yaml")
+def import_yaml(
+    yaml_path: str = Query(..., description="YAML文件路径"),
+    dry_run: bool = Query(True, description="是否为试运行")
+):
+    """导入YAML文件到数据库"""
+    try:
+        result = import_yaml_to_database(yaml_path, dry_run)
+        return result
+    except Exception as e:
+        logger.exception("YAML导入失败")
+        raise HTTPException(500, detail=str(e))
+
+
+@app.post("/api/import/yaml/batch")
+def batch_import_yaml(
+    yaml_dir: str = Query(..., description="YAML文件目录"),
+    dry_run: bool = Query(True, description="是否为试运行")
+):
+    """批量导入YAML文件到数据库"""
+    try:
+        result = batch_import_yaml_files(yaml_dir, dry_run)
+        return result
+    except Exception as e:
+        logger.exception("批量YAML导入失败")
+        raise HTTPException(500, detail=str(e))

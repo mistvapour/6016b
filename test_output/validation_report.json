@@ -1,0 +1,15 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    {
+      "error_type": "bit_coverage",
+      "message": "Only 64/70 bits are covered, 6 bits are missing",
+      "field_path": "fields",
+      "severity": "warning",
+      "suggested_fix": "Add fields to cover missing bits or mark as reserved"
+    }
+  ],
+  "coverage": 0.914,
+  "confidence": 0.85
+}

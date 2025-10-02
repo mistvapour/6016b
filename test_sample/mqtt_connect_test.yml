@@ -1,0 +1,101 @@
+standard: OASIS MQTT
+edition: '5.0'
+enums:
+- key: mqtt_qos
+  items:
+  - code: '0'
+    label: At most once
+  - code: '1'
+    label: At least once
+  - code: '2'
+    label: Exactly once
+spec_messages:
+- label: CONNECT
+  title: Client Connection Request
+  transport_unit: byte
+  segments:
+  - type: Header
+    seg_idx: 0
+    fields:
+    - name: Packet Type
+      start_offset: 0
+      length: 1
+      offset_unit: byte
+      encoding: UINT
+      required: true
+    - name: Flags
+      start_offset: 1
+      length: 1
+      offset_unit: byte
+      encoding: BIN
+      required: true
+    - name: Remaining Length
+      encoding: VBI
+      required: true
+  - type: Variable
+    seg_idx: 1
+    fields:
+    - name: Protocol Name
+      encoding: UTF8
+      required: true
+    - name: Protocol Level
+      length: 1
+      offset_unit: byte
+      encoding: UINT
+    - name: Connect Flags
+      length: 1
+      offset_unit: byte
+      encoding: BIN
+    - name: Keep Alive
+      length: 2
+      offset_unit: byte
+      encoding: UINT
+  - type: Properties
+    seg_idx: 2
+    fields:
+    - name: Property Length
+      encoding: VBI
+    - name: Session Expiry Interval
+      length: 4
+      offset_unit: byte
+      encoding: UINT
+      presence:
+        prop_id: 17
+    - name: Receive Maximum
+      length: 2
+      offset_unit: byte
+      encoding: UINT
+      presence:
+        prop_id: 33
+    - name: Maximum Packet Size
+      length: 4
+      offset_unit: byte
+      encoding: UINT
+      presence:
+        prop_id: 39
+  - type: Payload
+    seg_idx: 3
+    fields:
+    - name: Client ID
+      encoding: UTF8
+      required: true
+    - name: Will Properties
+      encoding: VBI
+      presence:
+        flag: Will Flag=1
+    - name: Will Topic
+      encoding: UTF8
+      presence:
+        flag: Will Flag=1
+    - name: Will Payload
+      encoding: VAR-BYTES
+      presence:
+        flag: Will Flag=1
+    - name: Username
+      encoding: UTF8
+      presence:
+        flag: User Name Flag=1
+    - name: Password
+      encoding: VAR-BYTES
+      presence:
+        flag: Password Flag=1

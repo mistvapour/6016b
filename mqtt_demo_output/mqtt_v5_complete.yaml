@@ -1,0 +1,169 @@
+standard: OASIS MQTT
+edition: '5.0'
+transport_unit: byte
+enums:
+- key: mqtt_qos
+  items:
+  - code: '0'
+    label: At most once
+    description: Fire and forget
+  - code: '1'
+    label: At least once
+    description: Acknowledged delivery
+  - code: '2'
+    label: Exactly once
+    description: Assured delivery
+- key: mqtt_packet_type
+  items:
+  - code: '1'
+    label: CONNECT
+    description: Client request to connect to Server
+  - code: '2'
+    label: CONNACK
+    description: Connect acknowledgment
+  - code: '3'
+    label: PUBLISH
+    description: Publish message
+  - code: '8'
+    label: SUBSCRIBE
+    description: Client subscribe request
+spec_messages:
+- label: CONNECT
+  title: Connect Packet
+  transport_unit: byte
+  segments:
+  - type: Fixed Header
+    seg_idx: 0
+    fields:
+    - name: Packet Type
+      length: 1
+      offset: 0
+      offset_unit: byte
+      encoding: UINT
+      description: MQTT Control Packet Type
+    - name: Remaining Length
+      length: null
+      offset: 1
+      offset_unit: byte
+      encoding: VBI
+      description: Variable Byte Integer
+  - type: Variable Header
+    seg_idx: 1
+    fields:
+    - name: Protocol Name
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: UTF8
+      description: UTF-8 Encoded Protocol Name
+    - name: Protocol Version
+      length: 1
+      offset: null
+      offset_unit: byte
+      encoding: UINT
+      description: Protocol Version Number
+    - name: Connect Flags
+      length: 1
+      offset: null
+      offset_unit: byte
+      encoding: UINT
+      description: Connect Flags Byte
+    - name: Keep Alive
+      length: 2
+      offset: null
+      offset_unit: byte
+      encoding: UINT
+      description: Keep Alive Timer
+  - type: Properties
+    seg_idx: 2
+    fields:
+    - name: Property Length
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: VBI
+      description: Variable Byte Integer
+    - name: Session Expiry Interval
+      length: 4
+      offset: null
+      offset_unit: byte
+      encoding: UINT
+      description: Four Byte Integer
+  - type: Payload
+    seg_idx: 3
+    fields:
+    - name: Client Identifier
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: UTF8
+      description: UTF-8 Encoded Client ID
+    - name: User Name
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: UTF8
+      description: UTF-8 Encoded User Name
+    - name: Password
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: BIN
+      description: Binary Password Data
+  pages:
+  - 15
+  - 16
+  - 17
+  field_count: 10
+- label: PUBLISH
+  title: Publish Packet
+  transport_unit: byte
+  segments:
+  - type: Fixed Header
+    seg_idx: 0
+    fields:
+    - name: Packet Type
+      length: 1
+      offset: 0
+      offset_unit: byte
+      encoding: UINT
+      description: MQTT Control Packet Type
+    - name: Remaining Length
+      length: null
+      offset: 1
+      offset_unit: byte
+      encoding: VBI
+      description: Variable Byte Integer
+  - type: Variable Header
+    seg_idx: 1
+    fields:
+    - name: Topic Name
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: UTF8
+      description: UTF-8 Encoded Topic Name
+    - name: Packet Identifier
+      length: 2
+      offset: null
+      offset_unit: byte
+      encoding: UINT
+      description: Two Byte Integer
+  - type: Payload
+    seg_idx: 2
+    fields:
+    - name: Application Message
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: BIN
+      description: Binary Application Data
+  pages:
+  - 25
+  - 26
+  field_count: 5
+metadata:
+  sections_count: 2
+  messages_count: 2
+  total_fields: 15
+  processor: mqtt_pdf_adapter

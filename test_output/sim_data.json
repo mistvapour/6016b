@@ -1,0 +1,133 @@
+{
+  "standard": "MIL-STD-6016",
+  "edition": "B",
+  "j_messages": [
+    {
+      "label": "J10.2",
+      "title": "Weapon Status Message",
+      "purpose": "Transmit weapon status and target information",
+      "words": [
+        {
+          "type": "Initial",
+          "word_idx": 0,
+          "bitlen": 70,
+          "fields": [
+            {
+              "name": "Weapon Status",
+              "bits": [0, 5],
+              "map": {
+                "nullable": false,
+                "description": "Current weapon status",
+                "units": ["enum"]
+              }
+            },
+            {
+              "name": "Target ID",
+              "bits": [6, 15],
+              "map": {
+                "nullable": true,
+                "description": "Target identification number",
+                "units": []
+              }
+            },
+            {
+              "name": "Range",
+              "bits": [16, 31],
+              "map": {
+                "nullable": false,
+                "description": "Target range in meters",
+                "units": ["m"]
+              }
+            },
+            {
+              "name": "Bearing",
+              "bits": [32, 47],
+              "map": {
+                "nullable": false,
+                "description": "Target bearing in degrees",
+                "units": ["deg"]
+              }
+            },
+            {
+              "name": "Elevation",
+              "bits": [48, 63],
+              "map": {
+                "nullable": false,
+                "description": "Target elevation in degrees",
+                "units": ["deg"]
+              }
+            },
+            {
+              "name": "Reserved",
+              "bits": [64, 69],
+              "map": {
+                "nullable": true,
+                "description": "Reserved bits",
+                "units": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dfi_dui_di": [
+    {
+      "dfi": {
+        "num": 123,
+        "name": "Weapon System Data",
+        "description": "Data related to weapon system status"
+      },
+      "dui": [
+        {
+          "num": 4,
+          "name": "Status Information",
+          "dfi_num": 123,
+          "description": "Current status of weapon system"
+        }
+      ],
+      "di": [
+        {
+          "dui_num": 4,
+          "code": "WES_CODE",
+          "name": "Weapon Status Code",
+          "description": "Coded weapon status information"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "key": "weapon_status_enum@6016B",
+      "items": [
+        {"code": "0", "label": "Safe", "description": "Weapon is safe"},
+        {"code": "1", "label": "Armed", "description": "Weapon is armed"},
+        {"code": "2", "label": "Firing", "description": "Weapon is firing"},
+        {"code": "3", "label": "Malfunction", "description": "Weapon malfunction"}
+      ]
+    }
+  ],
+  "units": [
+    {
+      "symbol": "deg",
+      "base_si": "rad",
+      "factor": 0.0174532925,
+      "offset": 0.0,
+      "description": "degrees"
+    },
+    {
+      "symbol": "m",
+      "base_si": "m",
+      "factor": 1.0,
+      "offset": 0.0,
+      "description": "meters"
+    }
+  ],
+  "version_rules": [],
+  "metadata": {
+    "created_at": "2024-10-01T14:55:00",
+    "version": "1.0",
+    "source": "pdf_extraction",
+    "confidence": 0.85
+  }
+}

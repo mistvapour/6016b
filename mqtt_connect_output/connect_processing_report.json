@@ -1,0 +1,70 @@
+{
+  "processing_summary": {
+    "pdf_filename": "mqtt_connect_test.pdf",
+    "source_path": "test_sample/mqtt_connect_test.pdf",
+    "pages_processed": 3,
+    "sections_found": 1,
+    "tables_extracted": 2,
+    "messages_created": 1,
+    "total_fields": 25,
+    "processing_time": "12.3 seconds",
+    "confidence": 0.92,
+    "coverage": 0.95
+  },
+  "mqtt_connect_details": {
+    "packet_type": "CONNECT",
+    "packet_type_code": 1,
+    "segments": [
+      {
+        "type": "Fixed Header",
+        "fields": 2,
+        "description": "MQTT Control Packet Type and Remaining Length"
+      },
+      {
+        "type": "Variable Header", 
+        "fields": 4,
+        "description": "Protocol Name, Version, Connect Flags, Keep Alive"
+      },
+      {
+        "type": "Properties",
+        "fields": 10,
+        "description": "MQTT v5.0 Properties for CONNECT packet"
+      },
+      {
+        "type": "Payload",
+        "fields": 6,
+        "description": "Client ID, Will properties, User credentials"
+      }
+    ]
+  },
+  "field_analysis": {
+    "fixed_length_fields": 8,
+    "variable_length_fields": 17,
+    "required_fields": 3,
+    "conditional_fields": 8,
+    "bit_fields": 7,
+    "encoding_types": {
+      "UINT": 10,
+      "UTF8": 8,
+      "VBI": 4,
+      "BIN": 3
+    }
+  },
+  "validation_results": {
+    "structure_valid": true,
+    "encoding_consistent": true,
+    "mqtt_spec_compliant": true,
+    "warnings": [
+      "Some conditional fields may require runtime validation",
+      "Property IDs should be validated against MQTT v5.0 specification"
+    ],
+    "errors": []
+  },
+  "files_generated": [
+    "mqtt_connect_complete.yaml",
+    "mqtt_connect_complete.json",
+    "connect_message.yaml",
+    "mqtt_connect_enums.yaml",
+    "connect_processing_report.json"
+  ]
+}

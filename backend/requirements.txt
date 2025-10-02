@@ -2,3 +2,15 @@
 uvicorn[standard]==0.30.6
 python-dotenv==1.0.1
 mysql-connector-python==9.0.0
+# PDF processing dependencies
+PyMuPDF==1.23.14
+pdfplumber==0.10.3
+camelot-py[cv]==0.10.1
+opencv-python==4.8.1.78
+pytesseract==0.3.10
+layoutparser==0.3.4
+detectron2==0.6
+PyYAML==6.0.1
+numpy==1.24.3
+pandas==2.0.3
+requests==2.31.0

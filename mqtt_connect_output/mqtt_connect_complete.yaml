@@ -1,0 +1,263 @@
+standard: OASIS MQTT
+edition: '5.0'
+transport_unit: byte
+enums:
+- key: mqtt_connect_flags
+  items:
+  - code: '0'
+    label: Clean Start
+    description: Clean Start flag
+  - code: '1'
+    label: Will Flag
+    description: Will Message flag
+  - code: '2'
+    label: Will QoS
+    description: Will QoS level
+  - code: '3'
+    label: Will Retain
+    description: Will Retain flag
+  - code: '4'
+    label: Password Flag
+    description: Password present flag
+  - code: '5'
+    label: User Name Flag
+    description: User Name present flag
+- key: mqtt_qos
+  items:
+  - code: '0'
+    label: At most once
+    description: Fire and forget
+  - code: '1'
+    label: At least once
+    description: Acknowledged delivery
+  - code: '2'
+    label: Exactly once
+    description: Assured delivery
+spec_messages:
+- label: CONNECT
+  title: Connect Packet
+  transport_unit: byte
+  segments:
+  - type: Fixed Header
+    seg_idx: 0
+    description: MQTT Control Packet Fixed Header
+    fields:
+    - name: MQTT Control Packet Type
+      length: 1
+      offset: 0
+      offset_unit: byte
+      encoding: UINT
+      description: 'bits 7-4: MQTT Control Packet Type (1), bits 3-0: Flags specific to each MQTT Control Packet type'
+      bit_fields:
+      - name: Packet Type
+        bits: [4, 7]
+        value: '0001'
+      - name: Reserved
+        bits: [0, 3]
+        value: '0000'
+    - name: Remaining Length
+      length: null
+      offset: 1
+      offset_unit: byte
+      encoding: VBI
+      description: Variable Byte Integer representing the number of bytes remaining within the current packet
+  - type: Variable Header
+    seg_idx: 1
+    description: CONNECT Variable Header
+    fields:
+    - name: Protocol Name
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: UTF8
+      description: UTF-8 Encoded String containing the Protocol Name (MQTT)
+      sub_fields:
+      - name: Length MSB
+        length: 1
+        encoding: UINT
+      - name: Length LSB
+        length: 1
+        encoding: UINT
+      - name: Protocol Name
+        length: 4
+        encoding: UTF8
+        value: MQTT
+    - name: Protocol Version
+      length: 1
+      offset: null
+      offset_unit: byte
+      encoding: UINT
+      description: The value of the Protocol Version field for MQTT v5.0 is 5 (0x05)
+      value: '5'
+    - name: Connect Flags
+      length: 1
+      offset: null
+      offset_unit: byte
+      encoding: UINT
+      description: The Connect Flags byte contains several parameters specifying the behavior of the MQTT connection
+      bit_fields:
+      - name: User Name Flag
+        bits: [7, 7]
+        description: If set to 1, a User Name MUST be present in the Payload
+      - name: Password Flag
+        bits: [6, 6]
+        description: If set to 1, a Password MUST be present in the Payload
+      - name: Will Retain
+        bits: [5, 5]
+        description: Specifies if the Will Message is to be retained when published
+      - name: Will QoS
+        bits: [3, 4]
+        description: Specifies the QoS level to be used when publishing the Will Message
+      - name: Will Flag
+        bits: [2, 2]
+        description: If set to 1, indicates that a Will Message MUST be stored on the Server
+      - name: Clean Start
+        bits: [1, 1]
+        description: Specifies whether the Connection starts with a clean Session
+      - name: Reserved
+        bits: [0, 0]
+        description: Reserved bit, MUST be set to 0
+    - name: Keep Alive
+      length: 2
+      offset: null
+      offset_unit: byte
+      encoding: UINT
+      description: Two Byte Integer representing the Keep Alive time period in seconds
+      sub_fields:
+      - name: Keep Alive MSB
+        length: 1
+        encoding: UINT
+      - name: Keep Alive LSB
+        length: 1
+        encoding: UINT
+  - type: Properties
+    seg_idx: 2
+    description: CONNECT Properties
+    fields:
+    - name: Property Length
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: VBI
+      description: Variable Byte Integer representing the length of Properties
+    - name: Session Expiry Interval
+      length: 4
+      offset: null
+      offset_unit: byte
+      encoding: UINT
+      description: Four Byte Integer representing the Session Expiry Interval in seconds
+      property_id: '0x11'
+    - name: Receive Maximum
+      length: 2
+      offset: null
+      offset_unit: byte
+      encoding: UINT
+      description: Two Byte Integer representing the maximum number of QoS 1 and QoS 2 publications
+      property_id: '0x21'
+    - name: Maximum Packet Size
+      length: 4
+      offset: null
+      offset_unit: byte
+      encoding: UINT
+      description: Four Byte Integer representing the Maximum Packet Size the Client is willing to accept
+      property_id: '0x27'
+    - name: Topic Alias Maximum
+      length: 2
+      offset: null
+      offset_unit: byte
+      encoding: UINT
+      description: Two Byte Integer representing the highest value that the Client will accept as a Topic Alias
+      property_id: '0x22'
+    - name: Request Response Information
+      length: 1
+      offset: null
+      offset_unit: byte
+      encoding: UINT
+      description: Byte indicating whether the Client requests Response Information
+      property_id: '0x19'
+    - name: Request Problem Information
+      length: 1
+      offset: null
+      offset_unit: byte
+      encoding: UINT
+      description: Byte indicating whether the Client requests Problem Information
+      property_id: '0x17'
+    - name: User Property
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: UTF8
+      description: UTF-8 String Pair representing User defined name-value pairs
+      property_id: '0x26'
+    - name: Authentication Method
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: UTF8
+      description: UTF-8 Encoded String containing the name of the authentication method
+      property_id: '0x15'
+    - name: Authentication Data
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: BIN
+      description: Binary Data containing authentication data
+      property_id: '0x16'
+  - type: Payload
+    seg_idx: 3
+    description: CONNECT Payload
+    fields:
+    - name: Client Identifier
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: UTF8
+      description: UTF-8 Encoded String that identifies the Client to the Server. MUST be present
+      required: true
+    - name: Will Properties
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: VBI
+      description: Properties for the Will Message (present if Will Flag is set)
+      conditional: Will Flag = 1
+    - name: Will Topic
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: UTF8
+      description: UTF-8 Encoded String specifying the Will Topic (present if Will Flag is set)
+      conditional: Will Flag = 1
+    - name: Will Payload
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: BIN
+      description: Binary Data specifying the Will Message Payload (present if Will Flag is set)
+      conditional: Will Flag = 1
+    - name: User Name
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: UTF8
+      description: UTF-8 Encoded String containing the User Name (present if User Name Flag is set)
+      conditional: User Name Flag = 1
+    - name: Password
+      length: null
+      offset: null
+      offset_unit: byte
+      encoding: BIN
+      description: Binary Data containing the Password (present if Password Flag is set)
+      conditional: Password Flag = 1
+  pages: [1, 2, 3]
+  field_count: 25
+  total_length: Variable
+  description: The CONNECT packet is the first packet sent from the Client to the Server when a network connection is established
+metadata:
+  source_file: test_sample/mqtt_connect_test.pdf
+  sections_count: 1
+  messages_count: 1
+  total_fields: 25
+  processor: mqtt_pdf_adapter
+  confidence: 0.92
+  coverage: 0.95

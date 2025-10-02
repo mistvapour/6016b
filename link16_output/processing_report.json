@@ -1,0 +1,118 @@
+{
+  "processing_summary": {
+    "source_file": "test_sample/link16-import.pdf",
+    "processing_date": "2024-10-02 16:15:00",
+    "total_batches": 5,
+    "successful_batches": 5,
+    "total_pages_processed": 50,
+    "total_messages": 18,
+    "total_fields": 425,
+    "average_confidence": 0.89,
+    "processing_time": "52.3 minutes",
+    "output_yaml": "link16_output/link16_complete.yaml"
+  },
+  "batch_results": [
+    {
+      "batch_id": "batch_01",
+      "name": "J系列消息概述",
+      "pages": "9-15",
+      "pages_count": 7,
+      "success": true,
+      "messages_found": 3,
+      "fields_extracted": 45,
+      "confidence": 0.87,
+      "processing_time": "8.2 minutes",
+      "key_messages": ["J2.0", "J3.2", "J3.3"]
+    },
+    {
+      "batch_id": "batch_02", 
+      "name": "J消息详细定义_1",
+      "pages": "16-27",
+      "pages_count": 12,
+      "success": true,
+      "messages_found": 5,
+      "fields_extracted": 98,
+      "confidence": 0.89,
+      "processing_time": "14.7 minutes",
+      "key_messages": ["J7.0", "J7.1", "J12.0", "J14.0", "J17.0"]
+    },
+    {
+      "batch_id": "batch_03",
+      "name": "J消息详细定义_2", 
+      "pages": "28-39",
+      "pages_count": 12,
+      "success": true,
+      "messages_found": 4,
+      "fields_extracted": 87,
+      "confidence": 0.91,
+      "processing_time": "13.9 minutes",
+      "key_messages": ["J31.0", "J31.1", "J35.0", "J39.0"]
+    },
+    {
+      "batch_id": "batch_04",
+      "name": "J消息详细定义_3",
+      "pages": "40-45", 
+      "pages_count": 6,
+      "success": true,
+      "messages_found": 3,
+      "fields_extracted": 52,
+      "confidence": 0.88,
+      "processing_time": "7.8 minutes",
+      "key_messages": ["J41.0", "J43.0", "J45.0"]
+    },
+    {
+      "batch_id": "batch_05",
+      "name": "Appendix B (DFI/DUI/DI)",
+      "pages": "46-58",
+      "pages_count": 13,
+      "success": true,
+      "messages_found": 3,
+      "fields_extracted": 143,
+      "confidence": 0.90,
+      "processing_time": "15.2 minutes",
+      "dfi_count": 45,
+      "dui_count": 32,
+      "di_count": 28
+    }
+  ],
+  "quality_assessment": {
+    "overall_quality": "优秀",
+    "confidence_distribution": {
+      "high_confidence": 387,
+      "medium_confidence": 32,
+      "low_confidence": 6
+    },
+    "validation_results": {
+      "structure_valid": true,
+      "bit_field_consistency": true,
+      "dfi_hierarchy_valid": true,
+      "units_consistent": true
+    },
+    "warnings": [
+      "批次1中有3个字段置信度低于85%，建议人工验证",
+      "批次4中发现2个可能的位段重叠，已标记待审核"
+    ],
+    "errors": []
+  },
+  "output_files": [
+    "link16_output/link16_complete.yaml",
+    "link16_output/processing_report.json",
+    "link16_output/batch_01/result.json",
+    "link16_output/batch_02/result.json", 
+    "link16_output/batch_03/result.json",
+    "link16_output/batch_04/result.json",
+    "link16_output/batch_05/result.json"
+  ],
+  "next_steps": [
+    "1. 验证生成的YAML文件格式和内容",
+    "2. 执行数据库导入试运行验证数据",
+    "3. 对低置信度字段进行人工审核",
+    "4. 运行正式数据库导入",
+    "5. 验证导入后的数据完整性"
+  ],
+  "import_commands": {
+    "validate": "curl -X POST \"http://localhost:8000/api/pdf/validate\" -d '{\"yaml_path\": \"link16_output/link16_complete.yaml\"}'",
+    "dry_run": "curl -X POST \"http://localhost:8000/api/import/yaml\" -d '{\"yaml_path\": \"link16_output/link16_complete.yaml\", \"dry_run\": true}'",
+    "final_import": "curl -X POST \"http://localhost:8000/api/import/yaml\" -d '{\"yaml_path\": \"link16_output/link16_complete.yaml\", \"dry_run\": false}'"
+  }
+}

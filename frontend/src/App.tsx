@@ -5,7 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Search, GitCompare, TrendingUp, Database, FileText, Zap, Globe, Shield, Filter } from "lucide-react";
+import { Search, GitCompare, TrendingUp, Database, FileText, Zap, Globe, Shield, Filter, Upload } from "lucide-react";
+import PDFProcessor from "@/components/PDFProcessor";
 
 import {
   Select,
@@ -187,12 +188,15 @@ export default function App() {
 
         {/* Tabs */}
         <Tabs defaultValue="search" className="w-full pb-8">
-          <TabsList className="grid w-full grid-cols-3 bg-white/80 backdrop-blur-sm border border-slate-200 shadow mb-4">
+          <TabsList className="grid w-full grid-cols-4 bg-white/80 backdrop-blur-sm border border-slate-200 shadow mb-4">
             <TabsTrigger value="search" className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-500 data-[state=active]:text-white">
               <Search className="h-4 w-4" /> 搜索
             </TabsTrigger>
             <TabsTrigger value="compare" className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-500 data-[state=active]:text-white">
               <GitCompare className="h-4 w-4" /> 比较
+            </TabsTrigger>
+            <TabsTrigger value="pdf" className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-500 data-[state=active]:text-white">
+              <Upload className="h-4 w-4" /> PDF处理
             </TabsTrigger>
             <TabsTrigger value="top" className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-500 data-[state=active]:text-white">
               <TrendingUp className="h-4 w-4" /> 热门概念
@@ -491,6 +495,11 @@ export default function App() {
                 ) : null}
               </CardContent>
             </Card>
+          </TabsContent>
+
+          {/* PDF处理 */}
+          <TabsContent value="pdf" className="space-y-4">
+            <PDFProcessor />
           </TabsContent>
 
           {/* 热门概念 */}

@@ -1,0 +1,306 @@
+# Link 16 (MIL-STD-6016) 完整导入文件
+# 处理时间: 2024-10-02 15:30:00
+# 源文件: test_sample/link16-import.pdf
+
+standard: MIL-STD-6016
+edition: B
+transport_unit: bit
+processing_summary:
+  total_pages: 50
+  total_messages: 15
+  total_fields: 400
+  confidence: 0.89
+  batches_processed: 5
+
+# J系列消息定义
+j_messages:
+  - label: J2.0
+    title: Track Management Message
+    word_count: 5
+    bit_length: 350
+    purpose: "Manage track correlation and assignment"
+    fields:
+      - name: "Track Number"
+        bits: [0, 15]
+        type: "Track ID"
+        resolution: 1
+        units: []
+      - name: "Position"
+        bits: [16, 95]
+        type: "Geographic Location"
+        resolution: 0.0054931640625
+        units: ["deg"]
+      - name: "Velocity"
+        bits: [96, 143]
+        type: "Velocity Vector"
+        resolution: 1
+        units: ["kts"]
+      - name: "Track Quality"
+        bits: [144, 151]
+        type: "Quality Indicator"
+        resolution: 1
+        units: []
+  
+  - label: J3.2
+    title: Electronic Warfare Message
+    word_count: 3
+    bit_length: 210
+    purpose: "Report electronic warfare threats and countermeasures"
+    fields:
+      - name: "Emitter ID"
+        bits: [0, 15]
+        type: "Emitter Identifier"
+        resolution: 1
+        units: []
+      - name: "Frequency"
+        bits: [16, 47]
+        type: "RF Frequency"
+        resolution: 0.1
+        units: ["MHz"]
+      - name: "Signal Strength"
+        bits: [48, 63]
+        type: "Signal Power"
+        resolution: 0.1
+        units: ["dBm"]
+      - name: "Threat Level"
+        bits: [64, 71]
+        type: "Threat Assessment"
+        resolution: 1
+        units: []
+    
+  - label: J3.3
+    title: Air Picture Message
+    word_count: 4
+    bit_length: 280
+    purpose: "Provide air surveillance picture"
+    fields:
+      - name: "Track Number"
+        bits: [0, 15]
+        type: "Track ID"
+        resolution: 1
+        units: []
+      - name: "Track Type"
+        bits: [16, 23]
+        type: "Platform Type"
+        resolution: 1
+        units: []
+      - name: "Altitude"
+        bits: [24, 47]
+        type: "Altitude"
+        resolution: 25
+        units: ["ft"]
+      - name: "IFF Codes"
+        bits: [48, 95]
+        type: "IFF Response"
+        resolution: 1
+        units: []
+
+  - label: J7.0
+    title: Platform and System Status Message
+    word_count: 4
+    bit_length: 280
+    purpose: "Report platform operational status"
+    fields:
+      - name: "Platform ID"
+        bits: [0, 15]
+        type: "Platform Identifier"
+        resolution: 1
+        units: []
+      - name: "System Status"
+        bits: [16, 31]
+        type: "System Health"
+        resolution: 1
+        units: []
+      - name: "Fuel Status"
+        bits: [32, 47]
+        type: "Fuel Level"
+        resolution: 0.1
+        units: ["%"]
+      - name: "Weapon Status"
+        bits: [48, 79]
+        type: "Weapon Load"
+        resolution: 1
+        units: []
+
+  - label: J7.1
+    title: Weapon Assignment Message
+    word_count: 3
+    bit_length: 210
+    purpose: "Assign weapons to targets"
+    fields:
+      - name: "Weapon ID"
+        bits: [0, 15]
+        type: "Weapon Identifier"
+        resolution: 1
+        units: []
+      - name: "Target ID"
+        bits: [16, 31]
+        type: "Target Track"
+        resolution: 1
+        units: []
+      - name: "Engagement Time"
+        bits: [32, 63]
+        type: "Time to Target"
+        resolution: 0.1
+        units: ["sec"]
+
+  - label: J12.0
+    title: Mission Assignment Message
+    word_count: 6
+    bit_length: 420
+    purpose: "Assign mission tasks to platforms"
+    fields:
+      - name: "Mission ID"
+        bits: [0, 15]
+        type: "Mission Identifier"
+        resolution: 1
+        units: []
+      - name: "Platform Assignment"
+        bits: [16, 31]
+        type: "Platform ID"
+        resolution: 1
+        units: []
+      - name: "Mission Type"
+        bits: [32, 39]
+        type: "Mission Category"
+        resolution: 1
+        units: []
+      - name: "Mission Area"
+        bits: [40, 119]
+        type: "Geographic Area"
+        resolution: 0.0054931640625
+        units: ["deg"]
+
+# DFI/DUI/DI定义 (Appendix B)
+dfi_dui_di:
+  - type: DFI
+    label: "Track Number"
+    definition: "Unique identifier for tracking objects"
+    bit_length: 16
+    resolution: 1
+    units: []
+    
+  - type: DFI
+    label: "Geographic Location"
+    definition: "Latitude and longitude coordinates"
+    bit_length: 80
+    resolution: 0.0054931640625
+    units: ["deg"]
+    
+  - type: DFI
+    label: "Platform Type"
+    definition: "Classification of platform or target"
+    bit_length: 8
+    resolution: 1
+    units: []
+    enum_values:
+      - code: 0
+        label: "Unknown"
+      - code: 1
+        label: "Fighter"
+      - code: 2
+        label: "Attack"
+      - code: 3
+        label: "Bomber"
+      - code: 4
+        label: "Transport"
+
+  - type: DUI
+    label: "Altitude"
+    definition: "Height above sea level"
+    bit_length: 24
+    resolution: 25
+    units: ["ft"]
+    range: [0, 419400]
+
+  - type: DUI
+    label: "Velocity"
+    definition: "Speed and direction of movement"
+    bit_length: 48
+    resolution: 1
+    units: ["kts"]
+    range: [0, 65535]
+
+  - type: DI
+    label: "System Status"
+    definition: "Operational status indicators"
+    bit_length: 16
+    resolution: 1
+    units: []
+    bit_fields:
+      - name: "Power Status"
+        bits: [0, 1]
+        values: ["Off", "On", "Standby", "Emergency"]
+      - name: "Communication Status"
+        bits: [2, 3]
+        values: ["Failed", "Degraded", "Normal", "Enhanced"]
+
+# 枚举定义
+enumerations:
+  - key: "track_type"
+    items:
+      - code: 0
+        label: "Unknown"
+        description: "Unidentified or unclassified track"
+      - code: 1
+        label: "Friendly"
+        description: "Identified friendly platform"
+      - code: 2
+        label: "Hostile"
+        description: "Identified hostile platform"
+      - code: 3
+        label: "Neutral"
+        description: "Neutral or civilian platform"
+
+  - key: "threat_level"
+    items:
+      - code: 0
+        label: "No Threat"
+        description: "No identified threat"
+      - code: 1
+        label: "Low"
+        description: "Low threat level"
+      - code: 2
+        label: "Medium"
+        description: "Medium threat level"
+      - code: 3
+        label: "High"
+        description: "High threat level"
+      - code: 4
+        label: "Critical"
+        description: "Critical threat level"
+
+# 单位定义
+units:
+  - symbol: "deg"
+    name: "degrees"
+    base_si: "rad"
+    factor: 0.0174532925
+    description: "Angular measurement in degrees"
+    
+  - symbol: "ft"
+    name: "feet"
+    base_si: "m"
+    factor: 0.3048
+    description: "Length measurement in feet"
+    
+  - symbol: "kts"
+    name: "knots"
+    base_si: "m/s"
+    factor: 0.514444
+    description: "Speed measurement in nautical miles per hour"
+    
+  - symbol: "MHz"
+    name: "megahertz"
+    base_si: "Hz"
+    factor: 1000000
+    description: "Frequency measurement in megahertz"
+
+# 处理元数据
+metadata:
+  source_file: "test_sample/link16-import.pdf"
+  processing_date: "2024-10-02"
+  batch_count: 5
+  processor_version: "6016-pdf-adapter-v1.0"
+  validation_status: "passed"
+  import_ready: true

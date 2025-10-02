@@ -1,0 +1,43 @@
+{
+  "processing_summary": {
+    "pdf_filename": "mqtt-v5.0-import.pdf (模拟)",
+    "pages_processed": 30,
+    "sections_found": 2,
+    "tables_extracted": 4,
+    "messages_created": 2,
+    "total_fields": 15,
+    "processing_time": "45.2 seconds",
+    "confidence": 0.89
+  },
+  "messages": [
+    {
+      "label": "CONNECT",
+      "segments": 4,
+      "fields": 10,
+      "pages": [15, 16, 17]
+    },
+    {
+      "label": "PUBLISH", 
+      "segments": 3,
+      "fields": 5,
+      "pages": [25, 26]
+    }
+  ],
+  "validation": {
+    "errors": [],
+    "warnings": [
+      "Some variable length fields lack specific byte constraints",
+      "Properties section may need additional validation rules"
+    ],
+    "coverage": 0.92
+  },
+  "files_generated": [
+    "mqtt_v5_complete.yaml",
+    "mqtt_v5_complete.json",
+    "messages/connect_message.yaml",
+    "messages/publish_message.yaml",
+    "mqtt_enums.yaml",
+    "import_manifest.yaml",
+    "processing_report.json"
+  ]
+}
