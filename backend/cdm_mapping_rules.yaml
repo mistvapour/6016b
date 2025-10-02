@@ -1,0 +1,506 @@
+# CDM映射规则配置文件
+# 基于四层法：语义层(CDM+本体) → 映射层(声明式规则) → 校验层(强约束) → 运行层(协议中介)
+
+# ==================== 第一层：语义层 (CDM + 本体) ====================
+cdm_schema:
+  version: "1.0"
+  concepts:
+    # 身份标识概念
+    Track.Identity:
+      data_type: "identifier"
+      description: "目标唯一标识符"
+      confidence: 1.0
+      aliases: ["track_id", "platform_id", "unit_id", "source_id"]
+    
+    Track.PlatformID:
+      data_type: "string"
+      description: "平台标识符"
+      confidence: 1.0
+    
+    # 位置信息概念
+    Track.Position.Latitude:
+      data_type: "float"
+      unit: "degree"
+      value_range: [-90.0, 90.0]
+      resolution: 1e-7
+      coordinate_frame: "WGS84"
+      description: "纬度坐标"
+    
+    Track.Position.Longitude:
+      data_type: "float"
+      unit: "degree"
+      value_range: [-180.0, 180.0]
+      resolution: 1e-7
+      coordinate_frame: "WGS84"
+      description: "经度坐标"
+    
+    Track.Position.Altitude:
+      data_type: "float"
+      unit: "meter"
+      resolution: 0.1
+      coordinate_frame: "WGS84"
+      description: "高度"
+    
+    # 姿态信息概念
+    Vehicle.Attitude.Roll:
+      data_type: "float"
+      unit: "radian"
+      value_range: [-3.14159, 3.14159]
+      resolution: 0.01
+      coordinate_frame: "BODY"
+      description: "横滚角"
+    
+    Vehicle.Attitude.Pitch:
+      data_type: "float"
+      unit: "radian"
+      value_range: [-1.5708, 1.5708]
+      resolution: 0.01
+      coordinate_frame: "BODY"
+      description: "俯仰角"
+    
+    Vehicle.Attitude.HeadingTrue:
+      data_type: "float"
+      unit: "radian"
+      value_range: [0, 6.28318]
+      resolution: 0.01
+      coordinate_frame: "TRUE"
+      description: "真北航向角"
+    
+    # 武器状态概念
+    Weapon.EngagementStatus:
+      data_type: "enum"
+      enum_values:
+        "0": "No_Engagement"
+        "1": "Engaging"
+        "2": "Engaged"
+        "3": "Cease_Fire"
+        "4": "Hold_Fire"
+      description: "武器交战状态"
+    
+    # 时间信息概念
+    Time.Timestamp:
+      data_type: "timestamp"
+      unit: "second"
+      description: "UTC时间戳"
+    
+    Time.TimeBase:
+      data_type: "timestamp"
+      unit: "second"
+      description: "时间基准"
+    
+    # 速度信息概念
+    Track.Velocity.X:
+      data_type: "float"
+      unit: "m/s"
+      resolution: 0.1
+      coordinate_frame: "NED"
+      description: "X轴速度"
+    
+    Track.Velocity.Y:
+      data_type: "float"
+      unit: "m/s"
+      resolution: 0.1
+      coordinate_frame: "NED"
+      description: "Y轴速度"
+    
+    Track.Velocity.Z:
+      data_type: "float"
+      unit: "m/s"
+      resolution: 0.1
+      coordinate_frame: "NED"
+      description: "Z轴速度"
+
+# ==================== 第二层：映射层 (声明式规则 + 版本治理) ====================
+mapping_rules:
+  # 6016B → CDM → MQTT 映射
+  "6016B_to_CDM":
+    version: "1.3"
+    source: "MIL-STD-6016B"
+    target: "CDM"
+    author: "system"
+    created_at: "2024-10-02T16:30:00Z"
+    message_mappings:
+      J10.2:
+        - source_field: "bits[0:5]"
+          cdm_path: "Weapon.EngagementStatus"
+          enum_mapping:
+            "0": "No_Engagement"
+            "1": "Engaging"
+            "2": "Engaged"
+            "3": "Cease_Fire"
+            "4": "Hold_Fire"
+          version: "1.3"
+          author: "system"
+        
+        - source_field: "bits[6:15]"
+          cdm_path: "Track.Identity"
+          scale_factor: 1.0
+          version: "1.3"
+          author: "system"
+      
+      J2.0:
+        - source_field: "latitude"
+          cdm_path: "Track.Position.Latitude"
+          unit_conversion: ["degree", "degree"]
+          version: "1.0"
+          author: "system"
+        
+        - source_field: "longitude"
+          cdm_path: "Track.Position.Longitude"
+          unit_conversion: ["degree", "degree"]
+          version: "1.0"
+          author: "system"
+        
+        - source_field: "altitude"
+          cdm_path: "Track.Position.Altitude"
+          unit_conversion: ["meter", "meter"]
+          version: "1.0"
+          author: "system"
+        
+        - source_field: "track_id"
+          cdm_path: "Track.Identity"
+          version: "1.0"
+          author: "system"
+  
+  "CDM_to_MQTT":
+    version: "1.1"
+    source: "CDM"
+    target: "OASIS MQTT 5.0"
+    author: "system"
+    created_at: "2024-10-02T16:30:00Z"
+    message_mappings:
+      WeaponStatus:
+        - source_field: "Weapon.EngagementStatus"
+          cdm_path: "Weapon.EngagementStatus"
+          target_field: "wes"
+          type: "UINT"
+          version: "1.1"
+          author: "system"
+        
+        - source_field: "Track.Identity"
+          cdm_path: "Track.Identity"
+          target_field: "track_id"
+          type: "UINT"
+          version: "1.1"
+          author: "system"
+      
+      PositionUpdate:
+        - source_field: "Track.Position.Latitude"
+          cdm_path: "Track.Position.Latitude"
+          target_field: "payload.lat"
+          type: "FLOAT"
+          version: "1.1"
+          author: "system"
+        
+        - source_field: "Track.Position.Longitude"
+          cdm_path: "Track.Position.Longitude"
+          target_field: "payload.lng"
+          type: "FLOAT"
+          version: "1.1"
+          author: "system"
+        
+        - source_field: "Track.Position.Altitude"
+          cdm_path: "Track.Position.Altitude"
+          target_field: "payload.alt"
+          type: "FLOAT"
+          version: "1.1"
+          author: "system"
+  
+  # MAVLink → CDM → 6016 映射
+  "MAVLink_to_CDM":
+    version: "1.0"
+    source: "MAVLink v2"
+    target: "CDM"
+    author: "system"
+    created_at: "2024-10-02T16:30:00Z"
+    message_mappings:
+      ATTITUDE:
+        - source_field: "roll"
+          cdm_path: "Vehicle.Attitude.Roll"
+          unit_conversion: ["radian", "radian"]
+          coordinate_frame: "BODY"
+          version: "1.0"
+          author: "system"
+        
+        - source_field: "pitch"
+          cdm_path: "Vehicle.Attitude.Pitch"
+          unit_conversion: ["radian", "radian"]
+          coordinate_frame: "BODY"
+          version: "1.0"
+          author: "system"
+        
+        - source_field: "yaw"
+          cdm_path: "Vehicle.Attitude.HeadingTrue"
+          unit_conversion: ["radian", "radian"]
+          coordinate_frame: "TRUE"
+          version: "1.0"
+          author: "system"
+          note: "ATTITUDE.yaw 为真北航向(弧度)"
+      
+      GLOBAL_POSITION_INT:
+        - source_field: "lat"
+          cdm_path: "Track.Position.Latitude"
+          unit_conversion: ["int7", "degree"]
+          scale_factor: 1e-7
+          version: "1.0"
+          author: "system"
+        
+        - source_field: "lon"
+          cdm_path: "Track.Position.Longitude"
+          unit_conversion: ["int7", "degree"]
+          scale_factor: 1e-7
+          version: "1.0"
+          author: "system"
+        
+        - source_field: "alt"
+          cdm_path: "Track.Position.Altitude"
+          unit_conversion: ["millimeter", "meter"]
+          scale_factor: 0.001
+          version: "1.0"
+          author: "system"
+        
+        - source_field: "sysid"
+          cdm_path: "Track.Identity"
+          version: "1.0"
+          author: "system"
+  
+  "CDM_to_6016C":
+    version: "1.0"
+    source: "CDM"
+    target: "MIL-STD-6016C"
+    author: "system"
+    created_at: "2024-10-02T16:30:00Z"
+    message_mappings:
+      AttitudeUpdate:
+        - source_field: "Vehicle.Attitude.Roll"
+          cdm_path: "Vehicle.Attitude.Roll"
+          target_field: "bits[10:21]"
+          bit_range: [10, 21]
+          encode: "scaled_int"
+          resolution: 0.01
+          scale_factor: 100.0
+          version: "1.0"
+          author: "system"
+        
+        - source_field: "Vehicle.Attitude.Pitch"
+          cdm_path: "Vehicle.Attitude.Pitch"
+          target_field: "bits[22:33]"
+          bit_range: [22, 33]
+          encode: "scaled_int"
+          resolution: 0.01
+          scale_factor: 100.0
+          version: "1.0"
+          author: "system"
+        
+        - source_field: "Vehicle.Attitude.HeadingTrue"
+          cdm_path: "Vehicle.Attitude.HeadingTrue"
+          target_field: "bits[34:45]"
+          bit_range: [34, 45]
+          encode: "scaled_int"
+          resolution: 0.01
+          scale_factor: 100.0
+          version: "1.0"
+          author: "system"
+
+# ==================== 第三层：校验层 (强约束 + 回归) ====================
+validation_rules:
+  # 结构一致性校验
+  structural_validation:
+    - name: "bit_field_overlap_check"
+      description: "位段不重叠检查"
+      rule: "bit_ranges_must_not_overlap"
+    
+    - name: "field_length_consistency"
+      description: "字段长度一致性检查"
+      rule: "source_target_length_match"
+    
+    - name: "schema_validation"
+      description: "Schema校验"
+      rule: "json_schema_validation"
+  
+  # 数值一致性校验
+  numerical_validation:
+    - name: "unit_conversion_accuracy"
+      description: "单位换算精度检查"
+      rule: "conversion_precision_within_tolerance"
+      tolerance: 0.001
+    
+    - name: "scale_offset_consistency"
+      description: "缩放偏移一致性检查"
+      rule: "scale_offset_roundtrip_consistency"
+    
+    - name: "dimensional_analysis"
+      description: "量纲分析"
+      rule: "dimensional_consistency_check"
+  
+  # 语义一致性校验
+  semantic_validation:
+    - name: "enum_mapping_completeness"
+      description: "枚举映射完整性检查"
+      rule: "all_enum_values_mapped"
+    
+    - name: "state_machine_consistency"
+      description: "状态机一致性检查"
+      rule: "state_transition_consistency"
+    
+    - name: "event_equivalence"
+      description: "事件等价性检查"
+      rule: "same_event_different_protocols_equivalent"
+  
+  # 时序一致性校验
+  temporal_validation:
+    - name: "timestamp_consistency"
+      description: "时间戳一致性检查"
+      rule: "timestamp_within_tolerance"
+      tolerance: 0.1
+    
+    - name: "event_ordering"
+      description: "事件顺序检查"
+      rule: "causal_ordering_preserved"
+    
+    - name: "duplicate_detection"
+      description: "重复事件检测"
+      rule: "deduplicate_within_window"
+      window: 1.0
+
+# ==================== 第四层：运行层 (协议中介/转换引擎) ====================
+runtime_config:
+  # 转换引擎配置
+  conversion_engine:
+    max_concurrent_conversions: 1000
+    conversion_timeout: 5.0
+    retry_attempts: 3
+    retry_delay: 0.1
+  
+  # 路由配置
+  routing:
+    enable_semantic_routing: true
+    routing_timeout: 1.0
+    load_balancing: "round_robin"
+    failover_enabled: true
+  
+  # 监控配置
+  monitoring:
+    enable_field_level_monitoring: true
+    enable_performance_metrics: true
+    enable_quality_metrics: true
+    metrics_retention_days: 30
+  
+  # 缓存配置
+  caching:
+    enable_concept_caching: true
+    enable_mapping_caching: true
+    cache_ttl: 3600
+    max_cache_size: 10000
+
+# ==================== 金标准样例 ====================
+golden_samples:
+  - name: "J2.0_position_to_mqtt"
+    description: "J2.0位置消息转换为MQTT"
+    source_protocol: "MIL-STD-6016B"
+    target_protocol: "MQTT"
+    message_type: "J2.0"
+    source_message:
+      message_type: "J2.0"
+      track_id: "T001"
+      latitude: 39.9042
+      longitude: 116.4074
+      altitude: 50.0
+      timestamp: 1634567890
+    expected_message:
+      message_type: "PUBLISH"
+      topic: "/tdl/position/update"
+      payload:
+        track_id: "T001"
+        lat: 39.9042
+        lng: 116.4074
+        alt: 50.0
+        timestamp: "2024-10-02T16:31:30Z"
+      qos: 1
+      retain: false
+  
+  - name: "mavlink_attitude_to_6016"
+    description: "MAVLink姿态消息转换为6016"
+    source_protocol: "MAVLink"
+    target_protocol: "MIL-STD-6016C"
+    message_type: "ATTITUDE"
+    source_message:
+      message_type: "ATTITUDE"
+      roll: 0.1
+      pitch: -0.05
+      yaw: 1.57
+      time_boot_ms: 1634567890000
+    expected_message:
+      message_type: "J2.x_Attitude"
+      bits[10:21]: 10    # roll * 100
+      bits[22:33]: -5    # pitch * 100
+      bits[34:45]: 157   # yaw * 100
+      timestamp: 1634567890
+
+# ==================== 单位转换表 ====================
+unit_conversions:
+  # 长度单位
+  "ft_to_m": 0.3048
+  "m_to_ft": 3.28084
+  "nm_to_m": 1852.0
+  "m_to_nm": 0.000539957
+  
+  # 角度单位
+  "deg_to_rad": 0.0174532925
+  "rad_to_deg": 57.2957795
+  
+  # 时间单位
+  "ms_to_s": 0.001
+  "s_to_ms": 1000.0
+  "us_to_s": 0.000001
+  "s_to_us": 1000000.0
+  
+  # 速度单位
+  "kn_to_mps": 0.514444
+  "mps_to_kn": 1.94384
+  
+  # MAVLink特殊单位
+  "int7_to_deg": 1e-7
+  "deg_to_int7": 1e7
+  "mm_to_m": 0.001
+  "m_to_mm": 1000.0
+  "cmps_to_mps": 0.01
+  "mps_to_cmps": 100.0
+
+# ==================== 枚举映射表 ====================
+enum_mappings:
+  # 武器交战状态映射
+  wes_enum_mapping:
+    "6016B_to_CDM":
+      "0": "No_Engagement"
+      "1": "Engaging"
+      "2": "Engaged"
+      "3": "Cease_Fire"
+      "4": "Hold_Fire"
+    "CDM_to_MQTT":
+      "No_Engagement": "0"
+      "Engaging": "1"
+      "Engaged": "2"
+      "Cease_Fire": "3"
+      "Hold_Fire": "4"
+  
+  # MAVLink状态映射
+  mav_state_mapping:
+    "MAVLink_to_CDM":
+      "0": "Uninitialized"
+      "1": "Boot"
+      "2": "Calibrating"
+      "3": "Standby"
+      "4": "Active"
+      "5": "Critical"
+      "6": "Emergency"
+      "7": "Poweroff"
+    "CDM_to_6016":
+      "Uninitialized": "0"
+      "Boot": "1"
+      "Calibrating": "2"
+      "Standby": "3"
+      "Active": "4"
+      "Critical": "5"
+      "Emergency": "6"
+      "Poweroff": "7"
