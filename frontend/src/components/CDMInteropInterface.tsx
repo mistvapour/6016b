@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Badge } from "./ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
-import { toast } from "./ui/toast";
+import { useToast } from "./ui/toast";
 
 interface CDMConcept {
   path: string;
@@ -70,6 +70,7 @@ const CDMInteropInterface: React.FC = () => {
   const [concepts, setConcepts] = useState<CDMConcept[]>([]);
   const [mappings, setMappings] = useState<ProtocolMapping[]>([]);
   const [loading, setLoading] = useState(false);
+  const { addToast } = useToast();
   
   // 消息转换状态
   const [conversionInput, setConversionInput] = useState({
@@ -125,7 +126,7 @@ const CDMInteropInterface: React.FC = () => {
       setMappings(mappingsData.mappings || []);
     } catch (error) {
       console.error('Failed to load initial data:', error);
-      toast({
+      addToast({
         title: "加载失败",
         description: "无法加载CDM数据，请检查API连接",
         variant: "destructive"
@@ -138,7 +139,7 @@ const CDMInteropInterface: React.FC = () => {
   const convertMessage = async () => {
     if (!conversionInput.source_message || !conversionInput.source_protocol || 
         !conversionInput.target_protocol || !conversionInput.message_type) {
-      toast({
+      addToast({
         title: "输入不完整",
         description: "请填写所有必需的转换参数",
         variant: "destructive"
@@ -165,7 +166,7 @@ const CDMInteropInterface: React.FC = () => {
       const data = await response.json();
       if (data.success) {
         setConversionResult(data);
-        toast({
+        addToast({
           title: "转换完成",
           description: `消息已成功从 ${conversionInput.source_protocol} 转换为 ${conversionInput.target_protocol}`,
           variant: "default"
@@ -175,7 +176,7 @@ const CDMInteropInterface: React.FC = () => {
       }
     } catch (error) {
       console.error('Message conversion failed:', error);
-      toast({
+      addToast({
         title: "转换失败",
         description: error instanceof Error ? error.message : "消息转换失败",
         variant: "destructive"
@@ -187,7 +188,7 @@ const CDMInteropInterface: React.FC = () => {
 
   const createConcept = async () => {
     if (!conceptForm.path || !conceptForm.data_type) {
-      toast({
+      addToast({
         title: "输入不完整",
         description: "请填写概念路径和数据类型",
         variant: "destructive"
@@ -220,7 +221,7 @@ const CDMInteropInterface: React.FC = () => {
 
       const data = await response.json();
       if (data.success) {
-        toast({
+        addToast({
           title: "概念创建成功",
           description: "CDM概念已成功创建",
           variant: "default"
@@ -249,7 +250,7 @@ const CDMInteropInterface: React.FC = () => {
       }
     } catch (error) {
       console.error('Concept creation failed:', error);
-      toast({
+      addToast({
         title: "概念创建失败",
         description: error instanceof Error ? error.message : "CDM概念创建失败",
         variant: "destructive"
@@ -295,7 +296,7 @@ const CDMInteropInterface: React.FC = () => {
   const createMapping = async () => {
     if (!mappingForm.source_protocol || !mappingForm.target_protocol || 
         !mappingForm.message_type || mappingForm.rules.length === 0) {
-      toast({
+      addToast({
         title: "输入不完整",
         description: "请填写所有必需的映射信息",
         variant: "destructive"
@@ -320,7 +321,7 @@ const CDMInteropInterface: React.FC = () => {
 
       const data = await response.json();
       if (data.success) {
-        toast({
+        addToast({
           title: "映射创建成功",
           description: "映射规则已成功创建",
           variant: "default"
@@ -343,7 +344,7 @@ const CDMInteropInterface: React.FC = () => {
       }
     } catch (error) {
       console.error('Mapping creation failed:', error);
-      toast({
+      addToast({
         title: "映射创建失败",
         description: error instanceof Error ? error.message : "映射规则创建失败",
         variant: "destructive"
@@ -362,7 +363,7 @@ const CDMInteropInterface: React.FC = () => {
 
       const data = await response.json();
       if (data.success) {
-        toast({
+        addToast({
           title: "回归测试完成",
           description: `金标准回归测试${data.regression_result.is_valid ? '通过' : '失败'}`,
           variant: data.regression_result.is_valid ? "default" : "destructive"
@@ -372,7 +373,7 @@ const CDMInteropInterface: React.FC = () => {
       }
     } catch (error) {
       console.error('Golden set regression failed:', error);
-      toast({
+      addToast({
         title: "回归测试失败",
         description: error instanceof Error ? error.message : "金标准回归测试失败",
         variant: "destructive"

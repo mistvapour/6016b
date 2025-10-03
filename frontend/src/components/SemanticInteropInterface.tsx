@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Badge } from "./ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
-import { toast } from "./ui/toast";
+import { useToast } from "./ui/toast";
 
 interface MessageStandard {
   value: string;
@@ -63,6 +63,7 @@ const SemanticInteropInterface: React.FC = () => {
   const [fieldTypes, setFieldTypes] = useState<FieldType[]>([]);
   const [semanticFields, setSemanticFields] = useState<SemanticField[]>([]);
   const [messageMappings, setMessageMappings] = useState<MessageMapping[]>([]);
+  const { addToast } = useToast();
   const [loading, setLoading] = useState(false);
   
   // 消息处理状态
@@ -123,7 +124,7 @@ const SemanticInteropInterface: React.FC = () => {
       setMessageMappings(mappingsData.mappings || []);
     } catch (error) {
       console.error('Failed to load initial data:', error);
-      toast({
+      addToast({
         title: "加载失败",
         description: "无法加载初始数据，请检查API连接",
         variant: "destructive"
@@ -135,7 +136,7 @@ const SemanticInteropInterface: React.FC = () => {
 
   const analyzeMessage = async () => {
     if (!messageInput || !selectedStandard) {
-      toast({
+      addToast({
         title: "输入不完整",
         description: "请输入消息内容并选择消息标准",
         variant: "destructive"
@@ -160,7 +161,7 @@ const SemanticInteropInterface: React.FC = () => {
       const data = await response.json();
       if (data.success) {
         setProcessResult(data);
-        toast({
+        addToast({
           title: "分析完成",
           description: "消息语义分析成功完成",
           variant: "default"
@@ -170,7 +171,7 @@ const SemanticInteropInterface: React.FC = () => {
       }
     } catch (error) {
       console.error('Message analysis failed:', error);
-      toast({
+      addToast({
         title: "分析失败",
         description: error instanceof Error ? error.message : "消息分析失败",
         variant: "destructive"
@@ -182,7 +183,7 @@ const SemanticInteropInterface: React.FC = () => {
 
   const processMessageWithRouting = async () => {
     if (!messageInput || !selectedStandard) {
-      toast({
+      addToast({
         title: "输入不完整",
         description: "请输入消息内容并选择消息标准",
         variant: "destructive"
@@ -207,7 +208,7 @@ const SemanticInteropInterface: React.FC = () => {
       const data = await response.json();
       if (data.success) {
         setProcessResult(data);
-        toast({
+        addToast({
           title: "处理完成",
           description: `消息已成功处理并路由到 ${data.result.routed_messages.length} 个目标`,
           variant: "default"
@@ -217,7 +218,7 @@ const SemanticInteropInterface: React.FC = () => {
       }
     } catch (error) {
       console.error('Message processing failed:', error);
-      toast({
+      addToast({
         title: "处理失败",
         description: error instanceof Error ? error.message : "消息处理失败",
         variant: "destructive"
@@ -229,7 +230,7 @@ const SemanticInteropInterface: React.FC = () => {
 
   const createSemanticAnnotation = async () => {
     if (!annotationForm.field_name || !annotationForm.semantic_id || !annotationForm.category || !annotationForm.field_type) {
-      toast({
+      addToast({
         title: "输入不完整",
         description: "请填写所有必需字段",
         variant: "destructive"
@@ -257,7 +258,7 @@ const SemanticInteropInterface: React.FC = () => {
 
       const data = await response.json();
       if (data.success) {
-        toast({
+        addToast({
           title: "标注成功",
           description: "语义标注已成功创建",
           variant: "default"
@@ -283,7 +284,7 @@ const SemanticInteropInterface: React.FC = () => {
       }
     } catch (error) {
       console.error('Semantic annotation failed:', error);
-      toast({
+      addToast({
         title: "标注失败",
         description: error instanceof Error ? error.message : "语义标注创建失败",
         variant: "destructive"
@@ -326,7 +327,7 @@ const SemanticInteropInterface: React.FC = () => {
   const createMessageMapping = async () => {
     if (!mappingForm.source_message || !mappingForm.target_message || 
         !mappingForm.source_standard || !mappingForm.target_standard) {
-      toast({
+      addToast({
         title: "输入不完整",
         description: "请填写所有必需的映射信息",
         variant: "destructive"
@@ -346,7 +347,7 @@ const SemanticInteropInterface: React.FC = () => {
 
       const data = await response.json();
       if (data.success) {
-        toast({
+        addToast({
           title: "映射成功",
           description: "消息映射已成功创建",
           variant: "default"
@@ -370,7 +371,7 @@ const SemanticInteropInterface: React.FC = () => {
       }
     } catch (error) {
       console.error('Message mapping failed:', error);
-      toast({
+      addToast({
         title: "映射失败",
         description: error instanceof Error ? error.message : "消息映射创建失败",
         variant: "destructive"

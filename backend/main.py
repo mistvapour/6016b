@@ -12,6 +12,7 @@ from mqtt_api import router as mqtt_router
 from universal_import_api import include_universal_routes # 统一多格式导入API
 from semantic_interop_api import include_semantic_routes # 语义互操作API
 from cdm_api import include_cdm_routes # CDM四层法API
+from unified_api import include_unified_routes # 统一API v2.0
 
 app = FastAPI(title="MIL-STD-6016 Mini API", version="0.5.0")
 
@@ -29,6 +30,9 @@ include_semantic_routes(app)
 
 # 包含CDM四层法路由
 include_cdm_routes(app)
+
+# 包含统一API v2.0路由（推荐使用）
+include_unified_routes(app)
 
 # ---------- CORS ----------
 origins = [o.strip() for o in os.getenv("CORS_ORIGINS", "*").split(",") if o.strip()]

@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Search, GitCompare, TrendingUp, Database, FileText, Zap, Globe, Shield, Filter, Upload } from "lucide-react";
 import PDFProcessor from "@/components/PDFProcessor";
+import UnifiedProcessorInterface from "@/components/UnifiedProcessorInterface";
 
 import {
   Select,
@@ -18,7 +19,7 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 
-const API = import.meta.env.VITE_API_BASE_URL || ""; // 开发期推荐走 Vite 代理，避免 CORS
+const API = ""; // 使用Vite代理，直接访问/api路径
 
 async function fetchData<T>(path: string): Promise<T> {
   const res = await fetch(`${API}${path}`);
@@ -89,7 +90,7 @@ export default function App() {
       const data = await fetchData<any>(`/api/search?${params.toString()}`);
       setSearch(data.results || []);
       setViewMode("concept"); // 切回概念/字段视图
-    } catch (e) {
+      } catch (e) {
       setError("搜索失败，后端可能未启动或网络连接问题");
       console.error("搜索失败:", e);
       // 提供一些模拟数据用于演示
@@ -188,7 +189,7 @@ export default function App() {
 
         {/* Tabs */}
         <Tabs defaultValue="search" className="w-full pb-8">
-          <TabsList className="grid w-full grid-cols-4 bg-white/80 backdrop-blur-sm border border-slate-200 shadow mb-4">
+          <TabsList className="grid w-full grid-cols-5 bg-white/80 backdrop-blur-sm border border-slate-200 shadow mb-4">
             <TabsTrigger value="search" className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-500 data-[state=active]:text-white">
               <Search className="h-4 w-4" /> 搜索
             </TabsTrigger>
@@ -197,6 +198,9 @@ export default function App() {
             </TabsTrigger>
             <TabsTrigger value="pdf" className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-500 data-[state=active]:text-white">
               <Upload className="h-4 w-4" /> PDF处理
+            </TabsTrigger>
+            <TabsTrigger value="unified" className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-500 data-[state=active]:text-white">
+              <Globe className="h-4 w-4" /> 统一处理
             </TabsTrigger>
             <TabsTrigger value="top" className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-500 data-[state=active]:text-white">
               <TrendingUp className="h-4 w-4" /> 热门概念
@@ -213,15 +217,15 @@ export default function App() {
                 <CardDescription className="text-slate-600 text-sm">
                   关键词 + J 系列筛选；可选择模糊匹配。支持“以字搜索（word_label）”。
                 </CardDescription>
-              </CardHeader>
+      </CardHeader>
 
               <CardContent className="flex flex-col gap-4 p-6">
                 {/* 查询条件 */}
                 <div className="flex flex-wrap items-center gap-3">
                   <div className="relative flex-1 min-w-[280px]">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-                    <Input
-                      value={q}
+            <Input 
+              value={q} 
                       onChange={(e) => setQ(e.target.value)}
                       onKeyDown={onEnter}
                       placeholder="输入关键词或 word_label，如 Altitude、Heading…"
@@ -276,22 +280,22 @@ export default function App() {
                   </Button>
 
                   {/* 以字搜索 */}
-                  <Button
+            <Button 
                     variant="secondary"
                     onClick={doSearchWord}
-                    disabled={loading}
+              disabled={loading}
                     className="h-12 px-6"
-                  >
+            >
                     以字搜索（word_label）
-                  </Button>
-                </div>
-
+            </Button>
+          </div>
+          
                 {/* 错误提示 */}
                 {error && (
                   <div className="bg-red-50 border border-red-200 rounded-lg p-3">
                     <p className="text-red-700 text-sm">{error}</p>
-                  </div>
-                )}
+            </div>
+          )}
 
                 {/* 条件提示 */}
                 {(jSeries !== "all" || q || fuzzy !== true) && (
@@ -306,7 +310,7 @@ export default function App() {
                     <Badge variant="outline" className="bg-amber-50 text-amber-700 border-amber-200">
                       视图：{viewMode === "word" ? "按字" : "概念/字段"}
                     </Badge>
-                  </div>
+        </div>
                 )}
 
                 {/* 结果 */}
@@ -341,8 +345,8 @@ export default function App() {
                               <TableHead>字</TableHead>
                               <TableHead>字段</TableHead>
                               <TableHead>位</TableHead>
-                            </TableRow>
-                          )}
+                </TableRow>
+              )}
                         </TableHeader>
                         <TableBody>
                           {viewMode === "word"
@@ -363,25 +367,25 @@ export default function App() {
                                     {r.resolution_coding ?? ""}
                                   </TableCell>
                                   <TableCell className="text-slate-600">{r.j_series ?? ""}</TableCell>
-                                  <TableCell>
+                  <TableCell>
                                     <Badge variant="secondary" className="bg-slate-100 text-slate-700">
-                                      {[r.code, r.edition, r.part_label].filter(Boolean).join(" ")}
-                                    </Badge>
-                                  </TableCell>
+                      {[r.code, r.edition, r.part_label].filter(Boolean).join(" ")}
+                    </Badge>
+                  </TableCell>
                                 </TableRow>
                               ))
                             : search.map((r: any, i: number) => (
                                 <TableRow key={i} className="hover:bg-blue-50/50">
-                                  <TableCell>
+                  <TableCell>
                                     <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">{r.source}</Badge>
-                                  </TableCell>
+                  </TableCell>
                                   <TableCell className="font-medium text-slate-800">{r.hit_name}</TableCell>
                                   <TableCell className="text-slate-600">{r.canonical_name || ""}</TableCell>
                                   <TableCell>
                                     <Badge variant="secondary" className="bg-slate-100 text-slate-700">
                                       {[r.code, r.edition, r.part_label].filter(Boolean).join(" ")}
                                     </Badge>
-                                  </TableCell>
+                  </TableCell>
                                   <TableCell className="text-slate-600">{r.j_series || ""}</TableCell>
                                   <TableCell className="text-slate-600">{r.word_label || ""}</TableCell>
                                   <TableCell className="text-slate-600">{r.field_name || ""}</TableCell>
@@ -391,12 +395,12 @@ export default function App() {
                                         {r.start_bit}–{r.end_bit}
                                       </Badge>
                                     )}
-                                  </TableCell>
-                                </TableRow>
-                              ))}
-                        </TableBody>
-                      </Table>
-                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
                   </div>
                 ) : !loading && (q || jSeries !== "all") ? (
                   <div className="bg-white rounded-xl border border-slate-200 shadow p-8 text-center">
@@ -405,8 +409,8 @@ export default function App() {
                     <p className="text-slate-500">请尝试其他关键词或调整搜索条件</p>
                   </div>
                 ) : null}
-              </CardContent>
-            </Card>
+      </CardContent>
+    </Card>
           </TabsContent>
 
           {/* 比较 */}
@@ -425,33 +429,33 @@ export default function App() {
                 <div className="flex gap-4 w-full">
                   <div className="relative flex-1">
                     <GitCompare className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-                    <Input
+          <Input 
                       value={cmp}
                       onChange={(e) => setCmp(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && doCompare()}
                       placeholder="输入要比较的概念，如 Altitude、Heading…"
                       className="pl-10 h-12 text-lg border-2 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
                     />
-                  </div>
+        </div>
                   <Button onClick={doCompare} disabled={loading}
                     className="h-12 px-8 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold shadow">
                     {loading ? (
                       <div className="flex items-center gap-2">
                         <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                         <span>比较中...</span>
-                      </div>
+        </div>
                     ) : (
                       <div className="flex items-center gap-2">
                         <GitCompare className="h-4 w-4" /> 比较
-                      </div>
+              </div>
                     )}
                   </Button>
-                </div>
+              </div>
 
                 {error && (
                   <div className="bg-red-50 border border-red-200 rounded-lg p-3">
                     <p className="text-red-700 text-sm">{error}</p>
-                  </div>
+            </div>
                 )}
 
                 {bySpec.length > 0 ? (
@@ -460,31 +464,31 @@ export default function App() {
                        <h3 className="text-base font-semibold text-slate-800 flex items-center gap-2">
                         <GitCompare className="h-4 w-4 text-indigo-600" /> 比较结果 ({bySpec.length} 个规范)
                       </h3>
-                    </div>
+    </div>
                     <div className="max-h-[56vh] overflow-auto">
-                      <Table>
+          <Table>
                         <TableHeader>
                           <TableRow className="bg-slate-50/50">
                             <TableHead>规范</TableHead>
                             <TableHead>字段绑定</TableHead>
                             <TableHead>数据项绑定</TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
                           {bySpec.map((r: any, i: number) => (
                             <TableRow key={i} className="hover:bg-indigo-50/50">
                               <TableCell className="font-medium text-slate-800">
                                 <Badge variant="outline" className="bg-indigo-50 text-indigo-700 border-indigo-200">
                                   {[r.code, r.edition, r.part_label].filter(Boolean).join(" ")}
-                                </Badge>
-                              </TableCell>
+                      </Badge>
+                    </TableCell>
                               <TableCell className="text-slate-600">{r.field_bindings}</TableCell>
                               <TableCell className="text-slate-600">{r.data_item_bindings}</TableCell>
-                            </TableRow>
+                  </TableRow>
                           ))}
-                        </TableBody>
-                      </Table>
-                    </div>
+            </TableBody>
+          </Table>
+        </div>
                   </div>
                 ) : !loading && cmp ? (
                   <div className="bg-white rounded-xl border border-slate-200 shadow p-8 text-center">
@@ -493,15 +497,20 @@ export default function App() {
                     <p className="text-slate-500">请尝试其他概念名称</p>
                   </div>
                 ) : null}
-              </CardContent>
-            </Card>
+      </CardContent>
+    </Card>
           </TabsContent>
 
           {/* PDF处理 */}
           <TabsContent value="pdf" className="space-y-4">
             <PDFProcessor />
           </TabsContent>
-
+          
+          {/* 统一处理 */}
+          <TabsContent value="unified" className="space-y-4">
+            <UnifiedProcessorInterface />
+          </TabsContent>
+          
           {/* 热门概念 */}
           <TabsContent value="top" className="space-y-4">
              <Card className="bg-white/80 backdrop-blur-sm border-0 shadow">
