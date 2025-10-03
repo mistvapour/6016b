@@ -3,12 +3,16 @@
 简化版后端服务 - 用于测试API功能
 暂时跳过PDF处理等复杂功能
 """
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse, FileResponse
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List, Dict, Any
 import os
 import logging
+import tempfile
+import json
+from pathlib import Path
 
 app = FastAPI(title="MIL-STD-6016 Mini API", version="0.5.0")
 
@@ -30,6 +34,31 @@ class BindFieldBody(BaseModel):
     field_id: int
     confidence: Optional[float] = 0.95
     notes: Optional[str] = None
+
+class PDFProcessRequest(BaseModel):
+    standard: str = "MIL-STD-6016"
+    edition: str = "B"
+    output_dir: Optional[str] = None
+
+class ProcessingResult(BaseModel):
+    success: bool
+    message: str
+    data: Optional[Dict[str, Any]] = None
+    error: Optional[str] = None
+
+class CustomStandardRequest(BaseModel):
+    name: str
+    description: str
+    edition: str
+    message_types: List[str]
+    fields: List[Dict[str, Any]]
+
+class StandardDefinition(BaseModel):
+    name: str
+    description: str
+    edition: str
+    message_types: List[str]
+    fields: List[Dict[str, Any]]
 
 # 健康检查
 @app.get("/api/health")
@@ -539,6 +568,574 @@ def get_mappings(
     except Exception as e:
         logger.error(f"Mappings retrieval failed: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+# ---------- PDF处理API ----------
+# 支持的标准定义
+SUPPORTED_STANDARDS = {
+    "MIL-STD-6016": {
+        "name": "MIL-STD-6016",
+        "description": "美军标准6016 - 战术数据链消息标准",
+        "editions": ["A", "B", "C"],
+        "message_types": ["J3.2", "J7.0", "J10.2", "J12.0", "J13.0"]
+    },
+    "MIL-STD-3011": {
+        "name": "MIL-STD-3011", 
+        "description": "美军标准3011 - 联合战术信息分发系统",
+        "editions": ["A", "B"],
+        "message_types": ["J2.0", "J2.2", "J3.0", "J3.1", "J3.3"]
+    },
+    "STANAG-5516": {
+        "name": "STANAG-5516",
+        "description": "北约标准5516 - 战术数据交换",
+        "editions": ["1", "2", "3"],
+        "message_types": ["J2.0", "J3.0", "J7.0", "J12.0"]
+    },
+    "MAVLink": {
+        "name": "MAVLink",
+        "description": "微型飞行器通信协议",
+        "editions": ["1.0", "2.0"],
+        "message_types": ["HEARTBEAT", "ATTITUDE", "POSITION", "GPS_RAW_INT"]
+    },
+    "NMEA-0183": {
+        "name": "NMEA-0183",
+        "description": "海洋电子设备数据格式",
+        "editions": ["2.0", "2.1", "2.2", "2.3"],
+        "message_types": ["GGA", "RMC", "VTG", "GLL", "GSA"]
+    },
+    "ARINC-429": {
+        "name": "ARINC-429",
+        "description": "航空电子设备数字信息传输",
+        "editions": ["15", "16", "17"],
+        "message_types": ["A429", "A629"]
+    }
+}
+
+def get_standard_info(standard: str, edition: str = None):
+    """获取标准信息"""
+    if standard not in SUPPORTED_STANDARDS:
+        return None
+    info = SUPPORTED_STANDARDS[standard].copy()
+    if edition and edition in info["editions"]:
+        info["selected_edition"] = edition
+    return info
+
+def generate_custom_result(custom_standard: Dict[str, Any], filename: str):
+    """根据自定义标准生成处理结果"""
+    fields = custom_standard.get("fields", [])
+    
+    # 计算消息总长度
+    max_end_bit = 0
+    for field in fields:
+        bit_range = field.get("bit_range", {})
+        if bit_range.get("end", 0) > max_end_bit:
+            max_end_bit = bit_range.get("end", 0)
+    
+    message_length = max_end_bit + 1
+    
+    return {
+        "sim": {
+            "message_type": custom_standard.get("message_types", ["CUSTOM"])[0],
+            "fields": fields,
+            "total_fields": len(fields),
+            "message_length": message_length,
+            "standard": custom_standard.get("name", "Custom"),
+            "edition": custom_standard.get("edition", "1.0")
+        },
+        "validation_result": {
+            "valid": True,
+            "errors": [],
+            "warnings": ["部分字段缺少单位信息"] if any(not field.get("units") for field in fields) else [],
+            "coverage": 0.85 + (len(fields) * 0.05),
+            "confidence": sum(field.get("confidence", 0.8) for field in fields) / len(fields) if fields else 0.8
+        },
+        "yaml_files": [f"{filename}_processed_custom_{custom_standard.get('name', 'standard')}.yaml"],
+        "report": {
+            "processing_time": 2.5 + (len(fields) * 0.5),
+            "pages_processed": 1,
+            "tables_extracted": 1,
+            "fields_identified": len(fields),
+            "standard_detected": custom_standard.get("name", "Custom"),
+            "edition_detected": custom_standard.get("edition", "1.0"),
+            "is_custom": True
+        }
+    }
+
+def generate_mock_result(standard: str, edition: str, filename: str):
+    """根据标准生成模拟处理结果"""
+    standard_info = get_standard_info(standard, edition)
+    if not standard_info:
+        standard_info = SUPPORTED_STANDARDS["MIL-STD-6016"]
+    
+    # 根据标准类型生成不同的字段
+    if standard == "MIL-STD-6016":
+        fields = [
+            {
+                "field_name": "ALTITUDE",
+                "bit_range": {"start": 0, "end": 15, "length": 16},
+                "description": "飞行器高度信息",
+                "units": ["meters", "feet"],
+                "confidence": 0.95,
+                "data_type": "uint16"
+            },
+            {
+                "field_name": "HEADING", 
+                "bit_range": {"start": 16, "end": 31, "length": 16},
+                "description": "航向角",
+                "units": ["degrees"],
+                "confidence": 0.92,
+                "data_type": "uint16"
+            },
+            {
+                "field_name": "SPEED",
+                "bit_range": {"start": 32, "end": 47, "length": 16},
+                "description": "飞行速度",
+                "units": ["knots", "m/s"],
+                "confidence": 0.88,
+                "data_type": "uint16"
+            }
+        ]
+        message_type = "J3.2"
+        message_length = 48
+        
+    elif standard == "MIL-STD-3011":
+        fields = [
+            {
+                "field_name": "LATITUDE",
+                "bit_range": {"start": 0, "end": 31, "length": 32},
+                "description": "纬度坐标",
+                "units": ["degrees"],
+                "confidence": 0.98,
+                "data_type": "int32"
+            },
+            {
+                "field_name": "LONGITUDE",
+                "bit_range": {"start": 32, "end": 63, "length": 32},
+                "description": "经度坐标", 
+                "units": ["degrees"],
+                "confidence": 0.98,
+                "data_type": "int32"
+            }
+        ]
+        message_type = "J2.0"
+        message_length = 64
+        
+    elif standard == "STANAG-5516":
+        fields = [
+            {
+                "field_name": "TRACK_NUMBER",
+                "bit_range": {"start": 0, "end": 15, "length": 16},
+                "description": "航迹编号",
+                "units": [],
+                "confidence": 0.99,
+                "data_type": "uint16"
+            },
+            {
+                "field_name": "POSITION_QUALITY",
+                "bit_range": {"start": 16, "end": 23, "length": 8},
+                "description": "位置质量",
+                "units": [],
+                "confidence": 0.85,
+                "data_type": "uint8"
+            }
+        ]
+        message_type = "J2.0"
+        message_length = 24
+        
+    elif standard == "MAVLink":
+        fields = [
+            {
+                "field_name": "ROLL",
+                "bit_range": {"start": 0, "end": 31, "length": 32},
+                "description": "横滚角",
+                "units": ["radians"],
+                "confidence": 0.95,
+                "data_type": "float32"
+            },
+            {
+                "field_name": "PITCH",
+                "bit_range": {"start": 32, "end": 63, "length": 32},
+                "description": "俯仰角",
+                "units": ["radians"],
+                "confidence": 0.95,
+                "data_type": "float32"
+            },
+            {
+                "field_name": "YAW",
+                "bit_range": {"start": 64, "end": 95, "length": 32},
+                "description": "偏航角",
+                "units": ["radians"],
+                "confidence": 0.95,
+                "data_type": "float32"
+            }
+        ]
+        message_type = "ATTITUDE"
+        message_length = 96
+        
+    elif standard == "NMEA-0183":
+        fields = [
+            {
+                "field_name": "LATITUDE",
+                "bit_range": {"start": 0, "end": 31, "length": 32},
+                "description": "纬度",
+                "units": ["degrees"],
+                "confidence": 0.99,
+                "data_type": "float32"
+            },
+            {
+                "field_name": "LONGITUDE",
+                "bit_range": {"start": 32, "end": 63, "length": 32},
+                "description": "经度",
+                "units": ["degrees"],
+                "confidence": 0.99,
+                "data_type": "float32"
+            },
+            {
+                "field_name": "ALTITUDE",
+                "bit_range": {"start": 64, "end": 95, "length": 32},
+                "description": "海拔高度",
+                "units": ["meters"],
+                "confidence": 0.97,
+                "data_type": "float32"
+            }
+        ]
+        message_type = "GGA"
+        message_length = 128
+        
+    elif standard == "ARINC-429":
+        fields = [
+            {
+                "field_name": "DATA_WORD",
+                "bit_range": {"start": 0, "end": 31, "length": 32},
+                "description": "数据字",
+                "units": [],
+                "confidence": 0.99,
+                "data_type": "uint32"
+            },
+            {
+                "field_name": "LABEL",
+                "bit_range": {"start": 0, "end": 7, "length": 8},
+                "description": "标签",
+                "units": [],
+                "confidence": 0.99,
+                "data_type": "uint8"
+            }
+        ]
+        message_type = "A429"
+        message_length = 32
+        
+    else:
+        # 默认MIL-STD-6016格式
+        fields = [
+            {
+                "field_name": "DEFAULT_FIELD",
+                "bit_range": {"start": 0, "end": 15, "length": 16},
+                "description": "默认字段",
+                "units": [],
+                "confidence": 0.8,
+                "data_type": "uint16"
+            }
+        ]
+        message_type = "UNKNOWN"
+        message_length = 16
+    
+    return {
+        "sim": {
+            "message_type": message_type,
+            "fields": fields,
+            "total_fields": len(fields),
+            "message_length": message_length,
+            "standard": standard,
+            "edition": edition
+        },
+        "validation_result": {
+            "valid": True,
+            "errors": [],
+            "warnings": ["部分字段缺少单位信息"] if any(not field.get("units") for field in fields) else [],
+            "coverage": 0.85 + (len(fields) * 0.05),
+            "confidence": sum(field.get("confidence", 0.8) for field in fields) / len(fields)
+        },
+        "yaml_files": [f"{filename}_processed_{standard}_{edition}.yaml"],
+        "report": {
+            "processing_time": 2.5 + (len(fields) * 0.5),
+            "pages_processed": 1,
+            "tables_extracted": 1,
+            "fields_identified": len(fields),
+            "standard_detected": standard,
+            "edition_detected": edition
+        }
+    }
+
+@app.get("/api/pdf/standards")
+def get_supported_standards():
+    """获取支持的标准列表"""
+    return {
+        "success": True,
+        "standards": SUPPORTED_STANDARDS,
+        "total": len(SUPPORTED_STANDARDS)
+    }
+
+@app.get("/api/pdf/standards/{standard}")
+def get_standard_details(standard: str):
+    """获取特定标准的详细信息"""
+    info = get_standard_info(standard)
+    if not info:
+        raise HTTPException(status_code=404, detail=f"不支持的标准: {standard}")
+    return {
+        "success": True,
+        "standard": info
+    }
+
+@app.post("/api/pdf/standards/custom", response_model=ProcessingResult)
+def create_custom_standard(standard_def: CustomStandardRequest):
+    """创建自定义标准"""
+    try:
+        # 验证标准定义
+        if not standard_def.name or not standard_def.name.strip():
+            raise HTTPException(status_code=400, detail="标准名称不能为空")
+        
+        if not standard_def.fields or len(standard_def.fields) == 0:
+            raise HTTPException(status_code=400, detail="至少需要定义一个字段")
+        
+        # 验证字段定义
+        for i, field in enumerate(standard_def.fields):
+            if not field.get("field_name"):
+                raise HTTPException(status_code=400, detail=f"字段 {i+1} 缺少名称")
+            
+            if not field.get("bit_range"):
+                raise HTTPException(status_code=400, detail=f"字段 {field['field_name']} 缺少位范围定义")
+            
+            bit_range = field["bit_range"]
+            if not isinstance(bit_range, dict) or "start" not in bit_range or "end" not in bit_range:
+                raise HTTPException(status_code=400, detail=f"字段 {field['field_name']} 的位范围格式不正确")
+            
+            if bit_range["start"] < 0 or bit_range["end"] < bit_range["start"]:
+                raise HTTPException(status_code=400, detail=f"字段 {field['field_name']} 的位范围值无效")
+        
+        # 生成标准ID
+        standard_id = f"CUSTOM_{standard_def.name.upper().replace(' ', '_')}_{standard_def.edition}"
+        
+        # 将自定义标准添加到支持的标准中
+        SUPPORTED_STANDARDS[standard_id] = {
+            "name": standard_def.name,
+            "description": standard_def.description,
+            "editions": [standard_def.edition],
+            "message_types": standard_def.message_types,
+            "fields": standard_def.fields,
+            "is_custom": True
+        }
+        
+        return ProcessingResult(
+            success=True,
+            message=f"自定义标准 '{standard_def.name}' 创建成功",
+            data={
+                "standard_id": standard_id,
+                "standard": SUPPORTED_STANDARDS[standard_id]
+            }
+        )
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Failed to create custom standard: {e}")
+        return ProcessingResult(
+            success=False,
+            message="创建自定义标准失败",
+            error=str(e)
+        )
+
+@app.post("/api/pdf/upload/custom", response_model=ProcessingResult)
+async def upload_pdf_with_custom_standard(
+    file: UploadFile = File(...),
+    standard_definition: str = Form(...),  # JSON字符串
+    output_dir: Optional[str] = Form(None)
+):
+    """使用自定义标准上传并处理PDF文件"""
+    try:
+        if not file.filename.lower().endswith('.pdf'):
+            raise HTTPException(status_code=400, detail="只支持PDF文件")
+        
+        # 解析自定义标准定义
+        try:
+            custom_standard = json.loads(standard_definition)
+        except json.JSONDecodeError:
+            raise HTTPException(status_code=400, detail="标准定义格式不正确")
+        
+        # 验证标准定义
+        required_fields = ["name", "edition", "fields"]
+        for field in required_fields:
+            if field not in custom_standard:
+                raise HTTPException(status_code=400, detail=f"标准定义缺少必需字段: {field}")
+        
+        # 创建临时文件
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
+            content = await file.read()
+            tmp_file.write(content)
+            tmp_file_path = tmp_file.name
+        
+        try:
+            # 使用自定义标准生成处理结果
+            mock_result = generate_custom_result(custom_standard, file.filename)
+            
+            return ProcessingResult(
+                success=True,
+                message=f"PDF文件 {file.filename} 处理成功 (自定义标准: {custom_standard['name']} {custom_standard['edition']})",
+                data=mock_result
+            )
+            
+        finally:
+            # 清理临时文件
+            os.unlink(tmp_file_path)
+            
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Custom PDF processing failed: {e}")
+        return ProcessingResult(
+            success=False,
+            message="PDF处理失败",
+            error=str(e)
+        )
+
+@app.post("/api/pdf/upload", response_model=ProcessingResult)
+async def upload_pdf(
+    file: UploadFile = File(...),
+    standard: str = Form("MIL-STD-6016"),
+    edition: str = Form("B"),
+    output_dir: Optional[str] = Form(None)
+):
+    """上传并处理PDF文件"""
+    try:
+        if not file.filename.lower().endswith('.pdf'):
+            raise HTTPException(status_code=400, detail="只支持PDF文件")
+        
+        # 验证标准是否支持
+        if standard not in SUPPORTED_STANDARDS:
+            raise HTTPException(status_code=400, detail=f"不支持的标准: {standard}")
+        
+        # 验证版本是否支持
+        standard_info = SUPPORTED_STANDARDS[standard]
+        if edition not in standard_info["editions"]:
+            raise HTTPException(status_code=400, detail=f"标准 {standard} 不支持版本 {edition}")
+        
+        # 创建临时文件
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
+            content = await file.read()
+            tmp_file.write(content)
+            tmp_file_path = tmp_file.name
+        
+        try:
+            # 根据标准生成处理结果
+            mock_result = generate_mock_result(standard, edition, file.filename)
+            
+            return ProcessingResult(
+                success=True,
+                message=f"PDF文件 {file.filename} 处理成功 (标准: {standard} {edition})",
+                data=mock_result
+            )
+            
+        finally:
+            # 清理临时文件
+            os.unlink(tmp_file_path)
+            
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"PDF processing failed: {e}")
+        return ProcessingResult(
+            success=False,
+            message="PDF处理失败",
+            error=str(e)
+        )
+
+@app.post("/api/pdf/process", response_model=ProcessingResult)
+async def process_pdf_file_endpoint(
+    file_path: str = Query(..., description="PDF文件路径"),
+    standard: str = Query("MIL-STD-6016", description="标准类型"),
+    edition: str = Query("B", description="版本"),
+    output_dir: Optional[str] = Query(None, description="输出目录")
+):
+    """处理指定路径的PDF文件"""
+    try:
+        if not os.path.exists(file_path):
+            raise HTTPException(status_code=404, detail="PDF文件不存在")
+        
+        if not file_path.lower().endswith('.pdf'):
+            raise HTTPException(status_code=400, detail="只支持PDF文件")
+        
+        # 模拟处理结果
+        mock_result = {
+            "sim": {
+                "message_type": "J7.0",
+                "fields": [
+                    {
+                        "field_name": "POSITION_LAT",
+                        "bit_range": {"start": 0, "end": 31, "length": 32},
+                        "description": "纬度位置",
+                        "units": ["degrees"],
+                        "confidence": 0.98
+                    },
+                    {
+                        "field_name": "POSITION_LON",
+                        "bit_range": {"start": 32, "end": 63, "length": 32},
+                        "description": "经度位置",
+                        "units": ["degrees"],
+                        "confidence": 0.98
+                    }
+                ],
+                "total_fields": 2,
+                "message_length": 64
+            },
+            "validation_result": {
+                "valid": True,
+                "errors": [],
+                "warnings": [],
+                "coverage": 0.95,
+                "confidence": 0.98
+            },
+            "yaml_files": [f"{os.path.basename(file_path)}_processed.yaml"],
+            "report": {
+                "processing_time": 1.8,
+                "pages_processed": 2,
+                "tables_extracted": 2,
+                "fields_identified": 2
+            }
+        }
+        
+        return ProcessingResult(
+            success=True,
+            message=f"PDF文件 {os.path.basename(file_path)} 处理成功",
+            data=mock_result
+        )
+        
+    except Exception as e:
+        logger.error(f"PDF processing failed: {e}")
+        return ProcessingResult(
+            success=False,
+            message="PDF处理失败",
+            error=str(e)
+        )
+
+@app.get("/api/pdf/status/{task_id}")
+def get_processing_status(task_id: str):
+    """获取PDF处理状态"""
+    # 模拟处理状态
+    return {
+        "task_id": task_id,
+        "status": "completed",
+        "progress": 100,
+        "message": "处理完成"
+    }
+
+@app.get("/api/pdf/download/{filename}")
+def download_processed_file(filename: str):
+    """下载处理后的文件"""
+    # 模拟文件下载
+    mock_content = f"# 处理结果文件: {filename}\n# 这是模拟的YAML文件内容\nfields:\n  - name: FIELD1\n    bits: 0-15\n  - name: FIELD2\n    bits: 16-31"
+    
+    return JSONResponse(
+        content={"content": mock_content, "filename": filename},
+        headers={"Content-Disposition": f"attachment; filename={filename}"}
+    )
 
 # 根路径
 @app.get("/")

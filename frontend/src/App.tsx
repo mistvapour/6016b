@@ -19,7 +19,7 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 
-const API = ""; // 使用Vite代理，直接访问/api路径
+const API = "http://localhost:8000"; // 后端API地址
 
 async function fetchData<T>(path: string): Promise<T> {
   const res = await fetch(`${API}${path}`);
