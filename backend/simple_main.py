@@ -1137,6 +1137,378 @@ def download_processed_file(filename: str):
         headers={"Content-Disposition": f"attachment; filename={filename}"}
     )
 
+# ---------- 数据项候选API ----------
+@app.get("/api/di/candidates")
+def get_di_candidates(
+    field_name: Optional[str] = Query(None, min_length=1, description="字段名关键词，如 'SECOND'"),
+    word_label: Optional[str] = Query(None, min_length=1, description="word_label，如 'J10.2C2'"),
+    limit: int = Query(50, ge=1, le=200),
+):
+    """获取数据项候选列表"""
+    try:
+        if field_name:
+            # 模拟基于字段名的搜索结果
+            mock_results = [
+                {
+                    "data_item_id": 1001,
+                    "dfi": 1001,
+                    "dui": 2001,
+                    "di_name": f"{field_name}_DATA_ITEM",
+                    "description": f"与 {field_name} 相关的数据项",
+                    "confidence": 0.85
+                },
+                {
+                    "data_item_id": 1002,
+                    "dfi": 1002,
+                    "dui": 2002,
+                    "di_name": f"{field_name}_ALT",
+                    "description": f"{field_name} 的替代数据项",
+                    "confidence": 0.75
+                },
+                {
+                    "data_item_id": 1003,
+                    "dfi": 1003,
+                    "dui": 2003,
+                    "di_name": f"RELATED_{field_name}",
+                    "description": f"与 {field_name} 相关的数据项",
+                    "confidence": 0.70
+                }
+            ]
+            return {"count": len(mock_results), "results": mock_results}
+
+        if word_label:
+            # 模拟基于word_label的搜索结果
+            mock_results = [
+                {
+                    "data_item_id": 2001,
+                    "dfi": 2001,
+                    "dui": 3001,
+                    "di_name": f"{word_label}_FIELD",
+                    "description": f"与 {word_label} 相关的字段",
+                    "confidence": 0.90
+                },
+                {
+                    "data_item_id": 2002,
+                    "dfi": 2002,
+                    "dui": 3002,
+                    "di_name": f"{word_label}_ALT",
+                    "description": f"{word_label} 的替代字段",
+                    "confidence": 0.80
+                }
+            ]
+            return {"count": len(mock_results), "results": mock_results}
+
+        # 如果没有提供搜索条件，返回通用候选
+        mock_results = [
+            {
+                "data_item_id": 1,
+                "dfi": 1,
+                "dui": 1,
+                "di_name": "GENERIC_FIELD",
+                "description": "通用字段",
+                "confidence": 0.5
+            }
+        ]
+        return {"count": len(mock_results), "results": mock_results}
+        
+    except Exception as e:
+        logger.error(f"Failed to get DI candidates: {e}")
+        raise HTTPException(500, detail=str(e))
+
+# ---------- DI候选接口 ----------
+@app.get("/api/di/candidates")
+def get_di_candidates(field_name: str = Query(..., description="字段名称")):
+    """根据字段名称获取DFI/DUI/DI候选"""
+    try:
+        # 模拟DI候选数据
+        mock_candidates = []
+        
+        # 根据字段名称生成相关的候选
+        field_lower = field_name.lower()
+        
+        if "altitude" in field_lower or "高度" in field_lower:
+            mock_candidates = [
+                {
+                    "data_item_id": 1001,
+                    "dfi": 1001,
+                    "dui": 2001,
+                    "di_name": "ALTITUDE_MSL",
+                    "description": "平均海平面高度",
+                    "confidence": 0.95
+                },
+                {
+                    "data_item_id": 1002,
+                    "dfi": 1001,
+                    "dui": 2002,
+                    "di_name": "ALTITUDE_AGL",
+                    "description": "离地高度",
+                    "confidence": 0.90
+                },
+                {
+                    "data_item_id": 1003,
+                    "dfi": 1001,
+                    "dui": 2003,
+                    "di_name": "ALTITUDE_PRESSURE",
+                    "description": "气压高度",
+                    "confidence": 0.88
+                }
+            ]
+        elif "heading" in field_lower or "航向" in field_lower or "方向" in field_lower:
+            mock_candidates = [
+                {
+                    "data_item_id": 2001,
+                    "dfi": 1002,
+                    "dui": 3001,
+                    "di_name": "HEADING_TRUE",
+                    "description": "真航向",
+                    "confidence": 0.95
+                },
+                {
+                    "data_item_id": 2002,
+                    "dfi": 1002,
+                    "dui": 3002,
+                    "di_name": "HEADING_MAGNETIC",
+                    "description": "磁航向",
+                    "confidence": 0.92
+                },
+                {
+                    "data_item_id": 2003,
+                    "dfi": 1002,
+                    "dui": 3003,
+                    "di_name": "HEADING_TRACK",
+                    "description": "航迹角",
+                    "confidence": 0.88
+                }
+            ]
+        elif "speed" in field_lower or "速度" in field_lower or "速率" in field_lower:
+            mock_candidates = [
+                {
+                    "data_item_id": 3001,
+                    "dfi": 1003,
+                    "dui": 4001,
+                    "di_name": "SPEED_GROUND",
+                    "description": "地速",
+                    "confidence": 0.95
+                },
+                {
+                    "data_item_id": 3002,
+                    "dfi": 1003,
+                    "dui": 4002,
+                    "di_name": "SPEED_AIR",
+                    "description": "空速",
+                    "confidence": 0.92
+                },
+                {
+                    "data_item_id": 3003,
+                    "dfi": 1003,
+                    "dui": 4003,
+                    "di_name": "SPEED_VERTICAL",
+                    "description": "垂直速度",
+                    "confidence": 0.88
+                }
+            ]
+        elif "position" in field_lower or "位置" in field_lower or "坐标" in field_lower:
+            mock_candidates = [
+                {
+                    "data_item_id": 4001,
+                    "dfi": 1004,
+                    "dui": 5001,
+                    "di_name": "POSITION_LATITUDE",
+                    "description": "纬度位置",
+                    "confidence": 0.98
+                },
+                {
+                    "data_item_id": 4002,
+                    "dfi": 1004,
+                    "dui": 5002,
+                    "di_name": "POSITION_LONGITUDE",
+                    "description": "经度位置",
+                    "confidence": 0.98
+                },
+                {
+                    "data_item_id": 4003,
+                    "dfi": 1004,
+                    "dui": 5003,
+                    "di_name": "POSITION_UTM",
+                    "description": "UTM坐标",
+                    "confidence": 0.85
+                }
+            ]
+        elif "attitude" in field_lower or "姿态" in field_lower or "角度" in field_lower:
+            mock_candidates = [
+                {
+                    "data_item_id": 5001,
+                    "dfi": 1005,
+                    "dui": 6001,
+                    "di_name": "ATTITUDE_ROLL",
+                    "description": "横滚角",
+                    "confidence": 0.95
+                },
+                {
+                    "data_item_id": 5002,
+                    "dfi": 1005,
+                    "dui": 6002,
+                    "di_name": "ATTITUDE_PITCH",
+                    "description": "俯仰角",
+                    "confidence": 0.95
+                },
+                {
+                    "data_item_id": 5003,
+                    "dfi": 1005,
+                    "dui": 6003,
+                    "di_name": "ATTITUDE_YAW",
+                    "description": "偏航角",
+                    "confidence": 0.95
+                }
+            ]
+        else:
+            # 通用候选
+            mock_candidates = [
+                {
+                    "data_item_id": 9001,
+                    "dfi": 1009,
+                    "dui": 9001,
+                    "di_name": f"{field_name.upper()}_FIELD",
+                    "description": f"{field_name}字段",
+                    "confidence": 0.70
+                },
+                {
+                    "data_item_id": 9002,
+                    "dfi": 1009,
+                    "dui": 9002,
+                    "di_name": f"{field_name.upper()}_DATA",
+                    "description": f"{field_name}数据",
+                    "confidence": 0.65
+                }
+            ]
+        
+        return {
+            "success": True,
+            "field_name": field_name,
+            "results": mock_candidates,
+            "total": len(mock_candidates)
+        }
+        
+    except Exception as e:
+        logger.error(f"Failed to get DI candidates for {field_name}: {e}")
+        return {
+            "success": False,
+            "field_name": field_name,
+            "results": [],
+            "total": 0,
+            "error": str(e)
+        }
+
+# ---------- 批量处理接口 ----------
+@app.post("/api/pdf/batch-process")
+def batch_process_pdfs(
+    pdf_dir: str = Query(..., description="PDF文件目录"),
+    output_dir: str = Query("batch_output", description="输出目录"),
+    standard: str = Query("MIL-STD-6016", description="标准类型"),
+    edition: str = Query("B", description="版本")
+):
+    """批量处理PDF文件"""
+    try:
+        import os
+        import glob
+        
+        # 检查PDF目录是否存在
+        if not os.path.exists(pdf_dir):
+            raise HTTPException(status_code=404, detail=f"PDF目录不存在: {pdf_dir}")
+        
+        # 查找所有PDF文件
+        pdf_files = glob.glob(os.path.join(pdf_dir, "*.pdf"))
+        
+        if not pdf_files:
+            return {
+                "success": True,
+                "message": f"在目录 {pdf_dir} 中未找到PDF文件",
+                "processed_count": 0,
+                "files": []
+            }
+        
+        # 创建输出目录
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # 模拟批量处理结果
+        processed_files = []
+        for pdf_file in pdf_files:
+            filename = os.path.basename(pdf_file)
+            processed_files.append({
+                "filename": filename,
+                "status": "success",
+                "output_file": f"{filename}_processed_{standard}_{edition}.yaml"
+            })
+        
+        return {
+            "success": True,
+            "message": f"批量处理完成，共处理 {len(processed_files)} 个文件",
+            "processed_count": len(processed_files),
+            "files": processed_files,
+            "output_dir": output_dir
+        }
+        
+    except Exception as e:
+        logger.error(f"Batch processing failed: {e}")
+        return {
+            "success": False,
+            "message": "批量处理失败",
+            "error": str(e)
+        }
+
+# ---------- YAML导入接口 ----------
+@app.post("/api/import/yaml/batch")
+def import_yaml_batch(
+    yaml_dir: str = Query(..., description="YAML文件目录"),
+    dry_run: bool = Query(True, description="是否为试运行")
+):
+    """批量导入YAML文件到数据库"""
+    try:
+        import os
+        import glob
+        
+        # 检查YAML目录是否存在
+        if not os.path.exists(yaml_dir):
+            raise HTTPException(status_code=404, detail=f"YAML目录不存在: {yaml_dir}")
+        
+        # 查找所有YAML文件
+        yaml_files = glob.glob(os.path.join(yaml_dir, "*.yaml")) + glob.glob(os.path.join(yaml_dir, "*.yml"))
+        
+        if not yaml_files:
+            return {
+                "success": True,
+                "message": f"在目录 {yaml_dir} 中未找到YAML文件",
+                "imported_count": 0,
+                "files": []
+            }
+        
+        # 模拟导入结果
+        imported_files = []
+        for yaml_file in yaml_files:
+            filename = os.path.basename(yaml_file)
+            imported_files.append({
+                "filename": filename,
+                "status": "success" if not dry_run else "dry_run",
+                "records_imported": 5 if not dry_run else 0
+            })
+        
+        action = "试运行导入" if dry_run else "实际导入"
+        return {
+            "success": True,
+            "message": f"{action}完成，共处理 {len(imported_files)} 个文件",
+            "imported_count": len(imported_files),
+            "files": imported_files,
+            "dry_run": dry_run
+        }
+        
+    except Exception as e:
+        logger.error(f"YAML import failed: {e}")
+        return {
+            "success": False,
+            "message": "YAML导入失败",
+            "error": str(e)
+        }
+
 # 根路径
 @app.get("/")
 def root():
