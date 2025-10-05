@@ -1,0 +1,10 @@
+- symbol: deg
+  base_si: rad
+  factor: 0.0174532925
+  offset: 0.0
+  description: degrees
+- symbol: m
+  base_si: m
+  factor: 1.0
+  offset: 0.0
+  description: meters

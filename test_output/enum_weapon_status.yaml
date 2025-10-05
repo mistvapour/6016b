@@ -1,0 +1,14 @@
+key: weapon_status_enum@6016B
+items:
+- code: "0"
+  label: Safe
+  description: Weapon is safe
+- code: "1"
+  label: Armed
+  description: Weapon is armed
+- code: "2"
+  label: Firing
+  description: Weapon is firing
+- code: "3"
+  label: Malfunction
+  description: Weapon malfunction

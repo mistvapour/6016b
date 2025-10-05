@@ -1,0 +1,44 @@
+label: J10.2
+title: Weapon Status Message
+purpose: Transmit weapon status and target information
+words:
+- type: Initial
+  word_idx: 0
+  bitlen: 70
+  fields:
+  - name: Weapon Status
+    bits: [0, 5]
+    map:
+      nullable: false
+      description: Current weapon status
+      units: [enum]
+  - name: Target ID
+    bits: [6, 15]
+    map:
+      nullable: true
+      description: Target identification number
+      units: []
+  - name: Range
+    bits: [16, 31]
+    map:
+      nullable: false
+      description: Target range in meters
+      units: [m]
+  - name: Bearing
+    bits: [32, 47]
+    map:
+      nullable: false
+      description: Target bearing in degrees
+      units: [deg]
+  - name: Elevation
+    bits: [48, 63]
+    map:
+      nullable: false
+      description: Target elevation in degrees
+      units: [deg]
+  - name: Reserved
+    bits: [64, 69]
+    map:
+      nullable: true
+      description: Reserved bits
+      units: []

@@ -1,0 +1,225 @@
+# MAVLink协议YAML映射
+# 生成时间: 2024-10-02T16:45:00
+# 源文件: test_sample/common.xml
+
+standard: MAVLink
+edition: "Common"
+transport_unit: byte
+
+# 枚举定义映射到现有系统
+enums:
+- key: hl_failure_flag
+  description: "Flags to report failure cases over the high latency telemetry"
+  items:
+  - code: "1"
+    label: "HL_FAILURE_FLAG_GPS"
+    description: "GPS failure"
+  - code: "2"
+    label: "HL_FAILURE_FLAG_DIFFERENTIAL_PRESSURE"
+    description: "Differential pressure sensor failure"
+  - code: "4"
+    label: "HL_FAILURE_FLAG_ABSOLUTE_PRESSURE"
+    description: "Absolute pressure sensor failure"
+  - code: "8"
+    label: "HL_FAILURE_FLAG_3D_ACCEL"
+    description: "Accelerometer sensor failure"
+  - code: "16"
+    label: "HL_FAILURE_FLAG_3D_GYRO"
+    description: "Gyroscope sensor failure"
+
+- key: mav_mode_flag
+  description: "These flags encode the MAV mode"
+  items:
+  - code: "128"
+    label: "MAV_MODE_FLAG_SAFETY_ARMED"
+    description: "MAV safety set to armed"
+  - code: "64"
+    label: "MAV_MODE_FLAG_MANUAL_INPUT_ENABLED"
+    description: "remote control input is enabled"
+  - code: "32"
+    label: "MAV_MODE_FLAG_HIL_ENABLED"
+    description: "hardware in the loop simulation"
+  - code: "16"
+    label: "MAV_MODE_FLAG_STABILIZE_ENABLED"
+    description: "stabilize mode enabled"
+
+- key: mav_sys_status_sensor
+  description: "These encode the sensors whose status is sent as part of the SYS_STATUS message"
+  items:
+  - code: "1"
+    label: "MAV_SYS_STATUS_SENSOR_3D_GYRO"
+    description: "0x01 3D gyro"
+  - code: "2"
+    label: "MAV_SYS_STATUS_SENSOR_3D_ACCEL"
+    description: "0x02 3D accelerometer"
+  - code: "4"
+    label: "MAV_SYS_STATUS_SENSOR_3D_MAG"
+    description: "0x04 3D magnetometer"
+  - code: "8"
+    label: "MAV_SYS_STATUS_SENSOR_ABSOLUTE_PRESSURE"
+    description: "0x08 absolute pressure"
+
+- key: mav_frame
+  description: "Coordinate frames used by MAVLink"
+  items:
+  - code: "0"
+    label: "MAV_FRAME_GLOBAL"
+    description: "Global coordinate frame, WGS84 coordinate system"
+  - code: "1"
+    label: "MAV_FRAME_LOCAL_NED"
+    description: "Local coordinate frame, Z-down"
+  - code: "2"
+    label: "MAV_FRAME_MISSION"
+    description: "NOT a coordinate frame, indicates a mission command"
+
+- key: mav_cmd
+  description: "Commands to be executed by the MAV"
+  items:
+  - code: "16"
+    label: "MAV_CMD_NAV_WAYPOINT"
+    description: "Navigate to waypoint"
+  - code: "17"
+    label: "MAV_CMD_NAV_LOITER_UNLIM"
+    description: "Loiter around this waypoint an unlimited amount of time"
+  - code: "18"
+    label: "MAV_CMD_NAV_LOITER_TURNS"
+    description: "Loiter around this waypoint for X turns"
+
+# 消息定义映射
+spec_messages:
+- label: HEARTBEAT
+  title: "HEARTBEAT Message"
+  message_id: 0
+  description: "The heartbeat message shows that a system or component is present and responding"
+  segments:
+  - type: "Data Fields"
+    seg_idx: 0
+    fields:
+    - name: "type"
+      type: "uint8_t"
+      units: ""
+      description: "Vehicle or component type"
+    - name: "autopilot"
+      type: "uint8_t"
+      units: ""
+      description: "Autopilot type / class"
+    - name: "base_mode"
+      type: "uint8_t"
+      units: ""
+      description: "System mode bitmap"
+    - name: "custom_mode"
+      type: "uint32_t"
+      units: ""
+      description: "A bitfield for use for autopilot-specific flags"
+    - name: "system_status"
+      type: "uint8_t"
+      units: ""
+      description: "System status flag"
+
+- label: SYS_STATUS
+  title: "SYS_STATUS Message"
+  message_id: 1
+  description: "The general system state. If the system is following the MAVLink standard"
+  segments:
+  - type: "Data Fields"
+    seg_idx: 0
+    fields:
+    - name: "onboard_control_sensors_present"
+      type: "uint32_t"
+      units: ""
+      description: "Bitmap showing which onboard controllers and sensors are present"
+    - name: "onboard_control_sensors_enabled"
+      type: "uint32_t"
+      units: ""
+      description: "Bitmap showing which onboard controllers and sensors are enabled"
+    - name: "onboard_control_sensors_health"
+      type: "uint32_t"
+      units: ""
+      description: "Bitmap showing which onboard controllers and sensors have an error"
+    - name: "load"
+      type: "uint16_t"
+      units: "d%"
+      description: "Maximum usage in percent of the mainloop time"
+    - name: "voltage_battery"
+      type: "uint16_t"
+      units: "mV"
+      description: "Battery voltage"
+
+- label: SYSTEM_TIME
+  title: "SYSTEM_TIME Message"
+  message_id: 2
+  description: "The system time is the time of the master clock, typically the computer clock of the main onboard computer"
+  segments:
+  - type: "Data Fields"
+    seg_idx: 0
+    fields:
+    - name: "time_unix_usec"
+      type: "uint64_t"
+      units: "us"
+      description: "Timestamp (UNIX epoch time)"
+    - name: "time_boot_ms"
+      type: "uint32_t"
+      units: "ms"
+      description: "Timestamp (time since system boot)"
+
+# 单位定义
+units:
+- symbol: "m"
+  name: "meter"
+  base_si: "m"
+  factor: 1.0
+  description: "Length measurement in meters"
+
+- symbol: "m/s"
+  name: "meters per second"
+  base_si: "m/s"
+  factor: 1.0
+  description: "Velocity measurement in meters per second"
+
+- symbol: "m/s/s"
+  name: "meters per second squared"
+  base_si: "m/s²"
+  factor: 1.0
+  description: "Acceleration measurement"
+
+- symbol: "deg"
+  name: "degrees"
+  base_si: "rad"
+  factor: 0.0174532925
+  description: "Angular measurement in degrees"
+
+- symbol: "deg/s"
+  name: "degrees per second"
+  base_si: "rad/s"
+  factor: 0.0174532925
+  description: "Angular velocity"
+
+- symbol: "mV"
+  name: "millivolts"
+  base_si: "V"
+  factor: 0.001
+  description: "Voltage measurement in millivolts"
+
+- symbol: "mA"
+  name: "milliamperes"
+  base_si: "A"
+  factor: 0.001
+  description: "Current measurement in milliamperes"
+
+- symbol: "Hz"
+  name: "hertz"
+  base_si: "Hz"
+  factor: 1.0
+  description: "Frequency measurement"
+
+# 元数据
+metadata:
+  source_file: "test_sample/common.xml"
+  total_enums: 45
+  total_messages: 85
+  total_enum_entries: 892
+  total_message_fields: 421
+  conversion_date: "2024-10-02T16:45:00"
+  processor: "mavlink_xml_converter"
+  xml_size_lines: 8077
+  protocol_type: "MAVLink Common Messages"

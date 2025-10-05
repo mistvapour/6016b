@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: milstd6016
+  labels:
+    name: milstd6016
+    app: microservices
