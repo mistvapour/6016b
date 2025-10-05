@@ -28,9 +28,15 @@ flowchart LR
     end
     
     subgraph "数据持久化"
-        MYSQL_DB[(MySQL数据库<br/>消息定义<br/>字段定义<br/>枚举定义)]
+        PDF_DB[(PDF服务数据库<br/>pdf_service<br/>任务状态)]
+        SEMANTIC_DB[(语义服务数据库<br/>semantic_service<br/>映射规则)]
+        CDM_DB[(CDM服务数据库<br/>cdm_service<br/>概念模型)]
+        IMPORT_DB[(导入服务数据库<br/>import_service<br/>导入记录)]
+        USER_DB[(用户服务数据库<br/>user_service<br/>用户信息)]
+        CONFIG_DB[(配置服务数据库<br/>config_service<br/>配置信息)]
+        MONITOR_DB[(监控服务数据库<br/>monitor_service<br/>监控数据)]
         FILE_STORE[文件存储<br/>原始文件<br/>处理结果<br/>报告文件]
-        CACHE_STORE[缓存存储<br/>处理结果<br/>中间数据]
+        REDIS_CACHE[(Redis缓存<br/>多DB实例<br/>会话/临时数据)]
     end
     
     %% 数据流连接
@@ -55,13 +61,17 @@ flowchart LR
     SIM_MODEL --> YAML_OUT
     YAML_OUT --> VALIDATION
     
-    VALIDATION --> MYSQL_DB
+    VALIDATION --> PDF_DB
+    VALIDATION --> SEMANTIC_DB
+    VALIDATION --> CDM_DB
+    VALIDATION --> IMPORT_DB
     VALIDATION --> FILE_STORE
-    VALIDATION --> CACHE_STORE
+    VALIDATION --> REDIS_CACHE
     
     %% 反馈循环
     VALIDATION -.-> ADAPTER_SELECT
-    MYSQL_DB -.-> STANDARD_DETECT
+    PDF_DB -.-> STANDARD_DETECT
+    SEMANTIC_DB -.-> STANDARD_DETECT
     
     %% 样式
     classDef input fill:#e1f5fe
@@ -74,4 +84,4 @@ flowchart LR
     class FORMAT_DETECT,STANDARD_DETECT,ADAPTER_SELECT routing
     class PDF_PROC,XML_PROC,JSON_PROC,CSV_PROC processing
     class SIM_MODEL,YAML_OUT,VALIDATION output
-    class MYSQL_DB,FILE_STORE,CACHE_STORE storage
+    class PDF_DB,SEMANTIC_DB,CDM_DB,IMPORT_DB,USER_DB,CONFIG_DB,MONITOR_DB,FILE_STORE,REDIS_CACHE storage

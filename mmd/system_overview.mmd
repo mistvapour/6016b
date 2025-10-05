@@ -23,9 +23,15 @@ graph TB
     end
     
     subgraph "数据存储层"
-        DATABASE[(MySQL数据库<br/>6016数据模型<br/>消息定义)]
+        PDF_DB[(PDF服务数据库<br/>pdf_service<br/>任务状态)]
+        SEMANTIC_DB[(语义服务数据库<br/>semantic_service<br/>映射规则)]
+        CDM_DB[(CDM服务数据库<br/>cdm_service<br/>概念模型)]
+        IMPORT_DB[(导入服务数据库<br/>import_service<br/>导入记录)]
+        USER_DB[(用户服务数据库<br/>user_service<br/>用户信息)]
+        CONFIG_DB[(配置服务数据库<br/>config_service<br/>配置信息)]
+        MONITOR_DB[(监控服务数据库<br/>monitor_service<br/>监控数据)]
         FILES[文件存储<br/>原始文件<br/>处理结果]
-        CACHE[(Redis缓存<br/>会话数据<br/>临时存储)]
+        REDIS_CACHE[(Redis缓存<br/>多DB实例<br/>会话/临时数据)]
     end
     
     subgraph "部署和监控"
@@ -53,16 +59,20 @@ graph TB
     PROCESSING --> VALIDATION
     VALIDATION --> OUTPUT
     
-    OUTPUT --> DATABASE
+    OUTPUT --> PDF_DB
+    OUTPUT --> SEMANTIC_DB
+    OUTPUT --> CDM_DB
+    OUTPUT --> IMPORT_DB
     OUTPUT --> FILES
-    PROCESSING --> CACHE
+    PROCESSING --> REDIS_CACHE
     
     DEPLOYMENT --> MONITORING
     MONITORING --> LOGGING
     
     %% 反馈循环
     VALIDATION -.-> DETECTION
-    DATABASE -.-> PROCESSING
+    PDF_DB -.-> PROCESSING
+    SEMANTIC_DB -.-> PROCESSING
     
     %% 样式定义
     classDef user fill:#e1f5fe,stroke:#01579b,stroke-width:2px
@@ -76,5 +86,5 @@ graph TB
     class WEB_UI ui
     class PDF_PROCESSING,MQTT_PROCESSING,UNIVERSAL_IMPORT,CDM_SYSTEM,SEMANTIC_INTEROP module
     class INPUT,DETECTION,PROCESSING,VALIDATION,OUTPUT pipeline
-    class DATABASE,FILES,CACHE storage
+    class PDF_DB,SEMANTIC_DB,CDM_DB,IMPORT_DB,USER_DB,CONFIG_DB,MONITOR_DB,FILES,REDIS_CACHE storage
     class DEPLOYMENT,MONITORING,LOGGING infra

@@ -30,9 +30,15 @@ graph TB
     end
     
     subgraph "数据存储层 (Data Layer)"
-        MYSQL[(MySQL数据库<br/>6016数据)]
+        PDF_DB[(PDF服务数据库<br/>pdf_service)]
+        SEMANTIC_DB[(语义服务数据库<br/>semantic_service)]
+        CDM_DB[(CDM服务数据库<br/>cdm_service)]
+        IMPORT_DB[(导入服务数据库<br/>import_service)]
+        USER_DB[(用户服务数据库<br/>user_service)]
+        CONFIG_DB[(配置服务数据库<br/>config_service)]
+        MONITOR_DB[(监控服务数据库<br/>monitor_service)]
         FILE_STORAGE[文件存储<br/>PDF/YAML/JSON]
-        CACHE[缓存系统<br/>Redis]
+        REDIS_CACHE[Redis缓存<br/>多DB实例]
     end
     
     %% 连接关系
@@ -52,15 +58,18 @@ graph TB
     UNIVERSAL_SYS --> XML_CONVERTER
     BATCH_PROC --> PDF_ADAPTER
     
-    PDF_ADAPTER --> MYSQL
-    MQTT_ADAPTER --> MYSQL
-    XML_CONVERTER --> MYSQL
+    PDF_PROC --> PDF_DB
+    MQTT_PROC --> SEMANTIC_DB
+    UNIVERSAL_SYS --> IMPORT_DB
+    UNIVERSAL_SYS --> CDM_DB
     
-    PDF_ADAPTER --> FILE_STORAGE
-    MQTT_ADAPTER --> FILE_STORAGE
-    XML_CONVERTER --> FILE_STORAGE
+    PDF_PROC --> FILE_STORAGE
+    MQTT_PROC --> FILE_STORAGE
+    UNIVERSAL_SYS --> FILE_STORAGE
     
-    UNIVERSAL_SYS --> CACHE
+    PDF_PROC --> REDIS_CACHE
+    MQTT_PROC --> REDIS_CACHE
+    UNIVERSAL_SYS --> REDIS_CACHE
     
     %% 样式
     classDef frontend fill:#e1f5fe
@@ -73,4 +82,4 @@ graph TB
     class MAIN_API,PDF_API,MQTT_API,UNIVERSAL_API,YAML_API api
     class PDF_PROC,MQTT_PROC,UNIVERSAL_SYS,BATCH_PROC business
     class PDF_ADAPTER,MQTT_ADAPTER,XML_CONVERTER adapter
-    class MYSQL,FILE_STORAGE,CACHE storage
+    class PDF_DB,SEMANTIC_DB,CDM_DB,IMPORT_DB,USER_DB,CONFIG_DB,MONITOR_DB,FILE_STORAGE,REDIS_CACHE storage

@@ -76,6 +76,14 @@
 - 监控技术栈：Prometheus、Grafana等
 - 开发工具栈：Git、ESLint、pytest等
 
+### 7. 数据库架构图 (`database_architecture.mmd`) ⭐ 新增
+详细展示了微服务数据库架构：
+- 微服务层：7个独立的微服务，每个服务对应专用数据库
+- 数据库实例层：7个独立的MySQL数据库实例，端口分离
+- 数据表结构：每个数据库的详细表结构设计
+- 缓存层：Redis多DB实例，按服务分离缓存
+- 数据一致性：事件总线、Saga模式、CQRS模式
+
 ## 🚀 如何使用
 
 ### 在线查看
@@ -99,6 +107,7 @@
    mmdc -i api_structure.mmd -o api_structure.png
    mmdc -i deployment_architecture.mmd -o deployment_architecture.png
    mmdc -i technology_stack.mmd -o technology_stack.png
+   mmdc -i database_architecture.mmd -o database_architecture.png
    ```
 
 ### 在文档中使用

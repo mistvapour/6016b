@@ -1,0 +1,116 @@
+graph TB
+    %% 6016-app 微服务数据库架构图
+    
+    subgraph "微服务层"
+        PDF_SVC[PDF处理服务<br/>pdf-service:8001]
+        SEMANTIC_SVC[语义互操作服务<br/>semantic-service:8002]
+        CDM_SVC[CDM四层法服务<br/>cdm-service:8003]
+        IMPORT_SVC[统一导入服务<br/>import-service:8004]
+        USER_SVC[用户管理服务<br/>user-service:8005]
+        CONFIG_SVC[配置管理服务<br/>config-service:8006]
+        MONITOR_SVC[监控告警服务<br/>monitor-service:8007]
+        STORAGE_SVC[文件存储服务<br/>storage-service:8008]
+    end
+    
+    subgraph "数据库实例层"
+        PDF_DB[(PDF服务数据库<br/>pdf_service<br/>端口: 3306)]
+        SEMANTIC_DB[(语义服务数据库<br/>semantic_service<br/>端口: 3307)]
+        CDM_DB[(CDM服务数据库<br/>cdm_service<br/>端口: 3308)]
+        IMPORT_DB[(导入服务数据库<br/>import_service<br/>端口: 3309)]
+        USER_DB[(用户服务数据库<br/>user_service<br/>端口: 3310)]
+        CONFIG_DB[(配置服务数据库<br/>config_service<br/>端口: 3311)]
+        MONITOR_DB[(监控服务数据库<br/>monitor_service<br/>端口: 3312)]
+    end
+    
+    subgraph "数据表结构"
+        PDF_TABLES[PDF服务数据表<br/>• processing_tasks<br/>• pdf_documents<br/>• extraction_results<br/>• validation_reports]
+        
+        SEMANTIC_TABLES[语义服务数据表<br/>• mapping_rules<br/>• protocol_definitions<br/>• conversion_history<br/>• semantic_annotations]
+        
+        CDM_TABLES[CDM服务数据表<br/>• concepts<br/>• concept_bindings<br/>• mapping_rules<br/>• validation_results]
+        
+        IMPORT_TABLES[导入服务数据表<br/>• import_tasks<br/>• file_metadata<br/>• processing_logs<br/>• import_results]
+        
+        USER_TABLES[用户服务数据表<br/>• users<br/>• roles<br/>• permissions<br/>• user_sessions]
+        
+        CONFIG_TABLES[配置服务数据表<br/>• configurations<br/>• config_versions<br/>• environment_settings<br/>• feature_flags]
+        
+        MONITOR_TABLES[监控服务数据表<br/>• metrics<br/>• alerts<br/>• performance_logs<br/>• system_health]
+    end
+    
+    subgraph "缓存层"
+        REDIS_CACHE[(Redis缓存<br/>多DB实例<br/>端口: 6379)]
+        REDIS_DB0[(DB0: 网关缓存<br/>限流/熔断)]
+        REDIS_DB1[(DB1: PDF缓存<br/>处理结果)]
+        REDIS_DB2[(DB2: 语义缓存<br/>映射规则)]
+        REDIS_DB3[(DB3: CDM缓存<br/>概念数据)]
+        REDIS_DB4[(DB4: 导入缓存<br/>任务状态)]
+        REDIS_DB5[(DB5: 用户缓存<br/>会话数据)]
+        REDIS_DB6[(DB6: 配置缓存<br/>配置信息)]
+        REDIS_DB7[(DB7: 监控缓存<br/>指标数据)]
+    end
+    
+    subgraph "数据一致性"
+        EVENT_BUS[事件总线<br/>RabbitMQ<br/>数据同步]
+        SAGA_PATTERN[Saga模式<br/>分布式事务<br/>补偿机制]
+        CQRS_PATTERN[CQRS模式<br/>读写分离<br/>事件溯源]
+    end
+    
+    %% 服务到数据库连接
+    PDF_SVC --> PDF_DB
+    SEMANTIC_SVC --> SEMANTIC_DB
+    CDM_SVC --> CDM_DB
+    IMPORT_SVC --> IMPORT_DB
+    USER_SVC --> USER_DB
+    CONFIG_SVC --> CONFIG_DB
+    MONITOR_SVC --> MONITOR_DB
+    
+    %% 数据库到表结构连接
+    PDF_DB --> PDF_TABLES
+    SEMANTIC_DB --> SEMANTIC_TABLES
+    CDM_DB --> CDM_TABLES
+    IMPORT_DB --> IMPORT_TABLES
+    USER_DB --> USER_TABLES
+    CONFIG_DB --> CONFIG_TABLES
+    MONITOR_DB --> MONITOR_TABLES
+    
+    %% 服务到缓存连接
+    PDF_SVC --> REDIS_DB1
+    SEMANTIC_SVC --> REDIS_DB2
+    CDM_SVC --> REDIS_DB3
+    IMPORT_SVC --> REDIS_DB4
+    USER_SVC --> REDIS_DB5
+    CONFIG_SVC --> REDIS_DB6
+    MONITOR_SVC --> REDIS_DB7
+    
+    %% 缓存实例关系
+    REDIS_CACHE --> REDIS_DB0
+    REDIS_CACHE --> REDIS_DB1
+    REDIS_CACHE --> REDIS_DB2
+    REDIS_CACHE --> REDIS_DB3
+    REDIS_CACHE --> REDIS_DB4
+    REDIS_CACHE --> REDIS_DB5
+    REDIS_CACHE --> REDIS_DB6
+    REDIS_CACHE --> REDIS_DB7
+    
+    %% 数据一致性连接
+    PDF_DB --> EVENT_BUS
+    SEMANTIC_DB --> EVENT_BUS
+    CDM_DB --> EVENT_BUS
+    IMPORT_DB --> EVENT_BUS
+    
+    EVENT_BUS --> SAGA_PATTERN
+    EVENT_BUS --> CQRS_PATTERN
+    
+    %% 样式定义
+    classDef service fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    classDef database fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    classDef tables fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef cache fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef consistency fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    
+    class PDF_SVC,SEMANTIC_SVC,CDM_SVC,IMPORT_SVC,USER_SVC,CONFIG_SVC,MONITOR_SVC,STORAGE_SVC service
+    class PDF_DB,SEMANTIC_DB,CDM_DB,IMPORT_DB,USER_DB,CONFIG_DB,MONITOR_DB database
+    class PDF_TABLES,SEMANTIC_TABLES,CDM_TABLES,IMPORT_TABLES,USER_TABLES,CONFIG_TABLES,MONITOR_TABLES tables
+    class REDIS_CACHE,REDIS_DB0,REDIS_DB1,REDIS_DB2,REDIS_DB3,REDIS_DB4,REDIS_DB5,REDIS_DB6,REDIS_DB7 cache
+    class EVENT_BUS,SAGA_PATTERN,CQRS_PATTERN consistency

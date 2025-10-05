@@ -23,9 +23,14 @@ graph TB
     end
     
     subgraph "数据服务层"
-        MYSQL_PRIMARY[(MySQL主库<br/>读写操作<br/>端口: 3306)]
-        MYSQL_REPLICA[(MySQL从库<br/>只读操作<br/>端口: 3307)]
-        REDIS[(Redis缓存<br/>会话存储<br/>端口: 6379)]
+        PDF_DB[(PDF服务数据库<br/>pdf_service<br/>端口: 3306)]
+        SEMANTIC_DB[(语义服务数据库<br/>semantic_service<br/>端口: 3307)]
+        CDM_DB[(CDM服务数据库<br/>cdm_service<br/>端口: 3308)]
+        IMPORT_DB[(导入服务数据库<br/>import_service<br/>端口: 3309)]
+        USER_DB[(用户服务数据库<br/>user_service<br/>端口: 3310)]
+        CONFIG_DB[(配置服务数据库<br/>config_service<br/>端口: 3311)]
+        MONITOR_DB[(监控服务数据库<br/>monitor_service<br/>端口: 3312)]
+        REDIS[(Redis缓存<br/>多DB实例<br/>端口: 6379)]
     end
     
     subgraph "存储层"
@@ -51,13 +56,14 @@ graph TB
     BACKEND2 --> MQTT_SERVICE
     BACKEND3 --> UNIVERSAL_SERVICE
     
-    PDF_SERVICE --> MYSQL_PRIMARY
-    MQTT_SERVICE --> MYSQL_PRIMARY
-    UNIVERSAL_SERVICE --> MYSQL_PRIMARY
+    PDF_SERVICE --> PDF_DB
+    MQTT_SERVICE --> SEMANTIC_DB
+    UNIVERSAL_SERVICE --> CDM_DB
+    UNIVERSAL_SERVICE --> IMPORT_DB
     
-    BACKEND1 --> MYSQL_REPLICA
-    BACKEND2 --> MYSQL_REPLICA
-    BACKEND3 --> MYSQL_REPLICA
+    BACKEND1 --> USER_DB
+    BACKEND2 --> CONFIG_DB
+    BACKEND3 --> MONITOR_DB
     
     BACKEND1 --> REDIS
     BACKEND2 --> REDIS
@@ -74,7 +80,13 @@ graph TB
     MQTT_SERVICE --> LOG_STORAGE
     UNIVERSAL_SERVICE --> LOG_STORAGE
     
-    MYSQL_PRIMARY --> BACKUP_STORAGE
+    PDF_DB --> BACKUP_STORAGE
+    SEMANTIC_DB --> BACKUP_STORAGE
+    CDM_DB --> BACKUP_STORAGE
+    IMPORT_DB --> BACKUP_STORAGE
+    USER_DB --> BACKUP_STORAGE
+    CONFIG_DB --> BACKUP_STORAGE
+    MONITOR_DB --> BACKUP_STORAGE
     FILE_STORAGE --> BACKUP_STORAGE
     
     PROMETHEUS --> BACKEND1
@@ -83,7 +95,13 @@ graph TB
     PROMETHEUS --> PDF_SERVICE
     PROMETHEUS --> MQTT_SERVICE
     PROMETHEUS --> UNIVERSAL_SERVICE
-    PROMETHEUS --> MYSQL_PRIMARY
+    PROMETHEUS --> PDF_DB
+    PROMETHEUS --> SEMANTIC_DB
+    PROMETHEUS --> CDM_DB
+    PROMETHEUS --> IMPORT_DB
+    PROMETHEUS --> USER_DB
+    PROMETHEUS --> CONFIG_DB
+    PROMETHEUS --> MONITOR_DB
     PROMETHEUS --> REDIS
     
     GRAFANA --> PROMETHEUS
@@ -102,6 +120,6 @@ graph TB
     class NGINX,FRONTEND web
     class BACKEND1,BACKEND2,BACKEND3 app
     class PDF_SERVICE,MQTT_SERVICE,UNIVERSAL_SERVICE micro
-    class MYSQL_PRIMARY,MYSQL_REPLICA,REDIS data
+    class PDF_DB,SEMANTIC_DB,CDM_DB,IMPORT_DB,USER_DB,CONFIG_DB,MONITOR_DB,REDIS data
     class FILE_STORAGE,LOG_STORAGE,BACKUP_STORAGE storage
     class PROMETHEUS,GRAFANA,ALERTMANAGER monitor

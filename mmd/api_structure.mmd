@@ -38,9 +38,15 @@ graph TB
     end
     
     subgraph "数据存储"
-        MYSQL[(MySQL数据库<br/>6016数据模型)]
+        PDF_DB[(PDF服务数据库<br/>pdf_service)]
+        SEMANTIC_DB[(语义服务数据库<br/>semantic_service)]
+        CDM_DB[(CDM服务数据库<br/>cdm_service)]
+        IMPORT_DB[(导入服务数据库<br/>import_service)]
+        USER_DB[(用户服务数据库<br/>user_service)]
+        CONFIG_DB[(配置服务数据库<br/>config_service)]
+        MONITOR_DB[(监控服务数据库<br/>monitor_service)]
         FILES[文件系统<br/>PDF/YAML/JSON]
-        REDIS[(Redis缓存<br/>会话/临时数据)]
+        REDIS[(Redis缓存<br/>多DB实例)]
     end
     
     %% API路由连接
@@ -81,7 +87,13 @@ graph TB
     CDM_LOGIC --> CACHE_LAYER
     
     %% 数据存储连接
-    DB_LAYER --> MYSQL
+    DB_LAYER --> PDF_DB
+    DB_LAYER --> SEMANTIC_DB
+    DB_LAYER --> CDM_DB
+    DB_LAYER --> IMPORT_DB
+    DB_LAYER --> USER_DB
+    DB_LAYER --> CONFIG_DB
+    DB_LAYER --> MONITOR_DB
     FILE_LAYER --> FILES
     CACHE_LAYER --> REDIS
     
@@ -98,4 +110,4 @@ graph TB
     class PDF_API_MOD,MQTT_API_MOD,UNIVERSAL_API_MOD,YAML_API_MOD,CDM_API_MOD,SEMANTIC_API_MOD api
     class PDF_LOGIC,MQTT_LOGIC,UNIVERSAL_LOGIC,CDM_LOGIC,SEMANTIC_LOGIC logic
     class DB_LAYER,FILE_LAYER,CACHE_LAYER data
-    class MYSQL,FILES,REDIS storage
+    class PDF_DB,SEMANTIC_DB,CDM_DB,IMPORT_DB,USER_DB,CONFIG_DB,MONITOR_DB,FILES,REDIS storage
