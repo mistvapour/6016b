@@ -369,6 +369,7 @@ class MappingRegistry:
             MappingRule(
                 source_field="roll",
                 cdm_path="Vehicle.Attitude.Roll",
+                target_field="roll_angle",
                 unit_conversion=(Unit.RADIAN, Unit.RADIAN),
                 version="1.0",
                 author="system"
@@ -376,6 +377,7 @@ class MappingRegistry:
             MappingRule(
                 source_field="pitch",
                 cdm_path="Vehicle.Attitude.Pitch",
+                target_field="pitch_angle",
                 unit_conversion=(Unit.RADIAN, Unit.RADIAN),
                 version="1.0",
                 author="system"
@@ -383,6 +385,7 @@ class MappingRegistry:
             MappingRule(
                 source_field="yaw",
                 cdm_path="Vehicle.Attitude.HeadingTrue",
+                target_field="yaw_angle",
                 unit_conversion=(Unit.RADIAN, Unit.RADIAN),
                 version="1.0",
                 author="system"

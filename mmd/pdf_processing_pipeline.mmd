@@ -1,0 +1,97 @@
+graph TD
+    %% PDF处理流水线详细图
+    
+    subgraph "输入阶段"
+        PDF_FILE[PDF文件输入<br/>MIL-STD-6016/MQTT]
+        FILE_DETECT[文件格式检测<br/>文本型/扫描型]
+    end
+    
+    subgraph "提取阶段"
+        CAMELOT[Camelot提取器<br/>lattice/stream模式]
+        PDFPLUMBER[pdfplumber提取器<br/>表格识别]
+        CONFIDENCE[置信度评分<br/>自动选择最佳结果]
+    end
+    
+    subgraph "解析阶段"
+        SECTION_PARSE[章节解析器<br/>parse_sections.py]
+        J_SERIES[J系列识别<br/>正则匹配J数字模式]
+        APPENDIX_B[Appendix B定位<br/>DFI/DUI/DI层级]
+    end
+    
+    subgraph "标准化阶段"
+        NORMALIZE[数据标准化<br/>normalize_bits.py]
+        BIT_FORMAT[位段格式统一<br/>0-5, 0–5, 0..5]
+        UNIT_CONV[单位转换<br/>deg/rad, ft/m, kts/m/s]
+        FIELD_CLEAN[字段清洗<br/>全角半角转换]
+    end
+    
+    subgraph "构建阶段"
+        SIM_BUILD[SIM模型构建<br/>build_sim.py]
+        STRUCTURE[结构化数据<br/>J消息/DFI/DUI/DI]
+        METADATA[元数据生成<br/>版本/时间戳/来源]
+    end
+    
+    subgraph "验证阶段"
+        VALIDATOR[数据验证器<br/>validators.py]
+        BIT_CHECK[位段校验<br/>边界/重叠/覆盖率]
+        TREE_CHECK[词典树校验<br/>DFI/DUI/DI关系]
+        UNIT_CHECK[单位校验<br/>定义/一致性]
+    end
+    
+    subgraph "输出阶段"
+        YAML_EXPORT[YAML导出<br/>标准格式配置]
+        REPORT[处理报告<br/>JSON格式]
+        DB_IMPORT[数据库导入<br/>可选]
+    end
+    
+    %% 流程连接
+    PDF_FILE --> FILE_DETECT
+    FILE_DETECT --> CAMELOT
+    FILE_DETECT --> PDFPLUMBER
+    CAMELOT --> CONFIDENCE
+    PDFPLUMBER --> CONFIDENCE
+    
+    CONFIDENCE --> SECTION_PARSE
+    SECTION_PARSE --> J_SERIES
+    SECTION_PARSE --> APPENDIX_B
+    
+    J_SERIES --> NORMALIZE
+    APPENDIX_B --> NORMALIZE
+    NORMALIZE --> BIT_FORMAT
+    NORMALIZE --> UNIT_CONV
+    NORMALIZE --> FIELD_CLEAN
+    
+    BIT_FORMAT --> SIM_BUILD
+    UNIT_CONV --> SIM_BUILD
+    FIELD_CLEAN --> SIM_BUILD
+    SIM_BUILD --> STRUCTURE
+    SIM_BUILD --> METADATA
+    
+    STRUCTURE --> VALIDATOR
+    METADATA --> VALIDATOR
+    VALIDATOR --> BIT_CHECK
+    VALIDATOR --> TREE_CHECK
+    VALIDATOR --> UNIT_CHECK
+    
+    BIT_CHECK --> YAML_EXPORT
+    TREE_CHECK --> YAML_EXPORT
+    UNIT_CHECK --> YAML_EXPORT
+    YAML_EXPORT --> REPORT
+    YAML_EXPORT --> DB_IMPORT
+    
+    %% 样式
+    classDef input fill:#e3f2fd
+    classDef extract fill:#f1f8e9
+    classDef parse fill:#fff8e1
+    classDef normalize fill:#fce4ec
+    classDef build fill:#e8f5e8
+    classDef validate fill:#fff3e0
+    classDef output fill:#f3e5f5
+    
+    class PDF_FILE,FILE_DETECT input
+    class CAMELOT,PDFPLUMBER,CONFIDENCE extract
+    class SECTION_PARSE,J_SERIES,APPENDIX_B parse
+    class NORMALIZE,BIT_FORMAT,UNIT_CONV,FIELD_CLEAN normalize
+    class SIM_BUILD,STRUCTURE,METADATA build
+    class VALIDATOR,BIT_CHECK,TREE_CHECK,UNIT_CHECK validate
+    class YAML_EXPORT,REPORT,DB_IMPORT output

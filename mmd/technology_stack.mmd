@@ -1,0 +1,124 @@
+graph TB
+    %% 技术栈架构图
+    
+    subgraph "前端技术栈"
+        REACT[React 18<br/>用户界面框架]
+        TYPESCRIPT[TypeScript<br/>类型安全]
+        VITE[Vite<br/>构建工具]
+        TAILWIND[Tailwind CSS<br/>样式框架]
+        SHADCN[shadcn/ui<br/>组件库]
+        LUCIDE[Lucide React<br/>图标库]
+    end
+    
+    subgraph "后端技术栈"
+        FASTAPI[FastAPI<br/>Web框架]
+        PYTHON[Python 3.8+<br/>编程语言]
+        UVICORN[Uvicorn<br/>ASGI服务器]
+        PYDANTIC[Pydantic<br/>数据验证]
+        ASYNCIO[asyncio<br/>异步编程]
+    end
+    
+    subgraph "PDF处理技术栈"
+        PYMUPDF["PyMuPDF (fitz)<br/>PDF解析"]
+        PDFPLUMBER[pdfplumber<br/>表格提取]
+        CAMELOT[Camelot<br/>高级表格处理]
+        TESSERACT[Tesseract<br/>OCR文字识别]
+        LAYOUTPARSER[layoutparser<br/>布局分析]
+        OPENCV[OpenCV<br/>图像处理]
+    end
+    
+    subgraph "数据处理技术栈"
+        PANDAS[pandas<br/>数据分析]
+        NUMPY[numpy<br/>数值计算]
+        PYYAML[PyYAML<br/>YAML处理]
+        JSON[json<br/>JSON处理]
+        XML[xml.etree<br/>XML处理]
+    end
+    
+    subgraph "数据库技术栈"
+        MYSQL[MySQL 8.0+<br/>关系数据库]
+        MYSQL_CONN[mysql-connector-python<br/>数据库驱动]
+        SQLALCHEMY[SQLAlchemy<br/>ORM框架]
+        REDIS[Redis<br/>缓存数据库]
+    end
+    
+    subgraph "部署技术栈"
+        DOCKER[Docker<br/>容器化]
+        DOCKER_COMPOSE[Docker Compose<br/>容器编排]
+        NGINX[Nginx<br/>反向代理]
+        KUBERNETES[Kubernetes<br/>容器编排]
+    end
+    
+    subgraph "监控技术栈"
+        PROMETHEUS[Prometheus<br/>指标收集]
+        GRAFANA[Grafana<br/>可视化监控]
+        ELK[ELK Stack<br/>日志分析]
+        ALERTMANAGER[AlertManager<br/>告警管理]
+    end
+    
+    subgraph "开发工具栈"
+        GIT[Git<br/>版本控制]
+        ESLINT[ESLint<br/>代码检查]
+        PRETTIER[Prettier<br/>代码格式化]
+        PYTEST[pytest<br/>测试框架]
+        BLACK[Black<br/>Python格式化]
+    end
+    
+    %% 技术栈连接关系
+    REACT --> TYPESCRIPT
+    TYPESCRIPT --> VITE
+    VITE --> TAILWIND
+    TAILWIND --> SHADCN
+    SHADCN --> LUCIDE
+    
+    FASTAPI --> PYTHON
+    PYTHON --> UVICORN
+    UVICORN --> PYDANTIC
+    PYDANTIC --> ASYNCIO
+    
+    PYMUPDF --> PDFPLUMBER
+    PDFPLUMBER --> CAMELOT
+    CAMELOT --> TESSERACT
+    TESSERACT --> LAYOUTPARSER
+    LAYOUTPARSER --> OPENCV
+    
+    PANDAS --> NUMPY
+    NUMPY --> PYYAML
+    PYYAML --> JSON
+    JSON --> XML
+    
+    MYSQL --> MYSQL_CONN
+    MYSQL_CONN --> SQLALCHEMY
+    SQLALCHEMY --> REDIS
+    
+    DOCKER --> DOCKER_COMPOSE
+    DOCKER_COMPOSE --> NGINX
+    NGINX --> KUBERNETES
+    
+    PROMETHEUS --> GRAFANA
+    GRAFANA --> ELK
+    ELK --> ALERTMANAGER
+    
+    GIT --> ESLINT
+    ESLINT --> PRETTIER
+    PRETTIER --> PYTEST
+    PYTEST --> BLACK
+    
+    %% 样式
+    classDef frontend fill:#e1f5fe
+    classDef backend fill:#f3e5f5
+    classDef pdf fill:#e8f5e8
+    classDef data fill:#fff3e0
+    classDef database fill:#fce4ec
+    classDef deploy fill:#f1f8e9
+    classDef monitor fill:#e0f2f1
+    classDef dev fill:#fafafa
+    
+    class REACT,TYPESCRIPT,VITE,TAILWIND,SHADCN,LUCIDE frontend
+    class FASTAPI,PYTHON,UVICORN,PYDANTIC,ASYNCIO backend
+    class PYMUPDF,PDFPLUMBER,CAMELOT,TESSERACT,LAYOUTPARSER,OPENCV pdf
+    class PANDAS,NUMPY,PYYAML,JSON,XML data
+    class MYSQL,MYSQL_CONN,SQLALCHEMY,REDIS database
+    class DOCKER,DOCKER_COMPOSE,NGINX,KUBERNETES deploy
+    class PROMETHEUS,GRAFANA,ELK,ALERTMANAGER monitor
+    class GIT,ESLINT,PRETTIER,PYTEST,BLACK dev

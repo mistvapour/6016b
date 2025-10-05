@@ -1,0 +1,85 @@
+graph LR
+    %% 微服务通信模式图
+    
+    subgraph "同步通信"
+        REST[REST API<br/>HTTP/HTTPS<br/>JSON格式]
+        GRPC[gRPC<br/>高性能<br/>Protocol Buffers]
+        GRAPHQL[GraphQL<br/>灵活查询<br/>单一端点]
+    end
+    
+    subgraph "异步通信"
+        MQ[消息队列<br/>RabbitMQ<br/>发布/订阅]
+        PUBSUB[Redis Pub/Sub<br/>实时通知<br/>轻量级]
+        EVENTS[事件驱动<br/>领域事件<br/>最终一致性]
+    end
+    
+    subgraph "服务发现"
+        CONSUL[Consul<br/>服务注册<br/>健康检查]
+        K8S_DNS[Kubernetes DNS<br/>自动发现<br/>负载均衡]
+        LB[负载均衡器<br/>Nginx/HAProxy<br/>流量分发]
+    end
+    
+    subgraph "数据一致性"
+        SAGA[Saga模式<br/>分布式事务<br/>补偿机制]
+        CQRS[CQRS模式<br/>读写分离<br/>事件溯源]
+        CDC[变更数据捕获<br/>实时同步<br/>数据一致性]
+    end
+    
+    subgraph "微服务示例"
+        PDF[PDF服务<br/>文档处理]
+        SEMANTIC[语义服务<br/>消息转换]
+        CDM[CDM服务<br/>概念映射]
+        USER[用户服务<br/>认证授权]
+    end
+    
+    %% 通信连接
+    PDF -.->|REST API| SEMANTIC
+    SEMANTIC -.->|gRPC| CDM
+    CDM -.->|GraphQL| USER
+    
+    PDF -->|发布事件| MQ
+    MQ -->|订阅事件| SEMANTIC
+    SEMANTIC -->|发布事件| MQ
+    MQ -->|订阅事件| CDM
+    
+    PDF -->|实时通知| PUBSUB
+    PUBSUB -->|接收通知| USER
+    
+    PDF -->|领域事件| EVENTS
+    EVENTS -->|事件处理| SEMANTIC
+    EVENTS -->|事件处理| CDM
+    
+    PDF -->|服务注册| CONSUL
+    SEMANTIC -->|服务注册| CONSUL
+    CDM -->|服务注册| CONSUL
+    USER -->|服务注册| CONSUL
+    
+    CONSUL -->|服务发现| LB
+    LB -->|负载均衡| PDF
+    LB -->|负载均衡| SEMANTIC
+    LB -->|负载均衡| CDM
+    LB -->|负载均衡| USER
+    
+    PDF -->|分布式事务| SAGA
+    SEMANTIC -->|分布式事务| SAGA
+    CDM -->|分布式事务| SAGA
+    
+    PDF -->|命令查询分离| CQRS
+    SEMANTIC -->|命令查询分离| CQRS
+    
+    PDF -->|数据变更| CDC
+    CDC -->|数据同步| SEMANTIC
+    CDC -->|数据同步| CDM
+    
+    %% 样式定义
+    classDef sync fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    classDef async fill:#f1f8e9,stroke:#2e7d32,stroke-width:2px
+    classDef discovery fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    classDef consistency fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    classDef service fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    
+    class REST,GRPC,GRAPHQL sync
+    class MQ,PUBSUB,EVENTS async
+    class CONSUL,K8S_DNS,LB discovery
+    class SAGA,CQRS,CDC consistency
+    class PDF,SEMANTIC,CDM,USER service

@@ -1,0 +1,71 @@
+graph LR
+    %% 6016-app 核心价值主张图
+    
+    subgraph "业务挑战"
+        CHALLENGE1[大量PDF文档<br/>手动处理耗时]
+        CHALLENGE2[多格式数据<br/>难以统一管理]
+        CHALLENGE3[数据质量<br/>缺乏验证机制]
+        CHALLENGE4[系统集成<br/>协议转换复杂]
+    end
+    
+    subgraph "6016-app 解决方案"
+        SOLUTION1[智能PDF处理<br/>自动化提取]
+        SOLUTION2[统一数据模型<br/>SIM标准化]
+        SOLUTION3[全面数据验证<br/>质量保证]
+        SOLUTION4[多协议支持<br/>无缝转换]
+    end
+    
+    subgraph "核心价值"
+        VALUE1[效率提升<br/>90%自动化]
+        VALUE2[数据一致性<br/>统一标准]
+        VALUE3[质量保证<br/>多重校验]
+        VALUE4[系统互操作<br/>协议转换]
+    end
+    
+    subgraph "技术优势"
+        TECH1[模块化架构<br/>易于扩展]
+        TECH2[智能识别<br/>自动路由]
+        TECH3[容错设计<br/>健壮可靠]
+        TECH4[生产就绪<br/>企业级]
+    end
+    
+    subgraph "业务成果"
+        RESULT1[处理速度<br/>提升10倍]
+        RESULT2[数据准确率<br/>99%以上]
+        RESULT3[维护成本<br/>降低80%]
+        RESULT4[系统集成<br/>简化部署]
+    end
+    
+    %% 连接关系
+    CHALLENGE1 --> SOLUTION1
+    CHALLENGE2 --> SOLUTION2
+    CHALLENGE3 --> SOLUTION3
+    CHALLENGE4 --> SOLUTION4
+    
+    SOLUTION1 --> VALUE1
+    SOLUTION2 --> VALUE2
+    SOLUTION3 --> VALUE3
+    SOLUTION4 --> VALUE4
+    
+    VALUE1 --> TECH1
+    VALUE2 --> TECH2
+    VALUE3 --> TECH3
+    VALUE4 --> TECH4
+    
+    TECH1 --> RESULT1
+    TECH2 --> RESULT2
+    TECH3 --> RESULT3
+    TECH4 --> RESULT4
+    
+    %% 样式定义
+    classDef challenge fill:#ffebee,stroke:#c62828,stroke-width:2px
+    classDef solution fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    classDef value fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    classDef tech fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    classDef result fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    
+    class CHALLENGE1,CHALLENGE2,CHALLENGE3,CHALLENGE4 challenge
+    class SOLUTION1,SOLUTION2,SOLUTION3,SOLUTION4 solution
+    class VALUE1,VALUE2,VALUE3,VALUE4 value
+    class TECH1,TECH2,TECH3,TECH4 tech
+    class RESULT1,RESULT2,RESULT3,RESULT4 result

@@ -1,0 +1,107 @@
+graph TB
+    %% 部署架构图
+    
+    subgraph "负载均衡层"
+        LB[负载均衡器<br/>Nginx<br/>SSL终端]
+    end
+    
+    subgraph "Web服务层"
+        NGINX[Nginx反向代理<br/>静态文件服务<br/>API路由]
+        FRONTEND[前端服务<br/>React静态文件<br/>端口: 5173]
+    end
+    
+    subgraph "应用服务层"
+        BACKEND1[后端服务实例1<br/>FastAPI + uvicorn<br/>端口: 8000]
+        BACKEND2[后端服务实例2<br/>FastAPI + uvicorn<br/>端口: 8001]
+        BACKEND3[后端服务实例3<br/>FastAPI + uvicorn<br/>端口: 8002]
+    end
+    
+    subgraph "微服务层"
+        PDF_SERVICE[PDF处理服务<br/>专用PDF处理<br/>端口: 8003]
+        MQTT_SERVICE[MQTT处理服务<br/>专用MQTT处理<br/>端口: 8004]
+        UNIVERSAL_SERVICE[统一导入服务<br/>多格式处理<br/>端口: 8005]
+    end
+    
+    subgraph "数据服务层"
+        MYSQL_PRIMARY[(MySQL主库<br/>读写操作<br/>端口: 3306)]
+        MYSQL_REPLICA[(MySQL从库<br/>只读操作<br/>端口: 3307)]
+        REDIS[(Redis缓存<br/>会话存储<br/>端口: 6379)]
+    end
+    
+    subgraph "存储层"
+        FILE_STORAGE[文件存储<br/>NFS/云存储<br/>PDF/YAML/JSON]
+        LOG_STORAGE[日志存储<br/>ELK Stack<br/>应用日志]
+        BACKUP_STORAGE[备份存储<br/>定期备份<br/>数据恢复]
+    end
+    
+    subgraph "监控层"
+        PROMETHEUS[Prometheus<br/>指标收集<br/>端口: 9090]
+        GRAFANA[Grafana<br/>可视化监控<br/>端口: 3000]
+        ALERTMANAGER[AlertManager<br/>告警管理<br/>端口: 9093]
+    end
+    
+    %% 连接关系
+    LB --> NGINX
+    NGINX --> FRONTEND
+    NGINX --> BACKEND1
+    NGINX --> BACKEND2
+    NGINX --> BACKEND3
+    
+    BACKEND1 --> PDF_SERVICE
+    BACKEND2 --> MQTT_SERVICE
+    BACKEND3 --> UNIVERSAL_SERVICE
+    
+    PDF_SERVICE --> MYSQL_PRIMARY
+    MQTT_SERVICE --> MYSQL_PRIMARY
+    UNIVERSAL_SERVICE --> MYSQL_PRIMARY
+    
+    BACKEND1 --> MYSQL_REPLICA
+    BACKEND2 --> MYSQL_REPLICA
+    BACKEND3 --> MYSQL_REPLICA
+    
+    BACKEND1 --> REDIS
+    BACKEND2 --> REDIS
+    BACKEND3 --> REDIS
+    
+    PDF_SERVICE --> FILE_STORAGE
+    MQTT_SERVICE --> FILE_STORAGE
+    UNIVERSAL_SERVICE --> FILE_STORAGE
+    
+    BACKEND1 --> LOG_STORAGE
+    BACKEND2 --> LOG_STORAGE
+    BACKEND3 --> LOG_STORAGE
+    PDF_SERVICE --> LOG_STORAGE
+    MQTT_SERVICE --> LOG_STORAGE
+    UNIVERSAL_SERVICE --> LOG_STORAGE
+    
+    MYSQL_PRIMARY --> BACKUP_STORAGE
+    FILE_STORAGE --> BACKUP_STORAGE
+    
+    PROMETHEUS --> BACKEND1
+    PROMETHEUS --> BACKEND2
+    PROMETHEUS --> BACKEND3
+    PROMETHEUS --> PDF_SERVICE
+    PROMETHEUS --> MQTT_SERVICE
+    PROMETHEUS --> UNIVERSAL_SERVICE
+    PROMETHEUS --> MYSQL_PRIMARY
+    PROMETHEUS --> REDIS
+    
+    GRAFANA --> PROMETHEUS
+    ALERTMANAGER --> PROMETHEUS
+    
+    %% 样式
+    classDef lb fill:#e1f5fe
+    classDef web fill:#f3e5f5
+    classDef app fill:#e8f5e8
+    classDef micro fill:#fff3e0
+    classDef data fill:#fce4ec
+    classDef storage fill:#f1f8e9
+    classDef monitor fill:#e0f2f1
+    
+    class LB lb
+    class NGINX,FRONTEND web
+    class BACKEND1,BACKEND2,BACKEND3 app
+    class PDF_SERVICE,MQTT_SERVICE,UNIVERSAL_SERVICE micro
+    class MYSQL_PRIMARY,MYSQL_REPLICA,REDIS data
+    class FILE_STORAGE,LOG_STORAGE,BACKUP_STORAGE storage
+    class PROMETHEUS,GRAFANA,ALERTMANAGER monitor

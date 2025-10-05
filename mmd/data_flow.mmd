@@ -1,0 +1,77 @@
+flowchart LR
+    %% 数据流架构图
+    
+    subgraph "多格式输入"
+        PDF[PDF文件<br/>MIL-STD-6016<br/>MQTT标准]
+        XML[XML文件<br/>MAVLink<br/>通用XML]
+        JSON[JSON文件<br/>SIM数据<br/>配置数据]
+        CSV[CSV文件<br/>表格数据<br/>导入数据]
+    end
+    
+    subgraph "智能路由层"
+        FORMAT_DETECT[格式检测<br/>MIME分析<br/>内容采样]
+        STANDARD_DETECT[标准识别<br/>协议检测<br/>版本识别]
+        ADAPTER_SELECT[适配器选择<br/>最佳匹配<br/>置信度评估]
+    end
+    
+    subgraph "专用处理器"
+        PDF_PROC[PDF处理器<br/>6016专用<br/>MQTT专用]
+        XML_PROC[XML处理器<br/>MAVLink解析<br/>通用XML解析]
+        JSON_PROC[JSON处理器<br/>SIM导入<br/>配置导入]
+        CSV_PROC[CSV处理器<br/>表格导入<br/>数据转换]
+    end
+    
+    subgraph "统一输出"
+        SIM_MODEL[SIM模型<br/>中间语义模型<br/>标准化结构]
+        YAML_OUT[YAML输出<br/>统一格式<br/>标准配置]
+        VALIDATION[数据验证<br/>质量检查<br/>错误报告]
+    end
+    
+    subgraph "数据持久化"
+        MYSQL_DB[(MySQL数据库<br/>消息定义<br/>字段定义<br/>枚举定义)]
+        FILE_STORE[文件存储<br/>原始文件<br/>处理结果<br/>报告文件]
+        CACHE_STORE[缓存存储<br/>处理结果<br/>中间数据]
+    end
+    
+    %% 数据流连接
+    PDF --> FORMAT_DETECT
+    XML --> FORMAT_DETECT
+    JSON --> FORMAT_DETECT
+    CSV --> FORMAT_DETECT
+    
+    FORMAT_DETECT --> STANDARD_DETECT
+    STANDARD_DETECT --> ADAPTER_SELECT
+    
+    ADAPTER_SELECT --> PDF_PROC
+    ADAPTER_SELECT --> XML_PROC
+    ADAPTER_SELECT --> JSON_PROC
+    ADAPTER_SELECT --> CSV_PROC
+    
+    PDF_PROC --> SIM_MODEL
+    XML_PROC --> SIM_MODEL
+    JSON_PROC --> SIM_MODEL
+    CSV_PROC --> SIM_MODEL
+    
+    SIM_MODEL --> YAML_OUT
+    YAML_OUT --> VALIDATION
+    
+    VALIDATION --> MYSQL_DB
+    VALIDATION --> FILE_STORE
+    VALIDATION --> CACHE_STORE
+    
+    %% 反馈循环
+    VALIDATION -.-> ADAPTER_SELECT
+    MYSQL_DB -.-> STANDARD_DETECT
+    
+    %% 样式
+    classDef input fill:#e1f5fe
+    classDef routing fill:#f3e5f5
+    classDef processing fill:#e8f5e8
+    classDef output fill:#fff3e0
+    classDef storage fill:#fce4ec
+    
+    class PDF,XML,JSON,CSV input
+    class FORMAT_DETECT,STANDARD_DETECT,ADAPTER_SELECT routing
+    class PDF_PROC,XML_PROC,JSON_PROC,CSV_PROC processing
+    class SIM_MODEL,YAML_OUT,VALIDATION output
+    class MYSQL_DB,FILE_STORE,CACHE_STORE storage

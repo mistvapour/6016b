@@ -2,7 +2,7 @@
 PDF表格提取模块
 支持Camelot和pdfplumber双路抽取，自动选择最佳结果
 """
-import camelot
+# import camelot  # 暂时注释掉，需要系统依赖
 import pdfplumber
 import re
 import logging

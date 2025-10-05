@@ -1,0 +1,107 @@
+graph TB
+    %% 6016-app 微服务架构图
+    
+    subgraph "客户端层"
+        WEB[Web前端<br/>React + TypeScript]
+        MOBILE[移动端<br/>React Native]
+        API_CLIENT[API客户端<br/>第三方集成]
+    end
+    
+    subgraph "API网关层"
+        GATEWAY[API网关<br/>Kong/Nginx<br/>端口: 8000]
+        AUTH[认证授权<br/>JWT Token]
+        RATE_LIMIT[限流熔断<br/>Redis缓存]
+        LOAD_BALANCE[负载均衡<br/>请求分发]
+    end
+    
+    subgraph "核心业务微服务"
+        PDF_SVC[PDF处理服务<br/>pdf-service<br/>端口: 8001]
+        SEMANTIC_SVC[语义互操作服务<br/>semantic-service<br/>端口: 8002]
+        CDM_SVC[CDM四层法服务<br/>cdm-service<br/>端口: 8003]
+        IMPORT_SVC[统一导入服务<br/>import-service<br/>端口: 8004]
+    end
+    
+    subgraph "支撑业务微服务"
+        USER_SVC[用户管理服务<br/>user-service<br/>端口: 8005]
+        CONFIG_SVC[配置管理服务<br/>config-service<br/>端口: 8006]
+        MONITOR_SVC[监控告警服务<br/>monitor-service<br/>端口: 8007]
+        STORAGE_SVC[文件存储服务<br/>storage-service<br/>端口: 8008]
+    end
+    
+    subgraph "基础设施服务"
+        MYSQL[(MySQL数据库<br/>多数据库实例<br/>端口: 3306)]
+        REDIS[(Redis缓存<br/>多DB实例<br/>端口: 6379)]
+        RABBITMQ[RabbitMQ消息队列<br/>端口: 5672]
+        MINIO[MinIO对象存储<br/>端口: 9000]
+    end
+    
+    subgraph "监控运维服务"
+        PROMETHEUS[Prometheus监控<br/>端口: 9090]
+        GRAFANA[Grafana可视化<br/>端口: 3000]
+        JAEGER[Jaeger链路追踪<br/>端口: 16686]
+        NGINX[Nginx负载均衡<br/>端口: 80/443]
+    end
+    
+    %% 连接关系
+    WEB --> GATEWAY
+    MOBILE --> GATEWAY
+    API_CLIENT --> GATEWAY
+    
+    GATEWAY --> AUTH
+    GATEWAY --> RATE_LIMIT
+    GATEWAY --> LOAD_BALANCE
+    
+    GATEWAY --> PDF_SVC
+    GATEWAY --> SEMANTIC_SVC
+    GATEWAY --> CDM_SVC
+    GATEWAY --> IMPORT_SVC
+    GATEWAY --> USER_SVC
+    GATEWAY --> CONFIG_SVC
+    GATEWAY --> MONITOR_SVC
+    GATEWAY --> STORAGE_SVC
+    
+    PDF_SVC --> MYSQL
+    SEMANTIC_SVC --> MYSQL
+    CDM_SVC --> MYSQL
+    IMPORT_SVC --> MYSQL
+    USER_SVC --> MYSQL
+    CONFIG_SVC --> MYSQL
+    MONITOR_SVC --> MYSQL
+    
+    PDF_SVC --> REDIS
+    SEMANTIC_SVC --> REDIS
+    CDM_SVC --> REDIS
+    IMPORT_SVC --> REDIS
+    USER_SVC --> REDIS
+    CONFIG_SVC --> REDIS
+    MONITOR_SVC --> REDIS
+    
+    PDF_SVC --> RABBITMQ
+    SEMANTIC_SVC --> RABBITMQ
+    CDM_SVC --> RABBITMQ
+    IMPORT_SVC --> RABBITMQ
+    
+    STORAGE_SVC --> MINIO
+    PDF_SVC --> MINIO
+    IMPORT_SVC --> MINIO
+    
+    MONITOR_SVC --> PROMETHEUS
+    PROMETHEUS --> GRAFANA
+    JAEGER --> GRAFANA
+    
+    NGINX --> GATEWAY
+    
+    %% 样式定义
+    classDef client fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef gateway fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef core fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    classDef support fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef infra fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    classDef monitor fill:#f1f8e9,stroke:#33691e,stroke-width:2px
+    
+    class WEB,MOBILE,API_CLIENT client
+    class GATEWAY,AUTH,RATE_LIMIT,LOAD_BALANCE gateway
+    class PDF_SVC,SEMANTIC_SVC,CDM_SVC,IMPORT_SVC core
+    class USER_SVC,CONFIG_SVC,MONITOR_SVC,STORAGE_SVC support
+    class MYSQL,REDIS,RABBITMQ,MINIO infra
+    class PROMETHEUS,GRAFANA,JAEGER,NGINX monitor

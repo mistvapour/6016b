@@ -1,5 +1,5 @@
 # backend/mqtt_adapter/extract_tables.py
-import camelot
+# import camelot  # 暂时注释掉，需要系统依赖
 import pdfplumber
 import pandas as pd
 import logging

@@ -218,7 +218,7 @@ async def health_check():
     """MQTT处理模块健康检查"""
     try:
         # 检查依赖模块
-        import camelot
+        # import camelot  # 暂时注释掉，需要系统依赖
         import pdfplumber
         import yaml
         import pandas as pd

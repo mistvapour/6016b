@@ -1,0 +1,101 @@
+graph TB
+    %% API结构图
+    
+    subgraph "前端界面层"
+        REACT_APP[React应用<br/>TypeScript + Vite]
+        PDF_COMP[PDF处理组件<br/>PDFProcessor.tsx]
+        BATCH_COMP[批量处理组件<br/>BatchProcessor.tsx]
+        VIEW_COMP[数据查看组件<br/>TableView.tsx]
+    end
+    
+    subgraph "API网关层"
+        MAIN_GATEWAY[主API网关<br/>main.py<br/>FastAPI应用]
+        CORS[CORS中间件<br/>跨域支持]
+        AUTH[认证中间件<br/>权限控制]
+    end
+    
+    subgraph "核心API模块"
+        PDF_API_MOD[PDF处理API<br/>pdf_api.py]
+        MQTT_API_MOD[MQTT处理API<br/>mqtt_api.py]
+        UNIVERSAL_API_MOD[统一导入API<br/>universal_import_api.py]
+        YAML_API_MOD[YAML导入API<br/>import_yaml.py]
+        CDM_API_MOD[CDM系统API<br/>cdm_api.py]
+        SEMANTIC_API_MOD[语义互操作API<br/>semantic_interop_api.py]
+    end
+    
+    subgraph "业务逻辑层"
+        PDF_LOGIC[PDF处理逻辑<br/>pdf_processor.py]
+        MQTT_LOGIC[MQTT处理逻辑<br/>mqtt_processor.py]
+        UNIVERSAL_LOGIC[统一导入逻辑<br/>universal_import_system.py]
+        CDM_LOGIC[CDM系统逻辑<br/>cdm_system.py]
+        SEMANTIC_LOGIC[语义互操作逻辑<br/>semantic_interop_system.py]
+    end
+    
+    subgraph "数据访问层"
+        DB_LAYER[数据库访问层<br/>db.py]
+        FILE_LAYER[文件访问层<br/>文件系统操作]
+        CACHE_LAYER[缓存访问层<br/>Redis操作]
+    end
+    
+    subgraph "数据存储"
+        MYSQL[(MySQL数据库<br/>6016数据模型)]
+        FILES[文件系统<br/>PDF/YAML/JSON]
+        REDIS[(Redis缓存<br/>会话/临时数据)]
+    end
+    
+    %% API路由连接
+    REACT_APP --> MAIN_GATEWAY
+    PDF_COMP --> PDF_API_MOD
+    BATCH_COMP --> UNIVERSAL_API_MOD
+    VIEW_COMP --> MAIN_GATEWAY
+    
+    MAIN_GATEWAY --> CORS
+    MAIN_GATEWAY --> AUTH
+    MAIN_GATEWAY --> PDF_API_MOD
+    MAIN_GATEWAY --> MQTT_API_MOD
+    MAIN_GATEWAY --> UNIVERSAL_API_MOD
+    MAIN_GATEWAY --> YAML_API_MOD
+    MAIN_GATEWAY --> CDM_API_MOD
+    MAIN_GATEWAY --> SEMANTIC_API_MOD
+    
+    %% 业务逻辑连接
+    PDF_API_MOD --> PDF_LOGIC
+    MQTT_API_MOD --> MQTT_LOGIC
+    UNIVERSAL_API_MOD --> UNIVERSAL_LOGIC
+    YAML_API_MOD --> UNIVERSAL_LOGIC
+    CDM_API_MOD --> CDM_LOGIC
+    SEMANTIC_API_MOD --> SEMANTIC_LOGIC
+    
+    %% 数据访问连接
+    PDF_LOGIC --> DB_LAYER
+    MQTT_LOGIC --> DB_LAYER
+    UNIVERSAL_LOGIC --> DB_LAYER
+    CDM_LOGIC --> DB_LAYER
+    SEMANTIC_LOGIC --> DB_LAYER
+    
+    PDF_LOGIC --> FILE_LAYER
+    MQTT_LOGIC --> FILE_LAYER
+    UNIVERSAL_LOGIC --> FILE_LAYER
+    
+    UNIVERSAL_LOGIC --> CACHE_LAYER
+    CDM_LOGIC --> CACHE_LAYER
+    
+    %% 数据存储连接
+    DB_LAYER --> MYSQL
+    FILE_LAYER --> FILES
+    CACHE_LAYER --> REDIS
+    
+    %% 样式
+    classDef frontend fill:#e1f5fe
+    classDef gateway fill:#f3e5f5
+    classDef api fill:#e8f5e8
+    classDef logic fill:#fff3e0
+    classDef data fill:#fce4ec
+    classDef storage fill:#f1f8e9
+    
+    class REACT_APP,PDF_COMP,BATCH_COMP,VIEW_COMP frontend
+    class MAIN_GATEWAY,CORS,AUTH gateway
+    class PDF_API_MOD,MQTT_API_MOD,UNIVERSAL_API_MOD,YAML_API_MOD,CDM_API_MOD,SEMANTIC_API_MOD api
+    class PDF_LOGIC,MQTT_LOGIC,UNIVERSAL_LOGIC,CDM_LOGIC,SEMANTIC_LOGIC logic
+    class DB_LAYER,FILE_LAYER,CACHE_LAYER data
+    class MYSQL,FILES,REDIS storage

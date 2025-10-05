@@ -1,0 +1,80 @@
+graph TB
+    %% 6016-app 系统概览图
+    
+    subgraph "用户界面层"
+        USER[用户]
+        WEB_UI[Web界面<br/>React + TypeScript<br/>端口: 5173]
+    end
+    
+    subgraph "核心功能模块"
+        PDF_PROCESSING[PDF处理模块<br/>MIL-STD-6016标准<br/>MQTT协议]
+        MQTT_PROCESSING[MQTT处理模块<br/>消息协议转换<br/>数据标准化]
+        UNIVERSAL_IMPORT[统一导入模块<br/>多格式支持<br/>智能路由]
+        CDM_SYSTEM[CDM系统<br/>概念数据模型<br/>语义互操作]
+        SEMANTIC_INTEROP[语义互操作<br/>跨协议转换<br/>数据映射]
+    end
+    
+    subgraph "数据处理流水线"
+        INPUT[多格式输入<br/>PDF/XML/JSON/CSV]
+        DETECTION[智能检测<br/>格式识别<br/>标准识别]
+        PROCESSING[专用处理<br/>格式转换<br/>数据提取]
+        VALIDATION[数据验证<br/>质量检查<br/>错误处理]
+        OUTPUT[统一输出<br/>YAML格式<br/>SIM模型]
+    end
+    
+    subgraph "数据存储层"
+        DATABASE[(MySQL数据库<br/>6016数据模型<br/>消息定义)]
+        FILES[文件存储<br/>原始文件<br/>处理结果]
+        CACHE[(Redis缓存<br/>会话数据<br/>临时存储)]
+    end
+    
+    subgraph "部署和监控"
+        DEPLOYMENT[容器化部署<br/>Docker + K8s<br/>微服务架构]
+        MONITORING[监控系统<br/>Prometheus<br/>Grafana]
+        LOGGING[日志系统<br/>ELK Stack<br/>审计追踪]
+    end
+    
+    %% 主要连接关系
+    USER --> WEB_UI
+    WEB_UI --> PDF_PROCESSING
+    WEB_UI --> MQTT_PROCESSING
+    WEB_UI --> UNIVERSAL_IMPORT
+    WEB_UI --> CDM_SYSTEM
+    WEB_UI --> SEMANTIC_INTEROP
+    
+    PDF_PROCESSING --> INPUT
+    MQTT_PROCESSING --> INPUT
+    UNIVERSAL_IMPORT --> INPUT
+    CDM_SYSTEM --> INPUT
+    SEMANTIC_INTEROP --> INPUT
+    
+    INPUT --> DETECTION
+    DETECTION --> PROCESSING
+    PROCESSING --> VALIDATION
+    VALIDATION --> OUTPUT
+    
+    OUTPUT --> DATABASE
+    OUTPUT --> FILES
+    PROCESSING --> CACHE
+    
+    DEPLOYMENT --> MONITORING
+    MONITORING --> LOGGING
+    
+    %% 反馈循环
+    VALIDATION -.-> DETECTION
+    DATABASE -.-> PROCESSING
+    
+    %% 样式定义
+    classDef user fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef ui fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef module fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    classDef pipeline fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef storage fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    classDef infra fill:#f1f8e9,stroke:#33691e,stroke-width:2px
+    
+    class USER user
+    class WEB_UI ui
+    class PDF_PROCESSING,MQTT_PROCESSING,UNIVERSAL_IMPORT,CDM_SYSTEM,SEMANTIC_INTEROP module
+    class INPUT,DETECTION,PROCESSING,VALIDATION,OUTPUT pipeline
+    class DATABASE,FILES,CACHE storage
+    class DEPLOYMENT,MONITORING,LOGGING infra
