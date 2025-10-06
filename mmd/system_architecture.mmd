@@ -1,44 +1,44 @@
 graph TB
     %% 6016-app 系统总体架构图
     
-    subgraph "前端层 (Frontend)"
-        UI[用户界面<br/>React + TypeScript]
-        PDF_UI[PDF处理界面<br/>PDFProcessor.tsx]
-        BATCH_UI[批量处理界面<br/>BatchProcessor.tsx]
-        VIEW_UI[数据查看界面<br/>TableView.tsx]
+    subgraph "前端层 (Frontend) - 第5章"
+        UI["用户界面<br/>React + TypeScript<br/>📖 5.1.2"]
+        PDF_UI["PDF处理界面<br/>PDFProcessor.tsx<br/>📖 5.2.2"]
+        BATCH_UI["批量处理界面<br/>BatchProcessor.tsx<br/>📖 5.2.5"]
+        VIEW_UI["数据查看界面<br/>TableView.tsx<br/>📖 5.2.5"]
     end
     
-    subgraph "API网关层 (FastAPI)"
-        MAIN_API[主API<br/>main.py]
-        PDF_API[PDF处理API<br/>pdf_api.py]
-        MQTT_API[MQTT处理API<br/>mqtt_api.py]
-        UNIVERSAL_API[统一导入API<br/>universal_import_api.py]
-        YAML_API[YAML导入API<br/>import_yaml.py]
+    subgraph "API网关层 (FastAPI) - 第5章"
+        MAIN_API["主API<br/>main.py<br/>📖 5.2.1"]
+        PDF_API["PDF处理API<br/>pdf_api.py<br/>📖 5.2.2"]
+        MQTT_API["MQTT处理API<br/>mqtt_api.py<br/>📖 5.2.3"]
+        UNIVERSAL_API["统一导入API<br/>universal_import_api.py<br/>📖 5.2.5"]
+        YAML_API["YAML导入API<br/>import_yaml.py<br/>📖 5.2.5"]
     end
     
-    subgraph "业务逻辑层 (Business Logic)"
-        PDF_PROC[PDF处理器<br/>pdf_processor.py]
-        MQTT_PROC[MQTT处理器<br/>mqtt_processor.py]
-        UNIVERSAL_SYS[统一导入系统<br/>universal_import_system.py]
-        BATCH_PROC[批量处理器<br/>batch_processor.py]
+    subgraph "业务逻辑层 (Business Logic) - 第4章"
+        PDF_PROC["PDF处理器<br/>pdf_processor.py<br/>📖 4.3.2(1)"]
+        MQTT_PROC["MQTT处理器<br/>mqtt_processor.py<br/>📖 4.3.2(2)"]
+        UNIVERSAL_SYS["统一导入系统<br/>universal_import_system.py<br/>📖 4.3.2(4)"]
+        BATCH_PROC["批量处理器<br/>batch_processor.py<br/>📖 5.2.5"]
     end
     
-    subgraph "适配器层 (Adapters)"
-        PDF_ADAPTER[PDF适配器组<br/>pdf_adapter/]
-        MQTT_ADAPTER[MQTT适配器组<br/>mqtt_adapter/]
-        XML_CONVERTER[XML转换器<br/>xml_to_pdf_converter.py]
+    subgraph "适配器层 (Adapters) - 第5章"
+        PDF_ADAPTER["PDF适配器组<br/>pdf_adapter/<br/>📖 5.2.2"]
+        MQTT_ADAPTER["MQTT适配器组<br/>mqtt_adapter/<br/>📖 5.2.3"]
+        XML_CONVERTER["XML转换器<br/>xml_to_pdf_converter.py<br/>📖 5.2.5"]
     end
     
-    subgraph "数据存储层 (Data Layer)"
-        PDF_DB[(PDF服务数据库<br/>pdf_service)]
-        SEMANTIC_DB[(语义服务数据库<br/>semantic_service)]
-        CDM_DB[(CDM服务数据库<br/>cdm_service)]
-        IMPORT_DB[(导入服务数据库<br/>import_service)]
-        USER_DB[(用户服务数据库<br/>user_service)]
-        CONFIG_DB[(配置服务数据库<br/>config_service)]
-        MONITOR_DB[(监控服务数据库<br/>monitor_service)]
-        FILE_STORAGE[文件存储<br/>PDF/YAML/JSON]
-        REDIS_CACHE[Redis缓存<br/>多DB实例]
+    subgraph "数据存储层 (Data Layer) - 第4章"
+        PDF_DB[("PDF服务数据库<br/>pdf_service<br/>📖 4.2.4")]
+        SEMANTIC_DB[("语义服务数据库<br/>semantic_service<br/>📖 4.2.4")]
+        CDM_DB[("CDM服务数据库<br/>cdm_service<br/>📖 4.2.3")]
+        IMPORT_DB[("导入服务数据库<br/>import_service<br/>📖 4.2.4")]
+        USER_DB[("用户服务数据库<br/>user_service<br/>📖 4.3.2(5)")]
+        CONFIG_DB[("配置服务数据库<br/>config_service<br/>📖 4.3.2(5)")]
+        MONITOR_DB[("监控服务数据库<br/>monitor_service<br/>📖 5.3.2")]
+        FILE_STORAGE["文件存储<br/>PDF/YAML/JSON<br/>📖 5.1.3"]
+        REDIS_CACHE["Redis缓存<br/>多DB实例<br/>📖 4.5.1"]
     end
     
     %% 连接关系

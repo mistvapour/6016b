@@ -1,59 +1,59 @@
 graph TB
     %% 6016-app 微服务数据库架构图
     
-    subgraph "微服务层"
-        PDF_SVC[PDF处理服务<br/>pdf-service:8001]
-        SEMANTIC_SVC[语义互操作服务<br/>semantic-service:8002]
-        CDM_SVC[CDM四层法服务<br/>cdm-service:8003]
-        IMPORT_SVC[统一导入服务<br/>import-service:8004]
-        USER_SVC[用户管理服务<br/>user-service:8005]
-        CONFIG_SVC[配置管理服务<br/>config-service:8006]
-        MONITOR_SVC[监控告警服务<br/>monitor-service:8007]
-        STORAGE_SVC[文件存储服务<br/>storage-service:8008]
+    subgraph "微服务层 - 第4章"
+        PDF_SVC["PDF处理服务<br/>pdf-service:8001<br/>📖 4.3.2(1)"]
+        SEMANTIC_SVC["语义互操作服务<br/>semantic-service:8002<br/>📖 4.3.2(2)"]
+        CDM_SVC["CDM四层法服务<br/>cdm-service:8003<br/>📖 4.3.2(3)"]
+        IMPORT_SVC["统一导入服务<br/>import-service:8004<br/>📖 4.3.2(4)"]
+        USER_SVC["用户管理服务<br/>user-service:8005<br/>📖 4.3.2(5)"]
+        CONFIG_SVC["配置管理服务<br/>config-service:8006<br/>📖 4.3.2(5)"]
+        MONITOR_SVC["监控告警服务<br/>monitor-service:8007<br/>📖 5.3.2"]
+        STORAGE_SVC["文件存储服务<br/>storage-service:8008<br/>📖 5.1.3"]
     end
     
-    subgraph "数据库实例层"
-        PDF_DB[(PDF服务数据库<br/>pdf_service<br/>端口: 3306)]
-        SEMANTIC_DB[(语义服务数据库<br/>semantic_service<br/>端口: 3307)]
-        CDM_DB[(CDM服务数据库<br/>cdm_service<br/>端口: 3308)]
-        IMPORT_DB[(导入服务数据库<br/>import_service<br/>端口: 3309)]
-        USER_DB[(用户服务数据库<br/>user_service<br/>端口: 3310)]
-        CONFIG_DB[(配置服务数据库<br/>config_service<br/>端口: 3311)]
-        MONITOR_DB[(监控服务数据库<br/>monitor_service<br/>端口: 3312)]
+    subgraph "数据库实例层 - 第4章"
+        PDF_DB[("PDF服务数据库<br/>pdf_service<br/>端口: 3306<br/>📖 4.2.4")]
+        SEMANTIC_DB[("语义服务数据库<br/>semantic_service<br/>端口: 3307<br/>📖 4.2.4")]
+        CDM_DB[("CDM服务数据库<br/>cdm_service<br/>端口: 3308<br/>📖 4.2.3")]
+        IMPORT_DB[("导入服务数据库<br/>import_service<br/>端口: 3309<br/>📖 4.2.4")]
+        USER_DB[("用户服务数据库<br/>user_service<br/>端口: 3310<br/>📖 4.3.2(5)")]
+        CONFIG_DB[("配置服务数据库<br/>config_service<br/>端口: 3311<br/>📖 4.3.2(5)")]
+        MONITOR_DB[("监控服务数据库<br/>monitor_service<br/>端口: 3312<br/>📖 5.3.2")]
     end
     
-    subgraph "数据表结构"
-        PDF_TABLES[PDF服务数据表<br/>• processing_tasks<br/>• pdf_documents<br/>• extraction_results<br/>• validation_reports]
+    subgraph "数据表结构 - 第4章"
+        PDF_TABLES["PDF服务数据表<br/>• processing_tasks<br/>• pdf_documents<br/>• extraction_results<br/>• validation_reports<br/>📖 4.2.2"]
         
-        SEMANTIC_TABLES[语义服务数据表<br/>• mapping_rules<br/>• protocol_definitions<br/>• conversion_history<br/>• semantic_annotations]
+        SEMANTIC_TABLES["语义服务数据表<br/>• mapping_rules<br/>• protocol_definitions<br/>• conversion_history<br/>• semantic_annotations<br/>📖 4.2.2"]
         
-        CDM_TABLES[CDM服务数据表<br/>• concepts<br/>• concept_bindings<br/>• mapping_rules<br/>• validation_results]
+        CDM_TABLES["CDM服务数据表<br/>• concepts<br/>• concept_bindings<br/>• mapping_rules<br/>• validation_results<br/>📖 4.2.2"]
         
-        IMPORT_TABLES[导入服务数据表<br/>• import_tasks<br/>• file_metadata<br/>• processing_logs<br/>• import_results]
+        IMPORT_TABLES["导入服务数据表<br/>• import_tasks<br/>• file_metadata<br/>• processing_logs<br/>• import_results<br/>📖 4.2.2"]
         
-        USER_TABLES[用户服务数据表<br/>• users<br/>• roles<br/>• permissions<br/>• user_sessions]
+        USER_TABLES["用户服务数据表<br/>• users<br/>• roles<br/>• permissions<br/>• user_sessions<br/>📖 4.2.2"]
         
-        CONFIG_TABLES[配置服务数据表<br/>• configurations<br/>• config_versions<br/>• environment_settings<br/>• feature_flags]
+        CONFIG_TABLES["配置服务数据表<br/>• configurations<br/>• config_versions<br/>• environment_settings<br/>• feature_flags<br/>📖 4.2.2"]
         
-        MONITOR_TABLES[监控服务数据表<br/>• metrics<br/>• alerts<br/>• performance_logs<br/>• system_health]
+        MONITOR_TABLES["监控服务数据表<br/>• metrics<br/>• alerts<br/>• performance_logs<br/>• system_health<br/>📖 4.2.2"]
     end
     
-    subgraph "缓存层"
-        REDIS_CACHE[(Redis缓存<br/>多DB实例<br/>端口: 6379)]
-        REDIS_DB0[(DB0: 网关缓存<br/>限流/熔断)]
-        REDIS_DB1[(DB1: PDF缓存<br/>处理结果)]
-        REDIS_DB2[(DB2: 语义缓存<br/>映射规则)]
-        REDIS_DB3[(DB3: CDM缓存<br/>概念数据)]
-        REDIS_DB4[(DB4: 导入缓存<br/>任务状态)]
-        REDIS_DB5[(DB5: 用户缓存<br/>会话数据)]
-        REDIS_DB6[(DB6: 配置缓存<br/>配置信息)]
-        REDIS_DB7[(DB7: 监控缓存<br/>指标数据)]
+    subgraph "缓存层 - 第4章"
+        REDIS_CACHE[("Redis缓存<br/>多DB实例<br/>端口: 6379<br/>📖 4.5.1")]
+        REDIS_DB0[("DB0: 网关缓存<br/>限流/熔断<br/>📖 4.5.2")]
+        REDIS_DB1[("DB1: PDF缓存<br/>处理结果<br/>📖 4.5.1")]
+        REDIS_DB2[("DB2: 语义缓存<br/>映射规则<br/>📖 4.5.1")]
+        REDIS_DB3[("DB3: CDM缓存<br/>概念数据<br/>📖 4.5.1")]
+        REDIS_DB4[("DB4: 导入缓存<br/>任务状态<br/>📖 4.5.1")]
+        REDIS_DB5[("DB5: 用户缓存<br/>会话数据<br/>📖 4.5.1")]
+        REDIS_DB6[("DB6: 配置缓存<br/>配置信息<br/>📖 4.5.1")]
+        REDIS_DB7[("DB7: 监控缓存<br/>指标数据<br/>📖 4.5.1")]
     end
     
-    subgraph "数据一致性"
-        EVENT_BUS[事件总线<br/>RabbitMQ<br/>数据同步]
-        SAGA_PATTERN[Saga模式<br/>分布式事务<br/>补偿机制]
-        CQRS_PATTERN[CQRS模式<br/>读写分离<br/>事件溯源]
+    subgraph "数据一致性 - 第4章"
+        EVENT_BUS["事件总线<br/>RabbitMQ<br/>数据同步<br/>📖 4.4.2"]
+        SAGA_PATTERN["Saga模式<br/>分布式事务<br/>补偿机制<br/>📖 4.4.3"]
+        CQRS_PATTERN["CQRS模式<br/>读写分离<br/>事件溯源<br/>📖 4.5.1"]
     end
     
     %% 服务到数据库连接

@@ -1,42 +1,42 @@
 flowchart LR
     %% 数据流架构图
     
-    subgraph "多格式输入"
-        PDF[PDF文件<br/>MIL-STD-6016<br/>MQTT标准]
-        XML[XML文件<br/>MAVLink<br/>通用XML]
-        JSON[JSON文件<br/>SIM数据<br/>配置数据]
-        CSV[CSV文件<br/>表格数据<br/>导入数据]
+    subgraph "多格式输入 - 第3章"
+        PDF["PDF文件<br/>MIL-STD-6016<br/>MQTT标准<br/>📖 3.2.1"]
+        XML["XML文件<br/>MAVLink<br/>通用XML<br/>📖 3.2.1"]
+        JSON["JSON文件<br/>SIM数据<br/>配置数据<br/>📖 3.2.1"]
+        CSV["CSV文件<br/>表格数据<br/>导入数据<br/>📖 3.2.1"]
     end
     
-    subgraph "智能路由层"
-        FORMAT_DETECT[格式检测<br/>MIME分析<br/>内容采样]
-        STANDARD_DETECT[标准识别<br/>协议检测<br/>版本识别]
-        ADAPTER_SELECT[适配器选择<br/>最佳匹配<br/>置信度评估]
+    subgraph "智能路由层 - 第5章"
+        FORMAT_DETECT["格式检测<br/>MIME分析<br/>内容采样<br/>📖 5.2.2"]
+        STANDARD_DETECT["标准识别<br/>协议检测<br/>版本识别<br/>📖 5.2.2"]
+        ADAPTER_SELECT["适配器选择<br/>最佳匹配<br/>置信度评估<br/>📖 5.2.2"]
     end
     
-    subgraph "专用处理器"
-        PDF_PROC[PDF处理器<br/>6016专用<br/>MQTT专用]
-        XML_PROC[XML处理器<br/>MAVLink解析<br/>通用XML解析]
-        JSON_PROC[JSON处理器<br/>SIM导入<br/>配置导入]
-        CSV_PROC[CSV处理器<br/>表格导入<br/>数据转换]
+    subgraph "专用处理器 - 第5章"
+        PDF_PROC["PDF处理器<br/>6016专用<br/>MQTT专用<br/>📖 5.2.2"]
+        XML_PROC["XML处理器<br/>MAVLink解析<br/>通用XML解析<br/>📖 5.2.3"]
+        JSON_PROC["JSON处理器<br/>SIM导入<br/>配置导入<br/>📖 5.2.4"]
+        CSV_PROC["CSV处理器<br/>表格导入<br/>数据转换<br/>📖 5.2.5"]
     end
     
-    subgraph "统一输出"
-        SIM_MODEL[SIM模型<br/>中间语义模型<br/>标准化结构]
-        YAML_OUT[YAML输出<br/>统一格式<br/>标准配置]
-        VALIDATION[数据验证<br/>质量检查<br/>错误报告]
+    subgraph "统一输出 - 第5章"
+        SIM_MODEL["SIM模型<br/>中间语义模型<br/>标准化结构<br/>📖 5.2.4"]
+        YAML_OUT["YAML输出<br/>统一格式<br/>标准配置<br/>📖 5.2.4"]
+        VALIDATION["数据验证<br/>质量检查<br/>错误报告<br/>📖 5.2.3"]
     end
     
-    subgraph "数据持久化"
-        PDF_DB[(PDF服务数据库<br/>pdf_service<br/>任务状态)]
-        SEMANTIC_DB[(语义服务数据库<br/>semantic_service<br/>映射规则)]
-        CDM_DB[(CDM服务数据库<br/>cdm_service<br/>概念模型)]
-        IMPORT_DB[(导入服务数据库<br/>import_service<br/>导入记录)]
-        USER_DB[(用户服务数据库<br/>user_service<br/>用户信息)]
-        CONFIG_DB[(配置服务数据库<br/>config_service<br/>配置信息)]
-        MONITOR_DB[(监控服务数据库<br/>monitor_service<br/>监控数据)]
-        FILE_STORE[文件存储<br/>原始文件<br/>处理结果<br/>报告文件]
-        REDIS_CACHE[(Redis缓存<br/>多DB实例<br/>会话/临时数据)]
+    subgraph "数据持久化 - 第4章"
+        PDF_DB[("PDF服务数据库<br/>pdf_service<br/>任务状态<br/>📖 4.2.4")]
+        SEMANTIC_DB[("语义服务数据库<br/>semantic_service<br/>映射规则<br/>📖 4.2.4")]
+        CDM_DB[("CDM服务数据库<br/>cdm_service<br/>概念模型<br/>📖 4.2.3")]
+        IMPORT_DB[("导入服务数据库<br/>import_service<br/>导入记录<br/>📖 4.2.4")]
+        USER_DB[("用户服务数据库<br/>user_service<br/>用户信息<br/>📖 4.3.2(5)")]
+        CONFIG_DB[("配置服务数据库<br/>config_service<br/>配置信息<br/>📖 4.3.2(5)")]
+        MONITOR_DB[("监控服务数据库<br/>monitor_service<br/>监控数据<br/>📖 5.3.2")]
+        FILE_STORE["文件存储<br/>原始文件<br/>处理结果<br/>报告文件<br/>📖 5.1.3"]
+        REDIS_CACHE[("Redis缓存<br/>多DB实例<br/>会话/临时数据<br/>📖 4.5.1")]
     end
     
     %% 数据流连接

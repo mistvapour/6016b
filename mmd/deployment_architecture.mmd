@@ -1,48 +1,48 @@
 graph TB
     %% 部署架构图
     
-    subgraph "负载均衡层"
-        LB[负载均衡器<br/>Nginx<br/>SSL终端]
+    subgraph "负载均衡层 - 第5章"
+        LB["负载均衡器<br/>Nginx<br/>SSL终端<br/>📖 5.3.1"]
     end
     
-    subgraph "Web服务层"
-        NGINX[Nginx反向代理<br/>静态文件服务<br/>API路由]
-        FRONTEND[前端服务<br/>React静态文件<br/>端口: 5173]
+    subgraph "Web服务层 - 第5章"
+        NGINX["Nginx反向代理<br/>静态文件服务<br/>API路由<br/>📖 5.3.1"]
+        FRONTEND["前端服务<br/>React静态文件<br/>端口: 5173<br/>📖 5.1.2"]
     end
     
-    subgraph "应用服务层"
-        BACKEND1[后端服务实例1<br/>FastAPI + uvicorn<br/>端口: 8000]
-        BACKEND2[后端服务实例2<br/>FastAPI + uvicorn<br/>端口: 8001]
-        BACKEND3[后端服务实例3<br/>FastAPI + uvicorn<br/>端口: 8002]
+    subgraph "应用服务层 - 第5章"
+        BACKEND1["后端服务实例1<br/>FastAPI + uvicorn<br/>端口: 8000<br/>📖 5.1.1"]
+        BACKEND2["后端服务实例2<br/>FastAPI + uvicorn<br/>端口: 8001<br/>📖 5.1.1"]
+        BACKEND3["后端服务实例3<br/>FastAPI + uvicorn<br/>端口: 8002<br/>📖 5.1.1"]
     end
     
-    subgraph "微服务层"
-        PDF_SERVICE[PDF处理服务<br/>专用PDF处理<br/>端口: 8003]
-        MQTT_SERVICE[MQTT处理服务<br/>专用MQTT处理<br/>端口: 8004]
-        UNIVERSAL_SERVICE[统一导入服务<br/>多格式处理<br/>端口: 8005]
+    subgraph "微服务层 - 第4章"
+        PDF_SERVICE["PDF处理服务<br/>专用PDF处理<br/>端口: 8003<br/>📖 4.3.2(1)"]
+        MQTT_SERVICE["MQTT处理服务<br/>专用MQTT处理<br/>端口: 8004<br/>📖 4.3.2(2)"]
+        UNIVERSAL_SERVICE["统一导入服务<br/>多格式处理<br/>端口: 8005<br/>📖 4.3.2(4)"]
     end
     
-    subgraph "数据服务层"
-        PDF_DB[(PDF服务数据库<br/>pdf_service<br/>端口: 3306)]
-        SEMANTIC_DB[(语义服务数据库<br/>semantic_service<br/>端口: 3307)]
-        CDM_DB[(CDM服务数据库<br/>cdm_service<br/>端口: 3308)]
-        IMPORT_DB[(导入服务数据库<br/>import_service<br/>端口: 3309)]
-        USER_DB[(用户服务数据库<br/>user_service<br/>端口: 3310)]
-        CONFIG_DB[(配置服务数据库<br/>config_service<br/>端口: 3311)]
-        MONITOR_DB[(监控服务数据库<br/>monitor_service<br/>端口: 3312)]
-        REDIS[(Redis缓存<br/>多DB实例<br/>端口: 6379)]
+    subgraph "数据服务层 - 第4章"
+        PDF_DB[("PDF服务数据库<br/>pdf_service<br/>端口: 3306<br/>📖 4.2.4")]
+        SEMANTIC_DB[("语义服务数据库<br/>semantic_service<br/>端口: 3307<br/>📖 4.2.4")]
+        CDM_DB[("CDM服务数据库<br/>cdm_service<br/>端口: 3308<br/>📖 4.2.3")]
+        IMPORT_DB[("导入服务数据库<br/>import_service<br/>端口: 3309<br/>📖 4.2.4")]
+        USER_DB[("用户服务数据库<br/>user_service<br/>端口: 3310<br/>📖 4.3.2(5)")]
+        CONFIG_DB[("配置服务数据库<br/>config_service<br/>端口: 3311<br/>📖 4.3.2(5)")]
+        MONITOR_DB[("监控服务数据库<br/>monitor_service<br/>端口: 3312<br/>📖 5.3.2")]
+        REDIS[("Redis缓存<br/>多DB实例<br/>端口: 6379<br/>📖 4.5.1")]
     end
     
-    subgraph "存储层"
-        FILE_STORAGE[文件存储<br/>NFS/云存储<br/>PDF/YAML/JSON]
-        LOG_STORAGE[日志存储<br/>ELK Stack<br/>应用日志]
-        BACKUP_STORAGE[备份存储<br/>定期备份<br/>数据恢复]
+    subgraph "存储层 - 第5章"
+        FILE_STORAGE["文件存储<br/>NFS/云存储<br/>PDF/YAML/JSON<br/>📖 5.1.3"]
+        LOG_STORAGE["日志存储<br/>ELK Stack<br/>应用日志<br/>📖 5.4.3"]
+        BACKUP_STORAGE["备份存储<br/>定期备份<br/>数据恢复<br/>📖 5.3.1"]
     end
     
-    subgraph "监控层"
-        PROMETHEUS[Prometheus<br/>指标收集<br/>端口: 9090]
-        GRAFANA[Grafana<br/>可视化监控<br/>端口: 3000]
-        ALERTMANAGER[AlertManager<br/>告警管理<br/>端口: 9093]
+    subgraph "监控层 - 第5章"
+        PROMETHEUS["Prometheus<br/>指标收集<br/>端口: 9090<br/>📖 5.3.2"]
+        GRAFANA["Grafana<br/>可视化监控<br/>端口: 3000<br/>📖 5.3.2"]
+        ALERTMANAGER["AlertManager<br/>告警管理<br/>端口: 9093<br/>📖 5.3.2"]
     end
     
     %% 连接关系
