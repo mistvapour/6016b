@@ -1,0 +1,52 @@
+graph TB
+    subgraph "应用展示层"
+        A[React前端界面]
+    end
+    
+    subgraph "API网关层"
+        B[统一API网关]
+    end
+    
+    subgraph "业务服务层"
+        C[PDF处理服务]
+        D[语义互操作服务]
+        E[CDM四层法服务]
+        F[统一导入服务]
+    end
+    
+    subgraph "支撑服务层"
+        G[用户管理服务]
+        H[配置管理服务]
+        I[监控告警服务]
+    end
+    
+    subgraph "基础设施层"
+        J[(MySQL数据库)]
+        K[(Redis缓存)]
+        L[消息队列]
+    end
+    
+    A --> B
+    B --> C
+    B --> D
+    B --> E
+    B --> F
+    
+    C --> J
+    D --> J
+    E --> J
+    F --> J
+    
+    C --> K
+    D --> K
+    E --> K
+    F --> K
+    
+    C --> L
+    D --> L
+    E --> L
+    F --> L
+    
+    G --> B
+    H --> B
+    I --> B

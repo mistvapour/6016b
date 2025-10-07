@@ -7,9 +7,9 @@
 \contentsline {table}{\numberline {3.2}{\ignorespaces 系统支持的标准和协议}}{32}{table.caption.19}%
 \contentsline {table}{\numberline {3.3}{\ignorespaces 系统API接口功能表}}{35}{table.caption.21}%
 \addvspace {10.0pt}
-\contentsline {table}{\numberline {4.1}{\ignorespaces 核心实体表字段概览（节选）}}{47}{table.caption.25}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces 常见数据问题与清洗策略}}{53}{table.caption.27}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces 主要索引设计示例}}{54}{table.caption.28}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces 技术栈与基础组件选型}}{43}{table.caption.25}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces 微服务模块划分与职责}}{44}{table.caption.26}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces 导入性能与精度测试结果}}{52}{table.caption.29}%
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \contentsfinish 
