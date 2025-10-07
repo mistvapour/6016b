@@ -35,61 +35,61 @@
 \contentsline {chapter}{\numberline {第四章\hspace {.3em}}微服务架构与跨数据链协议互操作系统设计}{41}{chapter.4}%
 \contentsline {section}{\numberline {4.1}系统总体架构设计}{41}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}设计目标与总体思路}{41}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}微服务架构理念与原则}{41}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.2}微服务架构理念与原则}{42}{subsection.4.1.2}%
 \contentsline {subsection}{\numberline {4.1.3}架构总体分层}{42}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}微服务架构设计与实现}{43}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}技术栈与基础组件选型}{43}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}微服务模块划分与职责}{44}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}微服务通信机制}{45}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}容错与弹性设计}{45}{subsection.4.2.4}%
-\contentsline {section}{\numberline {4.3}数据模型与数据库设计}{46}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}设计目标与数据特征}{46}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}核心实体与关系模型}{46}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}约束与索引设计}{48}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}微服务数据库分离与一致性}{48}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}跨数据链协议互操作架构设计}{49}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}多协议支持体系}{49}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}CDM四层法语义互操作模型}{49}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}语义互操作系统组成}{49}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}数据一致性与冲突解决}{50}{subsection.4.4.4}%
-\contentsline {section}{\numberline {4.5}自动化信息标准导入架构设计}{50}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}标准化导入流程}{50}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}关键技术与工具链}{51}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}导入性能与精度}{52}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}数据清洗与质量保证}{52}{subsection.4.5.4}%
-\contentsline {section}{\numberline {4.6}微服务通信与运行保障设计}{53}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}服务通信与安全}{53}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}分布式数据管理与灾备}{53}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}配置与治理体系}{54}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}容错与弹性设计}{54}{subsection.4.6.4}%
-\contentsline {chapter}{\numberline {第五章\hspace {.3em}}系统实现、测试与性能分析}{55}{chapter.5}%
-\contentsline {section}{\numberline {5.1}数据库初始化与数据导入}{55}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}数据库初始化}{55}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}CSV/Excel 批量导入}{56}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}数据清洗与一致性保障}{56}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}导入流程图}{57}{subsection.5.1.4}%
-\contentsline {section}{\numberline {5.2}核心功能模块实现}{58}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}数据管理与绑定}{58}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}搜索与比较}{58}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}导出与审计}{58}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}安全与防护}{59}{subsection.5.2.4}%
-\contentsline {section}{\numberline {5.3}搜索与比较功能演示}{59}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}搜索演示}{59}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}比较演示}{60}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}前端交互与可视化效果}{61}{section.5.4}%
-\contentsline {section}{\numberline {5.5}系统运行环境与部署}{62}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}运行环境}{62}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}部署方式}{62}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}运行效果}{63}{subsection.5.5.3}%
-\contentsline {section}{\numberline {5.6}系统测试方案与方法}{63}{section.5.6}%
-\contentsline {section}{\numberline {5.7}功能测试结果}{63}{section.5.7}%
-\contentsline {section}{\numberline {5.8}性能与压力测试}{65}{section.5.8}%
-\contentsline {section}{\numberline {5.9}用户体验评估}{66}{section.5.9}%
-\contentsline {chapter}{\numberline {第六章\hspace {.3em}}总结与展望}{68}{chapter.6}%
-\contentsline {section}{\numberline {6.1}研究成果总结}{68}{section.6.1}%
-\contentsline {section}{\numberline {6.2}存在的不足}{68}{section.6.2}%
-\contentsline {section}{\numberline {6.3}未来研究方向}{69}{section.6.3}%
-\contentsline {chapter}{参考文献}{84}{chapter*.35}%
-\contentsline {chapter}{致谢}{85}{appendix*.36}%
-\contentsline {chapter}{发表论文和科研情况}{87}{appendix*.37}%
+\contentsline {section}{\numberline {4.2}微服务架构设计与实现}{44}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}技术栈与基础组件选型}{44}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}微服务模块划分与职责}{45}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}微服务通信机制}{46}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}容错与弹性设计}{46}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}数据模型与数据库设计}{47}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}设计目标与数据特征}{47}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}核心实体与关系模型}{47}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}约束与索引设计}{49}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}微服务数据库分离与一致性}{50}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}跨数据链协议互操作架构设计}{50}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}多协议支持体系}{50}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}CDM四层法语义互操作模型}{51}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}语义互操作系统组成}{52}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}数据一致性与冲突解决}{52}{subsection.4.4.4}%
+\contentsline {section}{\numberline {4.5}自动化信息标准导入架构设计}{53}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}标准化导入流程}{53}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}关键技术与工具链}{54}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}导入性能与精度}{55}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}数据清洗与质量保证}{55}{subsection.4.5.4}%
+\contentsline {section}{\numberline {4.6}微服务通信与运行保障设计}{56}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}服务通信与安全}{56}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}分布式数据管理与灾备}{57}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}配置与治理体系}{57}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}容错与弹性设计}{58}{subsection.4.6.4}%
+\contentsline {chapter}{\numberline {第五章\hspace {.3em}}系统实现、测试与性能分析}{59}{chapter.5}%
+\contentsline {section}{\numberline {5.1}数据库初始化与数据导入}{59}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}数据库初始化}{59}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}CSV/Excel 批量导入}{60}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}数据清洗与一致性保障}{60}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}导入流程图}{61}{subsection.5.1.4}%
+\contentsline {section}{\numberline {5.2}核心功能模块实现}{62}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}数据管理与绑定}{62}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}搜索与比较}{62}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}导出与审计}{62}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}安全与防护}{63}{subsection.5.2.4}%
+\contentsline {section}{\numberline {5.3}搜索与比较功能演示}{63}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}搜索演示}{63}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}比较演示}{64}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}前端交互与可视化效果}{65}{section.5.4}%
+\contentsline {section}{\numberline {5.5}系统运行环境与部署}{66}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}运行环境}{66}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}部署方式}{66}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}运行效果}{67}{subsection.5.5.3}%
+\contentsline {section}{\numberline {5.6}系统测试方案与方法}{67}{section.5.6}%
+\contentsline {section}{\numberline {5.7}功能测试结果}{67}{section.5.7}%
+\contentsline {section}{\numberline {5.8}性能与压力测试}{69}{section.5.8}%
+\contentsline {section}{\numberline {5.9}用户体验评估}{70}{section.5.9}%
+\contentsline {chapter}{\numberline {第六章\hspace {.3em}}总结与展望}{72}{chapter.6}%
+\contentsline {section}{\numberline {6.1}研究成果总结}{72}{section.6.1}%
+\contentsline {section}{\numberline {6.2}存在的不足}{72}{section.6.2}%
+\contentsline {section}{\numberline {6.3}未来研究方向}{73}{section.6.3}%
+\contentsline {chapter}{参考文献}{88}{chapter*.35}%
+\contentsline {chapter}{致谢}{89}{appendix*.36}%
+\contentsline {chapter}{发表论文和科研情况}{91}{appendix*.37}%
 \contentsfinish 
