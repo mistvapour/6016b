@@ -1,0 +1,65 @@
+@startuml
+title 语义互操作研究发展趋势图
+
+package "早期标准化阶段 (2000-2010)" {
+    [标准体系] as standards
+    [模型分层] as models
+}
+
+package "知识融合阶段 (2010-2020)" {
+    [本体解包] as unpacking
+    [语义推理] as reasoning
+    [智能映射] as mapping
+}
+
+package "智能化发展阶段 (2020至今)" {
+    [多云环境] as multicloud
+    [语义中枢] as hub
+    [协同机制] as coordination
+}
+
+package "国内研究现状" {
+    [技术基础] as foundation
+    [应用场景] as scenarios
+    [发展趋势] as trends
+}
+
+package "技术融合方向" {
+    [多模态融合] as multimodal
+    [跨标准映射] as cross_standard
+    [自适应机制] as adaptive
+}
+
+standards --> models
+models --> unpacking
+unpacking --> reasoning
+reasoning --> mapping
+mapping --> multicloud
+multicloud --> hub
+hub --> coordination
+
+foundation --> scenarios
+scenarios --> trends
+
+coordination --> multimodal
+trends --> cross_standard
+cross_standard --> adaptive
+
+note right of standards : SISO、NATO、ISO标准\n多层互操作模型
+note right of models : 本体(Ontology)研究\nOWL与SPARQL技术
+note right of unpacking : 本体解包方法\n概念模型剖析
+note right of reasoning : 语义透明性研究\n本体承诺机制
+note right of mapping : 机器学习与规则引擎\n语义映射算法
+note right of multicloud : 跨平台语义互操作\n多云环境参考架构
+note right of hub : 语义中枢(Semantic Hub)\n不同云平台语义模型协调
+note right of coordination : 数据层协同\n治理层协同
+
+note right of foundation : 2000年代语义网工程\n知识图谱技术发展
+note right of scenarios : 智慧城市应用\n医疗健康领域
+note right of trends : 语义建模到语义计算\n语义理解与自动推理
+
+note right of multimodal : 视觉语言融合模型\n文档理解与语义推理
+note right of cross_standard : 多源数据协同管理\n智能决策支持
+note right of adaptive : 自学习能力构建\n文档智能系统
+
+@enduml

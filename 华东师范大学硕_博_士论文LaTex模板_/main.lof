@@ -1,26 +1,32 @@
 \addvspace {10.0pt}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces 战术数据链研究现状发展脉络图}}{5}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces 微服务架构研究演进历程图}}{8}{figure.caption.8}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces 语义互操作研究发展趋势图}}{10}{figure.caption.9}%
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces 战术数据链体系结构示意图}}{15}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces 战术数据链体系结构示意图}}{18}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces MIL-STD-6016 J系列消息结构图}}{20}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces 微服务架构发展时间线图}}{24}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces 语义互操作架构层次图}}{26}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces 文档自动化处理技术演进图}}{28}{figure.caption.16}%
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces 系统整体架构图}}{24}{figure.caption.10}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces CDM四层法架构图}}{27}{figure.caption.12}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces 前端交互用例图（角色与功能关系）}}{30}{figure.caption.14}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces 前端功能组件与服务接口关系图}}{31}{figure.caption.15}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces 数据处理流程图}}{32}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces 系统整体架构图}}{31}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces CDM四层法架构图}}{34}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces 前端交互用例图（角色与功能关系）}}{37}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces 前端功能组件与服务接口关系图}}{38}{figure.caption.23}%
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces 战术数据链数据库总体架构示意图}}{39}{figure.caption.17}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces 数据导入与清洗流程示意图}}{46}{figure.caption.19}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces 索引与查询优化流程图}}{50}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces 系统总体架构示意图}}{57}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces FastAPI 后端服务架构示意图}}{59}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces 前端数据流与视图切换示意图}}{61}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces 战术数据链数据库总体架构示意图}}{45}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces 数据导入与清洗流程示意图}}{52}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces 索引与查询优化流程图}}{56}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces 系统总体架构示意图}}{63}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces FastAPI 后端服务架构示意图}}{65}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces 前端数据流与视图切换示意图}}{67}{figure.caption.32}%
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces 数据库初始化与数据导入流程}}{66}{figure.caption.26}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces 前端搜索功能演示界面}}{69}{figure.caption.27}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces 跨规范比较功能演示界面}}{70}{figure.caption.28}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces 并发数与时延（Avg / P95）关系}}{74}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces 并发数与成功率关系}}{74}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces 并发数与吞吐量（QPS）关系}}{74}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces 用户问卷总体满意度分布（Likert 1--5，n=20）}}{76}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces 数据库初始化与数据导入流程}}{72}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces 前端搜索功能演示界面}}{75}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces 跨规范比较功能演示界面}}{76}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces 并发数与时延（Avg / P95）关系}}{80}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces 并发数与成功率关系}}{80}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces 并发数与吞吐量（QPS）关系}}{80}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces 用户问卷总体满意度分布（Likert 1--5，n=20）}}{82}{figure.caption.37}%
 \addvspace {10.0pt}
 \contentsfinish 

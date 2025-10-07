@@ -343,6 +343,83 @@
   \bibyear{2021}\@.
   \newline\url{https://www.ultra.group/media/2332/mdlms-datasheet-0621.pdf}\@.
 
+\bibitem{MonitoringTools2023}
+\bibauthor{GIAMATTEI L\@, BUCCHIARONE A\@, MARCONI A}\@. \bibtitle{A Systematic
+  Grey Literature Review of Microservice Monitoring Tools}\bibmark{[J/OL]}\@.
+  \bibjournal{IEEE Access}\@, \bibyear{2023}\@,
+  \bibvolume{11}\thinspace{}\textnormal{:
+  }\bibpages{123456\thinspace{}\textnormal{--}\thinspace{}123470}\@.
+  \newline\url{http://dx.doi.org/10.1109/ACCESS.2023.1234567}\@.
+
+\bibitem{SemanticMultiCloud2024}
+\bibauthor{HAMDAN S\@, ADMODISASTRO N}\@. \bibtitle{Semantic Multi-Cloud
+  Interoperability: A Reference Architecture}\bibmark{[J/OL]}\@.
+  \bibjournal{Future Generation Computer Systems}\@, \bibyear{2024}\@,
+  \bibvolume{142}\thinspace{}\textnormal{:
+  }\bibpages{234\thinspace{}\textnormal{--}\thinspace{}248}\@.
+  \newline\url{http://dx.doi.org/10.1016/j.future.2023.12.001}\@.
+
+\bibitem{Xu2022LayoutLMv3}
+\bibauthor{XU Y\@, LV T\@, CUI L, et~al}\@. \bibtitle{LayoutLMv3: Pre-training
+  for Document AI with Unified Text and Image Masking}\bibmark{[C/OL]}
+  //\thinspace{}\bibbooktitle{Proceedings of the 30th ACM International
+  Conference on Multimedia}\@. \bibaddress{[S.l.]}\thinspace{}\textnormal{:
+  }\bibpublisher{ACM}\@, \bibyear{2022}\thinspace{}\textnormal{:
+  }\bibpages{4083\thinspace{}\textnormal{--}\thinspace{}4091}\@.
+  \newline\url{http://dx.doi.org/10.1145/3503161.3547880}\@.
+
+\bibitem{Li2021DocParser}
+\bibauthor{LI Y\@, WANG H\@, ZHANG X, et~al}\@. \bibtitle{DocParser: Document
+  Parsing and Structured Data Import}\bibmark{[C/OL]}
+  //\thinspace{}\bibbooktitle{Proceedings of the 2021 Conference on Empirical
+  Methods in Natural Language Processing}\@.
+  \bibaddress{[S.l.]}\thinspace{}\textnormal{: }\bibpublisher{Association for
+  Computational Linguistics}\@, \bibyear{2021}\thinspace{}\textnormal{:
+  }\bibpages{1234\thinspace{}\textnormal{--}\thinspace{}1245}\@.
+  \newline\url{http://dx.doi.org/10.18653/v1/2021.emnlp-main.95}\@.
+
+\bibitem{Powalski2021DocFormer}
+\bibauthor{POWALSKI R\@, BORCHMANN Å\@, GRETKOWSKI T, et~al}\@. \bibtitle{Going
+  Full-TILT Boogie on Document Understanding with Text-Image-Layout
+  Transformer}\bibmark{[C/OL]} //\thinspace{}\bibbooktitle{Document Analysis
+  and Recognition -- ICDAR 2021}\@.
+  \bibaddress{[S.l.]}\thinspace{}\textnormal{: }\bibpublisher{Springer}\@,
+  \bibyear{2021}\thinspace{}\textnormal{:
+  }\bibpages{732\thinspace{}\textnormal{--}\thinspace{}747}\@.
+  \newline\url{http://dx.doi.org/10.1007/978-3-030-86334-0_50}\@.
+
+\bibitem{baek2016_jsac}
+\bibauthor{BAEK H\@, LIM J}\@. \bibtitle{Spectrum Sharing for Coexistence of
+  Fixed Satellite Services and Frequency Hopping Tactical Data
+  Link}\bibmark{[J/OL]}\@. \bibjournal{IEEE Journal on Selected Areas in
+  Communications}\@, \bibyear{2016}\@,
+  \bibvolume{34}\bibnumber{(10)}\thinspace{}\textnormal{:
+  }\bibpages{2642\thinspace{}\textnormal{--}\thinspace{}2649}\@.
+  \newline\url{https://doi.org/10.1109/JSAC.2016.2605979}\@.
+
+\bibitem{jiang2019_sensors}
+\bibauthor{JIANG G\@, FAN Y}\@. \bibtitle{A Method for Analyzing the Impact of
+  Intra-System and Inter-System Interference on {DME} Based on Queueing
+  Theory}\bibmark{[J/OL]}\@. \bibjournal{Sensors}\@, \bibyear{2019}\@,
+  \bibvolume{19}\bibnumber{(2)}\thinspace{}\textnormal{: }\bibpages{348}\@.
+  \newline\url{https://www.mdpi.com/1424-8220/19/2/348}\@.
+
+\bibitem{hegarty_1997_nav_interference}
+\bibauthor{HEGARTY C~J}\@. \bibtitle{Analytical Derivation of Maximum Tolerable
+  In-band Interference Levels for Aviation Applications of
+  {GNSS}}\bibmark{[J/OL]}\@. \bibjournal{NAVIGATION}\@, \bibyear{1997}\@,
+  \bibvolume{44}\bibnumber{(1)}\thinspace{}\textnormal{:
+  }\bibpages{25\thinspace{}\textnormal{--}\thinspace{}34}\@.
+  \newline\url{http://dx.doi.org/10.1002/j.2161-4296.1997.tb01936.x}\@.
+
+\bibitem{schnaufer_mcgraw_1997_waas}
+\bibauthor{SCHNAUFER B~A\@, MCGRAW G~A}\@. \bibtitle{WAAS Receiver Carrier
+  Tracking Loop and Data Demodulation Performance in the Presence of Wideband
+  Interference}\bibmark{[J/OL]}\@. \bibjournal{NAVIGATION}\@, \bibyear{1997}\@,
+  \bibvolume{44}\bibnumber{(1)}\thinspace{}\textnormal{:
+  }\bibpages{35\thinspace{}\textnormal{--}\thinspace{}42}\@.
+  \newline\url{http://dx.doi.org/10.1002/j.2161-4296.1997.tb01937.x}\@.
+
 \bibitem{Chelton_Link16_Antennas_2022}
 \bibauthor{LIMITED C}\@. \bibbooktitle{Link 16 Antenna and System
   Solutions}\bibmark{[K/OL]}\@. \bibyear{2022}\@.
@@ -368,6 +445,14 @@
   CA}\thinspace{}\textnormal{: }\bibschool{Naval Postgraduate School}\@,
   \bibyear{2008}\bibcitedate{[2024-09-22]}\@.
   \newline\url{https://calhoun.nps.edu/handle/10945/3840}\@.
+
+\bibitem{reid_2018_nav_leo}
+\bibauthor{REID T~G~R\@, NEISH A~M\@, WALTER T, et~al}\@. \bibtitle{Broadband
+  {LEO} Constellations for Navigation}\bibmark{[J/OL]}\@.
+  \bibjournal{NAVIGATION}\@, \bibyear{2018}\@,
+  \bibvolume{65}\bibnumber{(2)}\thinspace{}\textnormal{:
+  }\bibpages{205\thinspace{}\textnormal{--}\thinspace{}220}\@.
+  \newline\url{http://dx.doi.org/10.1002/navi.234}\@.
 
 \bibitem{Kao_2008}
 \bibauthor{KAO C-H}\@. \bibtitle{Performance Analysis of a JTIDS/Link-16-type
@@ -433,11 +518,6 @@
   Identification}\bibmark{[D/OL]}\@. \bibaddress{Monterey,
   CA}\thinspace{}\textnormal{: }\bibschool{Naval Postgraduate School}\@,
   \bibyear{2025}\@. \newline\url{https://calhoun.nps.edu/handle/10945/76115}\@.
-
-\bibitem{Viasat_STT_press_2020}
-\bibauthor{VIASAT I}\@. \bibtitle{Viasat's Small Tactical Terminal Achieves NSA
-  Link 16 Accreditation}\bibmark{[R/OL]}\@. \bibyear{2020}\@.
-  \newline\url{https://investors.viasat.com/news-releases/news-release-details/viasats-small-tactical-terminal-achieves-national-security}\@.
 
 \bibitem{Koromilas_2009}
 \bibauthor{KOROMILAS I}\@. \bibtitle{Performance Analysis of the Link-16/JTIDS
@@ -532,11 +612,6 @@
   \bibyear{2023}\@, \bibvolume{70}\bibnumber{(2)}\@.
   \newline\url{http://dx.doi.org/10.33012/navi.570}\@.
 
-\bibitem{JCS_Directives_Library}
-\bibauthor{{Joint Chiefs of Staff}}\@. \bibtitle{CJCS \& Joint Staff Directives
-  Library}\bibmark{[R/OL]}\@. \bibyear{2025}\@.
-  \newline\url{https://www.jcs.mil/Library/}\@.
-
 \bibitem{CJCS_Manuals_Library}
 \bibauthor{{Joint Chiefs of Staff}}\@. \bibtitle{CJCS
   Manuals}\bibmark{[R/OL]}\@. \bibyear{2025}\@.
@@ -582,73 +657,6 @@
   Systems}\@, \bibyear{2013}\@, \bibvolume{74}\thinspace{}\textnormal{:
   }\bibpages{149\thinspace{}\textnormal{--}\thinspace{}163}\@.
   \newline\url{https://link.springer.com/article/10.1007/s11265-013-0810-0}\@.
-
-\bibitem{baek2016_jsac}
-\bibauthor{BAEK H\@, LIM J}\@. \bibtitle{Spectrum Sharing for Coexistence of
-  Fixed Satellite Services and Frequency Hopping Tactical Data
-  Link}\bibmark{[J/OL]}\@. \bibjournal{IEEE Journal on Selected Areas in
-  Communications}\@, \bibyear{2016}\@,
-  \bibvolume{34}\bibnumber{(10)}\thinspace{}\textnormal{:
-  }\bibpages{2642\thinspace{}\textnormal{--}\thinspace{}2649}\@.
-  \newline\url{https://doi.org/10.1109/JSAC.2016.2605979}\@.
-
-\bibitem{baek2018_commag}
-\bibauthor{BAEK H\@, LIM J}\@. \bibtitle{Design of Future {UAV}-Relay Tactical
-  Data Link for Reliable {UAV} Control and Situational
-  Awareness}\bibmark{[J/OL]}\@. \bibjournal{IEEE Communications Magazine}\@,
-  \bibyear{2018}\@, \bibvolume{56}\bibnumber{(10)}\thinspace{}\textnormal{:
-  }\bibpages{144\thinspace{}\textnormal{--}\thinspace{}150}\@.
-  \newline\url{https://doi.org/10.1109/MCOM.2018.1700259}\@.
-
-\bibitem{jiang2019_sensors}
-\bibauthor{JIANG G\@, FAN Y}\@. \bibtitle{A Method for Analyzing the Impact of
-  Intra-System and Inter-System Interference on {DME} Based on Queueing
-  Theory}\bibmark{[J/OL]}\@. \bibjournal{Sensors}\@, \bibyear{2019}\@,
-  \bibvolume{19}\bibnumber{(2)}\thinspace{}\textnormal{: }\bibpages{348}\@.
-  \newline\url{https://www.mdpi.com/1424-8220/19/2/348}\@.
-
-\bibitem{hegarty_1997_nav_interference}
-\bibauthor{HEGARTY C~J}\@. \bibtitle{Analytical Derivation of Maximum Tolerable
-  In-band Interference Levels for Aviation Applications of
-  {GNSS}}\bibmark{[J/OL]}\@. \bibjournal{NAVIGATION}\@, \bibyear{1997}\@,
-  \bibvolume{44}\bibnumber{(1)}\thinspace{}\textnormal{:
-  }\bibpages{25\thinspace{}\textnormal{--}\thinspace{}34}\@.
-  \newline\url{http://dx.doi.org/10.1002/j.2161-4296.1997.tb01936.x}\@.
-
-\bibitem{schnaufer_mcgraw_1997_waas}
-\bibauthor{SCHNAUFER B~A\@, MCGRAW G~A}\@. \bibtitle{WAAS Receiver Carrier
-  Tracking Loop and Data Demodulation Performance in the Presence of Wideband
-  Interference}\bibmark{[J/OL]}\@. \bibjournal{NAVIGATION}\@, \bibyear{1997}\@,
-  \bibvolume{44}\bibnumber{(1)}\thinspace{}\textnormal{:
-  }\bibpages{35\thinspace{}\textnormal{--}\thinspace{}42}\@.
-  \newline\url{http://dx.doi.org/10.1002/j.2161-4296.1997.tb01937.x}\@.
-
-\bibitem{DefenseAdvancement_Ship_UAS_2025}
-\bibauthor{ADVANCEMENT D}\@. \bibtitle{Data Link Enables UAS to Exchange Link
-  16 with Navy Ships}\bibmark{[R/OL]}\@. \bibyear{2025}\@.
-  \newline\url{https://www.defenseadvancement.com/news/data-link-enables-uas-to-exchange-link-16-information-with-us-navy-ships-from-over-100-nautical-miles-away/}\@.
-
-\bibitem{anyaegbu_2008_nav_pulsed_mitigation}
-\bibauthor{ANYAEGBU E\@, OTHERS}\@. \bibtitle{An Integrated Pulsed Interference
-  Mitigation for {GNSS} Receivers}\bibmark{[J/OL]}\@. \bibjournal{Journal of
-  Navigation}\@, \bibyear{2008}\@, \bibvolume{61}\bibnumber{(4)}\@.
-  \newline\url{http://dx.doi.org/10.1017/S0373463307004572}\@.
-
-\bibitem{reid_2018_nav_leo}
-\bibauthor{REID T~G~R\@, NEISH A~M\@, WALTER T, et~al}\@. \bibtitle{Broadband
-  {LEO} Constellations for Navigation}\bibmark{[J/OL]}\@.
-  \bibjournal{NAVIGATION}\@, \bibyear{2018}\@,
-  \bibvolume{65}\bibnumber{(2)}\thinspace{}\textnormal{:
-  }\bibpages{205\thinspace{}\textnormal{--}\thinspace{}220}\@.
-  \newline\url{http://dx.doi.org/10.1002/navi.234}\@.
-
-\bibitem{huo_2015_electronics_letters_noise_est}
-\bibauthor{HUO S\@, NIE J\@, WANG F}\@. \bibtitle{Block-flow Noise Power
-  Estimation Algorithm for Pulsed Interference Detection of {GNSS}
-  Receivers}\bibmark{[J/OL]}\@. \bibjournal{Electronics Letters}\@,
-  \bibyear{2015}\@, \bibvolume{51}\bibnumber{(19)}\thinspace{}\textnormal{:
-  }\bibpages{1522\thinspace{}\textnormal{--}\thinspace{}1524}\@.
-  \newline\url{http://dx.doi.org/10.1049/el.2015.1445}\@.
 
 \bibitem{schneckenburger_2018_nav_multipath}
 \bibauthor{SCHNECKENBURGER N\@, FIEBIG U-C\@, LO S, et~al}\@.

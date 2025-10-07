@@ -1,0 +1,104 @@
+@startuml
+!theme plain
+title 语义互操作架构层次图
+
+package "语用层 (Pragmatic Layer)" {
+    [业务规则] as pragmatic1
+    [上下文理解] as pragmatic2
+    [意图识别] as pragmatic3
+    [决策支持] as pragmatic4
+}
+
+package "语义层 (Semantic Layer)" {
+    [本体模型] as semantic1
+    [概念映射] as semantic2
+    [语义推理] as semantic3
+    [知识图谱] as semantic4
+}
+
+package "语法层 (Syntactic Layer)" {
+    [数据格式] as syntactic1
+    [消息结构] as syntactic2
+    [协议规范] as syntactic3
+    [接口定义] as syntactic4
+}
+
+package "物理层 (Physical Layer)" {
+    [传输协议] as physical1
+    [网络连接] as physical2
+    [数据编码] as physical3
+    [安全机制] as physical4
+}
+
+package "互操作机制" {
+    [语义中枢] as hub
+    [映射引擎] as mapper
+    [转换器] as converter
+    [验证器] as validator
+}
+
+package "应用场景" {
+    [多协议转换] as app1
+    [跨域数据融合] as app2
+    [智能决策支持] as app3
+    [知识发现] as app4
+}
+
+' 层次关系
+pragmatic1 --> semantic1
+pragmatic2 --> semantic2
+pragmatic3 --> semantic3
+pragmatic4 --> semantic4
+
+semantic1 --> syntactic1
+semantic2 --> syntactic2
+semantic3 --> syntactic3
+semantic4 --> syntactic4
+
+syntactic1 --> physical1
+syntactic2 --> physical2
+syntactic3 --> physical3
+syntactic4 --> physical4
+
+' 互操作机制连接
+hub --> mapper
+mapper --> converter
+converter --> validator
+
+' 应用场景连接
+app1 --> hub
+app2 --> mapper
+app3 --> converter
+app4 --> validator
+
+note right of pragmatic1
+语用层关注业务规则
+和上下文理解，实现
+真正的语义互操作
+end note
+
+note right of semantic1
+语义层通过本体模型
+和概念映射实现
+语义一致性
+end note
+
+note right of syntactic1
+语法层处理数据格式
+和消息结构，确保
+数据交换的正确性
+end note
+
+note right of physical1
+物理层负责传输协议
+和网络连接，提供
+基础通信能力
+end note
+
+note right of hub
+语义中枢作为核心
+协调不同系统的
+语义模型
+end note
+
+@enduml

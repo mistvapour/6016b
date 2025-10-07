@@ -1,0 +1,51 @@
+@startuml
+title 微服务架构研究演进历程图
+
+package "理论基础阶段 (2010-2014)" {
+    [概念提出] as concept
+    [理论阐述] as theory
+}
+
+package "系统化研究阶段 (2015-2020)" {
+    [设计方法] as design
+    [数据管理] as data
+    [监控工具] as monitoring
+}
+
+package "智能化发展阶段 (2020至今)" {
+    [安全治理] as security
+    [智能演化] as intelligence
+    [性能优化] as performance
+}
+
+package "国内发展现状" {
+    [技术基础] as foundation
+    [框架生态] as framework
+    [应用探索] as application
+}
+
+concept --> theory
+theory --> design
+design --> data
+data --> monitoring
+monitoring --> security
+security --> intelligence
+intelligence --> performance
+
+foundation --> framework
+framework --> application
+
+note right of concept : James Lewis & Martin Fowler\n业务能力为核心的分布式架构
+note right of theory : 微服务元年(2015)\nNetflix、Amazon、Google实践
+note right of design : 领域驱动设计(DDD)\n基于业务能力的服务划分
+note right of data : "每服务独立数据库"模式\nSaga模式、事件驱动
+note right of monitoring : 资源利用率监控\n71种微服务监控工具
+note right of security : "零信任"架构思想\nOAuth2.0、JWT认证
+note right of intelligence : AI/ML服务部署优化\n动态自组织系统
+note right of performance : 基准测试体系\n事务处理性能评估
+
+note right of foundation : 2007年阿里巴巴分布式服务\n淘宝平台技术基础
+note right of framework : Dubbo开源框架\nSpring Cloud Alibaba
+note right of application : 军工科研机构应用\n战术通信与指挥控制
+
+@enduml
