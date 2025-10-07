@@ -1,0 +1,79 @@
+graph TB
+    subgraph "前端用户界面层"
+        A[统一文档处理与语义互操作平台]
+        A1[消息处理模块]
+        A2[文件处理模块]
+        A3[概念管理模块]
+        A4[映射管理模块]
+        A5[系统概览模块]
+        A --> A1
+        A --> A2
+        A --> A3
+        A --> A4
+        A --> A5
+    end
+    
+    subgraph "API网关层"
+        B[统一API网关]
+        B1["/api/v2 统一接口"]
+        B2["/api/cdm CDM互操作"]
+        B3["/api/semantic 语义互操作"]
+        B4["/api/pdf PDF处理"]
+        B5["/api/mqtt MQTT处理"]
+        B --> B1
+        B --> B2
+        B --> B3
+        B --> B4
+        B --> B5
+    end
+    
+    subgraph "业务逻辑层"
+        C[PDF处理服务]
+        D[MQTT处理服务]
+        E[语义互操作系统]
+        F[CDM四层法系统]
+        G[通用导入系统]
+    end
+    
+    subgraph "数据处理层"
+        H[消息解析引擎]
+        I[字段提取器]
+        J[语义绑定器]
+        K[数据校验器]
+    end
+    
+    subgraph "数据存储层"
+        L[(关系数据库)]
+        L1[消息表]
+        L2[字段表]
+        L3[概念表]
+        L4[映射表]
+        L --> L1
+        L --> L2
+        L --> L3
+        L --> L4
+    end
+    
+    A1 --> B1
+    A2 --> B1
+    A3 --> B2
+    A4 --> B3
+    A5 --> B1
+    
+    B1 --> C
+    B1 --> D
+    B2 --> F
+    B3 --> E
+    B4 --> C
+    B5 --> D
+    
+    C --> H
+    D --> H
+    E --> J
+    F --> J
+    G --> I
+    
+    H --> I
+    I --> J
+    J --> K
+    K --> L

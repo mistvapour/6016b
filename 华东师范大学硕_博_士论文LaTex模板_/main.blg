@@ -1,0 +1,134 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+The style file: references/gbt7714-2005.bst
+Reallocating 'name_of_file' (item size: 1) to 17 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Database file #1: references/paper.bib
+Warning--I didn't find a database entry for "MonitoringTools2023"
+Warning--I didn't find a database entry for "SemanticMultiCloud2024"
+Warning--I didn't find a database entry for "Xu2022LayoutLMv3"
+Warning--I didn't find a database entry for "Li2021DocParser"
+Warning--I didn't find a database entry for "Powalski2021DocFormer"
+Warning--Require citedate: wray_sheppard_1986_jtids_nav
+Warning--Require citedate: ranger1996_jn
+Warning--Require citedate: fried1984_navigation
+Warning--Require citedate: doherty1988_jn
+Warning--Require citedate: L3Harris_MIDS_LVT_2025
+Warning--Require citedate: Waseem2021Design
+Warning--Require citedate: Laigner2021Data
+Warning--Require citedate: MonitoringTools2024
+Warning--Require citedate: CJCSI_6610_01F_2021
+Warning--Require citedate: Mishra2018Semantic
+Warning--Require citedate: Bernasconi2022Ontological
+Warning--Require citedate: Guizzardi2023Explanation
+Warning--Require citedate: Hamdan2023Reference
+Warning--Require citedate: Hamdan2024SemanticMultiCloud
+Warning--Require citedate: Xu2020LayoutLM
+Warning--Require citedate: Huang2022LayoutLMv3
+Warning--Require citedate: Rausch2021DocParser
+Warning--Require citedate: Appalaraju2021DocFormer
+Warning--Require citedate: Wang2023DocumentLLM
+Warning--Require citedate: MITRE_Link16_Interoperability_2024
+Warning--Require citedate: SAIC_JRE_Overview_2021
+Warning--Require citedate: Collins_TTR_2021
+Warning--Require citedate: L3Harris_STT_KOR24A_2020
+Warning--Require citedate: CurtissWright_TCG_HUNTR_2020
+Warning--Require citedate: EverythingRF_Link16_Band
+Warning--Require citedate: DLS_MIDS_JTRS_2021
+Warning--Require citedate: BAE_Link16_Terminals_2025
+Warning--Require citedate: Ultra_ADSI_2023
+Warning--Require citedate: ASSIST_6016_2024
+Warning--Require citedate: CJCSM_6235_01_2025
+Warning--Require citedate: Ultra_MDLMS_2021
+Warning--Require citedate: Chelton_Link16_Antennas_2022
+Warning--Require citedate: AFCEA_Link16_Improvements_2022
+Warning--Require citedate: Kao_2008
+Warning--Require citedate: Kagioglidis_2009
+Warning--Require citedate: Kee_2008
+Warning--Require citedate: baek2016_adhoc
+Warning--Require citedate: baek2019_jsyst_timemirror
+Warning--Require citedate: lee2018_jsyst
+Warning--Require citedate: Spyridis_2010
+Warning--Require citedate: Kopp_Throughput_Enhanced_JTIDS_2006
+Warning--Require citedate: Juarez_2025
+Warning--Require citedate: Viasat_STT_press_2020
+Warning--Require citedate: EverythingRF_STT
+Warning--Require citedate: Collins_TTNT_immersion_2020
+Warning--Require citedate: Euromids_2025_contract
+Warning--Require citedate: GovConWire_Euromids_2025
+Warning--Require citedate: musumeci_2014_ietrsn_pulseblank
+Warning--Require citedate: borio_2013_ietspr_pulseblanking
+Warning--Require citedate: houdzoumis2009_jn
+Warning--Require citedate: wu_2016_taes_dme_wp
+Warning--Require citedate: huo_2015_ieeecl_meb
+Warning--Require citedate: huo_2015_comex_mixed_interference
+Warning--Require citedate: mitch_2016_nav_chirp_geolocation
+Warning--Require citedate: vandermerwe_2023_nav_mpanf
+Warning--Require citedate: JCS_Directives_Library
+Warning--Require citedate: CJCS_Manuals_Library
+Warning--Require citedate: CJCS_Instructions_Library
+Warning--Require citedate: ASSIST_3011_2023
+Warning--Require citedate: ASSIST_6020_2025
+Warning--Require citedate: qin2013_gpssol
+Warning--Require citedate: fried_loeliger1979_navigation
+Warning--Require citedate: baruffa2013_jsps
+Warning--Require citedate: baek2016_jsac
+Warning--Require citedate: baek2018_commag
+Warning--Require citedate: jiang2019_sensors
+Warning--Require citedate: hegarty_1997_nav_interference
+Warning--Require citedate: schnaufer_mcgraw_1997_waas
+Warning--Require citedate: DefenseAdvancement_Ship_UAS_2025
+Warning--Require citedate: anyaegbu_2008_nav_pulsed_mitigation
+Warning--Require citedate: reid_2018_nav_leo
+Warning--Require citedate: huo_2015_electronics_letters_noise_est
+Warning--Require citedate: schneckenburger_2018_nav_multipath
+Warning--Require citedate: FFI_SDA_Link16_Space_2023
+Warning--Require citedate: Redwire_SDA_Ship_Demo_2024
+Warning--Require citedate: JAPCC_F35_TDLs_2024
+Warning--Require citedate: JAPCC_Hosted_Payloads_2015
+You've used 97 entries,
+            3050 wiz_defined-function locations,
+            1323 strings with 27173 characters,
+and the built_in function-call counts, 119728 in all, are:
+= -- 12850
+> -- 261
+< -- 622
++ -- 10634
+- -- 749
+* -- 4110
+:= -- 13954
+add.period$ -- 0
+call.type$ -- 97
+change.case$ -- 328
+chr.to.int$ -- 0
+cite$ -- 174
+duplicate$ -- 15912
+empty$ -- 4244
+format.name$ -- 656
+if$ -- 31660
+int.to.chr$ -- 0
+int.to.str$ -- 97
+missing$ -- 0
+newline$ -- 318
+num.names$ -- 98
+pop$ -- 1486
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1143
+stack$ -- 0
+substring$ -- 13565
+swap$ -- 3830
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 77
+while$ -- 1427
+width$ -- 99
+write$ -- 1336
+(There were 82 warnings)

@@ -1,0 +1,35 @@
+@startuml 系统管理员用例图
+!theme plain
+skinparam backgroundColor white
+skinparam actorStyle awesome
+
+title 系统管理员用例图
+
+actor "系统管理员" as Admin
+
+rectangle "统一文档处理与语义互操作平台" {
+    usecase "用户权限管理" as UC1
+    usecase "系统配置管理" as UC2
+    usecase "安全审计" as UC3
+    usecase "数据库维护" as UC4
+    usecase "系统监控" as UC5
+    usecase "日志管理" as UC6
+    usecase "备份恢复" as UC7
+    usecase "性能优化" as UC8
+}
+
+Admin --> UC1 : 分配用户角色
+Admin --> UC2 : 配置系统参数
+Admin --> UC3 : 查看安全日志
+Admin --> UC4 : 维护数据库
+Admin --> UC5 : 监控系统状态
+Admin --> UC6 : 管理操作日志
+Admin --> UC7 : 执行备份恢复
+Admin --> UC8 : 优化系统性能
+
+note right of Admin
+  系统管理员具有最高权限，
+  负责系统的整体管理和维护
+end note
+
+@enduml

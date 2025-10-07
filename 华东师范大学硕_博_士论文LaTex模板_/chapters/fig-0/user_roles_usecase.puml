@@ -1,0 +1,113 @@
+@startuml 用户角色与用例图
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam actorStyle awesome
+skinparam usecaseStyle rectangle
+
+title 战术数据链信息标准数据库系统 - 用户角色与用例图
+
+' 定义用户角色
+actor "系统管理员" as Admin #lightblue
+actor "作战指挥员" as Commander #lightgreen  
+actor "研发人员" as Developer #lightyellow
+actor "仿真平台" as Simulator #lightcoral
+
+' 定义系统边界
+package "战术数据链信息标准数据库系统" {
+    
+    ' 系统管理用例
+    package "系统管理" {
+        usecase "用户权限管理" as UC1
+        usecase "系统配置管理" as UC2
+        usecase "数据备份恢复" as UC3
+        usecase "性能监控" as UC4
+        usecase "日志审计" as UC5
+    }
+    
+    ' 数据管理用例
+    package "数据管理" {
+        usecase "消息标准管理" as UC6
+        usecase "字段定义管理" as UC7
+        usecase "语义概念绑定" as UC8
+        usecase "版本控制管理" as UC9
+        usecase "数据导入导出" as UC10
+    }
+    
+    ' 查询检索用例
+    package "查询检索" {
+        usecase "消息查询" as UC11
+        usecase "字段检索" as UC12
+        usecase "语义搜索" as UC13
+        usecase "跨协议映射" as UC14
+        usecase "智能推荐" as UC15
+    }
+    
+    ' 可视化展示用例
+    package "可视化展示" {
+        usecase "消息结构可视化" as UC16
+        usecase "概念关系图" as UC17
+        usecase "数据统计图表" as UC18
+        usecase "交互式操作" as UC19
+    }
+    
+    ' 接口服务用例
+    package "接口服务" {
+        usecase "RESTful API调用" as UC20
+        usecase "消息生成" as UC21
+        usecase "协议转换" as UC22
+        usecase "实时数据流" as UC23
+    }
+}
+
+' 系统管理员关系
+Admin --> UC1 : 管理用户权限
+Admin --> UC2 : 配置系统参数
+Admin --> UC3 : 执行备份恢复
+Admin --> UC4 : 监控系统性能
+Admin --> UC5 : 查看操作日志
+Admin --> UC6 : 管理消息标准
+Admin --> UC7 : 管理字段定义
+Admin --> UC8 : 配置语义绑定
+Admin --> UC9 : 控制版本管理
+Admin --> UC10 : 执行数据导入导出
+
+' 作战指挥员关系
+Commander --> UC11 : 查询战术消息
+Commander --> UC12 : 检索字段信息
+Commander --> UC13 : 语义搜索
+Commander --> UC14 : 跨协议映射
+Commander --> UC16 : 查看消息结构
+Commander --> UC17 : 查看概念关系
+Commander --> UC18 : 查看统计图表
+Commander --> UC19 : 交互式操作
+
+' 研发人员关系
+Developer --> UC6 : 维护消息标准
+Developer --> UC7 : 维护字段定义
+Developer --> UC8 : 维护语义绑定
+Developer --> UC9 : 管理版本控制
+Developer --> UC10 : 批量数据处理
+Developer --> UC11 : 查询消息定义
+Developer --> UC12 : 检索字段信息
+Developer --> UC20 : 调用API接口
+Developer --> UC21 : 生成测试消息
+Developer --> UC22 : 协议转换测试
+
+' 仿真平台关系
+Simulator --> UC20 : 调用RESTful API
+Simulator --> UC21 : 生成仿真消息
+Simulator --> UC22 : 协议转换
+Simulator --> UC23 : 实时数据流
+Simulator --> UC11 : 查询消息定义
+Simulator --> UC12 : 检索字段信息
+
+' 用例间关系
+UC6 ..> UC7 : include
+UC7 ..> UC8 : include
+UC11 ..> UC12 : include
+UC13 ..> UC15 : extend
+UC16 ..> UC17 : include
+UC20 ..> UC21 : include
+UC21 ..> UC22 : include
+
+@enduml

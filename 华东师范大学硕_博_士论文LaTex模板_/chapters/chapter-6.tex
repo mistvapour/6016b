@@ -1,0 +1,36 @@
+\chapter{总结与展望}
+
+\section{研究成果总结}
+
+本文以 \textbf{MIL-STD-6016 / STANAG 5516} 为核心，围绕战术数据链信息标准的存储、查询与互操作展开了系统性的研究与实现。主要成果如下：
+
+\begin{itemize}
+  \item \textbf{数据库架构设计}：基于 MySQL~8.0 设计了 \texttt{spec}、\texttt{message}、\texttt{word}、\texttt{field}、\texttt{data\_item}、\texttt{concept} 等核心表结构，并通过 \texttt{concept\_binding} 机制实现了跨标准的概念映射，为后续的多版本对比与互操作提供支撑。
+  \item \textbf{后端接口与绑定机制}：实现了 FastAPI 服务，包括 \texttt{/api/search}、\texttt{/api/word/search}、\texttt{/api/compare}、\texttt{/api/bind/field-to-di} 等核心接口，支持概念—字段—数据项的双向绑定和跨版本比较。
+  \item \textbf{前端交互与可视化}：采用 React + shadcn/ui 开发了统一界面，实现搜索、比较与热门概念展示等功能，并提供了条件回显、弱错误提示与多浏览器兼容性优化。
+  \item \textbf{测试与评估}：通过功能测试、压力测试与用户问卷，验证了系统在高并发与复杂检索条件下的稳定性与可用性。测试结果表明，系统能够在 1000 并发场景下保持较高吞吐与低延迟，具有良好的可扩展性。
+\end{itemize}
+
+综上，本文构建了一个贯通“标准化存储—智能搜索—跨标准比较—可视化展示”的完整实现链条，为后续的战术数据链互操作与仿真提供了技术参考。
+
+\section{存在的不足}
+
+尽管系统设计与实现达成了预期目标，但仍存在以下不足：
+
+\begin{enumerate}
+  \item \textbf{数据样本有限}：实验性导入的 MIL-STD-6016 字段数据规模约 50 万条，尚不足以覆盖全部 NATO 及扩展规范，缺乏跨多链（Link 11/22、TTNT）的大规模验证。
+  \item \textbf{功能深度不足}：前端目前以表格展示为主，尚未集成复杂的图表分析与交互式态势展示；后端对冲突检测与一致性验证的逻辑仍偏基础。
+  \item \textbf{安全与运维方面}：虽然实现了 RBAC 与 CORS 策略，但尚未覆盖全链路加密、KMI（密钥管理基础设施）等更高等级的安全要求。
+\end{enumerate}
+
+\section{未来研究方向}
+后续的研究与应用可以从以下几个方面拓展：\cite{FFI_SDA_Link16_Space_2023,Redwire_SDA_Ship_Demo_2024,JAPCC_F35_TDLs_2024,JAPCC_Hosted_Payloads_2015}
+
+\begin{itemize}
+  \item \textbf{跨链互操作扩展}：引入 JREAP、SIMPLE、TTNT 等标准接口，进一步验证跨链数据转发与一致性处理机制。
+  \item \textbf{智能化处理}：结合机器学习与大模型，对导入的 Link 16 数据链消息进行自动分类、冲突检测与语义推理，提升态势信息处理能力。
+  \item \textbf{仿真与实验验证}：在实验平台中对多链融合能力进行实战化仿真，参考现有战术数据链仿真系统的设计思路，提升在复杂战场环境下的可验证性。
+  \item \textbf{安全与加密机制}：探索基于区块链与分布式密钥管理的多链安全架构，增强跨域互操作环境下的可靠性与抗毁性。
+\end{itemize}
+
+通过以上拓展方向，未来系统有望在 \textbf{多链融合、智能分析、安全保障} 三个方面取得更高水平的突破，从而为新一代联合战术通信与仿真系统提供坚实的支撑。

@@ -1,0 +1,54 @@
+\newpage
+\vspace{-1cm}
+\chapter*{\zihao{-3}\heiti{ABSTRACT}}
+\addcontentsline{toc}{chapter}{Abstract}
+\vspace{-0.5cm}
+
+With the continuous evolution of informationized and multi-domain operations, the Tactical Data Link (TDL) has become a key technology for achieving information sharing and command control in joint operations. As a representative system, {Link16}, based on the MIL-STD-6016 standard, enables cross-platform and cross-domain communication through J-series messages. However, existing TDL systems still face challenges in standard modeling, semantic interoperability, and system scalability.
+
+Firstly, this thesis analyzes the MIL-STD-6016 standard and its J-series message hierarchy, and proposes an information standard database modeling approach for tactical data links. The message structure is decomposed into “message–word–field–data item” layers for standardized storage and management. A semantic concept binding mechanism is introduced to establish cross-standard mappings and ensure semantic consistency across multiple data link protocols.
+
+Secondly, a cloud-native and microservice-based architecture is designed and implemented. The backend is divided into independent modules, including PDF processing, semantic interoperability, CDM modeling, and unified import, coordinated through an API gateway for routing, authentication, and traffic control. The infrastructure integrates MySQL, Redis, RabbitMQ, and MinIO to support high concurrency and eventual consistency. The system, developed with FastAPI and React, employs Docker and Kubernetes for containerized deployment and automated CI/CD operations.
+
+Finally, functional and performance evaluations are conducted. Experimental results demonstrate that under million-scale datasets, the system achieves millisecond-level response, with an average latency below 200 ms, cache hit rate above 85\%, and over 99\% stability under high concurrency. These results verify the effectiveness of the proposed architecture in standardized modeling, semantic interoperability, and scalability.
+
+In conclusion, this research provides a novel technical framework for the standardized modeling and semantic integration of tactical data links. The proposed database and microservice architecture demonstrate strong engineering applicability for multi-link fusion, situational awareness sharing, and interoperability testing.
+
+
+\vspace{0.5cm}
+\hspace{-1cm}
+{\bf{\sihao{Keywords:}}} \textit{Tactical Data Link; MIL-STD-6016; Microservice Architecture; Semantic Interoperability; Automated Deployment; Database Modeling}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
