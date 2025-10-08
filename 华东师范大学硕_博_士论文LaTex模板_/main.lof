@@ -31,9 +31,5 @@
 \contentsline {figure}{\numberline {5.8}{\ignorespaces 概念管理模块界面}}{94}{figure.caption.43}%
 \contentsline {figure}{\numberline {5.9}{\ignorespaces 映射管理模块界面}}{95}{figure.caption.44}%
 \contentsline {figure}{\numberline {5.10}{\ignorespaces 系统概览模块界面}}{96}{figure.caption.45}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces 并发数与时延（Avg / P95）关系}}{112}{figure.caption.74}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces 并发数与成功率关系}}{112}{figure.caption.74}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces 并发数与吞吐量（QPS）关系}}{112}{figure.caption.74}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces 用户问卷总体满意度分布（Likert 1--5，n=20）}}{113}{figure.caption.75}%
 \addvspace {10.0pt}
 \contentsfinish 

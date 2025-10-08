@@ -10,19 +10,18 @@
 \contentsline {table}{\numberline {4.1}{\ignorespaces 技术栈与基础组件选型}}{42}{table.caption.25}%
 \contentsline {table}{\numberline {4.2}{\ignorespaces 微服务模块划分与职责}}{43}{table.caption.26}%
 \addvspace {10.0pt}
-\contentsline {table}{\numberline {5.1}{\ignorespaces 性能优化策略与效果对比}}{98}{table.caption.49}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces 系统测试环境配置}}{99}{table.caption.50}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces PDF解析模块单元测试结果}}{100}{table.caption.51}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces 数据导入转换模块单元测试结果}}{100}{table.caption.52}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces 缓存管理模块单元测试结果}}{101}{table.caption.53}%
-\contentsline {table}{\numberline {5.6}{\ignorespaces API路由模块单元测试结果}}{101}{table.caption.54}%
-\contentsline {table}{\numberline {5.7}{\ignorespaces 语义标注模块单元测试结果}}{101}{table.caption.55}%
-\contentsline {table}{\numberline {5.8}{\ignorespaces 字段映射模块单元测试结果}}{102}{table.caption.56}%
-\contentsline {table}{\numberline {5.9}{\ignorespaces 导入合并模块单元测试结果}}{102}{table.caption.57}%
-\contentsline {table}{\numberline {5.10}{\ignorespaces 接口与集成测试用例详表}}{103}{table.caption.58}%
-\contentsline {table}{\numberline {5.11}{\ignorespaces 系统性能与压力测试结果}}{105}{table.caption.63}%
-\contentsline {table}{\numberline {5.12}{\ignorespaces 安全与鲁棒性测试结果}}{107}{table.caption.67}%
-\contentsline {table}{\numberline {5.13}{\ignorespaces 可用性与用户体验测试结果}}{109}{table.caption.72}%
-\contentsline {table}{\numberline {5.14}{\ignorespaces 可视化界面认知负荷测试结果}}{109}{table.caption.73}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces 系统测试环境配置}}{97}{table.caption.46}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces PDF解析模块单元测试结果}}{98}{table.caption.47}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces 数据导入转换模块单元测试结果}}{98}{table.caption.48}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces 缓存管理模块单元测试结果}}{99}{table.caption.49}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces API路由模块单元测试结果}}{99}{table.caption.50}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces 语义标注模块单元测试结果}}{99}{table.caption.51}%
+\contentsline {table}{\numberline {5.7}{\ignorespaces 字段映射模块单元测试结果}}{100}{table.caption.52}%
+\contentsline {table}{\numberline {5.8}{\ignorespaces 导入合并模块单元测试结果}}{100}{table.caption.53}%
+\contentsline {table}{\numberline {5.9}{\ignorespaces 接口与集成测试用例详表}}{101}{table.caption.54}%
+\contentsline {table}{\numberline {5.10}{\ignorespaces 系统性能与压力测试结果}}{102}{table.caption.55}%
+\contentsline {table}{\numberline {5.11}{\ignorespaces 安全与鲁棒性测试结果}}{103}{table.caption.56}%
+\contentsline {table}{\numberline {5.12}{\ignorespaces 可用性与用户体验测试结果}}{104}{table.caption.57}%
+\contentsline {table}{\numberline {5.13}{\ignorespaces 可视化界面认知负荷测试结果}}{104}{table.caption.58}%
 \addvspace {10.0pt}
 \contentsfinish 
