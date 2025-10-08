@@ -22,6 +22,30 @@ urlcolor=black
 \usepackage{times}
 \usepackage{fontspec}
 \usepackage{makecell,rotating,multirow,diagbox}
+\usepackage{listings}  % 代码块显示包
+\usepackage{xcolor}    % 颜色支持
+
+% 代码块样式配置
+\lstset{
+    basicstyle=\ttfamily\small,
+    commentstyle=\color{gray},
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{gray!10},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    escapeinside={\%*}{*)}
+}
 
 % 字体配置
 % \input{font-config.tex} % 字体配置文件已删除

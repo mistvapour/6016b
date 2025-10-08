@@ -1,0 +1,28 @@
+@startuml
+!theme plain
+skinparam backgroundColor white
+skinparam activity {
+  BackgroundColor lightblue
+  BorderColor darkblue
+  FontColor black
+}
+
+title 数据处理流水线架构图
+
+start
+
+:PDF处理流水线;
+note right: 文档解析 → 表格识别 → 章节解析 → SIM构建 → 验证 → YAML导出
+
+:语义互操作流水线;
+note right: 消息分析 → 语义标注 → 映射规则 → 跨协议转换
+
+:CDM转换流水线;
+note right: 源协议 → CDM模型 → 目标协议
+
+:统一导入流水线;
+note right: 格式检测 → 适配器选择 → 数据处理 → 结果存储
+
+stop
+
+@enduml

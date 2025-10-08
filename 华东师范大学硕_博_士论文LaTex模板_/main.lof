@@ -5,28 +5,35 @@
 \addvspace {10.0pt}
 \contentsline {figure}{\numberline {2.1}{\ignorespaces 战术数据链体系结构示意图}}{18}{figure.caption.11}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces MIL-STD-6016 J系列消息结构图}}{20}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces 微服务架构发展时间线图}}{24}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces 语义互操作架构层次图}}{26}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces 文档自动化处理技术演进图}}{28}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces 微服务架构发展时间线图}}{23}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces 语义互操作架构层次图}}{25}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces 文档自动化处理技术演进图}}{27}{figure.caption.16}%
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces 系统整体架构图}}{31}{figure.caption.18}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces CDM四层法架构图}}{34}{figure.caption.20}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces 前端交互用例图（角色与功能关系）}}{37}{figure.caption.22}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces 前端功能组件与服务接口关系图}}{38}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces 系统整体架构图}}{30}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces CDM四层法架构图}}{33}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces 前端交互用例图（角色与功能关系）}}{36}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces 前端功能组件与服务接口关系图}}{37}{figure.caption.23}%
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces 系统总体架构分层图}}{42}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces 核心数据模型ER图}}{47}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces 多协议支持体系架构图}}{50}{figure.caption.28}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces CDM四层法语义互操作模型图}}{51}{figure.caption.29}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces 语义互操作系统组成图}}{52}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces 系统总体架构分层图}}{41}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces 核心数据模型ER图}}{46}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces 多协议支持体系架构图}}{49}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces CDM四层法语义互操作模型图}}{50}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces 语义互操作系统组成图}}{51}{figure.caption.30}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces 自动化导入流程}}{54}{figure.caption.31}%
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces 数据库初始化与数据导入流程}}{61}{figure.caption.32}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces 前端搜索功能演示界面}}{64}{figure.caption.33}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces 跨规范比较功能演示界面}}{65}{figure.caption.34}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces 并发数与时延（Avg / P95）关系}}{69}{figure.caption.35}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces 并发数与成功率关系}}{69}{figure.caption.35}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces 并发数与吞吐量（QPS）关系}}{69}{figure.caption.35}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces 用户问卷总体满意度分布（Likert 1--5，n=20）}}{71}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces 数据处理流水线架构图}}{88}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces 系统主页面界面}}{89}{figure.caption.37}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces 搜索功能界面}}{90}{figure.caption.38}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces 数据比较界面}}{91}{figure.caption.39}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces PDF处理界面}}{91}{figure.caption.40}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces 消息处理模块界面}}{92}{figure.caption.41}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces 文件处理模块界面}}{93}{figure.caption.42}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces 概念管理模块界面}}{94}{figure.caption.43}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces 映射管理模块界面}}{95}{figure.caption.44}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces 系统概览模块界面}}{96}{figure.caption.45}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces 并发数与时延（Avg / P95）关系}}{112}{figure.caption.74}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces 并发数与成功率关系}}{112}{figure.caption.74}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces 并发数与吞吐量（QPS）关系}}{112}{figure.caption.74}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces 用户问卷总体满意度分布（Likert 1--5，n=20）}}{113}{figure.caption.75}%
 \addvspace {10.0pt}
 \contentsfinish 
