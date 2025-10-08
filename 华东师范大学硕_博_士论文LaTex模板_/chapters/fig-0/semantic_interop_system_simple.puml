@@ -1,0 +1,56 @@
+@startuml semantic_interop_system_simple
+!theme plain
+skinparam backgroundColor white
+skinparam componentStyle rectangle
+skinparam linetype ortho
+
+title 语义互操作系统组成图
+
+component [语义注册表] as registry {
+    component [语义字段管理] as field_mgmt
+    component [消息定义库] as message_lib
+    component [概念库] as concept_lib
+}
+
+component [语义转换器] as converter {
+    component [字段级转换] as field_conv
+    component [单位转换] as unit_conv
+    component [枚举映射] as enum_map
+}
+
+component [消息路由器] as router {
+    component [协议选择器] as protocol_sel
+    component [转换策略] as strategy
+    component [路径优化] as path_opt
+}
+
+component [互操作管理器] as manager {
+    component [跨标准转换] as cross_std
+    component [质量监控] as quality_mon
+    component [性能优化] as perf_opt
+}
+
+' 连接关系
+registry --> converter
+converter --> router
+router --> manager
+
+field_mgmt --> field_conv
+message_lib --> unit_conv
+concept_lib --> enum_map
+
+field_conv --> protocol_sel
+unit_conv --> strategy
+enum_map --> path_opt
+
+protocol_sel --> cross_std
+strategy --> quality_mon
+path_opt --> perf_opt
+
+' 添加说明
+note right of registry : 管理语义字段、消息定义、概念库
+note right of converter : 实现字段级数据转换
+note right of router : 基于规则的智能路由
+note right of manager : 统一管理跨标准转换
+
+@enduml

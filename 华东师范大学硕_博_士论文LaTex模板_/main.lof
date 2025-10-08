@@ -14,16 +14,19 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces 前端交互用例图（角色与功能关系）}}{37}{figure.caption.22}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces 前端功能组件与服务接口关系图}}{38}{figure.caption.23}%
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces 系统总体架构分层图}}{43}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces 核心数据模型ER图}}{48}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces 自动化导入流程}}{53}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces 系统总体架构分层图}}{42}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces 核心数据模型ER图}}{47}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces 多协议支持体系架构图}}{50}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces CDM四层法语义互操作模型图}}{51}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces 语义互操作系统组成图}}{52}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces 自动化导入流程}}{54}{figure.caption.31}%
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces 数据库初始化与数据导入流程}}{61}{figure.caption.30}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces 前端搜索功能演示界面}}{64}{figure.caption.31}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces 跨规范比较功能演示界面}}{65}{figure.caption.32}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces 并发数与时延（Avg / P95）关系}}{69}{figure.caption.33}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces 并发数与成功率关系}}{69}{figure.caption.33}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces 并发数与吞吐量（QPS）关系}}{69}{figure.caption.33}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces 用户问卷总体满意度分布（Likert 1--5，n=20）}}{71}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces 数据库初始化与数据导入流程}}{61}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces 前端搜索功能演示界面}}{64}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces 跨规范比较功能演示界面}}{65}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces 并发数与时延（Avg / P95）关系}}{69}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces 并发数与成功率关系}}{69}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces 并发数与吞吐量（QPS）关系}}{69}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces 用户问卷总体满意度分布（Likert 1--5，n=20）}}{71}{figure.caption.36}%
 \addvspace {10.0pt}
 \contentsfinish 

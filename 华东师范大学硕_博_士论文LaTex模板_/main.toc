@@ -1,7 +1,7 @@
 \contentsline {chapter}{摘要}{i}{chapter*.1}%
 \contentsline {chapter}{Abstract}{iii}{chapter*.2}%
-\contentsline {chapter}{图目录}{ix}{chapter*.3}%
-\contentsline {chapter}{表目录}{xi}{chapter*.4}%
+\contentsline {chapter}{图目录}{vii}{chapter*.3}%
+\contentsline {chapter}{表目录}{ix}{chapter*.4}%
 \contentsline {chapter}{\numberline {第一章\hspace {.3em}}绪论}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}研究背景与意义}{3}{section.1.1}%
 \contentsline {section}{\numberline {1.2}国内外研究现状}{4}{section.1.2}%
@@ -35,33 +35,32 @@
 \contentsline {chapter}{\numberline {第四章\hspace {.3em}}微服务架构与跨数据链协议互操作系统设计}{41}{chapter.4}%
 \contentsline {section}{\numberline {4.1}系统总体架构设计}{41}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}设计目标与总体思路}{41}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}微服务架构理念与原则}{42}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.2}微服务架构理念与原则}{41}{subsection.4.1.2}%
 \contentsline {subsection}{\numberline {4.1.3}架构总体分层}{42}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}微服务架构设计与实现}{44}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}技术栈与基础组件选型}{44}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}微服务模块划分与职责}{45}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}微服务通信机制}{46}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}容错与弹性设计}{46}{subsection.4.2.4}%
-\contentsline {section}{\numberline {4.3}数据模型与数据库设计}{47}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}设计目标与数据特征}{47}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}核心实体与关系模型}{47}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}约束与索引设计}{49}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}微服务数据库分离与一致性}{50}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}跨数据链协议互操作架构设计}{50}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}多协议支持体系}{50}{subsection.4.4.1}%
+\contentsline {section}{\numberline {4.2}微服务架构设计与实现}{43}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}技术栈与基础组件选型}{43}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}微服务模块划分与职责}{44}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}微服务通信机制}{45}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}容错与弹性设计}{45}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}数据模型与数据库设计}{46}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}设计目标与数据特征}{46}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}核心实体与关系模型}{46}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}约束与索引设计}{48}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}微服务数据库分离与一致性}{48}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}跨数据链协议互操作架构设计}{49}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}多协议支持体系}{49}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}CDM四层法语义互操作模型}{51}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}语义互操作系统组成}{52}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}数据一致性与冲突解决}{52}{subsection.4.4.4}%
-\contentsline {section}{\numberline {4.5}自动化信息标准导入架构设计}{53}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}标准化导入流程}{53}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}关键技术与工具链}{54}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}导入性能与精度}{55}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}数据清洗与质量保证}{55}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.4.4}数据一致性与冲突解决}{53}{subsection.4.4.4}%
+\contentsline {section}{\numberline {4.5}自动化信息标准导入架构设计}{54}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}标准化导入流程}{54}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}关键技术与工具链}{55}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}数据清洗与质量保证}{55}{subsection.4.5.3}%
 \contentsline {section}{\numberline {4.6}微服务通信与运行保障设计}{56}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}服务通信与安全}{56}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}分布式数据管理与灾备}{57}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.2}分布式数据管理与灾备}{56}{subsection.4.6.2}%
 \contentsline {subsection}{\numberline {4.6.3}配置与治理体系}{57}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}容错与弹性设计}{58}{subsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.6.4}容错与弹性设计}{57}{subsection.4.6.4}%
 \contentsline {chapter}{\numberline {第五章\hspace {.3em}}系统实现、测试与性能分析}{59}{chapter.5}%
 \contentsline {section}{\numberline {5.1}数据库初始化与数据导入}{59}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}数据库初始化}{59}{subsection.5.1.1}%
@@ -89,7 +88,7 @@
 \contentsline {section}{\numberline {6.1}研究成果总结}{72}{section.6.1}%
 \contentsline {section}{\numberline {6.2}存在的不足}{72}{section.6.2}%
 \contentsline {section}{\numberline {6.3}未来研究方向}{73}{section.6.3}%
-\contentsline {chapter}{参考文献}{88}{chapter*.35}%
-\contentsline {chapter}{致谢}{89}{appendix*.36}%
-\contentsline {chapter}{发表论文和科研情况}{91}{appendix*.37}%
+\contentsline {chapter}{参考文献}{88}{chapter*.37}%
+\contentsline {chapter}{致谢}{89}{appendix*.38}%
+\contentsline {chapter}{发表论文和科研情况}{91}{appendix*.39}%
 \contentsfinish 

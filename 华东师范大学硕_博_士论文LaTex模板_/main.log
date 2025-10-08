@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.9.17)  8 OCT 2025 04:24
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.9.17)  8 OCT 2025 05:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1521,29 +1521,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[4] (format/graphic.tex (main.toc
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 1.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 12.87997pt on input line 1.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 9.7887pt on input line 1.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.72806pt on input line 1.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8.40009> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 1.
-
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <8.40009> not available
-(Font)              size <8> substituted on input line 1.
-
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 12.87997pt on input line 1.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 9.7887pt on input line 1.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.72806pt on input line 1.
-
-Underfull \vbox (badness 1803) has occurred while \output is active []
+[4] (format/graphic.tex (main.toc)
+\tf@toc=\write5
+\openout5 = `main.toc'.
 
 
 
@@ -1556,35 +1536,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [5
 
 
-]
+] [6
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 17.72508pt, for example:
-(fancyhdr)                \setlength{\headheight}{17.72508pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-5.72508pt}.
-
-[6]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 17.72508pt, for example:
-(fancyhdr)                \setlength{\headheight}{17.72508pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-5.72508pt}.
-
-[7])
-\tf@toc=\write5
-\openout5 = `main.toc'.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 17.72508pt, for example:
-(fancyhdr)                \setlength{\headheight}{17.72508pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-5.72508pt}.
-
-[8] (main.lof)
+] (main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
@@ -1596,10 +1550,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-5.91258pt}.
 
-[9
+[7
 
-
-] [10
+] [8
 
 ] (main.lot)
 \tf@lot=\write7
@@ -1613,9 +1566,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-6.47508pt}.
 
-[11
+[9
 
-] [12
+] [10
 
 ]
 
@@ -1652,6 +1605,38 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 ] (chapters/chapter-1.tex
 第一章
 
+LaTeX Warning: Citation `NDIA_PMW101_2024' on page 3 undefined on input line 5.
+
+
+
+LaTeX Warning: Citation `NDIA_PMW101_2022' on page 3 undefined on input line 5.
+
+
+
+LaTeX Warning: Citation `DOTE_2022_MIDS_LVT' on page 3 undefined on input line 
+5.
+
+
+LaTeX Warning: Citation `NAVAIR_MIDS_Overview' on page 3 undefined on input lin
+e 5.
+
+
+LaTeX Warning: Citation `AviationWeek_SDA_LEO_2024' on page 3 undefined on inpu
+t line 7.
+
+
+LaTeX Warning: Citation `SDA_testing_OK_2023' on page 3 undefined on input line
+ 7.
+
+
+LaTeX Warning: Citation `MIL_STD_6016_Active_2024' on page 3 undefined on input
+ line 7.
+
+
+LaTeX Warning: Citation `L3Harris_MIDS_JTRS_2021' on page 3 undefined on input 
+line 7.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -1661,6 +1646,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [3
 
 ]
+
+LaTeX Warning: Citation `丁丁2019' on page 4 undefined on input line 19.
+
+
+LaTeX Warning: Citation `马建强2020' on page 4 undefined on input line 19.
+
+
+LaTeX Warning: Citation `程方昊2025' on page 4 undefined on input line 19.
+
+
+LaTeX Warning: Citation `陈利玲2025' on page 4 undefined on input line 19.
+
 File: chapters/fig-0/tactical_datalink_research_status.png Graphic file (type b
 mp)
 <chapters/fig-0/tactical_datalink_research_status.png>
@@ -1676,6 +1673,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [4]
+
+LaTeX Warning: Citation `wray_sheppard_1986_jtids_nav' on page 5 undefined on i
+nput line 30.
+
+
+LaTeX Warning: Citation `ranger1996_jn' on page 5 undefined on input line 30.
+
+
+LaTeX Warning: Citation `fried1978_taes' on page 5 undefined on input line 30.
+
+
+LaTeX Warning: Citation `fried1984_navigation' on page 5 undefined on input lin
+e 30.
+
+
+LaTeX Warning: Citation `doherty1988_jn' on page 5 undefined on input line 30.
+
+
+LaTeX Warning: Citation `L3Harris_MIDS_LVT_2025' on page 5 undefined on input l
+ine 30.
+
+
 Underfull \vbox (badness 3049) has occurred while \output is active []
 
 
@@ -1687,6 +1706,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [5]
+
+LaTeX Warning: Citation `Waseem2021Design' on page 6 undefined on input line 38
+.
+
+
+LaTeX Warning: Citation `Laigner2021Data' on page 6 undefined on input line 40.
+
+
+
+LaTeX Warning: Citation `BenchmarkingDataMgmt2024' on page 6 undefined on input
+ line 40.
+
+
+LaTeX Warning: Citation `OnlineMarketplace2024' on page 6 undefined on input li
+ne 40.
+
+
+LaTeX Warning: Citation `MonitoringTools2024' on page 6 undefined on input line
+ 40.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -1711,6 +1750,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [7]
 
+LaTeX Warning: Citation `SISO_STD_002_2006' on page 8 undefined on input line 6
+0.
+
+
+LaTeX Warning: Citation `CJCSI_6610_01F_2021' on page 8 undefined on input line
+ 60.
+
+
+LaTeX Warning: Citation `Mishra2018Semantic' on page 8 undefined on input line 
+60.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -1718,6 +1769,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [8]
+
+LaTeX Warning: Citation `Bernasconi2022Ontological' on page 9 undefined on inpu
+t line 62.
+
+
+LaTeX Warning: Citation `Guizzardi2023Explanation' on page 9 undefined on input
+ line 62.
+
+
+LaTeX Warning: Citation `Hamdan2023Reference' on page 9 undefined on input line
+ 64.
+
+
+LaTeX Warning: Citation `Hamdan2024SemanticMultiCloud' on page 9 undefined on i
+nput line 64.
+
+
 Underfull \vbox (badness 1859) has occurred while \output is active []
 
 
@@ -1742,6 +1810,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [10]
 
+LaTeX Warning: Citation `Xu2020LayoutLM' on page 11 undefined on input line 84.
+
+
+
+LaTeX Warning: Citation `Huang2022LayoutLMv3' on page 11 undefined on input lin
+e 84.
+
+
+LaTeX Warning: Citation `Rausch2021DocParser' on page 11 undefined on input lin
+e 86.
+
+
+LaTeX Warning: Citation `Appalaraju2021DocFormer' on page 11 undefined on input
+ line 88.
+
+
+LaTeX Warning: Citation `Wang2023DocumentLLM' on page 11 undefined on input lin
+e 88.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -1749,6 +1837,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [11]
+
+LaTeX Warning: Citation `MIL_STD_6016_Active_2024' on page 12 undefined on inpu
+t line 103.
+
+
+LaTeX Warning: Citation `MITRE_Link16_Interoperability_2024' on page 12 undefin
+ed on input line 103.
+
+
+LaTeX Warning: Citation `Laigner2021Data' on page 12 undefined on input line 10
+5.
+
+
+LaTeX Warning: Citation `Waseem2021Design' on page 12 undefined on input line 1
+05.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -1758,6 +1862,50 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [12]
 
+LaTeX Warning: Citation `Hamdan2023Reference' on page 13 undefined on input lin
+e 107.
+
+
+LaTeX Warning: Citation `MITRE_Link16_Interoperability_2024' on page 13 undefin
+ed on input line 107.
+
+
+LaTeX Warning: Citation `Waseem2021Design' on page 13 undefined on input line 1
+09.
+
+
+LaTeX Warning: Citation `MonitoringTools2024' on page 13 undefined on input lin
+e 109.
+
+
+LaTeX Warning: Citation `SAIC_JRE_Overview_2021' on page 13 undefined on input 
+line 109.
+
+
+LaTeX Warning: Citation `Collins_TTR_2021' on page 13 undefined on input line 1
+09.
+
+
+LaTeX Warning: Citation `L3Harris_STT_KOR24A_2020' on page 13 undefined on inpu
+t line 109.
+
+
+LaTeX Warning: Citation `MIL_STD_6016_Active_2024' on page 13 undefined on inpu
+t line 116.
+
+
+LaTeX Warning: Citation `SISO_STD_002_2006' on page 13 undefined on input line 
+116.
+
+
+LaTeX Warning: Citation `Hamdan2023Reference' on page 13 undefined on input lin
+e 118.
+
+
+LaTeX Warning: Citation `MITRE_Link16_Interoperability_2024' on page 13 undefin
+ed on input line 118.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -1765,6 +1913,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [13]
+
+LaTeX Warning: Citation `Waseem2021Design' on page 14 undefined on input line 1
+20.
+
+
+LaTeX Warning: Citation `MonitoringTools2024' on page 14 undefined on input lin
+e 120.
+
+
+LaTeX Warning: Citation `SAIC_JRE_Overview_2021' on page 14 undefined on input 
+line 122.
+
+
+LaTeX Warning: Citation `CurtissWright_TCG_HUNTR_2020' on page 14 undefined on 
+input line 122.
+
+
+LaTeX Warning: Citation `DOTE_2022_MIDS_LVT' on page 14 undefined on input line
+ 122.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -1783,6 +1951,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [15]
 第二章
 
+LaTeX Warning: Citation `AFMAN_13_116_Vol1_2020' on page 16 undefined on input 
+line 4.
+
+
+LaTeX Warning: Citation `EverythingRF_Link16_Band' on page 16 undefined on inpu
+t line 4.
+
+
+LaTeX Warning: Citation `DLS_MIDS_JTRS_2021' on page 16 undefined on input line
+ 5.
+
+
+LaTeX Warning: Citation `BAE_Link16_Terminals_2025' on page 16 undefined on inp
+ut line 5.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -1796,6 +1980,10 @@ File: chapters/fig-0/tdl-architecture.png Graphic file (type bmp)
 <chapters/fig-0/tdl-architecture.png>
 
 
+LaTeX Warning: Citation `Ultra_ADSI_2023' on page 17 undefined on input line 45
+.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -1803,6 +1991,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [17]
+
+LaTeX Warning: Citation `ASSIST_6016_2024' on page 18 undefined on input line 5
+6.
+
+
+LaTeX Warning: Citation `CJCSM_6235_01_2025' on page 18 undefined on input line
+ 56.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1814,6 +2011,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [18]
+
+LaTeX Warning: Citation `Ultra_MDLMS_2021' on page 19 undefined on input line 6
+4.
+
+
 Overfull \hbox (8.82191pt too wide) in paragraph at lines 64--65
 []\TU/SimSun(0)/m/n/12 此 外，| \TU/TimesNewRoman(0)/m/n/12 MIL-STD-6020 \TU/SimSu
 n(0)/m/n/12 明 确 了 跨 数 据 链 数 据 转 发 与 映 射 的 规 则；| \TU/TimesNewRoman(0)/m/n/12 NAT
@@ -1843,6 +2045,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [20]
 
+LaTeX Warning: Citation `Waseem2021Design' on page 21 undefined on input line 1
+20.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -1850,6 +2056,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [21]
+
+LaTeX Warning: Citation `Laigner2021Data' on page 22 undefined on input line 12
+2.
+
+
+LaTeX Warning: Citation `BenchmarkingDataMgmt2024' on page 22 undefined on inpu
+t line 122.
+
+
+LaTeX Warning: Citation `OnlineMarketplace2024' on page 22 undefined on input l
+ine 122.
+
+
+LaTeX Warning: Citation `MonitoringTools2023' on page 22 undefined on input lin
+e 122.
+
+
 Underfull \vbox (badness 4416) has occurred while \output is active []
 
 
@@ -1877,6 +2100,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [23]
 
+LaTeX Warning: Citation `SISO_STD_002_2006' on page 24 undefined on input line 
+142.
+
+
+LaTeX Warning: Citation `CJCSI_6610_01F_2021' on page 24 undefined on input lin
+e 142.
+
+
+LaTeX Warning: Citation `Mishra2018Semantic' on page 24 undefined on input line
+ 142.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -1884,6 +2119,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [24]
+
+LaTeX Warning: Citation `Bernasconi2022Ontological' on page 25 undefined on inp
+ut line 144.
+
+
+LaTeX Warning: Citation `Guizzardi2023Explanation' on page 25 undefined on inpu
+t line 144.
+
+
+LaTeX Warning: Citation `Hamdan2023Reference' on page 25 undefined on input lin
+e 146.
+
+
+LaTeX Warning: Citation `SemanticMultiCloud2024' on page 25 undefined on input 
+line 146.
+
+
 Underfull \vbox (badness 4416) has occurred while \output is active []
 
 
@@ -1899,6 +2151,14 @@ File: chapters/fig-0/semantic_interop_architecture.png Graphic file (type bmp)
 <chapters/fig-0/semantic_interop_architecture.png>
 
 
+LaTeX Warning: Citation `Xu2020LayoutLM' on page 26 undefined on input line 166
+.
+
+
+LaTeX Warning: Citation `Xu2022LayoutLMv3' on page 26 undefined on input line 1
+66.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -1906,6 +2166,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [26]
+
+LaTeX Warning: Citation `Li2021DocParser' on page 27 undefined on input line 16
+8.
+
+
+LaTeX Warning: Citation `Powalski2021DocFormer' on page 27 undefined on input l
+ine 170.
+
+
+LaTeX Warning: Citation `Wang2023DocumentLLM' on page 27 undefined on input lin
+e 170.
+
+
 Underfull \vbox (badness 4416) has occurred while \output is active []
 
 
@@ -1930,6 +2203,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [28]
 第三章
 
+LaTeX Warning: Citation `baek2016_jsac' on page 29 undefined on input line 14.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -1940,6 +2216,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 
+LaTeX Warning: Citation `jiang2019_sensors' on page 30 undefined on input line 
+38.
+
+
+LaTeX Warning: Citation `hegarty_1997_nav_interference' on page 30 undefined on
+ input line 40.
+
+
+LaTeX Warning: Citation `schnaufer_mcgraw_1997_waas' on page 30 undefined on in
+put line 42.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -1949,6 +2237,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [30]
 File: chapters/fig-0/system_architecture.png Graphic file (type bmp)
 <chapters/fig-0/system_architecture.png>
+
+
+LaTeX Warning: Citation `CurtissWright_TCG_HUNTR_2020' on page 31 undefined on 
+input line 54.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1966,6 +2258,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [32]
+
+LaTeX Warning: Citation `Chelton_Link16_Antennas_2022' on page 33 undefined on 
+input line 90.
+
+
+LaTeX Warning: Citation `AFCEA_Link16_Improvements_2022' on page 33 undefined o
+n input line 103.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -1985,7 +2285,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [34]
-Underfull \vbox (badness 1072) has occurred while \output is active []
+
+LaTeX Warning: Citation `Lekkakos_2008' on page 35 undefined on input line 144.
+
+
+
+Underfull \vbox (badness 7667) has occurred while \output is active []
 
 
 
@@ -1996,6 +2301,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [35]
+
+LaTeX Warning: Citation `Ho_2008' on page 36 undefined on input line 151.
+
+
+LaTeX Warning: Citation `reid_2018_nav_leo' on page 36 undefined on input line 
+153.
+
 File: chapters/fig-0/usecase_frontend.png Graphic file (type bmp)
 <chapters/fig-0/usecase_frontend.png>
 
@@ -2024,6 +2336,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [37]
+
+LaTeX Warning: Citation `Kao_2008' on page 38 undefined on input line 181.
+
+
+LaTeX Warning: Citation `Kagioglidis_2009' on page 38 undefined on input line 1
+84.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -2036,13 +2356,120 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [38]
 
+LaTeX Warning: Citation `Kee_2008' on page 39 undefined on input line 187.
+
+
+LaTeX Warning: Citation `baek2016_adhoc' on page 39 undefined on input line 187
+.
+
+
+LaTeX Warning: Citation `baek2019_jsyst_timemirror' on page 39 undefined on inp
+ut line 187.
+
+
+LaTeX Warning: Citation `lee2018_jsyst' on page 39 undefined on input line 189.
+
+
+
+LaTeX Warning: Citation `Spyridis_2010' on page 39 undefined on input line 189.
+
+
+
+LaTeX Warning: Citation `Kopp_Throughput_Enhanced_JTIDS_2006' on page 39 undefi
+ned on input line 189.
+
+
+LaTeX Warning: Citation `Juarez_2025' on page 39 undefined on input line 189.
+
+
+LaTeX Warning: Citation `Koromilas_2009' on page 39 undefined on input line 189
+.
+
+
+LaTeX Warning: Citation `EverythingRF_STT' on page 39 undefined on input line 1
+89.
+
+
+LaTeX Warning: Citation `Collins_TTNT_immersion_2020' on page 39 undefined on i
+nput line 192.
+
+
+LaTeX Warning: Citation `Euromids_2025_contract' on page 39 undefined on input 
+line 192.
+
+
+LaTeX Warning: Citation `GovConWire_Euromids_2025' on page 39 undefined on inpu
+t line 194.
+
+
+LaTeX Warning: Citation `musumeci_2014_ietrsn_pulseblank' on page 39 undefined 
+on input line 194.
+
+
+LaTeX Warning: Citation `borio_2013_ietspr_pulseblanking' on page 39 undefined 
+on input line 194.
+
+
+LaTeX Warning: Citation `houdzoumis2009_jn' on page 39 undefined on input line 
+194.
+
+
+LaTeX Warning: Citation `wu_2016_taes_dme_wp' on page 39 undefined on input lin
+e 194.
+
+
+LaTeX Warning: Citation `huo_2015_ieeecl_meb' on page 39 undefined on input lin
+e 194.
+
+
+LaTeX Warning: Citation `huo_2015_comex_mixed_interference' on page 39 undefine
+d on input line 194.
+
+
+LaTeX Warning: Citation `mitch_2016_nav_chirp_geolocation' on page 39 undefined
+ on input line 194.
+
+
+LaTeX Warning: Citation `vandermerwe_2023_nav_mpanf' on page 39 undefined on in
+put line 194.
+
+
+LaTeX Warning: Citation `CJCS_Manuals_Library' on page 39 undefined on input li
+ne 197.
+
+
+LaTeX Warning: Citation `CJCS_Instructions_Library' on page 39 undefined on inp
+ut line 197.
+
+
+LaTeX Warning: Citation `ASSIST_3011_2023' on page 39 undefined on input line 1
+97.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[39]) (chapters/chapter-4.tex
+[39]
+
+LaTeX Warning: Citation `ASSIST_6020_2025' on page 40 undefined on input line 1
+99.
+
+
+LaTeX Warning: Citation `qin2013_gpssol' on page 40 undefined on input line 199
+.
+
+
+LaTeX Warning: Citation `fried_loeliger1979_navigation' on page 40 undefined on
+ input line 199.
+
+
+LaTeX Warning: Citation `baruffa2013_jsps' on page 40 undefined on input line 1
+99.
+
+) (chapters/chapter-4.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2052,10 +2479,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [40]
 第四章
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2068,9 +2491,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 File: chapters/fig-0/system_architecture_simple.png Graphic file (type bmp)
 <chapters/fig-0/system_architecture_simple.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2110,6 +2530,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [45]
+File: chapters/fig-0/data_model.png Graphic file (type bmp)
+<chapters/fig-0/data_model.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2118,12 +2544,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [46]
-File: chapters/fig-0/data_model.png Graphic file (type bmp)
-<chapters/fig-0/data_model.png>
-
-Underfull \vbox (badness 3291) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2140,6 +2560,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [48]
+File: chapters/fig-0/multi_protocol_support_simple.png Graphic file (type bmp)
+<chapters/fig-0/multi_protocol_support_simple.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2148,6 +2574,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [49]
+File: chapters/fig-0/cdm_four_layer_simple.png Graphic file (type bmp)
+<chapters/fig-0/cdm_four_layer_simple.png>
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2156,9 +2585,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [50]
-Underfull \vbox (badness 7133) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2167,6 +2593,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [51]
+File: chapters/fig-0/semantic_interop_system_simple.png Graphic file (type bmp)
+
+<chapters/fig-0/semantic_interop_system_simple.png>
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2175,9 +2605,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [52]
+
+LaTeX Warning: Reference `fig:import_pipeline' on page 53 undefined on input li
+ne 269.
+
 File: chapters/fig-0/import_pipeline_simple.png Graphic file (type bmp)
 <chapters/fig-0/import_pipeline_simple.png>
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2186,9 +2619,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [53]
-Underfull \vbox (badness 1616) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2205,9 +2635,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [55]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2279,6 +2706,10 @@ Overfull \hbox (19.88445pt too wide) in paragraph at lines 29--30
  []
 
 
+LaTeX Warning: Reference `fig:data-import' on page 60 undefined on input line 5
+0.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -2314,6 +2745,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [62]
+
+LaTeX Warning: Reference `fig:search-demo' on page 63 undefined on input line 8
+7.
+
 File: chapters/fig-0/frontend-search-demo.png Graphic file (type bmp)
 <chapters/fig-0/frontend-search-demo.png>
 
@@ -2328,9 +2763,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [63]
+
+LaTeX Warning: Reference `fig:compare-demo' on page 64 undefined on input line 
+99.
+
 File: chapters/fig-0/frontend-compare-demo.png Graphic file (type bmp)
 <chapters/fig-0/frontend-compare-demo.png>
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2339,6 +2777,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [64]
+
+LaTeX Warning: Citation `SISO_STD_002_2006' on page 65 undefined on input line 
+116.
+
+
+LaTeX Warning: Citation `AFMAN_13_116_Vol1_2020' on page 65 undefined on input 
+line 116.
+
+
 Underfull \vbox (badness 6575) has occurred while \output is active []
 
 
@@ -2362,6 +2809,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [66]
 
+LaTeX Warning: Reference `fig:perf-latency' on page 67 undefined on input line 
+163.
+
+
+LaTeX Warning: Reference `fig:perf-success' on page 67 undefined on input line 
+163.
+
+
+LaTeX Warning: Reference `fig:perf-qps' on page 67 undefined on input line 163.
+
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -2369,6 +2828,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [67]
+
+LaTeX Warning: Reference `fig:perf-latency' on page 68 undefined on input line 
+171.
+
+
+LaTeX Warning: Reference `fig:perf-success' on page 68 undefined on input line 
+171.
+
 File: chapters/fig-0/performance-latency.png Graphic file (type bmp)
 <chapters/fig-0/performance-latency.png>
 File: chapters/fig-0/performance-success.png Graphic file (type bmp)
@@ -2388,6 +2855,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [68]
 
+LaTeX Warning: Citation `schneckenburger_2018_nav_multipath' on page 69 undefin
+ed on input line 202.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -2395,6 +2866,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [69]
+
+LaTeX Warning: Reference `fig:survey-satisfaction' on page 70 undefined on inpu
+t line 220.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2417,7 +2892,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 第六章
 
 Overfull \hbox (4.0584pt too wide) in paragraph at lines 9--10
-[]\TU/SimHei(0)/m/n/12 后 端 接 口 与 绑 定 机 制\TU/SimSun(0)/m/n/12 ：|  实 现 了 \TU/Time
+[]\TU/SimSun(0)/b/n/12 后 端 接 口 与 绑 定 机 制\TU/SimSun(0)/m/n/12 ：|  实 现 了 \TU/Time
 sNewRoman(0)/m/n/12 FastAPI \TU/SimSun(0)/m/n/12 服 务，|  包 括 \TU/pcr/m/n/12 /api
 /search\TU/SimSun(0)/m/n/12 、| \TU/pcr/m/n/12 /api/word/search\TU/SimSun(0)/m/n
 /12 、|
@@ -2432,7 +2907,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [72
 
-])
+]
+
+LaTeX Warning: Citation `FFI_SDA_Link16_Space_2023' on page 73 undefined on inp
+ut line 27.
+
+
+LaTeX Warning: Citation `Redwire_SDA_Ship_Demo_2024' on page 73 undefined on in
+put line 27.
+
+
+LaTeX Warning: Citation `JAPCC_F35_TDLs_2024' on page 73 undefined on input lin
+e 27.
+
+
+LaTeX Warning: Citation `JAPCC_Hosted_Payloads_2015' on page 73 undefined on in
+put line 27.
+
+)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2856,16 +3348,28 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E707F078A120AE258507635A6B5DDAB7;10978.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 57CC9A32AA9A7308DFA41AED5BD23076;6259
+(rerunfilecheck)             After:  0B0CF689AF9DEFEBB0B46A99683DF739;10860.
  ) 
 Here is how much of TeX's memory you used:
- 23826 strings out of 409616
- 500305 string characters out of 5772368
+ 23768 strings out of 409616
+ 498658 string characters out of 5772368
  1946191 words of memory out of 5000000
- 45385 multiletter control sequences out of 15000+600000
- 684227 words of font info for 307 fonts, out of 8000000 for 9000
+ 45324 multiletter control sequences out of 15000+600000
+ 658098 words of font info for 269 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  93i,13n,120p,1174b,599s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (112 pages).
+Output written on main.pdf (110 pages).

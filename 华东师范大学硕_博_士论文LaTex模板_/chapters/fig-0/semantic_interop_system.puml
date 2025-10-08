@@ -1,0 +1,81 @@
+@startuml 语义互操作系统组成图
+!theme plain
+skinparam backgroundColor white
+skinparam componentStyle rectangle
+skinparam linetype ortho
+
+title 语义互操作系统组成图
+
+package "语义互操作系统" as system {
+    
+    package "核心组件" as core {
+        component [语义注册表] as semantic_registry
+        component [语义转换器] as semantic_converter
+        component [消息路由器] as message_router
+        component [互操作管理器] as interop_manager
+    }
+    
+    package "数据存储" as storage {
+        database [语义字段库] as field_db
+        database [消息定义库] as message_db
+        database [概念库] as concept_db
+        database [映射规则库] as mapping_db
+    }
+    
+    package "外部接口" as interfaces {
+        component [REST API] as rest_api
+        component [gRPC接口] as grpc_api
+        component [消息队列接口] as mq_interface
+    }
+}
+
+' 核心组件关系
+semantic_registry --> semantic_converter : 语义信息
+semantic_converter --> message_router : 转换结果
+message_router --> interop_manager : 路由信息
+interop_manager --> semantic_registry : 管理指令
+
+' 数据存储关系
+semantic_registry --> field_db : 字段管理
+semantic_registry --> message_db : 消息管理
+semantic_registry --> concept_db : 概念管理
+semantic_converter --> mapping_db : 映射规则
+
+' 外部接口关系
+rest_api --> semantic_registry : 查询请求
+grpc_api --> semantic_converter : 转换请求
+mq_interface --> message_router : 消息路由
+
+' 数据流
+field_db --> semantic_converter : 字段定义
+message_db --> message_router : 消息定义
+concept_db --> semantic_converter : 概念映射
+mapping_db --> semantic_converter : 转换规则
+
+' 反馈流
+semantic_converter --> field_db : 更新字段
+message_router --> message_db : 更新消息
+interop_manager --> concept_db : 更新概念
+interop_manager --> mapping_db : 更新规则
+
+note right of semantic_registry
+  语义注册表管理语义字段、
+  消息定义、概念库等核心信息
+end note
+
+note right of semantic_converter
+  语义转换器实现字段级数据转换、
+  单位转换、枚举映射等功能
+end note
+
+note right of message_router
+  消息路由器基于规则的智能路由
+  机制，实现协议选择和转换策略
+end note
+
+note right of interop_manager
+  互操作管理器统一管理跨标准转换、
+  质量监控、性能优化等功能
+end note
+
+@enduml
