@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.9.17)  9 OCT 2025 00:21
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.9.17)  9 OCT 2025 06:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1601,10 +1601,6 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 7.72806pt on input line 1.
 
-Underfull \vbox (badness 1803) has occurred while \output is active []
-
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 17.72508pt, for example:
 (fancyhdr)                \setlength{\headheight}{17.72508pt}.
@@ -1631,23 +1627,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-5.72508pt}.
 
 [7]
-Overfull \hbox (1.88043pt too wide) detected at line 101
- \TU/TimesNewRoman(0)/m/n/14 110
+Overfull \hbox (2.39996pt too wide) detected at line 101
+ \TU/TimesNewRoman(0)/m/n/14 106
  []
 
 
-Overfull \hbox (2.39996pt too wide) detected at line 105
- \TU/TimesNewRoman(0)/m/n/14 126
+Overfull \hbox (2.39996pt too wide) detected at line 102
+ \TU/TimesNewRoman(0)/m/n/14 107
  []
 
 
-Overfull \hbox (2.39996pt too wide) detected at line 106
- \TU/TimesNewRoman(0)/m/n/14 127
- []
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 17.72508pt, for example:
+(fancyhdr)                \setlength{\headheight}{17.72508pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-5.72508pt}.
 
-
-Overfull \hbox (2.39996pt too wide) detected at line 107
- \TU/TimesNewRoman(0)/m/n/14 129
+[8]
+Overfull \hbox (2.39996pt too wide) detected at line 103
+ \TU/TimesNewRoman(0)/m/n/14 109
  []
 
 )
@@ -1662,7 +1660,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-5.72508pt}.
 
-[8] (main.lof
+[9] [10
+
+] (main.lof
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 17.91258pt, for example:
@@ -1670,8 +1670,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-5.91258pt}.
 
-[9
-
+[11
 
 ])
 \tf@lof=\write6
@@ -1685,7 +1684,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-5.91258pt}.
 
-[10] (main.lot)
+[12] (main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
@@ -1697,10 +1696,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-6.47508pt}.
 
-[11
+[13
 
 
-] [12
+] [14
 
 ]
 
@@ -1803,7 +1802,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [8]
-Underfull \vbox (badness 1859) has occurred while \output is active []
+Underfull \vbox (badness 4416) has occurred while \output is active []
 
 
 
@@ -1817,6 +1816,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: chapters/fig-0/semantic_interop_research_trends.png Graphic file (type bm
 p)
 <chapters/fig-0/semantic_interop_research_trends.png>
+
+Underfull \vbox (badness 4266) has occurred while \output is active []
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1834,6 +1836,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -1842,6 +1847,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [12]
+Underfull \vbox (badness 1655) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -1857,7 +1865,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[14]) (chapters/chapter-2.tex
+[14]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -1865,7 +1873,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[15]
+[15]) (chapters/chapter-2.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.62503pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.62503pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
+
+[16]
 第二章
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1874,22 +1890,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[16
+[17
 
 ]
-File: chapters/fig-0/tdl-architecture.png Graphic file (type bmp)
-<chapters/fig-0/tdl-architecture.png>
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[17]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+File: chapters/fig-0/tdl_architecture_simple.png Graphic file (type bmp)
+<chapters/fig-0/tdl_architecture_simple.png>
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1899,18 +1904,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [18]
-Overfull \hbox (8.82191pt too wide) in paragraph at lines 64--65
-[]\TU/SimSun(0)/m/n/12 此 外，| \TU/TimesNewRoman(0)/m/n/12 MIL-STD-6020 \TU/SimSu
-n(0)/m/n/12 明 确 了 跨 数 据 链 数 据 转 发 与 映 射 的 规 则；| \TU/TimesNewRoman(0)/m/n/12 NAT
-O \TU/SimSun(0)/m/n/12 的 \TU/TimesNewRoman(0)/m/n/12 STANAG
- []
-
-File: chapters/fig-0/j_series_message_structure.png Graphic file (type bmp)
-<chapters/fig-0/j_series_message_structure.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -1919,6 +1912,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [19]
+Overfull \hbox (8.82191pt too wide) in paragraph at lines 64--65
+[]\TU/SimSun(0)/m/n/12 此 外，| \TU/TimesNewRoman(0)/m/n/12 MIL-STD-6020 \TU/SimSu
+n(0)/m/n/12 明 确 了 跨 数 据 链 数 据 转 发 与 映 射 的 规 则；| \TU/TimesNewRoman(0)/m/n/12 NAT
+O \TU/SimSun(0)/m/n/12 的 \TU/TimesNewRoman(0)/m/n/12 STANAG
+ []
+
+File: chapters/fig-0/j_series_message_structure.png Graphic file (type bmp)
+<chapters/fig-0/j_series_message_structure.png>
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -1935,7 +1936,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [21]
-Underfull \vbox (badness 4416) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -1961,7 +1962,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [23]
-Underfull \vbox (badness 7777) has occurred while \output is active []
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.62503pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.62503pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
+
+[24]
+Underfull \vbox (badness 4416) has occurred while \output is active []
 
 
 
@@ -1971,7 +1980,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[24]
+[25]
 File: chapters/fig-0/semantic_interop_architecture.png Graphic file (type bmp)
 <chapters/fig-0/semantic_interop_architecture.png>
 
@@ -1982,8 +1991,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[25]
-Underfull \vbox (badness 1859) has occurred while \output is active []
+[26]
+Underfull \vbox (badness 4416) has occurred while \output is active []
 
 
 
@@ -1993,7 +2002,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[26]
+[27]
 File: chapters/fig-0/document_processing_evolution.png Graphic file (type bmp)
 <chapters/fig-0/document_processing_evolution.png>
 ) (chapters/chapter-3.tex
@@ -2004,7 +2013,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[27]
+[28]
 第三章
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2013,7 +2022,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[28
+[29
 
 ]
 
@@ -2023,18 +2032,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[29]
-File: chapters/fig-0/system_architecture.png Graphic file (type bmp)
-<chapters/fig-0/system_architecture.png>
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
 [30]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2043,6 +2044,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [31]
+File: chapters/fig-0/cdm_four_layer_simple.png Graphic file (type bmp)
+<chapters/fig-0/cdm_four_layer_simple.png>
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2051,9 +2055,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [32]
-File: chapters/fig-0/cdm_architecture.png Graphic file (type bmp)
-<chapters/fig-0/cdm_architecture.png>
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2062,8 +2063,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [33]
-Underfull \vbox (badness 1072) has occurred while \output is active []
-
+File: chapters/fig-0/usecase_frontend.png Graphic file (type bmp)
+<chapters/fig-0/usecase_frontend.png>
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2073,11 +2074,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [34]
-File: chapters/fig-0/usecase_frontend.png Graphic file (type bmp)
-<chapters/fig-0/usecase_frontend.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+File: chapters/fig-0/component_frontend.png Graphic file (type bmp)
+<chapters/fig-0/component_frontend.png>
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2087,12 +2085,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [35]
-File: chapters/fig-0/component_frontend.png Graphic file (type bmp)
-<chapters/fig-0/component_frontend.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2100,10 +2092,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[36]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
+[36]) (chapters/chapter-4.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2112,22 +2101,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [37]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[38]) (chapters/chapter-4.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[39]
 第四章
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2136,7 +2109,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[40
+[38
 
 ]
 File: chapters/fig-0/system_architecture_simple.png Graphic file (type bmp)
@@ -2149,7 +2122,32 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
+[39]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.62503pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.62503pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
+
+[40]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.62503pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.62503pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
+
 [41]
+File: chapters/fig-0/data_model.png Graphic file (type bmp)
+<chapters/fig-0/data_model.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2174,8 +2172,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [44]
-File: chapters/fig-0/data_model.png Graphic file (type bmp)
-<chapters/fig-0/data_model.png>
+File: chapters/fig-0/multi_protocol_support_simple.png Graphic file (type bmp)
+<chapters/fig-0/multi_protocol_support_simple.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -2188,6 +2186,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [45]
+File: chapters/fig-0/cdm_four_layer_simple.png Graphic file (type bmp)
+<chapters/fig-0/cdm_four_layer_simple.png>
+
+Underfull \vbox (badness 7168) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2204,11 +2208,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [47]
-File: chapters/fig-0/multi_protocol_support_simple.png Graphic file (type bmp)
-<chapters/fig-0/multi_protocol_support_simple.png>
+File: chapters/fig-0/semantic_interop_system_simple.png Graphic file (type bmp)
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+<chapters/fig-0/semantic_interop_system_simple.png>
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2218,8 +2220,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [48]
-File: chapters/fig-0/cdm_four_layer_simple.png Graphic file (type bmp)
-<chapters/fig-0/cdm_four_layer_simple.png>
+File: chapters/fig-0/import_pipeline_simple.png Graphic file (type bmp)
+<chapters/fig-0/import_pipeline_simple.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2237,9 +2242,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [50]
-File: chapters/fig-0/semantic_interop_system_simple.png Graphic file (type bmp)
+Underfull \vbox (badness 7133) has occurred while \output is active []
 
-<chapters/fig-0/semantic_interop_system_simple.png>
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2249,9 +2253,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [51]
-File: chapters/fig-0/import_pipeline_simple.png Graphic file (type bmp)
-<chapters/fig-0/import_pipeline_simple.png>
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2260,9 +2261,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [52]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2270,10 +2268,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[53]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
+[53]) (chapters/chapter-5.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2290,6 +2285,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [55]
+第五章
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2297,8 +2293,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[56]
-Underfull \vbox (badness 5832) has occurred while \output is active []
+[56
+
+]
+File: chapters/fig-0/microservice_deployment.png Graphic file (type bmp)
+<chapters/fig-0/microservice_deployment.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -2309,6 +2310,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [57]
+File: chapters/fig-0/data_management.png Graphic file (type bmp)
+<chapters/fig-0/data_management.png>
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2316,26 +2320,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[58]) (chapters/chapter-5.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[59]
-第五章
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[60
-
-]
+[58]
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
 g1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
@@ -2352,13 +2337,13 @@ Package fontspec Info: Could not resolve font "FangSong/B" (it probably
 Package fontspec Info: Could not resolve font "FangSong/I" (it probably
 (fontspec)             doesn't exist).
 
-LaTeX Font Info:    Trying to load font information for TU+pcr on input line 37
+LaTeX Font Info:    Trying to load font information for TU+pcr on input line 55
 .
-LaTeX Font Info:    No file TUpcr.fd. on input line 37.
+LaTeX Font Info:    No file TUpcr.fd. on input line 55.
 
 
 LaTeX Font Warning: Font shape `TU/pcr/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 37.
+(Font)              using `TU/lmr/m/n' instead on input line 55.
 
 
 Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
@@ -2378,10 +2363,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[61]
+[59]
+File: chapters/fig-0/monitoring_fault_tolerance.png Graphic file (type bmp)
+<chapters/fig-0/monitoring_fault_tolerance.png>
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.62503pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.62503pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
+
+[60]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.62503pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.62503pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
+
+[61]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2390,74 +2394,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [62]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[63]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[64]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[65]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[66]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[67]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[68]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[69]
 (C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
 g1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
@@ -2469,8 +2405,39 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[70]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[63]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.62503pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.62503pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
+
+[64]
+Overfull \hbox (3.1608pt too wide) in paragraph at lines 261--262
+[]\TU/TimesNewRoman(0)/m/n/12 PDF \TU/SimSun(0)/m/n/12 处 理 模 块 作 为 系 统 的 重 要 组 
+成 部 分，|  集 成 了 \TU/TimesNewRoman(0)/m/n/12 PyMuPDF\TU/SimSun(0)/m/n/12 、| \TU/T
+imesNewRoman(0)/m/n/12 pdfplumber\TU/SimSun(0)/m/n/12 、| \TU/TimesNewRoman(0)/m
+/n/12 Camelot
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.62503pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.62503pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
+
+[65]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.62503pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.62503pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
+
+[66]
+Underfull \vbox (badness 4505) has occurred while \output is active []
 
 
 
@@ -2480,9 +2447,41 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[71]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[67]
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.62503pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.62503pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
+
+[68]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.62503pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.62503pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
+
+[69]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.62503pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.62503pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
+
+[70]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.62503pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.62503pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
+
+[71]
+File: chapters/fig-0/data_processing_pipeline.png Graphic file (type bmp)
+<chapters/fig-0/data_processing_pipeline.png>
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2492,8 +2491,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [72]
-Underfull \vbox (badness 1163) has occurred while \output is active []
-
+File: chapters/fig-0/front-homepage.png Graphic file (type bmp)
+<chapters/fig-0/front-homepage.png>
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2503,7 +2502,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [73]
-Underfull \vbox (badness 1163) has occurred while \output is active []
+File: chapters/fig-0/front-search.png Graphic file (type bmp)
+<chapters/fig-0/front-search.png>
+File: chapters/fig-0/front_compare.png Graphic file (type bmp)
+<chapters/fig-0/front_compare.png>
+
+Underfull \vbox (badness 4686) has occurred while \output is active []
 
 
 
@@ -2514,6 +2518,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [74]
+File: chapters/fig-0/front_pdfprocess.png Graphic file (type bmp)
+<chapters/fig-0/front_pdfprocess.png>
+
+Underfull \vbox (badness 7291) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2522,8 +2532,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [75]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+File: chapters/fig-0/front_trans.png Graphic file (type bmp)
+<chapters/fig-0/front_trans.png>
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2533,6 +2543,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [76]
+File: chapters/fig-0/front_fileup.png Graphic file (type bmp)
+<chapters/fig-0/front_fileup.png>
+File: chapters/fig-0/front_concept.png Graphic file (type bmp)
+<chapters/fig-0/front_concept.png>
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -2544,6 +2559,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [77]
+File: chapters/fig-0/front_project.png Graphic file (type bmp)
+<chapters/fig-0/front_project.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2552,7 +2573,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [78]
-Underfull \vbox (badness 1163) has occurred while \output is active []
+File: chapters/fig-0/front_overview.png Graphic file (type bmp)
+<chapters/fig-0/front_overview.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -2579,6 +2603,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [81]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2587,9 +2614,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [82]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2622,12 +2646,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [86]
-File: chapters/fig-0/data_processing_pipeline.png Graphic file (type bmp)
-<chapters/fig-0/data_processing_pipeline.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2635,7 +2653,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[87]
+[87]) (chapters/chapter-6.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2644,191 +2662,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [88]
-File: chapters/fig-0/front-homepage.png Graphic file (type bmp)
-<chapters/fig-0/front-homepage.png>
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[89]
-File: chapters/fig-0/front-search.png Graphic file (type bmp)
-<chapters/fig-0/front-search.png>
-File: chapters/fig-0/front_compare.png Graphic file (type bmp)
-<chapters/fig-0/front_compare.png>
-
-Underfull \vbox (badness 4686) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[90]
-File: chapters/fig-0/front_pdfprocess.png Graphic file (type bmp)
-<chapters/fig-0/front_pdfprocess.png>
-
-Underfull \vbox (badness 7291) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[91]
-File: chapters/fig-0/front_trans.png Graphic file (type bmp)
-<chapters/fig-0/front_trans.png>
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[92]
-File: chapters/fig-0/front_fileup.png Graphic file (type bmp)
-<chapters/fig-0/front_fileup.png>
-File: chapters/fig-0/front_concept.png Graphic file (type bmp)
-<chapters/fig-0/front_concept.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[93]
-File: chapters/fig-0/front_project.png Graphic file (type bmp)
-<chapters/fig-0/front_project.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[94]
-File: chapters/fig-0/front_overview.png Graphic file (type bmp)
-<chapters/fig-0/front_overview.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[95]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[96]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[97]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[98]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[99]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[100]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[101]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[102]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[103]) (chapters/chapter-6.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[104]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 15.62503pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.62503pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
-
-[105]
 第六章
 
-Overfull \hbox (4.0584pt too wide) in paragraph at lines 9--10
-[]\TU/SimHei(0)/m/n/12 后 端 接 口 与 绑 定 机 制\TU/SimSun(0)/m/n/12 ：|  实 现 了 \TU/Time
-sNewRoman(0)/m/n/12 FastAPI \TU/SimSun(0)/m/n/12 服 务，|  包 括 \TU/pcr/m/n/12 /api
-/search\TU/SimSun(0)/m/n/12 、| \TU/pcr/m/n/12 /api/word/search\TU/SimSun(0)/m/n
-/12 、|
- []
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.62503pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.62503pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
+[89
+
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2836,9 +2680,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[106
-
-])
+[90])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2846,7 +2688,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[107] [108
+[91] [92
 
 ] (main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 28--33
@@ -2903,7 +2745,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[109
+[93
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 110--115
@@ -2938,7 +2780,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[110]
+[94]
 Underfull \hbox (badness 10000) in paragraph at lines 189--195
 [][]$[][][][][] [] [] [] [][][] [] [][][] [] [][][] [] [][][][][][][] [] [][] [
 ] [][][][][][][][][] [] [][][][][][][] [] [][][][][][][][][][][][] [] [][][][][
@@ -2952,7 +2794,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[111]
+[95]
 Underfull \hbox (badness 10000) in paragraph at lines 208--214
 [][]$[][][][][] [] [] [] [][][][][][][][][][][][][][][][][] [] [][][][][][][][]
 [][][][][] [] [][][] [] [][][][][][][][] [] [][] [] [][][][] []
@@ -2972,7 +2814,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[112]
+[96]
 Overfull \hbox (23.7946pt too wide) in paragraph at lines 275--279
 [][]$[][][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][] [] [][][]
 [][][][] [] [][][][][] [] [][][][][][][][] [] [][][][][][][][][][][][][][][][][
@@ -2992,7 +2834,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[113]
+[97]
 Underfull \hbox (badness 10000) in paragraph at lines 286--289
 [][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][][][] [] [][][] [
 ] [][] [] [][][][][] [] [][] [] [][][][][][][][][][][][][][][] [] [][][][][][][
@@ -3035,7 +2877,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[114]
+[98]
 Underfull \hbox (badness 10000) in paragraph at lines 334--339
 [][]$[][][][][] [] [] [] [][][] [] [][][] [] [][][] [] [][][][][][][] [] [][] [
 ] [][][][][][][][][] [] [][][][][][][] [] [][][][][][][] [] [][][][][] [] [][][
@@ -3049,7 +2891,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[115]
+[99]
 Invalid UTF-8 byte or sequence at line 382 replaced by U+FFFD.
 
 Missing character: There is no � in font Times New Roman/OT:script=latn;languag
@@ -3061,7 +2903,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[116]
+[100]
 Overfull \hbox (56.39616pt too wide) in paragraph at lines 429--432
 [][]$[][][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][][][][]
 [][][] [] [][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][
@@ -3076,7 +2918,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[117]
+[101]
 Underfull \hbox (badness 10000) in paragraph at lines 523--528
 \TU/TimesNewRoman(0)/m/n/12 Concatenated Coding[D/OL]. Monterey, CA: Naval Post
 graduate School,
@@ -3096,7 +2938,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[118]
+[102]
 Underfull \hbox (badness 10000) in paragraph at lines 535--538
 [][]$[][][][][] [] [] [] [][][] [] [][][][] [] [][][] [] [][][][][][][][][][][]
  [] [][][][][][][] [] [][][][] [] [][] []
@@ -3145,7 +2987,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[119]
+[103]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -3153,7 +2995,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[120]
+[104]
 Overfull \hbox (274.17351pt too wide) in paragraph at lines 675--678
 [][]$[][][][][] [] [] [] [][][][][][][][][][][][] [] [][][] [] [][][][][][][][]
  [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
@@ -3169,7 +3011,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[121]
+[105]
 Overfull \hbox (80.34343pt too wide) in paragraph at lines 680--684
 [][]$[][][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][][] [] 
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
@@ -3192,7 +3034,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[122] (chapters/appendix.tex) (acknowledgement/acknowledgement.tex)
+[106] (chapters/appendix.tex) (acknowledgement/acknowledgement.tex)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -3200,11 +3042,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[123
+[107
 
 
 
-] [124
+] [108
 
 ] (achievements/achievements.tex
 
@@ -3243,9 +3085,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
-[125
+[109
 
-] [126
+] [110
 
 ]
 No file main.ind.
@@ -3265,22 +3107,16 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 7D0A56939C6BC0A6525BE89C43652025;11849
-(rerunfilecheck)             After:  1544A007028CDA9F6209171A6D411308;11330.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 43D9A2D5763EFAA1FD544B30B4E2AC93;12301.
  ) 
 Here is how much of TeX's memory you used:
- 26375 strings out of 409616
- 541045 string characters out of 5772368
- 2112191 words of memory out of 5000000
- 47904 multiletter control sequences out of 15000+600000
+ 26098 strings out of 409616
+ 535123 string characters out of 5772368
+ 2066191 words of memory out of 5000000
+ 47626 multiletter control sequences out of 15000+600000
  684235 words of font info for 308 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,13n,120p,1174b,2147s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,13n,120p,1174b,2071s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (146 pages).
+Output written on main.pdf (132 pages).

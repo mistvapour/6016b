@@ -1,131 +1,72 @@
-@startuml 微服务架构图
+@startuml 系统整体架构图
 !theme plain
 skinparam backgroundColor #FFFFFF
 skinparam componentStyle rectangle
 skinparam packageStyle rectangle
+skinparam component {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
+skinparam package {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
+skinparam note {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
 
-title 战术数据链信息标准数据库微服务架构图
+title 系统整体架构图
 
-package "API网关层" {
-    component "Nginx负载均衡" as Nginx #lightblue
-    component "API网关" as APIGateway #lightgreen
-    component "认证授权" as Auth #lightyellow
+package "前端界面层" {
+    component "用户界面" as Frontend
+    component "API接口" as API
 }
 
 package "业务服务层" {
-    package "核心服务" {
-        component "PDF处理服务" as PDFService #lightcoral
-        component "消息管理服务" as MessageService #lightpink
-        component "语义互操作服务" as SemanticService #lightgray
-        component "CDM四层法服务" as CDMService #lightsteelblue
-    }
-    
-    package "支撑服务" {
-        component "用户管理服务" as UserService #orange
-        component "文件管理服务" as FileService #purple
-        component "日志服务" as LogService #brown
-        component "监控服务" as MonitorService #teal
-    }
+    component "PDF处理服务" as PDFService
+    component "语义互操作服务" as SemanticService
+    component "CDM四层法服务" as CDMService
+    component "统一导入服务" as ImportService
 }
 
-package "数据服务层" {
-    component "MySQL主库" as MySQLMaster #red
-    component "MySQL从库" as MySQLSlave #green
-    component "Redis缓存" as Redis #blue
-    component "Elasticsearch" as ES #yellow
+package "数据存储层" {
+    component "MySQL数据库" as MySQL
+    component "Redis缓存" as Redis
 }
 
-package "基础设施层" {
-    component "Docker容器" as Docker #navy
-    component "Kubernetes集群" as K8s #olive
-    component "服务注册中心" as Registry #maroon
-    component "配置中心" as ConfigCenter #silver
-}
+' 主要连接关系
+Frontend --> API : 用户请求
+API --> PDFService : 文档处理
+API --> SemanticService : 语义互操作
+API --> CDMService : CDM转换
+API --> ImportService : 数据导入
 
-' API网关层关系
-Nginx --> APIGateway : 请求路由
-APIGateway --> Auth : 身份验证
-Auth --> APIGateway : 授权结果
+PDFService --> MySQL : 数据存储
+SemanticService --> MySQL : 映射存储
+CDMService --> MySQL : 规则存储
+ImportService --> MySQL : 导入数据
 
-' API网关到业务服务
-APIGateway --> PDFService : PDF处理请求
-APIGateway --> MessageService : 消息管理请求
-APIGateway --> SemanticService : 语义互操作请求
-APIGateway --> CDMService : CDM四层法请求
-APIGateway --> UserService : 用户管理请求
-APIGateway --> FileService : 文件管理请求
+PDFService --> Redis : 缓存
+SemanticService --> Redis : 缓存
+CDMService --> Redis : 缓存
 
-' 业务服务内部关系
-PDFService --> MessageService : 消息数据
-MessageService --> SemanticService : 语义绑定
-SemanticService --> CDMService : CDM转换
-CDMService --> MessageService : 转换结果
-
-' 业务服务到数据服务
-PDFService --> MySQLMaster : 处理结果存储
-MessageService --> MySQLMaster : 消息数据存储
-SemanticService --> MySQLMaster : 语义映射存储
-CDMService --> MySQLMaster : CDM规则存储
-UserService --> MySQLMaster : 用户数据存储
-FileService --> MySQLMaster : 文件元数据存储
-
-' 数据服务内部关系
-MySQLMaster --> MySQLSlave : 主从复制
-MessageService --> Redis : 缓存查询
-SemanticService --> Redis : 映射缓存
-LogService --> ES : 日志存储
-MonitorService --> ES : 监控数据
-
-' 基础设施层关系
-Docker --> K8s : 容器编排
-K8s --> Registry : 服务发现
-K8s --> ConfigCenter : 配置管理
-Registry --> APIGateway : 服务注册
-ConfigCenter --> PDFService : 配置下发
-ConfigCenter --> MessageService : 配置下发
-ConfigCenter --> SemanticService : 配置下发
-ConfigCenter --> CDMService : 配置下发
-
-' 支撑服务关系
-LogService --> PDFService : 日志收集
-LogService --> MessageService : 日志收集
-LogService --> SemanticService : 日志收集
-LogService --> CDMService : 日志收集
-MonitorService --> PDFService : 性能监控
-MonitorService --> MessageService : 性能监控
-MonitorService --> SemanticService : 性能监控
-MonitorService --> CDMService : 性能监控
-
-note right of APIGateway
-  API网关提供：
-  - 请求路由
-  - 负载均衡
-  - 限流熔断
-  - 统一认证
+note right of API
+  统一API接口
+  请求路由与认证
 end note
 
 note right of PDFService
-  PDF处理服务支持：
-  - 文档解析
-  - 表格提取
-  - 智能识别
-  - 批量处理
+  PDF文档解析
+  表格提取与识别
 end note
 
 note right of SemanticService
-  语义互操作服务实现：
-  - 概念绑定
-  - 语义映射
-  - 跨协议转换
-  - 智能推理
-end note
-
-note right of K8s
-  Kubernetes集群提供：
-  - 自动扩缩容
-  - 服务发现
-  - 健康检查
-  - 滚动更新
+  语义概念绑定
+  跨协议转换
 end note
 
 @enduml

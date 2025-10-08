@@ -33,11 +33,9 @@
 
 如图\ref{fig_tdl_architecture} 所示，战术数据链通过多平台互联形成统一网络，实现了态势共享和联合打击。
 
-战术数据链的体系结构是理解其工作原理和设计理念的关键。图\ref{fig_tdl_architecture}展示了典型的战术数据链体系结构，该图清晰地描绘了从物理传输层到应用服务层的完整技术架构。图中可以看到，战术数据链采用分层设计思想，底层是物理传输介质（如无线电、卫星链路等），向上依次是数据链路层、网络层、传输层和应用层。每一层都有其特定的功能职责，物理层负责信号的调制解调和传输，数据链路层处理帧同步、错误检测和流量控制，网络层管理路由选择和网络拓扑，传输层提供端到端的可靠数据传输，应用层则实现具体的业务功能。这种分层架构不仅提高了系统的可维护性和可扩展性，还为不同厂商的设备互操作提供了标准化的接口规范。
-
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.8\textwidth,height=0.33\textheight,keepaspectratio]{chapters/fig-0/tdl-architecture.png}
+    \includegraphics[width=0.8\textwidth,height=0.5\textheight,keepaspectratio]{chapters/fig-0/tdl_architecture_simple.png}
     \caption{战术数据链体系结构示意图}
     \label{fig_tdl_architecture}
 \end{figure}
@@ -54,12 +52,14 @@ Link 16的技术优势主要体现在其采用的时分多址（TDMA）接入方
 
 \section{MIL-STD-6016 标准框架与特点}
 MIL-STD-6016 作为 {Link16} 的核心标准，对 J 系列报文的格式、语义及应用场景做出了详细规定\cite{ASSIST_6016_2024,CJCSM_6235_01_2025}。其主要特点包括：  
-\begin{itemize}
-  \item 统一的 J 系列消息目录，覆盖作战控制、目标指示与火力支援等功能；  
-  \item 采用时分多址（TDMA）机制，保证在高密度网络中的有序通信；  
-  \item 抗干扰能力强，结合跳频扩频和加密算法，提升系统的安全性和鲁棒性；  
-  \item 具备扩展性，可通过 {JREAP} 协议实现超视距（BLOS）传输，并与 {TTNT} 等新型战术网络互操作。  
-\end{itemize}
+
+（1）统一的 J 系列消息目录，覆盖作战控制、目标指示与火力支援等功能；  
+
+（2）采用时分多址（TDMA）机制，保证在高密度网络中的有序通信；  
+
+（3）抗干扰能力强，结合跳频扩频和加密算法，提升系统的安全性和鲁棒性；  
+
+（4）具备扩展性，可通过 {JREAP} 协议实现超视距（BLOS）传输，并与 {TTNT} 等新型战术网络互操作。
 
 此外，MIL-STD-6020 明确了跨数据链数据转发与映射的规则；NATO 的 STANAG 5602 及其配套 SIMPLE 规范为异构链路互连提供了标准化接口；而 SISO 标准给出了 {Link16} 仿真的数据模型与交互定义\cite{Ultra_MDLMS_2021}。这些标准共同构成了战术数据链互操作的规范框架。
 
@@ -69,7 +69,7 @@ MIL-STD-6016标准的制定过程体现了美军在战术数据链标准化方�
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth,height=0.6\textheight,keepaspectratio]{chapters/fig-0/j_series_message_structure.png}
+    \includegraphics[width=0.85\textwidth,height=0.6\textheight,keepaspectratio]{chapters/fig-0/j_series_message_structure.png}
     \caption{MIL-STD-6016 J系列消息结构图}
     \label{fig_j_series_message_structure}
 \end{figure}
@@ -151,7 +151,7 @@ MIL-STD-6016标准的制定过程体现了美军在战术数据链标准化方�
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth,height=0.6\textheight,keepaspectratio]{chapters/fig-0/semantic_interop_architecture.png}
+    \includegraphics[width=0.85\textwidth,height=0.7\textheight,keepaspectratio]{chapters/fig-0/semantic_interop_architecture.png}
     \caption{语义互操作架构层次图}
     \label{fig_semantic_interop_architecture}
 \end{figure}

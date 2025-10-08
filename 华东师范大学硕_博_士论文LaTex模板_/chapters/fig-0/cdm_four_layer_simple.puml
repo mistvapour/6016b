@@ -1,52 +1,58 @@
 @startuml cdm_four_layer_simple
 !theme plain
-skinparam backgroundColor white
+skinparam backgroundColor #FFFFFF
 skinparam componentStyle rectangle
-skinparam linetype ortho
+skinparam component {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
+skinparam package {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
+skinparam note {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
 
 title CDM四层法语义互操作模型图
 
 package "运行层" as runtime {
-    component [实时转换引擎] as engine
-    component [批量处理器] as batch
-    component [缓存管理器] as cache
+    component [转换引擎] as engine
+    component [缓存管理] as cache
 }
 
 package "校验层" as validation {
-    component [格式校验器] as format_check
-    component [业务规则校验] as business_check
+    component [格式校验] as format_check
     component [一致性校验] as consistency_check
 }
 
 package "映射层" as mapping {
-    component [字段映射器] as field_mapping
-    component [数据类型转换] as type_conversion
-    component [单位转换器] as unit_conversion
+    component [字段映射] as field_mapping
+    component [类型转换] as type_conversion
 }
 
 package "语义层" as semantic {
     component [本体模型] as ontology
     component [概念推理] as reasoning
-    component [语义关系] as relations
 }
 
 ' 连接关系
 engine --> format_check
-batch --> business_check
-cache --> consistency_check
-
 format_check --> field_mapping
-business_check --> type_conversion
-consistency_check --> unit_conversion
-
 field_mapping --> ontology
+
+cache --> consistency_check
+consistency_check --> type_conversion
 type_conversion --> reasoning
-unit_conversion --> relations
 
 ' 添加说明
-note right of runtime : 高性能实时转换引擎
-note right of validation : 多层次一致性验证
-note right of mapping : 声明式规则映射
-note right of semantic : 统一本体模型
+note right of runtime : 实时转换引擎
+note right of validation : 一致性验证
+note right of mapping : 规则映射
+note right of semantic : 本体模型
 
 @enduml

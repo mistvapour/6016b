@@ -1,0 +1,49 @@
+@startuml data_management
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle rectangle
+skinparam linetype ortho
+
+title 分布式数据管理与存储架构
+
+package "应用层" {
+    component [消息服务] as msg_service
+    component [概念服务] as concept_service
+    component [映射服务] as mapping_service
+}
+
+package "数据分片层" {
+    component [分片路由器] as shard_router
+}
+
+package "数据库分片集群" {
+    database "分片1" as shard_1
+    database "分片2" as shard_2
+    database "分片3" as shard_3
+}
+
+package "缓存层" {
+    component [Redis集群] as redis_cluster
+    component [本地缓存] as local_cache
+}
+
+' 数据访问流程
+msg_service --> shard_router
+concept_service --> shard_router
+mapping_service --> shard_router
+
+shard_router --> shard_1
+shard_router --> shard_2
+shard_router --> shard_3
+
+' 缓存访问
+msg_service --> local_cache
+concept_service --> local_cache
+mapping_service --> local_cache
+
+local_cache --> redis_cluster
+
+note right of shard_router : 基于哈希算法的分片路由
+note right of redis_cluster : 高性能缓存集群
+
+@enduml

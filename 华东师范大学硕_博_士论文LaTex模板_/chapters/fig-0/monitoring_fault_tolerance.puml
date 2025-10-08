@@ -1,0 +1,63 @@
+@startuml monitoring_fault_tolerance
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle rectangle
+skinparam linetype ortho
+
+title 监控与容错系统架构
+
+package "微服务层" {
+    component [消息服务] as msg_service
+    component [概念服务] as concept_service
+    component [映射服务] as mapping_service
+}
+
+package "监控系统" {
+    component [Prometheus] as prometheus
+    component [Grafana] as grafana
+    component [告警管理器] as alert_manager
+}
+
+package "容错系统" {
+    component [熔断器] as circuit_breaker
+    component [重试机制] as retry_mechanism
+    component [降级策略] as fallback_strategy
+}
+
+package "外部系统" {
+    component [前端应用] as frontend
+    database "数据库集群" as database_cluster
+}
+
+' 监控数据流
+msg_service --> prometheus
+concept_service --> prometheus
+mapping_service --> prometheus
+
+prometheus --> grafana
+prometheus --> alert_manager
+
+' 容错机制
+frontend --> circuit_breaker
+circuit_breaker --> msg_service
+circuit_breaker --> concept_service
+circuit_breaker --> mapping_service
+
+circuit_breaker --> retry_mechanism
+retry_mechanism --> msg_service
+retry_mechanism --> concept_service
+retry_mechanism --> mapping_service
+
+circuit_breaker --> fallback_strategy
+fallback_strategy --> database_cluster
+
+' 监控反馈
+circuit_breaker --> prometheus
+retry_mechanism --> prometheus
+fallback_strategy --> prometheus
+
+note right of prometheus : 指标收集与存储
+note right of grafana : 可视化监控展示
+note right of circuit_breaker : 熔断器状态管理
+
+@enduml
