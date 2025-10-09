@@ -1,10 +1,14 @@
 @startuml
 !theme plain
+skinparam backgroundColor white
+skinparam componentStyle rectangle
+skinparam linetype ortho
+
 title 语义互操作研究发展趋势图
 
 package "早期标准化阶段 (2000-2010)" {
-    rectangle "标准体系" as standards #lightblue
-    rectangle "模型分层" as models #lightgreen
+    rectangle "标准体系" as standards
+    rectangle "模型分层" as models
     
     standards : SISO、NATO、ISO标准
     standards : 多层互操作模型
@@ -18,9 +22,9 @@ package "早期标准化阶段 (2000-2010)" {
 }
 
 package "知识融合阶段 (2010-2020)" {
-    rectangle "本体解包" as unpacking #lightyellow
-    rectangle "语义推理" as reasoning #lightcoral
-    rectangle "智能映射" as mapping #lightgray
+    rectangle "本体解包" as unpacking
+    rectangle "语义推理" as reasoning
+    rectangle "智能映射" as mapping
     
     unpacking : 本体解包方法
     unpacking : 概念模型剖析
@@ -39,9 +43,9 @@ package "知识融合阶段 (2010-2020)" {
 }
 
 package "智能化发展阶段 (2020至今)" {
-    rectangle "多云环境" as multicloud #lightpink
-    rectangle "语义中枢" as hub #lightcyan
-    rectangle "协同机制" as coordination #lightsteelblue
+    rectangle "多云环境" as multicloud
+    rectangle "语义中枢" as hub
+    rectangle "协同机制" as coordination
     
     multicloud : 跨平台语义互操作
     multicloud : 多云环境参考架构
@@ -60,9 +64,9 @@ package "智能化发展阶段 (2020至今)" {
 }
 
 package "国内研究现状" {
-    rectangle "技术基础" as foundation #lightgreen
-    rectangle "应用场景" as scenarios #lightblue
-    rectangle "发展趋势" as trends #lightyellow
+    rectangle "技术基础" as foundation
+    rectangle "应用场景" as scenarios
+    rectangle "发展趋势" as trends
     
     foundation : 2000年代语义网工程
     foundation : 知识图谱技术发展
@@ -81,9 +85,9 @@ package "国内研究现状" {
 }
 
 package "技术融合方向" {
-    rectangle "多模态融合" as multimodal #lightcoral
-    rectangle "跨标准映射" as cross_standard #lightsteelblue
-    rectangle "自适应机制" as adaptive #lightcyan
+    rectangle "多模态融合" as multimodal
+    rectangle "跨标准映射" as cross_standard
+    rectangle "自适应机制" as adaptive
     
     multimodal : 视觉语言融合模型
     multimodal : 文档理解与语义推理

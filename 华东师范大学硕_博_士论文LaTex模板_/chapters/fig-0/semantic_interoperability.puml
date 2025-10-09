@@ -1,28 +1,29 @@
 @startuml 语义互操作架构图
 !theme plain
-skinparam backgroundColor #FFFFFF
+skinparam backgroundColor white
 skinparam componentStyle rectangle
 skinparam packageStyle rectangle
+skinparam linetype ortho
 
 title 战术数据链语义互操作架构图
 
 package "语义层 (Semantic Layer)" {
-    component "统一语义概念库" as ConceptDB #lightblue
-    component "本体模型" as Ontology #lightgreen
-    component "语义推理引擎" as Reasoning #lightyellow
+    component "统一语义概念库" as ConceptDB
+    component "本体模型" as Ontology
+    component "语义推理引擎" as Reasoning
 }
 
 package "映射层 (Mapping Layer)" {
-    component "字段映射规则" as FieldMapping #lightcoral
-    component "协议转换器" as ProtocolConverter #lightpink
-    component "语义绑定器" as SemanticBinder #lightgray
+    component "字段映射规则" as FieldMapping
+    component "协议转换器" as ProtocolConverter
+    component "语义绑定器" as SemanticBinder
 }
 
 package "协议层 (Protocol Layer)" {
-    component "MIL-STD-6016" as Link16 #orange
-    component "MQTT" as MQTT #purple
-    component "MAVLink" as MAVLink #brown
-    component "NMEA-0183" as NMEA #teal
+    component "MIL-STD-6016" as Link16
+    component "MQTT" as MQTT
+    component "MAVLink" as MAVLink
+    component "NMEA-0183" as NMEA
 }
 
 package "数据层 (Data Layer)" {

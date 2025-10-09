@@ -52,38 +52,22 @@
 
 数据分片算法的核心实现如下：
 
-\begin{lstlisting}[language=Python, label=fig:data_sharding]
-def shard_data(data, shard_key, num_shards):
-    """
-    数据分片算法实现
-    Args:
-        data: 待分片的数据
-        shard_key: 分片键
-        num_shards: 分片数量
-    Returns:
-        shard_id: 分片ID
-    """
-    # 计算分片ID
-    hash_value = hash(shard_key)
-    shard_id = hash_value % num_shards
-    
-    # 存储到对应分片
-    shard_db = get_shard_database(shard_id)
-    shard_db.insert(data)
-    
-    return shard_id
-
-def get_shard_database(shard_id):
-    """
-    获取分片数据库连接
-    Args:
-        shard_id: 分片ID
-    Returns:
-        database: 数据库连接
-    """
-    shard_config = SHARD_CONFIGS[shard_id]
-    return connect_database(shard_config)
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{数据分片算法}
+\begin{algorithmic}[1]
+\REQUIRE data: 待分片的数据, shard\_key: 分片键, num\_shards: 分片数量
+\ENSURE shard\_id: 分片ID
+\STATE 计算分片ID
+\STATE hash\_value $\leftarrow$ hash(shard\_key)
+\STATE shard\_id $\leftarrow$ hash\_value mod num\_shards
+\STATE 获取分片数据库连接
+\STATE shard\_config $\leftarrow$ SHARD\_CONFIGS[shard\_id]
+\STATE shard\_db $\leftarrow$ connect\_database(shard\_config)
+\STATE 存储数据到对应分片
+\STATE shard\_db.insert(data)
+\RETURN shard\_id
+\end{algorithmic}
+\end{algorithm}
 
 \subsection{监控与容错}
 
@@ -102,40 +86,53 @@ def get_shard_database(shard_id):
 
 熔断器模式的核心实现如下：
 
-\begin{lstlisting}[language=Python, label=fig:circuit_breaker]
-class CircuitBreaker:
-    def __init__(self, failure_threshold=5, timeout=60):
-        self.failure_threshold = failure_threshold
-        self.timeout = timeout
-        self.failure_count = 0
-        self.last_failure_time = None
-        self.state = 'CLOSED'  # CLOSED, OPEN, HALF_OPEN
-    
-    def call(self, func, *args, **kwargs):
-        if self.state == 'OPEN':
-            if time.time() - self.last_failure_time > self.timeout:
-                self.state = 'HALF_OPEN'
-            else:
-                raise CircuitBreakerOpenException()
-        
-        try:
-            result = func(*args, **kwargs)
-            self.on_success()
-            return result
-        except Exception as e:
-            self.on_failure()
-            raise e
-    
-    def on_success(self):
-        self.failure_count = 0
-        self.state = 'CLOSED'
-    
-    def on_failure(self):
-        self.failure_count += 1
-        self.last_failure_time = time.time()
-        if self.failure_count >= self.failure_threshold:
-            self.state = 'OPEN'
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{熔断器模式算法}
+\begin{algorithmic}[1]
+\REQUIRE func: 待调用函数, failure\_threshold: 失败阈值, timeout: 超时时间
+\ENSURE result: 函数执行结果
+\STATE 初始化熔断器状态
+\STATE failure\_count $\leftarrow$ 0
+\STATE last\_failure\_time $\leftarrow$ null
+\STATE state $\leftarrow$ 'CLOSED'
+\IF{state = 'OPEN'}
+    \IF{current\_time - last\_failure\_time > timeout}
+        \STATE state $\leftarrow$ 'HALF\_OPEN'
+    \ELSE
+        \STATE 抛出异常 CircuitBreakerOpenException
+    \ENDIF
+\ENDIF
+\STATE 尝试执行函数
+\STATE 执行函数调用
+\STATE result $\leftarrow$ func(*args, **kwargs)
+\IF{执行成功}
+    \STATE on\_success()
+    \RETURN result
+\ELSE
+    \STATE on\_failure()
+    \STATE 抛出异常 e
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{熔断器成功处理}
+\begin{algorithmic}[1]
+\STATE failure\_count $\leftarrow$ 0
+\STATE state $\leftarrow$ 'CLOSED'
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{熔断器失败处理}
+\begin{algorithmic}[1]
+\STATE failure\_count $\leftarrow$ failure\_count + 1
+\STATE last\_failure\_time $\leftarrow$ current\_time
+\IF{failure\_count >= failure\_threshold}
+    \STATE state $\leftarrow$ 'OPEN'
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
 
 表\ref{table:monitoring_metrics}列出了系统监控的关键指标和阈值配置。
 
@@ -168,30 +165,32 @@ class CircuitBreaker:
 
 以下SQL代码定义了核心数据表结构，该实现包括主外键约束、索引策略和数据完整性检查：
 
-\begin{lstlisting}[language=SQL, label=fig:database_schema]
--- 核心数据表结构
-CREATE TABLE STD_VERSION (
-    std_id VARCHAR(36) PRIMARY KEY,
-    std_name VARCHAR(64) NOT NULL,
-    version_number VARCHAR(32) NOT NULL
-);
-
-CREATE TABLE MESSAGE (
-    message_id VARCHAR(36) PRIMARY KEY,
-    j_num VARCHAR(16) NOT NULL,
-    title VARCHAR(128) NOT NULL,
-    std_id VARCHAR(36) NOT NULL,
-    FOREIGN KEY (std_id) REFERENCES STD_VERSION(std_id)
-);
-
-CREATE TABLE FIELD (
-    field_id VARCHAR(36) PRIMARY KEY,
-    message_id VARCHAR(36) NOT NULL,
-    start_bit INT NOT NULL,
-    end_bit INT NOT NULL,
-    FOREIGN KEY (message_id) REFERENCES MESSAGE(message_id)
-);
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{数据库表结构设计}
+\begin{algorithmic}[1]
+\REQUIRE 表结构需求
+\ENSURE 完整的数据库表结构
+\STATE 创建标准版本表
+\STATE CREATE TABLE STD\_VERSION
+\STATE std\_id: VARCHAR(36) PRIMARY KEY
+\STATE std\_name: VARCHAR(64) NOT NULL
+\STATE version\_number: VARCHAR(32) NOT NULL
+\STATE 创建消息表
+\STATE CREATE TABLE MESSAGE
+\STATE message\_id: VARCHAR(36) PRIMARY KEY
+\STATE j\_num: VARCHAR(16) NOT NULL
+\STATE title: VARCHAR(128) NOT NULL
+\STATE std\_id: VARCHAR(36) NOT NULL
+\STATE FOREIGN KEY (std\_id) REFERENCES STD\_VERSION(std\_id)
+\STATE 创建字段表
+\STATE CREATE TABLE FIELD
+\STATE field\_id: VARCHAR(36) PRIMARY KEY
+\STATE message\_id: VARCHAR(36) NOT NULL
+\STATE start\_bit: INT NOT NULL
+\STATE end\_bit: INT NOT NULL
+\STATE FOREIGN KEY (message\_id) REFERENCES MESSAGE(message\_id)
+\end{algorithmic}
+\end{algorithm}
 
 \subsection{索引策略优化}
 
@@ -199,12 +198,19 @@ CREATE TABLE FIELD (
 
 索引策略的核心代码如下，该实现创建了高效的查询索引，包括组合索引、覆盖索引和全文索引：
 
-\begin{lstlisting}[language=SQL, label=fig:database_indexes]
--- 核心索引策略
-CREATE INDEX IDX_FIELD_MSG_RANGE ON FIELD(message_id, start_bit, end_bit);
-CREATE INDEX IDX_MSG_LOOKUP ON MESSAGE(std_id, j_num);
-CREATE INDEX IDX_STD_VERSION_NAME ON STD_VERSION(std_name, version_number);
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{数据库索引策略}
+\begin{algorithmic}[1]
+\REQUIRE 表结构和查询需求
+\ENSURE 优化的索引结构
+\STATE 创建字段范围索引
+\STATE CREATE INDEX IDX\_FIELD\_MSG\_RANGE ON FIELD(message\_id, start\_bit, end\_bit)
+\STATE 创建消息查找索引
+\STATE CREATE INDEX IDX\_MSG\_LOOKUP ON MESSAGE(std\_id, j\_num)
+\STATE 创建标准版本名称索引
+\STATE CREATE INDEX IDX\_STD\_VERSION\_NAME ON STD\_VERSION(std\_name, version\_number)
+\end{algorithmic}
+\end{algorithm}
 
 \subsection{约束机制保障}
 
@@ -212,43 +218,51 @@ CREATE INDEX IDX_STD_VERSION_NAME ON STD_VERSION(std_name, version_number);
 
 约束机制的关键SQL代码如下，该实现定义了完整的数据完整性约束，包括主外键约束、检查约束和触发器：
 
-\begin{lstlisting}[language=SQL, label=fig:database_constraints]
--- 核心约束机制
-ALTER TABLE MESSAGE 
-ADD CONSTRAINT FK_MESSAGE_STD_VERSION 
-FOREIGN KEY (std_id) REFERENCES STD_VERSION(std_id);
-
-ALTER TABLE FIELD 
-ADD CONSTRAINT FK_FIELD_MESSAGE 
-FOREIGN KEY (message_id) REFERENCES MESSAGE(message_id);
-
-ALTER TABLE FIELD 
-ADD CONSTRAINT CHK_FIELD_BIT_RANGE 
-CHECK (start_bit >= 0 AND end_bit > start_bit);
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{数据库约束机制}
+\begin{algorithmic}[1]
+\REQUIRE 表结构和业务规则
+\ENSURE 完整的约束体系
+\STATE 添加消息表外键约束
+\STATE ALTER TABLE MESSAGE
+\STATE ADD CONSTRAINT FK\_MESSAGE\_STD\_VERSION
+\STATE FOREIGN KEY (std\_id) REFERENCES STD\_VERSION(std\_id)
+\STATE 添加字段表外键约束
+\STATE ALTER TABLE FIELD
+\STATE ADD CONSTRAINT FK\_FIELD\_MESSAGE
+\STATE FOREIGN KEY (message\_id) REFERENCES MESSAGE(message\_id)
+\STATE 添加字段位范围检查约束
+\STATE ALTER TABLE FIELD
+\STATE ADD CONSTRAINT CHK\_FIELD\_BIT\_RANGE
+\STATE CHECK (start\_bit >= 0 AND end\_bit > start\_bit)
+\end{algorithmic}
+\end{algorithm}
 \subsection{版本管理}
 版本管理功能作为数据模型的重要组成部分，使系统能够有效跟踪标准的变化历史。系统实现了标准版本控制、变更历史追踪以及审计日志等关键功能。这些功能不仅帮助理解标准的演进过程，更为后续的数据分析和系统维护工作提供了重要的历史数据支撑。
 
 版本管理功能的SQL代码实现如下，该实现提供了完整的版本控制和审计功能：
 
-\begin{lstlisting}[language=SQL, label=fig:database_versioning]
--- 版本管理核心表
-CREATE TABLE VERSION_HISTORY (
-    history_id VARCHAR(36) PRIMARY KEY,
-    table_name VARCHAR(64) NOT NULL,
-    record_id VARCHAR(36) NOT NULL,
-    operation_type ENUM('INSERT', 'UPDATE', 'DELETE') NOT NULL,
-    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE AUDIT_LOG (
-    log_id VARCHAR(36) PRIMARY KEY,
-    action VARCHAR(100) NOT NULL,
-    resource_type VARCHAR(64),
-    resource_id VARCHAR(36),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{版本管理表结构}
+\begin{algorithmic}[1]
+\REQUIRE 版本管理需求
+\ENSURE 版本控制和审计表结构
+\STATE 创建版本历史表
+\STATE CREATE TABLE VERSION\_HISTORY
+\STATE history\_id: VARCHAR(36) PRIMARY KEY
+\STATE table\_name: VARCHAR(64) NOT NULL
+\STATE record\_id: VARCHAR(36) NOT NULL
+\STATE operation\_type: ENUM('INSERT', 'UPDATE', 'DELETE') NOT NULL
+\STATE changed\_at: TIMESTAMP DEFAULT CURRENT\_TIMESTAMP
+\STATE 创建审计日志表
+\STATE CREATE TABLE AUDIT\_LOG
+\STATE log\_id: VARCHAR(36) PRIMARY KEY
+\STATE action: VARCHAR(100) NOT NULL
+\STATE resource\_type: VARCHAR(64)
+\STATE resource\_id: VARCHAR(36)
+\STATE created\_at: TIMESTAMP DEFAULT CURRENT\_TIMESTAMP
+\end{algorithmic}
+\end{algorithm}
 
 
 
@@ -262,21 +276,23 @@ PDF处理模块作为系统的重要组成部分，集成了PyMuPDF、pdfplumber
 
 以下核心代码展示了PDF处理器的关键实现，该类封装了完整的PDF文档处理流程，包括表格提取、章节解析、数据标准化和校验等功能：
 
-\begin{lstlisting}[language=Python, label=fig:pdf_processor]
-class PDFProcessor:
-    """PDF处理器主类"""
-    
-    def __init__(self, standard: str = "MIL-STD-6016"):
-        self.standard = standard
-        self.table_extractor = TableExtractor()
-        self.section_parser = SectionParser()
-    
-    def process_pdf(self, pdf_path: str) -> Dict[str, Any]:
-        """处理PDF文件，执行完整的提取和转换流程"""
-        tables = self.table_extractor.extract_tables(pdf_path)
-        sections = self.section_parser.parse_sections(pdf_path)
-        return {"tables": tables, "sections": sections}
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{PDF处理器算法}
+\begin{algorithmic}[1]
+\REQUIRE pdf\_path: PDF文件路径, standard: 标准类型
+\ENSURE result: 包含表格和章节的字典
+\STATE 初始化PDF处理器
+\STATE standard $\leftarrow$ "MIL-STD-6016"
+\STATE table\_extractor $\leftarrow$ TableExtractor()
+\STATE section\_parser $\leftarrow$ SectionParser()
+\STATE 处理PDF文件
+\STATE tables $\leftarrow$ table\_extractor.extract\_tables(pdf\_path)
+\STATE sections $\leftarrow$ section\_parser.parse\_sections(pdf\_path)
+\STATE 构建结果字典
+\STATE result $\leftarrow$ \{"tables": tables, "sections": sections\}
+\RETURN result
+\end{algorithmic}
+\end{algorithm}
 
 \subsection{语义互操作模块实现}
 
@@ -284,23 +300,26 @@ class PDFProcessor:
 
 语义互操作管理器的核心代码如下，该管理器负责分析消息语义、执行跨协议转换和消息路由：
 
-\begin{lstlisting}[language=Python, label=fig:semantic_interop]
-class InteroperabilityManager:
-    """互操作性管理器"""
-    
-    def __init__(self):
-        self.registry = SemanticRegistry()
-        self.transformer = SemanticTransformer()
-    
-    def analyze_message_semantics(self, message: Dict, standard: str) -> Dict:
-        """分析消息语义"""
-        semantic_analysis = {
-            "message_type": message.get("message_type"),
-            "standard": standard,
-            "semantic_fields": {}
-        }
-        return semantic_analysis
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{语义互操作管理器算法}
+\begin{algorithmic}[1]
+\REQUIRE message: 消息字典, standard: 标准类型
+\ENSURE semantic\_analysis: 语义分析结果
+\STATE 初始化互操作性管理器
+\STATE registry $\leftarrow$ SemanticRegistry()
+\STATE transformer $\leftarrow$ SemanticTransformer()
+\STATE 分析消息语义
+\STATE message\_type $\leftarrow$ message.get("message\_type")
+\STATE semantic\_fields $\leftarrow$ \{\}
+\STATE 构建语义分析结果
+\STATE semantic\_analysis $\leftarrow$ \{
+\STATE     "message\_type": message\_type,
+\STATE     "standard": standard,
+\STATE     "semantic\_fields": semantic\_fields
+\STATE \}
+\RETURN semantic\_analysis
+\end{algorithmic}
+\end{algorithm}
 
 \subsection{CDM四层法模块实现}
 
@@ -308,22 +327,21 @@ CDM四层法模块按照语义层、映射层、校验层以及运行层的结�
 
 CDM四层法系统的关键代码片段如下，该系统按照语义层、映射层、校验层和运行层的架构实现消息转换：
 
-\begin{lstlisting}[language=Python, label=fig:cdm_system]
-class CDMInteropSystem:
-    """CDM互操作系统主类"""
-    
-    def __init__(self):
-        self.cdm_registry = CDMRegistry()
-        self.converter = MessageConverter()
-    
-    def process_message(self, source_message: Dict, source_protocol: str, 
-                       target_protocol: str) -> Dict:
-        """处理消息转换"""
-        target_message = self.converter.convert_message(
-            source_message, source_protocol, target_protocol
-        )
-        return target_message
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{CDM互操作系统算法}
+\begin{algorithmic}[1]
+\REQUIRE source\_message: 源消息, source\_protocol: 源协议, target\_protocol: 目标协议
+\ENSURE target\_message: 转换后的目标消息
+\STATE 初始化CDM互操作系统
+\STATE cdm\_registry $\leftarrow$ CDMRegistry()
+\STATE converter $\leftarrow$ MessageConverter()
+\STATE 处理消息转换
+\STATE target\_message $\leftarrow$ converter.convert\_message(
+\STATE     source\_message, source\_protocol, target\_protocol
+\STATE )
+\RETURN target\_message
+\end{algorithmic}
+\end{algorithm}
 
 \subsection{统一导入模块实现}
 
@@ -331,19 +349,20 @@ class CDMInteropSystem:
 
 统一导入系统的核心代码如下，该系统支持多种文件格式的自动检测和处理，提供统一的导入接口：
 
-\begin{lstlisting}[language=Python, label=fig:universal_import]
-class UniversalImportSystem:
-    """统一导入系统主类"""
-    
-    def __init__(self):
-        self.adapters = [PDFAdapter(), XMLAdapter(), JSONAdapter()]
-    
-    def process_file(self, file_path: str) -> Dict:
-        """处理单个文件"""
-        format_info = self.detect_file_format(file_path)
-        adapter = self.select_adapter(format_info)
-        return adapter.import_file(file_path)
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{统一导入系统算法}
+\begin{algorithmic}[1]
+\REQUIRE file\_path: 文件路径
+\ENSURE result: 导入结果
+\STATE 初始化统一导入系统
+\STATE adapters $\leftarrow$ [PDFAdapter(), XMLAdapter(), JSONAdapter()]
+\STATE 处理单个文件
+\STATE format\_info $\leftarrow$ detect\_file\_format(file\_path)
+\STATE adapter $\leftarrow$ select\_adapter(format\_info)
+\STATE result $\leftarrow$ adapter.import\_file(file\_path)
+\RETURN result
+\end{algorithmic}
+\end{algorithm}
 
 这四个核心模块通过统一的接口进行交互，形成了完整的处理流水线。每个模块都有明确的职责分工，模块之间通过标准化的数据格式进行通信，确保了系统的可维护性和可扩展性。
 
@@ -359,71 +378,93 @@ class UniversalImportSystem:
 
 FastAPI应用的主入口代码如下，该实现配置了完整的应用设置，包括中间件、路由注册和异常处理：
 
-\begin{lstlisting}[language=Python, label=fig:fastapi_main]
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-
-app = FastAPI(title="MIL-STD-6016 数据链标准系统")
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"]
-    )
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{FastAPI应用初始化算法}
+\begin{algorithmic}[1]
+\REQUIRE 应用配置参数
+\ENSURE 配置完成的FastAPI应用
+\STATE 导入FastAPI模块
+\STATE from fastapi import FastAPI
+\STATE from fastapi.middleware.cors import CORSMiddleware
+\STATE 创建FastAPI应用实例
+\STATE app $\leftarrow$ FastAPI(title="MIL-STD-6016 数据链标准系统")
+\STATE 配置CORS中间件
+\STATE app.add\_middleware(
+\STATE     CORSMiddleware,
+\STATE     allow\_origins=["*"],
+\STATE     allow\_methods=["*"],
+\STATE     allow\_headers=["*"]
+\STATE )
+\end{algorithmic}
+\end{algorithm}
 
 路由层实现方面，系统使用APIRouter来组织不同的API端点。每个路由都有明确的参数校验规则，确保输入数据的有效性。中间件机制实现了跨域处理、请求日志记录以及异常处理等功能。
 
 路由配置的核心代码如下，该实现定义了完整的API路由结构，包括参数验证和响应模型：
 
-\begin{lstlisting}[language=Python, label=fig:fastapi_routes]
-from fastapi import APIRouter
-from pydantic import BaseModel
-
-router = APIRouter(prefix="/api")
-
-class SearchRequest(BaseModel):
-    keyword: str
-    limit: int = 100
-
-@router.post("/search")
-async def search_messages(request: SearchRequest):
-    return {"results": [], "total": 0}
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{FastAPI路由配置算法}
+\begin{algorithmic}[1]
+\REQUIRE 路由配置需求
+\ENSURE 配置完成的API路由
+\STATE 导入路由模块
+\STATE from fastapi import APIRouter
+\STATE from pydantic import BaseModel
+\STATE 创建API路由器
+\STATE router $\leftarrow$ APIRouter(prefix="/api")
+\STATE 定义请求模型
+\STATE class SearchRequest(BaseModel):
+\STATE     keyword: str
+\STATE     limit: int = 100
+\STATE 注册搜索路由
+\STATE @router.post("/search")
+\STATE async def search\_messages(request: SearchRequest):
+\STATE     \RETURN \{"results": [], "total": 0\}
+\end{algorithmic}
+\end{algorithm}
 
 服务层实现了业务逻辑的封装。系统采用了依赖注入的设计模式，让各个服务之间的依赖关系更加清晰。异常处理机制确保系统在遇到错误时能够优雅地处理，不会影响用户体验。
 
 服务层的关键代码如下，该实现封装了核心业务逻辑，包括数据查询、处理和转换：
 
-\begin{lstlisting}[language=Python, label=fig:fastapi_service]
-from sqlalchemy.ext.asyncio import AsyncSession
-
-class SearchService:
-    def __init__(self, db: AsyncSession):
-        self.db = db
-    
-    async def search_messages(self, keyword: str) -> list:
-        # 执行搜索逻辑
-        return []
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{FastAPI服务层算法}
+\begin{algorithmic}[1]
+\REQUIRE keyword: 搜索关键词, db: 数据库会话
+\ENSURE results: 搜索结果列表
+\STATE 导入异步数据库模块
+\STATE from sqlalchemy.ext.asyncio import AsyncSession
+\STATE 定义搜索服务类
+\STATE class SearchService:
+\STATE     初始化服务
+\STATE     def \_\_init\_\_(self, db: AsyncSession):
+\STATE         self.db $\leftarrow$ db
+\STATE     执行搜索逻辑
+\STATE     async def search\_messages(self, keyword: str) returns list:
+\STATE         \RETURN []
+\end{algorithmic}
+\end{algorithm}
 
 数据访问层基于SQLAlchemy ORM构建。系统使用了异步会话管理，提高了数据库操作的效率。连接池管理确保系统在高并发情况下能够稳定运行。
 
 数据库连接管理的核心代码如下，该实现提供了异步数据库会话管理和连接池配置：
 
-\begin{lstlisting}[language=Python, label=fig:fastapi_database]
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
-from sqlalchemy.orm import sessionmaker
-
-# 异步数据库引擎
-engine = create_async_engine("sqlite+aiosqlite:///./app.db")
-
-# 异步会话工厂
-AsyncSessionLocal = sessionmaker(
-    engine, class_=AsyncSession, expire_on_commit=False
-)
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{数据库连接管理算法}
+\begin{algorithmic}[1]
+\REQUIRE 数据库连接配置
+\ENSURE 配置完成的数据库连接
+\STATE 导入SQLAlchemy异步模块
+\STATE from sqlalchemy.ext.asyncio import create\_async\_engine, AsyncSession
+\STATE from sqlalchemy.orm import sessionmaker
+\STATE 创建异步数据库引擎
+\STATE engine $\leftarrow$ create\_async\_engine("sqlite+aiosqlite:///./app.db")
+\STATE 创建异步会话工厂
+\STATE AsyncSessionLocal $\leftarrow$ sessionmaker(
+\STATE     engine, class\_=AsyncSession, expire\_on\_commit=False
+\STATE )
+\end{algorithmic}
+\end{algorithm}
 
 API接口设计遵循RESTful规范。系统为每个资源都提供了标准的CRUD操作接口。自动文档生成功能让前端开发人员能够快速了解接口的使用方法。
 
@@ -435,45 +476,82 @@ API接口设计遵循RESTful规范。系统为每个资源都提供了标准的C
 
 以下是搜索接口的主要实现，该接口支持多条件搜索和分页查询，提供灵活的搜索功能：
 
-\begin{lstlisting}[language=Python, label=fig:search_api]
-@router.post("/search")
-async def search_messages(request: SearchRequest):
-    # 执行搜索逻辑
-    return {"results": [], "total": 0}
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{搜索API接口算法}
+\begin{algorithmic}[1]
+\REQUIRE request: 搜索请求对象
+\ENSURE response: 搜索结果响应
+\STATE 注册搜索路由
+\STATE @router.post("/search")
+\STATE 定义搜索函数
+\STATE async def search\_messages(request: SearchRequest):
+\STATE     执行搜索逻辑
+\STATE     results $\leftarrow$ []
+\STATE     total $\leftarrow$ 0
+\STATE     \RETURN \{"results": results, "total": total\}
+\end{algorithmic}
+\end{algorithm}
 
 比较接口/api/compare实现了跨标准版本的概念比较功能。这个接口能够分析不同版本标准之间的差异，为用户提供详细的比较结果。聚合分析功能让系统能够从多个维度理解标准的变化。
 
 比较接口的具体实现如下，该接口支持跨版本标准的概念比较和差异分析：
 
-\begin{lstlisting}[language=Python, label=fig:compare_api]
-@router.post("/compare")
-async def compare_standards(request: CompareRequest):
-    # 执行比较逻辑
-    return {"added": [], "removed": [], "modified": []}
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{比较API接口算法}
+\begin{algorithmic}[1]
+\REQUIRE request: 比较请求对象
+\ENSURE response: 比较结果响应
+\STATE 注册比较路由
+\STATE @router.post("/compare")
+\STATE 定义比较函数
+\STATE async def compare\_standards(request: CompareRequest):
+\STATE     执行比较逻辑
+\STATE     added $\leftarrow$ []
+\STATE     removed $\leftarrow$ []
+\STATE     modified $\leftarrow$ []
+\STATE     \RETURN \{"added": added, "removed": removed, "modified": modified\}
+\end{algorithmic}
+\end{algorithm}
 
 绑定接口/api/bind/field-to-di实现了字段与数据项的语义绑定功能。这个接口能够自动识别字段与数据项之间的语义关系，建立相应的绑定关系。
 
 绑定接口的代码实现如下，该接口支持字段与数据项的自动语义绑定和手动调整：
 
-\begin{lstlisting}[language=Python, label=fig:bind_api]
-@router.post("/bind/field-to-di")
-async def bind_field_to_di(request: BindRequest):
-    # 执行绑定逻辑
-    return {"field_id": request.field_id, "status": "success"}
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{绑定API接口算法}
+\begin{algorithmic}[1]
+\REQUIRE request: 绑定请求对象
+\ENSURE response: 绑定结果响应
+\STATE 注册绑定路由
+\STATE @router.post("/bind/field-to-di")
+\STATE 定义绑定函数
+\STATE async def bind\_field\_to\_di(request: BindRequest):
+\STATE     执行绑定逻辑
+\STATE     field\_id $\leftarrow$ request.field\_id
+\STATE     status $\leftarrow$ "success"
+\STATE     \RETURN \{"field\_id": field\_id, "status": status\}
+\end{algorithmic}
+\end{algorithm}
 
 导出接口/api/export支持多种格式的数据导出，包括JSON、CSV以及Excel格式。这个接口让用户能够方便地将查询结果导出到本地进行进一步分析。
 
 导出接口的主要代码片段如下，该接口支持多种格式的数据导出和批量下载：
 
-\begin{lstlisting}[language=Python, label=fig:export_api]
-@router.post("/export")
-async def export_data(request: ExportRequest):
-    # 执行导出逻辑
-    return {"filename": "export.json", "status": "success"}
-\end{lstlisting}
+\begin{algorithm}[H]
+\caption{导出API接口算法}
+\begin{algorithmic}[1]
+\REQUIRE request: 导出请求对象
+\ENSURE response: 导出结果响应
+\STATE 注册导出路由
+\STATE @router.post("/export")
+\STATE 定义导出函数
+\STATE async def export\_data(request: ExportRequest):
+\STATE     执行导出逻辑
+\STATE     filename $\leftarrow$ "export.json"
+\STATE     status $\leftarrow$ "success"
+\STATE     \RETURN \{"filename": filename, "status": status\}
+\end{algorithmic}
+\end{algorithm}
 
 \subsection{数据处理流水线实现}
 
