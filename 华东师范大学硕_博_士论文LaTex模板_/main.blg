@@ -8,26 +8,16 @@ Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
 Database file #1: references/paper.bib
-Warning--Require citedate: wray_sheppard_1986_jtids_nav
-Warning--Require citedate: ranger1996_jn
-Warning--Require citedate: fried1984_navigation
-Warning--Require citedate: doherty1988_jn
-Warning--Require citedate: L3Harris_MIDS_LVT_2025
-Warning--Require citedate: Waseem2021Design
-Warning--Require citedate: Laigner2021Data
-Warning--Require citedate: MonitoringTools2024
-Warning--Require citedate: CJCSI_6610_01F_2021
-Warning--Require citedate: Mishra2018Semantic
-Warning--Require citedate: Bernasconi2022Ontological
-Warning--Require citedate: Guizzardi2023Explanation
-Warning--Require citedate: Hamdan2023Reference
-Warning--Require citedate: Hamdan2024SemanticMultiCloud
 Warning--Require citedate: Xu2020LayoutLM
 Warning--Require citedate: Huang2022LayoutLMv3
 Warning--Require citedate: Rausch2021DocParser
 Warning--Require citedate: Appalaraju2021DocFormer
 Warning--Require citedate: Wang2023DocumentLLM
 Warning--Require citedate: MITRE_Link16_Interoperability_2024
+Warning--Require citedate: Laigner2021Data
+Warning--Require citedate: Waseem2021Design
+Warning--Require citedate: Hamdan2023Reference
+Warning--Require citedate: MonitoringTools2024
 Warning--Require citedate: SAIC_JRE_Overview_2021
 Warning--Require citedate: Collins_TTR_2021
 Warning--Require citedate: L3Harris_STT_KOR24A_2020
@@ -40,6 +30,9 @@ Warning--Require citedate: ASSIST_6016_2024
 Warning--Require citedate: CJCSM_6235_01_2025
 Warning--Require citedate: Ultra_MDLMS_2021
 Warning--Require citedate: MonitoringTools2023
+Warning--Require citedate: CJCSI_6610_01F_2021
+Warning--Require citedate: Mishra2018Semantic
+Warning--Require citedate: Guizzardi2023Explanation
 Warning--Require citedate: SemanticMultiCloud2024
 Warning--Require address: Xu2022LayoutLMv3
 Warning--Require citedate: Xu2022LayoutLMv3
@@ -48,13 +41,9 @@ Warning--Require citedate: Li2021DocParser
 Warning--Require address: Powalski2021DocFormer
 Warning--Require citedate: Powalski2021DocFormer
 Warning--Require citedate: baek2016_jsac
-Warning--Require citedate: jiang2019_sensors
-Warning--Require citedate: hegarty_1997_nav_interference
-Warning--Require citedate: schnaufer_mcgraw_1997_waas
 Warning--Require citedate: Chelton_Link16_Antennas_2022
 Warning--Require citedate: AFCEA_Link16_Improvements_2022
 Warning--Require citedate: reid_2018_nav_leo
-Warning--Require citedate: Kao_2008
 Warning--Require citedate: Kagioglidis_2009
 Warning--Require citedate: Kee_2008
 Warning--Require citedate: baek2016_adhoc
@@ -82,50 +71,45 @@ Warning--Require citedate: ASSIST_6020_2025
 Warning--Require citedate: qin2013_gpssol
 Warning--Require citedate: fried_loeliger1979_navigation
 Warning--Require citedate: baruffa2013_jsps
-Warning--Require citedate: schneckenburger_2018_nav_multipath
-Warning--Require citedate: FFI_SDA_Link16_Space_2023
-Warning--Require citedate: Redwire_SDA_Ship_Demo_2024
-Warning--Require citedate: JAPCC_F35_TDLs_2024
-Warning--Require citedate: JAPCC_Hosted_Payloads_2015
-You've used 96 entries,
+You've used 73 entries,
             3050 wiz_defined-function locations,
-            1319 strings with 27100 characters,
-and the built_in function-call counts, 124528 in all, are:
-= -- 13448
-> -- 264
-< -- 627
-+ -- 11092
-- -- 774
-* -- 4154
-:= -- 14450
+            1186 strings with 22420 characters,
+and the built_in function-call counts, 97748 in all, are:
+= -- 10613
+> -- 207
+< -- 490
++ -- 8804
+- -- 611
+* -- 3153
+:= -- 11421
 add.period$ -- 0
-call.type$ -- 96
-change.case$ -- 336
+call.type$ -- 73
+change.case$ -- 268
 chr.to.int$ -- 0
-cite$ -- 175
-duplicate$ -- 16706
-empty$ -- 4426
-format.name$ -- 672
-if$ -- 32965
+cite$ -- 136
+duplicate$ -- 13114
+empty$ -- 3433
+format.name$ -- 536
+if$ -- 25973
 int.to.chr$ -- 0
-int.to.str$ -- 96
+int.to.str$ -- 73
 missing$ -- 0
-newline$ -- 315
-num.names$ -- 97
-pop$ -- 1559
+newline$ -- 246
+num.names$ -- 74
+pop$ -- 1200
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1138
+skip$ -- 889
 stack$ -- 0
-substring$ -- 14254
-swap$ -- 3880
+substring$ -- 11225
+swap$ -- 2894
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 79
-while$ -- 1483
-width$ -- 98
-write$ -- 1343
-(There were 79 warnings)
+warning$ -- 63
+while$ -- 1155
+width$ -- 75
+write$ -- 1021
+(There were 63 warnings)
