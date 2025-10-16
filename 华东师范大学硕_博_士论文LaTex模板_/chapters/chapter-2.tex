@@ -23,13 +23,13 @@
     \centering
     \adjustbox{width=0.8\textwidth,center}{%
     \begin{tabular}{lcccc}
-        \hline
+        \toprule
         \textbf{数据链类型} & \textbf{速率(kbps)} & \textbf{抗干扰} & \textbf{覆盖范围} & \textbf{典型应用} \\
-        \hline
+        \midrule
         Link 11 & 1.8--2.25 & 较弱 & 约 300 km & 早期空海通信 \\
         Link 16 & 31.6--115.2 & 强 & 约 500 km & 联合作战、火力协调 \\
         Link 22 & 2.4--275 & 强 & 超视距(BLOS) & NATO 联盟协同 \\
-        \hline
+        \bottomrule
     \end{tabular}%
     }
 \end{table}
@@ -93,25 +93,25 @@ MIL-STD-6016标准的确立是美军多年来相关战术数据链标准化工�
     \centering
     \adjustbox{width=0.95\textwidth,center}{%
     \begin{tabular}{lcccc}
-        \hline
+        \toprule
         \textbf{标准名称} & \textbf{主要功能} & \textbf{应用范围} & \textbf{互操作性} & \textbf{技术特点} \\
-        \hline
+        \midrule
         MIL-STD-6016 & J系列消息格式定义 & Link16战术数据链 & 强 & TDMA、跳频扩频、加密 \\
         & 消息语义规范 & 联合作战平台 & & 固定/可变长度消息 \\
         & 处理流程标准 & 多军种协同 & & 实时性、可靠性 \\
-        \hline
+        \midrule
         MIL-STD-6020 & 跨数据链转发 & 多链路互连 & 中等 & 数据映射、格式转换 \\
         & 数据映射规则 & 异构系统集成 & & 协议适配、路由选择 \\
         & 互操作接口 & 联盟作战 & & 标准化接口 \\
-        \hline
+        \midrule
         STANAG 5602 & NATO互操作标准 & NATO成员国 & 强 & 统一数据格式 \\
         & SIMPLE规范 & 联盟协同作战 & & 标准化接口 \\
         & 异构链路互连 & 多国联合作战 & & 兼容性保证 \\
-        \hline
+        \midrule
         SISO标准 & 仿真数据模型 & Link16仿真系统 & 中等 & 仿真接口标准 \\
         & 交互定义 & 训练与测试 & & 数据模型规范 \\
         & 仿真互操作 & 系统验证 & & 标准化仿真 \\
-        \hline
+        \bottomrule
     \end{tabular}%
     }
 \end{table}

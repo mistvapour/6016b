@@ -30,7 +30,7 @@
 \contentsline {subsection}{\numberline {3.1.5}前端交互与可视化}{25}{subsection.3.1.5}%
 \contentsline {subsection}{\numberline {3.1.6}仿真与验证接口}{27}{subsection.3.1.6}%
 \contentsline {section}{\numberline {3.2}系统非功能性需求分析}{27}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}性能需求}{27}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.1}性能需求}{28}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}安全性需求}{28}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}可扩展性需求}{29}{subsection.3.2.3}%
 \contentsline {chapter}{\numberline {第四章\hspace {.3em}}微服务架构与跨数据链协议互操作系统设计}{30}{chapter.4}%
@@ -42,8 +42,8 @@
 \contentsline {subsection}{\numberline {4.2.1}微服务模块划分与职责}{32}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}微服务通信机制}{33}{subsection.4.2.2}%
 \contentsline {subsection}{\numberline {4.2.3}容错与弹性设计}{33}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}数据模型与数据库设计}{33}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}设计目标与数据特征}{33}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.3}数据模型与数据库设计}{34}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}设计目标与数据特征}{34}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}核心实体与关系模型}{34}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}约束与索引设计}{36}{subsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.3.4}微服务数据库分离与一致性}{36}{subsection.4.3.4}%

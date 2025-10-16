@@ -31,14 +31,14 @@
     \centering
     \adjustbox{width=0.9\textwidth,center}{%
     \begin{tabular}{lccc}
-        \hline
+        \toprule
         \textbf{数据类型} & \textbf{结构特点} & \textbf{处理需求} & \textbf{存储实体} \\
-        \hline
+        \midrule
         标准消息数据 & 多字段/比特位 & 报文解析、完整性校验 & 消息表、字段表 \\
         语义概念数据 & 概念层次/同义映射 & 概念绑定、语义一致性 & 概念表、绑定表 \\
         多格式文档数据 & 格式多样/结构复杂 & 多格式解析、智能识别 & 文档表、解析结果表 \\
         跨协议转换数据 & 格式差异/协议适配 & 格式转换、协议映射 & 映射表、转换规则表 \\
-        \hline
+        \bottomrule
     \end{tabular}%
     }
 \end{table}
@@ -58,16 +58,16 @@
     \centering
     \adjustbox{width=0.9\textwidth,center}{%
     \begin{tabular}{lccc}
-        \hline
+        \toprule
         \textbf{标准名称} & \textbf{描述} & \textbf{版本} & \textbf{主要消息类型} \\
-        \hline
+        \midrule
         MIL-STD-6016 & 美军标准6016 - 战术数据链消息标准 & A, B, C & J2.0, J3.0, J7.0, J12.0, J13.0 \\
         MIL-STD-3011 & 美军标准3011 - 联合战术信息分发系统 & A, B & J2.0, J2.2, J3.0, J3.1, J3.3 \\
         STANAG-5516 & 北约标准5516 - 战术数据交换 & 1, 2, 3 & J2.0, J3.0, J7.0, J12.0 \\
         MAVLink & 微型飞行器通信协议 & 1.0, 2.0 & HEARTBEAT, ATTITUDE, POSITION, GPS\_RAW\_INT \\
         NMEA-0183 & 海洋电子设备数据格式 & 2.0, 2.1, 2.2, 2.3 & GGA, RMC, VTG, GLL, GSA \\
         ARINC-429 & 航空电子设备数字信息传输 & 15, 16, 17 & A429, A629 \\
-        \hline
+        \bottomrule
     \end{tabular}%
     }
 \end{table}
@@ -113,15 +113,15 @@
     \centering
     \adjustbox{width=0.9\textwidth,center}{%
     \begin{tabular}{lccc}
-        \hline
+        \toprule
         \textbf{API接口} & \textbf{主要功能} & \textbf{支持格式} & \textbf{应用场景} \\
-        \hline
+        \midrule
         /api/v2 & 消息转换、概念管理、映射管理、系统统计 & JSON, XML & 统一文档处理与语义互操作 \\
         /api/cdm & CDM概念创建、映射规则管理、消息转换 & JSON, YAML & CDM四层法互操作处理 \\
         /api/semantic & 语义字段管理、消息映射、路由处理 & JSON, XML & 语义互操作系统 \\
         /api/pdf & PDF文档解析、表格提取、数据处理 & PDF, JSON & MIL-STD-6016文档处理 \\
         /api/mqtt & MQTT消息处理、协议转换、数据路由 & JSON, MQTT & MQTT协议消息处理 \\
-        \hline
+        \bottomrule
     \end{tabular}%
     }
 \end{table}

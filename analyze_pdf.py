@@ -7,7 +7,7 @@ from pathlib import Path
 
 def analyze_pdf():
     """分析PDF文件"""
-    pdf_path = "sample_j_message.pdf"
+    pdf_path = r"C:\Users\Administrator\Documents\毕业论文\代码\前端\6016-app\华东师范大学硕_博_士论文LaTex模板_\公开版llm-数据链消息模拟客户端开发与测试250716(3).pdf"
     
     if not Path(pdf_path).exists():
         print(f"PDF文件不存在: {pdf_path}")

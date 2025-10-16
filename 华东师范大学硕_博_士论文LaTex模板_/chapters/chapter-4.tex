@@ -56,16 +56,16 @@ API网关层提供系统统一接口，进行路由转发、认证鉴权、权�
     \caption{微服务模块划分与职责}
     \label{table:microservices}
     \centering
-    \begin{tabular}{|l|l|}
-        \hline
+    \begin{tabular}{ll}
+        \toprule
         \textbf{模块} & \textbf{核心职责} \\
-        \hline
+        \midrule
         pdf-service & 自动化标准文档解析与结构化导入 \\
         semantic-service & 跨标准语义分析与字段映射 \\
         cdm-service & CDM四层语义互操作（语义层/映射层/校验层/运行层） \\
         import-service & 多格式文件识别、清洗与批量导入 \\
         api-gateway & 统一接口访问控制、负载均衡、服务监控 \\
-        \hline
+        \bottomrule
     \end{tabular}
 \end{table}
 

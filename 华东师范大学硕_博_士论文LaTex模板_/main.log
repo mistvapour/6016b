@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.9.17)  10 OCT 2025 15:17
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.9.17)  11 OCT 2025 19:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1849,12 +1849,6 @@ Overfull \hbox (16.32585pt too wide) in paragraph at lines 123--124
  []
 
 
-Overfull \hbox (0.42741pt too wide) in paragraph at lines 125--126
-[]\TU/SimSun(0)/m/n/12 分 布 式 数 据 系 统 与 云 原 生 技 术 的 发 展 也 为 微 服 务 研 究 注 入 了 新 的 
-动 力。| \TU/TimesNewRoman(0)/m/n/12 Laigner
- []
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.62503pt}.
@@ -1862,7 +1856,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [14]
-Underfull \vbox (badness 4416) has occurred while \output is active []
+Overfull \hbox (0.42741pt too wide) in paragraph at lines 125--126
+[]\TU/SimSun(0)/m/n/12 分 布 式 数 据 系 统 与 云 原 生 技 术 的 发 展 也 为 微 服 务 研 究 注 入 了 新 的 
+动 力。| \TU/TimesNewRoman(0)/m/n/12 Laigner
+ []
+
+
+Underfull \vbox (badness 1859) has occurred while \output is active []
 
 
 
@@ -1974,8 +1974,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [25]
 File: chapters/fig-0/usecase_frontend.png Graphic file (type bmp)
 <chapters/fig-0/usecase_frontend.png>
-File: chapters/fig-0/component_frontend.png Graphic file (type bmp)
-<chapters/fig-0/component_frontend.png>
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1985,6 +1983,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [26]
+File: chapters/fig-0/component_frontend.png Graphic file (type bmp)
+<chapters/fig-0/component_frontend.png>
+
+Underfull \vbox (badness 3260) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -1993,9 +1997,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [27]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2042,6 +2043,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [32]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.62503pt, for example:
@@ -2554,7 +2558,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.62503pt}.
 
 [79]
-Underfull \vbox (badness 5908) has occurred while \output is active []
+Underfull \vbox (badness 5741) has occurred while \output is active []
 
 
 
