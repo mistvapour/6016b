@@ -1,0 +1,292 @@
+{
+  "label": "JX.Y",
+  "title": "Auto Generated From PDF",
+  "version": "6016B",
+  "fields": [
+    {
+      "name": "2",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "该至少覆盖",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "至少覆盖",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "3",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "值、边界值）一键生成功能（消息头填默认值）；",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "5",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "率达到",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "6)",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "67",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "3.",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "1",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "2",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "3",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "4",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "二、商务要求",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "1.交货地点：    北京      。",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "2.交货期：合同签订之日起   365  天内全部交货并安装调试完毕。",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "1.中标人须根据用户通知的时间和地点，安排有经验、具备相应资质的工程",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    },
+    {
+      "name": "技术人员免费进行安装调试。安装调试中所产生的一切相关费用由中标方承担。",
+      "dtype": "string",
+      "units": null,
+      "description": null,
+      "bits": null,
+      "children": null,
+      "constraint": {
+        "required": true,
+        "min_value": null,
+        "max_value": null,
+        "enum": null,
+        "pattern": null
+      }
+    }
+  ]
+}

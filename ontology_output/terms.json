@@ -1,0 +1,316 @@
+{
+  "J0": {
+    "id": "J0",
+    "label": "Initial Entry",
+    "description": "Initial entry message",
+    "category": "message",
+    "aliases": [
+      "J0.0",
+      "Initial",
+      "Entry"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "J1": {
+    "id": "J1",
+    "label": "Track Management",
+    "description": "Track management message",
+    "category": "message",
+    "aliases": [
+      "J1.0",
+      "Track",
+      "Management"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "J2": {
+    "id": "J2",
+    "label": "Air Track",
+    "description": "Air track message",
+    "category": "message",
+    "aliases": [
+      "J2.0",
+      "Air",
+      "Track"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "J3": {
+    "id": "J3",
+    "label": "Surface Track",
+    "description": "Surface track message",
+    "category": "message",
+    "aliases": [
+      "J3.0",
+      "Surface",
+      "Track"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "J4": {
+    "id": "J4",
+    "label": "Weapon Status",
+    "description": "Weapon status message",
+    "category": "message",
+    "aliases": [
+      "J4.0",
+      "Weapon",
+      "Status"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "J5": {
+    "id": "J5",
+    "label": "Electronic Warfare",
+    "description": "Electronic warfare message",
+    "category": "message",
+    "aliases": [
+      "J5.0",
+      "EW",
+      "Electronic Warfare"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "J6": {
+    "id": "J6",
+    "label": "Information Management",
+    "description": "Information management message",
+    "category": "message",
+    "aliases": [
+      "J6.0",
+      "Information",
+      "Management"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "J7": {
+    "id": "J7",
+    "label": "Route Planning",
+    "description": "Route planning message",
+    "category": "message",
+    "aliases": [
+      "J7.0",
+      "Route",
+      "Planning"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "J8": {
+    "id": "J8",
+    "label": "Unit Designation",
+    "description": "Unit designation message",
+    "category": "message",
+    "aliases": [
+      "J8.0",
+      "Unit",
+      "Designation"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "J9": {
+    "id": "J9",
+    "label": "Command",
+    "description": "Command message",
+    "category": "message",
+    "aliases": [
+      "J9.0",
+      "Command"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "track_id": {
+    "id": "track_id",
+    "label": "Track ID",
+    "description": "Track identification number",
+    "category": "field",
+    "aliases": [
+      "TrackID",
+      "Track Number",
+      "ID"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "latitude": {
+    "id": "latitude",
+    "label": "Latitude",
+    "description": "Geographic latitude",
+    "category": "field",
+    "aliases": [
+      "Lat",
+      "Latitude",
+      "Y Coordinate"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "longitude": {
+    "id": "longitude",
+    "label": "Longitude",
+    "description": "Geographic longitude",
+    "category": "field",
+    "aliases": [
+      "Lon",
+      "Longitude",
+      "X Coordinate"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "altitude": {
+    "id": "altitude",
+    "label": "Altitude",
+    "description": "Altitude above sea level",
+    "category": "field",
+    "aliases": [
+      "Alt",
+      "Height",
+      "Elevation"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "speed": {
+    "id": "speed",
+    "label": "Speed",
+    "description": "Ground speed",
+    "category": "field",
+    "aliases": [
+      "Velocity",
+      "Ground Speed"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "heading": {
+    "id": "heading",
+    "label": "Heading",
+    "description": "Track heading",
+    "category": "field",
+    "aliases": [
+      "Course",
+      "Bearing",
+      "Direction"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "weapon_status": {
+    "id": "weapon_status",
+    "label": "Weapon Status",
+    "description": "Current weapon status",
+    "category": "field",
+    "aliases": [
+      "Weapon State",
+      "Arms Status"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "range": {
+    "id": "range",
+    "label": "Range",
+    "description": "Distance to target",
+    "category": "field",
+    "aliases": [
+      "Distance",
+      "Range to Target"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "bearing": {
+    "id": "bearing",
+    "label": "Bearing",
+    "description": "Bearing to target",
+    "category": "field",
+    "aliases": [
+      "Azimuth",
+      "Direction to Target"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  },
+  "elevation": {
+    "id": "elevation",
+    "label": "Elevation",
+    "description": "Elevation angle",
+    "category": "field",
+    "aliases": [
+      "Elevation Angle",
+      "Vertical Angle"
+    ],
+    "synonyms": [],
+    "parent": null,
+    "children": [],
+    "standard_ref": "MIL-STD-6016B",
+    "confidence": 1.0
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "deg": {
+    "symbol": "deg",
+    "name": "degrees",
+    "base_si": "rad",
+    "factor": 0.0174532925,
+    "offset": 0.0,
+    "description": "Angular measurement",
+    "aliases": []
+  },
+  "rad": {
+    "symbol": "rad",
+    "name": "radians",
+    "base_si": "rad",
+    "factor": 1.0,
+    "offset": 0.0,
+    "description": "Angular measurement (SI base)",
+    "aliases": []
+  },
+  "m": {
+    "symbol": "m",
+    "name": "meters",
+    "base_si": "m",
+    "factor": 1.0,
+    "offset": 0.0,
+    "description": "Length measurement (SI base)",
+    "aliases": []
+  },
+  "km": {
+    "symbol": "km",
+    "name": "kilometers",
+    "base_si": "m",
+    "factor": 1000.0,
+    "offset": 0.0,
+    "description": "Length measurement",
+    "aliases": []
+  },
+  "nm": {
+    "symbol": "nm",
+    "name": "nautical miles",
+    "base_si": "m",
+    "factor": 1852.0,
+    "offset": 0.0,
+    "description": "Nautical distance",
+    "aliases": []
+  },
+  "ft": {
+    "symbol": "ft",
+    "name": "feet",
+    "base_si": "m",
+    "factor": 0.3048,
+    "offset": 0.0,
+    "description": "Length measurement",
+    "aliases": []
+  },
+  "kts": {
+    "symbol": "kts",
+    "name": "knots",
+    "base_si": "m/s",
+    "factor": 0.514444,
+    "offset": 0.0,
+    "description": "Speed measurement",
+    "aliases": []
+  },
+  "m/s": {
+    "symbol": "m/s",
+    "name": "meters per second",
+    "base_si": "m/s",
+    "factor": 1.0,
+    "offset": 0.0,
+    "description": "Speed measurement (SI base)",
+    "aliases": []
+  },
+  "km/h": {
+    "symbol": "km/h",
+    "name": "kilometers per hour",
+    "base_si": "m/s",
+    "factor": 0.277778,
+    "offset": 0.0,
+    "description": "Speed measurement",
+    "aliases": []
+  },
+  "sec": {
+    "symbol": "sec",
+    "name": "seconds",
+    "base_si": "s",
+    "factor": 1.0,
+    "offset": 0.0,
+    "description": "Time measurement",
+    "aliases": []
+  },
+  "min": {
+    "symbol": "min",
+    "name": "minutes",
+    "base_si": "s",
+    "factor": 60.0,
+    "offset": 0.0,
+    "description": "Time measurement",
+    "aliases": []
+  },
+  "hour": {
+    "symbol": "hour",
+    "name": "hours",
+    "base_si": "s",
+    "factor": 3600.0,
+    "offset": 0.0,
+    "description": "Time measurement",
+    "aliases": []
+  }
+}

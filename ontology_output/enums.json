@@ -1,0 +1,86 @@
+{
+  "weapon_status": {
+    "key": "weapon_status",
+    "name": "Weapon Status",
+    "items": [
+      {
+        "code": "0",
+        "label": "Safe",
+        "description": "Weapon is safe"
+      },
+      {
+        "code": "1",
+        "label": "Armed",
+        "description": "Weapon is armed"
+      },
+      {
+        "code": "2",
+        "label": "Firing",
+        "description": "Weapon is firing"
+      },
+      {
+        "code": "3",
+        "label": "Malfunction",
+        "description": "Weapon malfunction"
+      }
+    ],
+    "description": "Weapon system status codes",
+    "aliases": []
+  },
+  "track_type": {
+    "key": "track_type",
+    "name": "Track Type",
+    "items": [
+      {
+        "code": "0",
+        "label": "Unknown",
+        "description": "Unknown track type"
+      },
+      {
+        "code": "1",
+        "label": "Air",
+        "description": "Air track"
+      },
+      {
+        "code": "2",
+        "label": "Surface",
+        "description": "Surface track"
+      },
+      {
+        "code": "3",
+        "label": "Subsurface",
+        "description": "Subsurface track"
+      }
+    ],
+    "description": "Track type classification",
+    "aliases": []
+  },
+  "threat_level": {
+    "key": "threat_level",
+    "name": "Threat Level",
+    "items": [
+      {
+        "code": "0",
+        "label": "Unknown",
+        "description": "Unknown threat level"
+      },
+      {
+        "code": "1",
+        "label": "Low",
+        "description": "Low threat"
+      },
+      {
+        "code": "2",
+        "label": "Medium",
+        "description": "Medium threat"
+      },
+      {
+        "code": "3",
+        "label": "High",
+        "description": "High threat"
+      }
+    ],
+    "description": "Threat level assessment",
+    "aliases": []
+  }
+}
