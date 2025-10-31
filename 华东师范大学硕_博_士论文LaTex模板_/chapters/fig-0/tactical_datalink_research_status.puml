@@ -1,0 +1,82 @@
+@startuml
+!theme plain
+title 战术数据链研究现状发展脉络图
+
+package "国外研究发展" {
+    rectangle "1970年代" as era1 #lightblue
+    rectangle "1980-2000年代" as era2 #lightgreen
+    rectangle "2000-2010年代" as era3 #lightyellow
+    rectangle "2010年代至今" as era4 #lightcoral
+    
+    era1 : 联合战术信息传输需求
+    era1 : MIL-STD-6016标准发布
+    era1 : J系列报文体系建立
+    
+    era2 : MIL-STD-3011(JREAP)标准
+    era2 : STANAG 5516标准
+    era2 : 多链路融合研究框架
+    
+    era3 : MITRE、NATO C3 Agency
+    era3 : 标准化信息模型构建
+    era3 : Link11/16/22数据互通
+    
+    era4 : L3Harris MIDS终端
+    era4 : Collins Aerospace TTR系统
+    era4 : 语义级协同演进
+    era4 : 体系融合与信息标准化
+}
+
+package "国内研究发展" {
+    rectangle "1990年代" as china1 #lightblue
+    rectangle "2000年代" as china2 #lightgreen
+    rectangle "2010年代" as china3 #lightyellow
+    rectangle "2020年代至今" as china4 #lightcoral
+    
+    china1 : 防务电子化建设
+    china1 : 信号调制与波形设计
+    china1 : 抗干扰建模研究
+    
+    china2 : Link16技术引入
+    china2 : 链路消息结构研究
+    china2 : 报文解析与仿真验证
+    
+    china3 : 态势信息融合
+    china3 : 链路建模与仿真平台
+    china3 : 原型系统开发
+    
+    china4 : 数据库化管理研究
+    china4 : 跨标准映射探索
+    china4 : 体系化、架构化方向
+}
+
+package "技术发展趋势" {
+    rectangle "发展方向" as trend #lightgray
+    trend : 链路互通 → 语义协同
+    trend : 单链路应用 → 多链融合
+    trend : 信号验证 → 体系集成
+    trend : 标准化建模 → 智能互操作
+}
+
+era1 --> era2 : 标准体系完善
+era2 --> era3 : 多链路融合
+era3 --> era4 : 语义协同
+china1 --> china2 : 技术引入
+china2 --> china3 : 系统开发
+china3 --> china4 : 体系化发展
+
+era4 --> trend : 国外领先
+china4 --> trend : 国内追赶
+
+note right of era4
+国外已形成"标准主导—
+模型驱动—体系集成"
+的研究格局
+end note
+
+note right of china4
+国内正从"信号验证—
+系统开发—标准化建模"
+转向体系化方向
+end note
+
+@enduml

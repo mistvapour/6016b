@@ -1,0 +1,61 @@
+@startuml
+!theme plain
+skinparam backgroundColor white
+skinparam component {
+    BackgroundColor white
+    BorderColor black
+    FontColor black
+}
+skinparam package {
+    BackgroundColor white
+    BorderColor black
+    FontColor black
+}
+skinparam note {
+    BackgroundColor white
+    BorderColor black
+    FontColor black
+}
+
+title MIL-STD-6016 J系列消息结构图
+
+package "作战控制类 (J0-J9)" {
+    [J0.0 初始入网] as J00
+    [J2.0 初始入网] as J20
+    [J3.0 航迹管理] as J30
+    [J3.1 空中航迹] as J31
+    [J3.3 水面航迹] as J33
+    [J4.0 任务管理] as J40
+    [J7.0 任务管理] as J70
+    [J8.0 单元状态] as J80
+}
+
+package "电子战类 (J10-J19)" {
+    [J10.0 电子战] as J100
+    [J12.0 电子战] as J120
+    [J15.0 电子战] as J150
+}
+
+package "情报类 (J20-J29)" {
+    [J20.0 情报] as J200
+    [J22.0 情报] as J220
+    [J25.0 情报] as J250
+}
+
+package "武器协调类 (J30-J39)" {
+    [J30.0 武器协调] as J300
+    [J32.0 武器协调] as J320
+    [J35.0 武器协调] as J350
+}
+
+note right of J30
+航迹管理消息
+管理目标航迹信息
+end note
+
+note right of J100
+电子战消息
+电子侦察与防护
+end note
+
+@enduml

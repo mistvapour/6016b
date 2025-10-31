@@ -1,0 +1,67 @@
+@startuml 简化自动化导入流程图
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle rectangle
+skinparam component {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
+skinparam package {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
+skinparam note {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
+
+title 自动化信息标准导入流程
+
+package "输入" {
+    component "PDF文档" as PDF
+    component "Excel文档" as Excel
+    component "XML文档" as XML
+}
+
+package "处理" {
+    component "文档解析" as Parse
+    component "数据清洗" as Clean
+    component "格式转换" as Convert
+}
+
+package "输出" {
+    component "结构化数据" as Data
+    component "数据库存储" as DB
+    component "导入报告" as Report
+}
+
+' 主要流程
+PDF --> Parse : 解析
+Excel --> Parse : 解析
+XML --> Parse : 解析
+
+Parse --> Clean : 清洗
+Clean --> Convert : 转换
+Convert --> Data : 结构化
+Data --> DB : 存储
+Data --> Report : 报告
+
+note right of Parse
+  使用PyMuPDF、pdfplumber、
+  Camelot、Tesseract OCR等工具
+end note
+
+note right of Clean
+  空值处理、重复检测、
+  标准一致性校验
+end note
+
+note right of Convert
+  格式转换、单位转换、
+  枚举映射
+end note
+
+@enduml

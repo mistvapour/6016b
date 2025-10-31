@@ -1,0 +1,324 @@
+xelatex: security risk: running with elevated privileges
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(main.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/ctex\ctexbook.c
+ls
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/ctex/config\cte
+xbackend.cfg)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.
+sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3bac
+kend-xetex.def))
+Document Class: ctexbook 2022/07/14 v2.5.10 Chinese adapter for class book (CTE
+X)
+
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/ctex\ctexhook.s
+ty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/ctex\ctexpatch.
+sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/base\fix-cm.sty
+
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1enc.def
+))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/ctex/config\cte
+xopts.cfg)
+
+Class ctexbook Warning: Option `fancyhdr' is deprecated.
+(ctexbook)              `fancyhdr' package is loaded.
+
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
+Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/base\bk12.clo))
+
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/ctex/engine\cte
+x-engine-xetex.def
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/xelatex/xecjk\xeCJK.s
+ty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xtem
+plate\xtemplate.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontsp
+ec.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xpar
+se\xparse.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontsp
+ec-xetex.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.st
+y)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontsp
+ec.cfg)))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/xelatex/xecjk\xeCJK.c
+fg)))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/zhnumber\zhnumb
+er.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/zhnumber\zhnumb
+er-utf8.cfg))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/ctex/scheme\cte
+x-scheme-chinese-book.def
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/ctex/config\cte
+x-name-utf8.cfg))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/ctex/fontset\ct
+ex-fontset-windows.def))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyh
+dr.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/ctex/config\cte
+x.cfg) (format/format.tex
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperr
+ef.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.s
+ty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\inf
+warerr.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval
+.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvset
+keys.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\
+kvdefinekeys.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdf
+escape.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcm
+ds.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pd
+ftexcmds.sty))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor
+.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\let
+ltxmacro.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook
+.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\namere
+f.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcou
+nt.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestrin
+g\gettitlestring.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvopt
+ions.sty)))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolb
+ox.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc
+.def)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intca
+lc.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.
+def)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset
+.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bi
+gintcalc.sty))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-l
+tx.sty))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hxetex
+.def
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\str
+ingenc.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\
+rerunfilecheck.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter
+\uniquecounter.sty)))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/base\shortvrb.s
+ty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/ulem\ulem.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/base\makeidx.st
+y)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
+cx.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
+cs.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.s
+ty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\gr
+aphics.cfg)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\xe
+tex.def)))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/tools\indentfir
+st.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/base\latexsym.s
+ty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colort
+bl.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.
+sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\co
+lor.cfg)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathco
+lor.ltx)))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable
+.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjus
+tbox.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval
+.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyv
+al.tex
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvut
+ils.tex)))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjca
+lc.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\trimc
+lip.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/collectbox\coll
+ectbox.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\tc-xe
+tex.def))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifodd
+page.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwid
+th.sty))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/subfigure\subfi
+gure.sty
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/subfigure\subfi
+gure.cfg))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/clrscode\clrsco
+de.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algo
+rithm.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algo
+rithmic.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath
+.sty
+For additional information on amsmath, use the `?' option.
+
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext
+.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.
+sty))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.
+sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.
+sty))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssym
+b.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfon
+ts.sty))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\mathrs
+fs.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/cases\cases.sty
+)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geomet
+ry.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.
+sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geomet
+ry.cfg))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\times.st
+y)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/makecell\makece
+ll.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotati
+ng.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multir
+ow.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/diagbox\diagbox
+.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/pict2e\pict2e.s
+ty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/pict2e\pict2e.c
+fg)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/pict2e\p2e-xete
+x.def))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty)
+) (font-config.tex
+
+Package xeCJK Warning: Redefining CJKfamily `\CJKrmdefault' (SimSun(0)).
+
+
+LaTeX Font Warning: Font shape `TU/ptm/m/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 8.
+
+
+Package xeCJK Warning: Redefining CJKfamily `\CJKsfdefault' (Microsoft YaHei).
+
+
+Package xeCJK Warning: Redefining CJKfamily `\CJKttdefault' (FangSong).
+
+
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/unicode-math\un
+icode-math.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/unicode-math\un
+icode-math-xetex.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3ke
+ys2e\l3keys2e.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/unicode-math\un
+icode-math-table.tex)))
+
+! LaTeX cmd Error: Command '\ttfamily' already defined.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.26 \newfontfamily
+                   \ttfamilybf{Courier New Bold}
+? )
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\bookta
+bs.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption
+.sty
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption
+3.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcapti
+on.sty))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlet
+oc.sty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.s
+ty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/fourier\fourier
+.sty
+
+Package fourier Warning: Please consider loading "fourier-otf.sty" instead of
+(fourier)                "fourier.sty" with Unicode engines LuaTeX or XeTeX,
+(fourier)                so that Type1 fonts get replaced by OpenType fonts.
+(fourier)                See file "Erewhon-Math.pdf" for more information.
+
+
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.st
+y
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/fourier\t1futs.
+fd))
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.s
+ty)
+(C:\Users\Administrator\AppData\Local\Programs\MiKTeX\tex/latex/fourier\fourier
+-orns.sty)
+
+! LaTeX Error: Command `\hbar' already defined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.162 ...MathSymbol{\hbar}{\mathord}{symbols}{157}
+                                                  
+? 
+! LaTeX Error: Command `\smallsetminus' already defined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.163 ...l{\smallsetminus}{\mathbin}{symbols}{158}
+                                                  
+? ! Interruption.
+<argument> \mathchar
+                    "3A78\relax
+l.168 ...{\curvearrowleft}{\mathrel}{symbols}{163}
+                                                  
+? No pages of output.
+Transcript written on main.log.
+xelatex: major issue: So far, you have not checked for MiKTeX updates.

@@ -1,0 +1,58 @@
+@startuml cdm_four_layer_simple
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle rectangle
+skinparam component {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
+skinparam package {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
+skinparam note {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
+
+title CDM四层法语义互操作模型图
+
+package "运行层" as runtime {
+    component [转换引擎] as engine
+    component [缓存管理] as cache
+}
+
+package "校验层" as validation {
+    component [格式校验] as format_check
+    component [一致性校验] as consistency_check
+}
+
+package "映射层" as mapping {
+    component [字段映射] as field_mapping
+    component [类型转换] as type_conversion
+}
+
+package "语义层" as semantic {
+    component [本体模型] as ontology
+    component [概念推理] as reasoning
+}
+
+' 连接关系
+engine --> format_check
+format_check --> field_mapping
+field_mapping --> ontology
+
+cache --> consistency_check
+consistency_check --> type_conversion
+type_conversion --> reasoning
+
+' 添加说明
+note right of runtime : 实时转换引擎
+note right of validation : 一致性验证
+note right of mapping : 规则映射
+note right of semantic : 本体模型
+
+@enduml

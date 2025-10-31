@@ -1,0 +1,89 @@
+@startuml CDM四层法语义互操作模型图
+!theme plain
+skinparam backgroundColor white
+skinparam componentStyle rectangle
+skinparam linetype ortho
+
+title CDM四层法语义互操作模型图
+
+package "运行层 (Runtime Layer)" as runtime {
+    component [实时转换引擎] as realtime_engine
+    component [批量处理引擎] as batch_engine
+    component [缓存管理器] as cache_manager
+    component [性能优化器] as optimizer
+}
+
+package "校验层 (Validation Layer)" as validation {
+    component [格式校验器] as format_validator
+    component [业务规则校验器] as business_validator
+    component [一致性校验器] as consistency_validator
+    component [金标准回归测试] as regression_test
+}
+
+package "映射层 (Mapping Layer)" as mapping {
+    component [YAML配置管理器] as yaml_config
+    component [字段映射器] as field_mapper
+    component [数据类型转换器] as type_converter
+    component [单位转换器] as unit_converter
+    component [版本管理器] as version_manager
+}
+
+package "语义层 (Semantic Layer)" as semantic {
+    component [本体模型] as ontology_model
+    component [概念推理引擎] as concept_reasoning
+    component [语义关系库] as semantic_relations
+    component [术语词典] as terminology
+}
+
+' 数据流向
+semantic --> mapping : 语义概念
+mapping --> validation : 映射规则
+validation --> runtime : 校验结果
+runtime --> semantic : 反馈优化
+
+' 语义层内部关系
+ontology_model --> concept_reasoning : 本体推理
+concept_reasoning --> semantic_relations : 关系推理
+semantic_relations --> terminology : 术语映射
+terminology --> ontology_model : 概念定义
+
+' 映射层内部关系
+yaml_config --> field_mapper : 配置规则
+field_mapper --> type_converter : 字段映射
+type_converter --> unit_converter : 类型转换
+unit_converter --> version_manager : 单位转换
+version_manager --> yaml_config : 版本管理
+
+' 校验层内部关系
+format_validator --> business_validator : 格式校验
+business_validator --> consistency_validator : 业务校验
+consistency_validator --> regression_test : 一致性校验
+regression_test --> format_validator : 回归测试
+
+' 运行层内部关系
+realtime_engine --> batch_engine : 实时处理
+batch_engine --> cache_manager : 批量处理
+cache_manager --> optimizer : 缓存管理
+optimizer --> realtime_engine : 性能优化
+
+note right of semantic
+  语义层建立统一的本体模型
+  和概念推理机制
+end note
+
+note right of mapping
+  映射层采用声明式规则映射
+  和YAML配置化管理
+end note
+
+note right of validation
+  校验层提供多层次的一致性
+  验证和金标准回归测试
+end note
+
+note right of runtime
+  运行层实现高性能实时转换
+  引擎和批量处理
+end note
+
+@enduml

@@ -1,0 +1,72 @@
+@startuml 系统整体架构图
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle rectangle
+skinparam packageStyle rectangle
+skinparam component {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
+skinparam package {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
+skinparam note {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontColor #000000
+}
+
+title 系统整体架构图
+
+package "前端界面层" {
+    component "用户界面" as Frontend
+    component "API接口" as API
+}
+
+package "业务服务层" {
+    component "PDF处理服务" as PDFService
+    component "语义互操作服务" as SemanticService
+    component "CDM四层法服务" as CDMService
+    component "统一导入服务" as ImportService
+}
+
+package "数据存储层" {
+    component "MySQL数据库" as MySQL
+    component "Redis缓存" as Redis
+}
+
+' 主要连接关系
+Frontend --> API : 用户请求
+API --> PDFService : 文档处理
+API --> SemanticService : 语义互操作
+API --> CDMService : CDM转换
+API --> ImportService : 数据导入
+
+PDFService --> MySQL : 数据存储
+SemanticService --> MySQL : 映射存储
+CDMService --> MySQL : 规则存储
+ImportService --> MySQL : 导入数据
+
+PDFService --> Redis : 缓存
+SemanticService --> Redis : 缓存
+CDMService --> Redis : 缓存
+
+note right of API
+  统一API接口
+  请求路由与认证
+end note
+
+note right of PDFService
+  PDF文档解析
+  表格提取与识别
+end note
+
+note right of SemanticService
+  语义概念绑定
+  跨协议转换
+end note
+
+@enduml

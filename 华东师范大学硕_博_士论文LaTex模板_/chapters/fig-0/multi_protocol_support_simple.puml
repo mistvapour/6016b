@@ -1,0 +1,52 @@
+@startuml multi_protocol_support_simple
+!theme plain
+skinparam backgroundColor white
+skinparam componentStyle rectangle
+skinparam linetype ortho
+
+title 多协议支持体系架构图
+
+package "路由分发层" as routing {
+    component [消息路由器] as router
+    component [负载均衡器] as lb
+}
+
+package "转换引擎层" as engine {
+    component [格式转换器] as format
+    component [单位转换器] as unit
+    component [枚举映射器] as enum
+}
+
+package "语义抽象层" as semantic {
+    component [语义模型] as model
+    component [概念映射] as concept
+}
+
+package "协议适配层" as adapter {
+    component [MIL-STD-6016] as mil6016
+    component [MAVLink] as mavlink
+    component [MQTT] as mqtt
+    component [Link 16] as link16
+}
+
+' 连接关系
+router --> format
+router --> unit
+router --> enum
+
+format --> model
+unit --> model
+enum --> concept
+
+model --> mil6016
+model --> mavlink
+concept --> mqtt
+concept --> link16
+
+' 添加说明
+note right of routing : 智能路由与负载均衡
+note right of engine : 数据格式与字段映射转换
+note right of semantic : 统一语义模型与概念映射
+note right of adapter : 协议结构解析与适配
+
+@enduml

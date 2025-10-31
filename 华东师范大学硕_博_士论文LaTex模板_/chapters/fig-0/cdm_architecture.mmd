@@ -1,0 +1,66 @@
+graph TB
+    subgraph "第一层：语义层 (CDM + 本体)"
+        A1[Track.Identity<br/>目标唯一标识符]
+        A2[Track.Position.Latitude<br/>纬度坐标]
+        A3[Track.Position.Longitude<br/>经度坐标]
+        A4[Vehicle.Attitude.Roll<br/>横滚角]
+        A5[Vehicle.Attitude.Pitch<br/>俯仰角]
+        A6[Weapon.EngagementStatus<br/>武器交战状态]
+    end
+    
+    subgraph "第二层：映射层 (声明式规则)"
+        B1[YAML映射规则配置]
+        B2[字段映射关系]
+        B3[数据类型转换]
+        B4[单位换算规则]
+        B5[坐标框架转换]
+    end
+    
+    subgraph "第三层：校验层 (强约束)"
+        C1[数据一致性校验]
+        C2[语义正确性验证]
+        C3[取值范围检查]
+        C4[格式规范验证]
+        C5[完整性校验]
+    end
+    
+    subgraph "第四层：运行层 (协议中介)"
+        D1[统一转换引擎]
+        D2[协议适配器]
+        D3[消息路由器]
+        D4[API网关]
+        D5[性能监控]
+    end
+    
+    subgraph "支持的协议"
+        E1[MIL-STD-6016<br/>J系列消息]
+        E2[MAVLink<br/>飞行器通信]
+        E3[MQTT<br/>发布订阅]
+        E4[NMEA-0183<br/>导航数据]
+        E5[ARINC-429<br/>航空电子]
+    end
+    
+    A1 --> B1
+    A2 --> B2
+    A3 --> B2
+    A4 --> B3
+    A5 --> B3
+    A6 --> B4
+    
+    B1 --> C1
+    B2 --> C2
+    B3 --> C3
+    B4 --> C4
+    B5 --> C5
+    
+    C1 --> D1
+    C2 --> D2
+    C3 --> D3
+    C4 --> D4
+    C5 --> D5
+    
+    D1 --> E1
+    D2 --> E2
+    D3 --> E3
+    D4 --> E4
+    D5 --> E5

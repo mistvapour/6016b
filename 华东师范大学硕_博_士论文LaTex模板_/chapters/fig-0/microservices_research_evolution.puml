@@ -1,0 +1,102 @@
+@startuml
+!theme plain
+title 微服务架构研究演进历程图
+
+package "理论基础阶段 (2010-2014)" {
+    rectangle "概念提出" as concept #lightblue
+    rectangle "理论阐述" as theory #lightgreen
+    
+    concept : James Lewis & Martin Fowler
+    concept : 业务能力为核心的分布式架构
+    concept : 服务自治、松耦合、独立部署
+    
+    theory : 微服务元年(2015)
+    theory : Netflix、Amazon、Google实践
+    theory : 服务注册中心、API网关
+    theory : 容错机制、服务治理
+}
+
+package "系统化研究阶段 (2015-2020)" {
+    rectangle "设计方法" as design #lightyellow
+    rectangle "数据管理" as data #lightcoral
+    rectangle "监控工具" as monitoring #lightgray
+    
+    design : 领域驱动设计(DDD)
+    design : 基于业务能力的服务划分
+    design : API网关与BFF架构
+    design : 跨服务通信复杂性研究
+    
+    data : "每服务独立数据库"模式
+    data : Saga模式、事件驱动
+    data : 最终一致性策略
+    data : 异构数据库环境处理
+    
+    monitoring : 资源利用率监控
+    monitoring : 负载均衡与日志聚合
+    monitoring : 71种微服务监控工具
+    monitoring : 可观测性平台实践
+}
+
+package "智能化发展阶段 (2020至今)" {
+    rectangle "安全治理" as security #lightpink
+    rectangle "智能演化" as intelligence #lightcyan
+    rectangle "性能优化" as performance #lightsteelblue
+    
+    security : "零信任"架构思想
+    security : OAuth2.0、JWT认证
+    security : 服务网格(Service Mesh)
+    security : DevSecOps与自动化安全
+    
+    intelligence : AI/ML服务部署优化
+    intelligence : 容器调度与异常检测
+    intelligence : 动态自组织系统
+    intelligence : 自适应机制研究
+    
+    performance : 基准测试体系
+    performance : 事务处理性能评估
+    performance : 事件一致性优化
+    performance : 数据复制策略
+}
+
+package "国内发展现状" {
+    rectangle "技术基础" as foundation #lightgreen
+    rectangle "框架生态" as framework #lightblue
+    rectangle "应用探索" as application #lightyellow
+    
+    foundation : 2007年阿里巴巴分布式服务
+    foundation : 淘宝平台技术基础
+    foundation : 企业级系统普及
+    
+    framework : Dubbo开源框架
+    framework : Spring Cloud Alibaba
+    framework : ServiceComb框架
+    framework : 国产开源生态
+    
+    application : 军工科研机构应用
+    application : 战术通信与指挥控制
+    application : 服务拆分与容器化部署
+    application : 跨节点一致性控制
+}
+
+concept --> theory : 理论完善
+theory --> design : 系统化研究
+design --> data : 数据管理
+data --> monitoring : 监控体系
+monitoring --> security : 安全治理
+security --> intelligence : 智能化发展
+intelligence --> performance : 性能优化
+
+foundation --> framework : 技术积累
+framework --> application : 工程应用
+
+note right of intelligence
+国外研究已进入智能化
+与自适应发展阶段
+end note
+
+note right of application
+国内研究重心从框架复用
+向体系设计转变
+end note
+
+@enduml

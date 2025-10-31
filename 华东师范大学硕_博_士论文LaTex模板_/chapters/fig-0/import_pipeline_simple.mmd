@@ -1,0 +1,29 @@
+graph LR
+    subgraph "输入"
+        A[PDF文档]
+        B[Excel文档]
+        C[XML文档]
+    end
+    
+    subgraph "处理"
+        D[文档解析]
+        E[数据清洗]
+        F[格式转换]
+    end
+    
+    subgraph "输出"
+        G[结构化数据]
+        H[数据库存储]
+        I[导入报告]
+    end
+    
+    A --> D
+    B --> D
+    C --> D
+    
+    D --> E
+    E --> F
+    F --> G
+    
+    G --> H
+    G --> I

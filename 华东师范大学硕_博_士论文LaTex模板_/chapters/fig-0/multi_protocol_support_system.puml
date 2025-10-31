@@ -1,0 +1,78 @@
+@startuml 多协议支持体系架构图
+!theme plain
+skinparam backgroundColor white
+skinparam componentStyle rectangle
+skinparam linetype ortho
+
+title 多协议支持体系架构图
+
+package "路由分发层" as routing {
+    component [智能路由器] as router
+    component [负载均衡器] as lb
+    component [故障转移] as failover
+}
+
+package "转换引擎层" as engine {
+    component [格式转换器] as format_converter
+    component [单位转换器] as unit_converter
+    component [枚举映射器] as enum_mapper
+    component [转换规则引擎] as rule_engine
+}
+
+package "语义抽象层" as semantic {
+    component [统一语义模型] as semantic_model
+    component [概念映射机制] as concept_mapping
+    component [语义推理引擎] as reasoning_engine
+}
+
+package "协议适配层" as adapter {
+    component [MIL-STD-6016适配器] as mil6016
+    component [MAVLink适配器] as mavlink
+    component [MQTT适配器] as mqtt
+    component [Link 16适配器] as link16
+    component [STANAG 5516适配器] as stanag
+}
+
+' 协议数据流
+mil6016 --> semantic_model : 协议解析
+mavlink --> semantic_model : 协议解析
+mqtt --> semantic_model : 协议解析
+link16 --> semantic_model : 协议解析
+stanag --> semantic_model : 协议解析
+
+' 语义处理流
+semantic_model --> concept_mapping : 概念对齐
+concept_mapping --> reasoning_engine : 语义推理
+reasoning_engine --> format_converter : 转换需求
+
+' 转换处理流
+format_converter --> unit_converter : 格式转换
+unit_converter --> enum_mapper : 单位转换
+enum_mapper --> rule_engine : 枚举映射
+rule_engine --> router : 转换完成
+
+' 路由分发流
+router --> lb : 消息路由
+lb --> failover : 负载均衡
+failover --> mil6016 : 故障转移
+failover --> mavlink : 故障转移
+failover --> mqtt : 故障转移
+failover --> link16 : 故障转移
+failover --> stanag : 故障转移
+
+note right of semantic_model
+  统一语义模型建立跨协议
+  的概念空间映射
+end note
+
+note right of rule_engine
+  转换规则引擎支持
+  复杂的数据转换需求
+end note
+
+note right of router
+  智能路由器根据消息类型
+  和协议选择最优路径
+end note
+
+@enduml

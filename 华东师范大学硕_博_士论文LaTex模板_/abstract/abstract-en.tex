@@ -1,0 +1,58 @@
+\newpage
+\vspace{-1cm}
+\chapter*{\zihao{-3}\heiti{ABSTRACT}}
+\addcontentsline{toc}{chapter}{Abstract}
+\vspace{-0.5cm}
+
+In the context of continuously evolving informationized warfare and multi-domain operations, Tactical Data Link (TDL) technology has become a core support for information fusion and command control in joint operations. The Link 16 system, based on the MIL-STD-6016 standard, achieves cross-platform and cross-service data exchange through J-series message structures. However, current systems face bottlenecks in standardized modeling, semantic consistency, and system scalability, making it difficult to support the real-time decision-making requirements of intelligent joint operations.
+
+To address these issues, this research has achieved four main results in the design and implementation of tactical data link information standard database systems:
+
+First, a Common Data Model (CDM) four-layer semantic mapping method is introduced, constructing a complete interoperability system consisting of concept layer, protocol layer, message layer, and field layer. Through unified modeling of semantic binding and mapping rules, field-level semantic alignment between heterogeneous protocols such as MIL-STD-6016, MAVLink, and MQTT is achieved, with mapping accuracy significantly improved.
+
+Second, a cloudnative andmicroservice-based architectureis designed and implemented. The backendis dividedinto independentmodules suchas PDFprocess,semantic interoperatibility,CDM modelingandunified import,which arecoordinated byAPI gatewayfor routing,authentication, and traffic control. The system is designed with the support of MySQL, Redis, RabbitMQ, and MinIO to ensure high concurrency and eventual consistency. It uses FastAPI, React, Docker, and Kubernetes to implement CI/CD and containerized deployment.
+
+Third, a distributed microservice data management system is designed, employing MySQL master-slave replication and Redis caching coordination mechanisms, and introducing Elasticsearch for full-text indexing. The system achieves an average response latency of 280 ms under 1000 concurrent accesses, with a cache hit rate of 91.2\%.
+
+Finally, a pluggable protocol adapter architecture is proposed, supporting dynamic loading and semantic inheritance of different standard modules. The system maintains a 98.9\% consistency verification pass rate at a processing rate of 1500 items/second, significantly outperforming manual adaptation schemes.
+
+Experimental validation shows that the system achieves millisecond-level query response under million-scale data, with search accuracy maintained above 95\% and user satisfaction reaching 4.1/5.0. This research provides an innovative technical path for tactical data link information standardization and semantic fusion, with the constructed architecture demonstrating significant engineering practical value in multi-link fusion, battlefield situational sharing, and equipment interoperability testing scenarios.
+
+
+\vspace{0.5cm}
+\hspace{-1cm}
+{\bf{\sihao{Keywords:}}} \textit{Tactical Data Link; MIL-STD-6016; Microservice Architecture; Semantic Interoperability; Document Automated Processing; Database Modeling}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

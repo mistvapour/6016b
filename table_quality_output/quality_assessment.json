@@ -1,0 +1,79 @@
+[
+  {
+    "page": 9,
+    "original_rows": 25,
+    "enhanced_cells": 75,
+    "quality": {
+      "confidence": 0.24888888888888885,
+      "header_score": 0.0,
+      "alignment_score": 0.0,
+      "noise_score": 0.7466666666666666,
+      "issues": [
+        "Poor header detection",
+        "Poor column alignment"
+      ]
+    },
+    "cells": [
+      {
+        "text": "word",
+        "confidence": 0.8,
+        "col_span": 19,
+        "row_span": 2
+      },
+      {
+        "text": "文档；",
+        "confidence": 0.8,
+        "col_span": 19,
+        "row_span": 2
+      },
+      {
+        "text": "2",
+        "confidence": 0.3,
+        "col_span": 19,
+        "row_span": 2
+      },
+      {
+        "text": "）",
+        "confidence": 0.3,
+        "col_span": 19,
+        "row_span": 2
+      },
+      {
+        "text": "★ 工具所产生的",
+        "confidence": 0.8,
+        "col_span": 19,
+        "row_span": 2
+      },
+      {
+        "text": "消息数据字典",
+        "confidence": 0.8,
+        "col_span": 19,
+        "row_span": 2
+      },
+      {
+        "text": "生成功能",
+        "confidence": 0.8,
+        "col_span": 19,
+        "row_span": 2
+      },
+      {
+        "text": "需要对标",
+        "confidence": 0.8,
+        "col_span": 19,
+        "row_span": 2
+      },
+      {
+        "text": "Link 16",
+        "confidence": 0.8,
+        "col_span": 19,
+        "row_span": 2
+      },
+      {
+        "text": "标准，",
+        "confidence": 0.8,
+        "col_span": 19,
+        "row_span": 2
+      }
+    ]
+  }
+]

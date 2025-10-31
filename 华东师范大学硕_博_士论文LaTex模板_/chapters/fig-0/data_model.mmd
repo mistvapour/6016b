@@ -1,0 +1,85 @@
+erDiagram
+    MESSAGE {
+        uuid id PK
+        string j_num
+        string j_series
+        string name
+        string category
+        string version
+        string std_id FK
+        datetime created_at
+        datetime updated_at
+    }
+    
+    FIELD {
+        uuid id PK
+        uuid message_id FK
+        string name
+        int start_bit
+        int end_bit
+        string data_type
+        float resolution
+        string unit
+        string description
+        string constraints
+        datetime created_at
+    }
+    
+    CONCEPT {
+        uuid id PK
+        string name
+        string definition
+        string source
+        string category
+        string synonyms
+        datetime created_at
+        datetime updated_at
+    }
+    
+    MAPPING {
+        uuid id PK
+        uuid source_field_id FK
+        uuid target_field_id FK
+        string mapping_expression
+        string conversion_function
+        float confidence
+        string mapping_type
+        datetime created_at
+        datetime updated_at
+    }
+    
+    STD_VERSION {
+        uuid id PK
+        string std_name
+        string version_number
+        date release_date
+        string description
+        string status
+        datetime created_at
+    }
+    
+    LINKTYPE {
+        uuid id PK
+        string protocol_name
+        string protocol_version
+        string description
+        json configuration
+        datetime created_at
+        datetime updated_at
+    }
+    
+    FIELD_CONCEPT {
+        uuid field_id FK
+        uuid concept_id FK
+        float confidence
+        datetime created_at
+    }
+    
+    MESSAGE ||--o{ FIELD : "contains"
+    MESSAGE }o--|| STD_VERSION : "belongs_to"
+    FIELD ||--o{ MAPPING : "source_field"
+    FIELD ||--o{ MAPPING : "target_field"
+    FIELD ||--o{ FIELD_CONCEPT : "mapped_to"
+    CONCEPT ||--o{ FIELD_CONCEPT : "mapped_from"
+    STD_VERSION ||--o{ MESSAGE : "defines"
+    LINKTYPE ||--o{ MAPPING : "supports"

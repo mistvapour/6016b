@@ -1,0 +1,51 @@
+@startuml microservice_deployment
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle rectangle
+skinparam linetype ortho
+
+title 微服务部署与通信架构
+
+package "Kubernetes集群" {
+    component [API Gateway] as gateway
+    component [消息服务] as msg_service
+    component [概念服务] as concept_service
+    component [映射服务] as mapping_service
+    component [导入服务] as import_service
+}
+
+package "数据层" {
+    database "MySQL集群" as mysql
+    database "Redis缓存" as redis
+    component [RabbitMQ] as rabbitmq
+}
+
+package "外部系统" {
+    component [前端应用] as frontend
+}
+
+' 同步通信
+frontend --> gateway : REST API
+gateway --> msg_service : HTTP
+gateway --> concept_service : HTTP
+gateway --> mapping_service : HTTP
+gateway --> import_service : HTTP
+
+' 异步通信
+msg_service --> rabbitmq
+concept_service --> rabbitmq
+mapping_service --> rabbitmq
+import_service --> rabbitmq
+
+' 数据访问
+msg_service --> mysql
+concept_service --> mysql
+mapping_service --> mysql
+import_service --> mysql
+
+msg_service --> redis
+concept_service --> redis
+mapping_service --> redis
+import_service --> redis
+
+@enduml

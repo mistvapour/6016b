@@ -1,0 +1,138 @@
+@startuml 前端系统架构图
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle rectangle
+skinparam packageStyle rectangle
+
+title 战术数据链信息标准数据库系统 - 前端系统架构图
+
+package "用户界面层" {
+    component "登录认证模块" as Auth #lightblue
+    component "主控制台" as Dashboard #lightgreen
+    component "消息处理模块" as MessageUI #lightyellow
+    component "文件处理模块" as FileUI #lightcoral
+    component "概念管理模块" as ConceptUI #lightpink
+    component "映射管理模块" as MappingUI #lightgray
+    component "系统概览模块" as OverviewUI #lightsteelblue
+}
+
+package "交互控制层" {
+    component "路由控制器" as Router #orange
+    component "状态管理器" as StateManager #purple
+    component "事件处理器" as EventHandler #brown
+    component "权限控制器" as PermissionController #teal
+}
+
+package "业务逻辑层" {
+    component "API客户端" as APIClient #red
+    component "数据处理器" as DataProcessor #green
+    component "缓存管理器" as CacheManager #blue
+    component "错误处理器" as ErrorHandler #yellow
+}
+
+package "可视化组件层" {
+    component "表格组件" as TableComponent #pink
+    component "图表组件" as ChartComponent #cyan
+    component "关系图组件" as GraphComponent #lime
+    component "搜索组件" as SearchComponent #magenta
+    component "表单组件" as FormComponent #gold
+}
+
+package "工具服务层" {
+    component "HTTP客户端" as HttpClient #navy
+    component "本地存储" as LocalStorage #olive
+    component "工具函数库" as Utils #maroon
+    component "国际化服务" as I18n #silver
+}
+
+package "外部接口层" {
+    interface "统一API" as UnifiedAPI #red
+    interface "CDM互操作API" as CDMAPI #green
+    interface "语义互操作API" as SemanticAPI #blue
+    interface "PDF处理API" as PDFAPI #yellow
+    interface "MQTT处理API" as MQTTAPI #purple
+}
+
+' 用户界面层内部关系
+Auth --> Dashboard : 认证通过后跳转
+Dashboard --> MessageUI : 导航到消息处理
+Dashboard --> FileUI : 导航到文件处理
+Dashboard --> ConceptUI : 导航到概念管理
+Dashboard --> MappingUI : 导航到映射管理
+Dashboard --> OverviewUI : 导航到系统概览
+
+' 用户界面层到交互控制层
+MessageUI --> Router : 路由请求
+FileUI --> Router : 路由请求
+ConceptUI --> Router : 路由请求
+MappingUI --> Router : 路由请求
+OverviewUI --> Router : 路由请求
+
+Auth --> PermissionController : 权限验证
+MessageUI --> PermissionController : 权限检查
+FileUI --> PermissionController : 权限检查
+ConceptUI --> PermissionController : 权限检查
+MappingUI --> PermissionController : 权限检查
+OverviewUI --> PermissionController : 权限检查
+
+' 交互控制层到业务逻辑层
+Router --> StateManager : 状态管理
+StateManager --> APIClient : API调用
+EventHandler --> DataProcessor : 数据处理
+PermissionController --> APIClient : 权限验证API
+
+' 业务逻辑层到可视化组件层
+DataProcessor --> TableComponent : 表格数据
+DataProcessor --> ChartComponent : 图表数据
+DataProcessor --> GraphComponent : 关系图数据
+APIClient --> SearchComponent : 搜索结果
+APIClient --> FormComponent : 表单数据
+
+' 业务逻辑层到工具服务层
+APIClient --> HttpClient : HTTP请求
+DataProcessor --> CacheManager : 缓存管理
+CacheManager --> LocalStorage : 本地存储
+ErrorHandler --> Utils : 错误处理工具
+
+' 工具服务层到外部接口层
+HttpClient --> UnifiedAPI : API调用
+HttpClient --> CDMAPI : CDM API调用
+HttpClient --> SemanticAPI : 语义API调用
+HttpClient --> PDFAPI : PDF API调用
+HttpClient --> MQTTAPI : MQTT API调用
+
+' 组件依赖关系
+TableComponent --> Utils : 工具函数
+ChartComponent --> Utils : 工具函数
+GraphComponent --> Utils : 工具函数
+SearchComponent --> Utils : 工具函数
+FormComponent --> Utils : 工具函数
+
+' 国际化支持
+MessageUI --> I18n : 国际化
+FileUI --> I18n : 国际化
+ConceptUI --> I18n : 国际化
+MappingUI --> I18n : 国际化
+OverviewUI --> I18n : 国际化
+
+note right of Dashboard
+  主控制台提供统一的
+  用户界面入口，支持
+  响应式设计和个性化
+  配置
+end note
+
+note right of APIClient
+  API客户端负责与后端
+  服务通信，支持请求
+  拦截、错误处理和
+  数据转换
+end note
+
+note right of TableComponent
+  表格组件支持排序、
+  筛选、分页等功能，
+  提供数据导出能力
+end note
+
+@enduml

@@ -1,0 +1,44 @@
+@startuml
+title 战术数据链研究现状发展脉络图
+
+package "国外研究发展" {
+    [1970年代] as era1
+    [1980-2000年代] as era2
+    [2000-2010年代] as era3
+    [2010年代至今] as era4
+}
+
+package "国内研究发展" {
+    [1990年代] as china1
+    [2000年代] as china2
+    [2010年代] as china3
+    [2020年代至今] as china4
+}
+
+package "技术发展趋势" {
+    [发展方向] as trend
+}
+
+era1 --> era2
+era2 --> era3
+era3 --> era4
+china1 --> china2
+china2 --> china3
+china3 --> china4
+
+era4 --> trend
+china4 --> trend
+
+note right of era1 : MIL-STD-6016标准发布\nJ系列报文体系建立
+note right of era2 : MIL-STD-3011(JREAP)标准\nSTANAG 5516标准
+note right of era3 : MITRE、NATO C3 Agency\n标准化信息模型构建
+note right of era4 : L3Harris MIDS终端\n语义级协同演进
+
+note right of china1 : 防务电子化建设\n信号调制与波形设计
+note right of china2 : Link16技术引入\n链路消息结构研究
+note right of china3 : 态势信息融合\n链路建模与仿真平台
+note right of china4 : 数据库化管理研究\n跨标准映射探索
+
+note right of trend : 链路互通到语义协同\n单链路应用到多链融合
+
+@enduml

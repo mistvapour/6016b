@@ -1,0 +1,91 @@
+@startuml 语义互操作架构图
+!theme plain
+skinparam backgroundColor white
+skinparam componentStyle rectangle
+skinparam packageStyle rectangle
+skinparam linetype ortho
+
+title 战术数据链语义互操作架构图
+
+package "语义层 (Semantic Layer)" {
+    component "统一语义概念库" as ConceptDB
+    component "本体模型" as Ontology
+    component "语义推理引擎" as Reasoning
+}
+
+package "映射层 (Mapping Layer)" {
+    component "字段映射规则" as FieldMapping
+    component "协议转换器" as ProtocolConverter
+    component "语义绑定器" as SemanticBinder
+}
+
+package "协议层 (Protocol Layer)" {
+    component "MIL-STD-6016" as Link16
+    component "MQTT" as MQTT
+    component "MAVLink" as MAVLink
+    component "NMEA-0183" as NMEA
+}
+
+package "数据层 (Data Layer)" {
+    component "消息数据库" as MessageDB #red
+    component "字段定义库" as FieldDB #green
+    component "映射关系库" as MappingDB #blue
+}
+
+' 语义层内部关系
+ConceptDB --> Ontology : 概念定义
+Ontology --> Reasoning : 推理规则
+Reasoning --> ConceptDB : 概念扩展
+
+' 映射层内部关系
+FieldMapping --> ProtocolConverter : 转换规则
+ProtocolConverter --> SemanticBinder : 语义绑定
+SemanticBinder --> FieldMapping : 映射验证
+
+' 跨层关系
+ConceptDB --> FieldMapping : 语义约束
+Ontology --> SemanticBinder : 本体推理
+Reasoning --> ProtocolConverter : 智能转换
+
+' 协议层到映射层
+Link16 --> FieldMapping : 字段定义
+MQTT --> FieldMapping : 消息格式
+MAVLink --> FieldMapping : 协议规范
+NMEA --> FieldMapping : 数据标准
+
+' 映射层到数据层
+FieldMapping --> MessageDB : 消息存储
+ProtocolConverter --> FieldDB : 字段定义
+SemanticBinder --> MappingDB : 映射关系
+
+' 数据层内部关系
+MessageDB --> FieldDB : 字段关联
+FieldDB --> MappingDB : 映射维护
+MappingDB --> MessageDB : 查询优化
+
+note right of ConceptDB
+  统一语义概念库包含：
+  - Track.Identity
+  - Track.Position  
+  - Vehicle.Attitude
+  - Mission.Status
+  等核心概念
+end note
+
+note right of FieldMapping
+  字段映射规则支持：
+  - 精确匹配
+  - 模糊匹配
+  - 语义推理
+  - 机器学习辅助
+end note
+
+note right of ProtocolConverter
+  协议转换器实现：
+  - 格式转换
+  - 语义对齐
+  - 数据校验
+  - 错误处理
+end note
+
+@enduml

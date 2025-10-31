@@ -1,0 +1,40 @@
+@startuml 研究开发人员用例图
+!theme plain
+skinparam backgroundColor white
+skinparam actorStyle awesome
+
+title 研究开发人员用例图
+
+actor "研究开发人员" as Developer
+
+rectangle "统一文档处理与语义互操作平台" {
+    usecase "标准消息解析" as UC1
+    usecase "仿真数据导入" as UC2
+    usecase "跨链路协议转换" as UC3
+    usecase "算法验证测试" as UC4
+    usecase "批量数据处理" as UC5
+    usecase "API接口调用" as UC6
+    usecase "概念管理维护" as UC7
+    usecase "映射规则配置" as UC8
+    usecase "性能测试分析" as UC9
+    usecase "数据导出备份" as UC10
+}
+
+Developer --> UC1 : 解析标准文档
+Developer --> UC2 : 导入仿真数据
+Developer --> UC3 : 测试协议转换
+Developer --> UC4 : 验证算法性能
+Developer --> UC5 : 批量处理数据
+Developer --> UC6 : 调用API接口
+Developer --> UC7 : 管理语义概念
+Developer --> UC8 : 配置映射规则
+Developer --> UC9 : 分析系统性能
+Developer --> UC10 : 导出测试数据
+
+note right of Developer
+  研究开发人员利用系统进行
+  标准分析、算法验证和功能测试，
+  需要灵活的查询接口和批量处理能力
+end note
+
+@enduml

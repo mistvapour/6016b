@@ -1,0 +1,62 @@
+@startuml
+!theme plain
+skinparam backgroundColor white
+skinparam rectangle {
+    BackgroundColor white
+    BorderColor black
+    FontColor black
+}
+skinparam package {
+    BackgroundColor white
+    BorderColor black
+    FontColor black
+}
+
+title 战术数据链体系结构示意图
+
+package "国外发展" {
+    rectangle "1970年代" as era1
+    rectangle "1980-2000年代" as era2
+    rectangle "2000年代至今" as era3
+    
+    era1 : MIL-STD-6016标准
+    era1 : J系列报文体系
+    
+    era2 : 多链路融合
+    era2 : 标准化信息模型
+    
+    era3 : 语义级协同
+    era3 : 体系融合
+}
+
+package "国内发展" {
+    rectangle "1990年代" as china1
+    rectangle "2000年代" as china2
+    rectangle "2010年代至今" as china3
+    
+    china1 : 防务电子化
+    china1 : 信号调制研究
+    
+    china2 : Link16技术引入
+    china2 : 报文解析验证
+    
+    china3 : 态势信息融合
+    china3 : 体系化发展
+}
+
+package "发展趋势" {
+    rectangle "发展方向" as trend
+    trend : 语义协同
+    trend : 多链融合
+    trend : 智能互操作
+}
+
+era1 --> era2 : 标准完善
+era2 --> era3 : 多链融合
+china1 --> china2 : 技术引入
+china2 --> china3 : 系统开发
+
+era3 --> trend : 国外领先
+china3 --> trend : 国内追赶
+
+@enduml

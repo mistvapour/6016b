@@ -1,0 +1,136 @@
+@startuml 文档自动化处理流水线图
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle rectangle
+skinparam packageStyle rectangle
+
+title 战术数据链文档自动化处理流水线图
+
+package "输入层" {
+    component "PDF文档" as PDFInput #lightblue
+    component "XML文档" as XMLInput #lightgreen
+    component "JSON文档" as JSONInput #lightyellow
+    component "CSV文档" as CSVInput #lightcoral
+}
+
+package "预处理层" {
+    component "文档验证" as DocValidation #lightpink
+    component "格式检测" as FormatDetection #lightgray
+    component "内容提取" as ContentExtraction #lightsteelblue
+    component "结构分析" as StructureAnalysis #orange
+}
+
+package "解析层" {
+    component "PDF解析器" as PDFParser #purple
+    component "XML解析器" as XMLParser #brown
+    component "JSON解析器" as JSONParser #teal
+    component "CSV解析器" as CSVParser #red
+}
+
+package "识别层" {
+    component "表格识别" as TableRecognition #green
+    component "字段识别" as FieldRecognition #blue
+    component "语义识别" as SemanticRecognition #yellow
+    component "关系识别" as RelationRecognition #navy
+}
+
+package "转换层" {
+    component "数据标准化" as DataNormalization #olive
+    component "格式转换" as FormatConversion #maroon
+    component "语义映射" as SemanticMapping #silver
+    component "数据校验" as DataValidation #lime
+}
+
+package "输出层" {
+    component "结构化数据" as StructuredData #magenta
+    component "数据库记录" as DatabaseRecords #gold
+    component "API接口" as APIOutput #cyan
+    component "报告生成" as ReportGeneration #pink
+}
+
+' 输入层到预处理层
+PDFInput --> DocValidation : 文档验证
+XMLInput --> DocValidation : 文档验证
+JSONInput --> DocValidation : 文档验证
+CSVInput --> DocValidation : 文档验证
+
+DocValidation --> FormatDetection : 格式检测
+FormatDetection --> ContentExtraction : 内容提取
+ContentExtraction --> StructureAnalysis : 结构分析
+
+' 预处理层到解析层
+StructureAnalysis --> PDFParser : PDF解析
+StructureAnalysis --> XMLParser : XML解析
+StructureAnalysis --> JSONParser : JSON解析
+StructureAnalysis --> CSVParser : CSV解析
+
+' 解析层到识别层
+PDFParser --> TableRecognition : 表格识别
+PDFParser --> FieldRecognition : 字段识别
+XMLParser --> FieldRecognition : 字段识别
+JSONParser --> FieldRecognition : 字段识别
+CSVParser --> FieldRecognition : 字段识别
+
+TableRecognition --> SemanticRecognition : 语义识别
+FieldRecognition --> SemanticRecognition : 语义识别
+SemanticRecognition --> RelationRecognition : 关系识别
+
+' 识别层到转换层
+TableRecognition --> DataNormalization : 数据标准化
+FieldRecognition --> DataNormalization : 数据标准化
+SemanticRecognition --> SemanticMapping : 语义映射
+RelationRecognition --> SemanticMapping : 语义映射
+
+DataNormalization --> FormatConversion : 格式转换
+SemanticMapping --> DataValidation : 数据校验
+FormatConversion --> DataValidation : 数据校验
+
+' 转换层到输出层
+DataNormalization --> StructuredData : 结构化数据
+FormatConversion --> StructuredData : 结构化数据
+SemanticMapping --> DatabaseRecords : 数据库记录
+DataValidation --> DatabaseRecords : 数据库记录
+
+StructuredData --> APIOutput : API接口
+DatabaseRecords --> APIOutput : API接口
+StructuredData --> ReportGeneration : 报告生成
+DatabaseRecords --> ReportGeneration : 报告生成
+
+' 反馈机制
+DataValidation --> DocValidation : 验证反馈
+DataValidation --> ContentExtraction : 提取优化
+DataValidation --> FieldRecognition : 识别优化
+
+note right of DocValidation
+  文档验证包括：
+  - 文件完整性检查
+  - 格式兼容性验证
+  - 内容可读性检测
+  - 安全扫描
+end note
+
+note right of TableRecognition
+  表格识别技术：
+  - Camelot表格提取
+  - pdfplumber文本分析
+  - 深度学习模型
+  - 规则匹配算法
+end note
+
+note right of SemanticMapping
+  语义映射实现：
+  - 概念对齐
+  - 字段绑定
+  - 关系映射
+  - 一致性检查
+end note
+
+note right of DataValidation
+  数据校验机制：
+  - 完整性检查
+  - 一致性验证
+  - 准确性评估
+  - 错误报告
+end note
+
+@enduml

@@ -1,0 +1,130 @@
+@startuml 数据流与交互时序图
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam sequenceArrowThickness 2
+skinparam roundcorner 20
+skinparam maxmessagesize 60
+
+title 战术数据链信息标准数据库系统 - 数据流与交互时序图
+
+actor "用户" as User #lightblue
+participant "前端界面" as Frontend #lightgreen
+participant "API网关" as Gateway #lightyellow
+participant "业务服务" as Service #lightcoral
+participant "数据库" as Database #lightpink
+
+== 用户登录与权限验证 ==
+User -> Frontend : 输入用户名密码
+Frontend -> Gateway : POST /api/auth/login
+Gateway -> Service : 验证用户凭据
+Service -> Database : 查询用户信息
+Database --> Service : 返回用户数据
+Service --> Gateway : 返回认证结果
+Gateway --> Frontend : 返回JWT令牌
+Frontend -> Frontend : 存储令牌到本地
+Frontend --> User : 显示主控制台
+
+== 消息查询与展示 ==
+User -> Frontend : 输入查询条件
+Frontend -> Frontend : 构建查询参数
+Frontend -> Gateway : GET /api/v2/messages?query=...
+Gateway -> Service : 处理查询请求
+Service -> Database : 执行SQL查询
+Database --> Service : 返回消息数据
+Service --> Gateway : 返回查询结果
+Gateway --> Frontend : 返回JSON数据
+Frontend -> Frontend : 数据格式转换
+Frontend -> Frontend : 渲染表格组件
+Frontend --> User : 显示查询结果
+
+== 语义概念绑定 ==
+User -> Frontend : 选择字段进行绑定
+Frontend -> Frontend : 显示概念选择器
+User -> Frontend : 选择目标概念
+Frontend -> Gateway : POST /api/semantic/bind
+note right : 请求体包含字段ID和概念ID
+Gateway -> Service : 处理绑定请求
+Service -> Database : 创建绑定关系
+Database --> Service : 返回绑定结果
+Service --> Gateway : 返回绑定状态
+Gateway --> Frontend : 返回操作结果
+Frontend -> Frontend : 更新界面状态
+Frontend --> User : 显示绑定成功
+
+== 跨协议消息转换 ==
+User -> Frontend : 选择源协议和目标协议
+Frontend -> Frontend : 显示转换配置界面
+User -> Frontend : 配置转换参数
+Frontend -> Gateway : POST /api/cdm/convert
+note right : 请求体包含源消息和目标协议
+Gateway -> Service : 调用CDM转换引擎
+Service -> Database : 查询映射规则
+Database --> Service : 返回映射配置
+Service -> Service : 执行消息转换
+Service --> Gateway : 返回转换结果
+Gateway --> Frontend : 返回转换后消息
+Frontend -> Frontend : 格式化显示结果
+Frontend --> User : 显示转换结果
+
+== 数据可视化展示 ==
+User -> Frontend : 请求数据统计
+Frontend -> Gateway : GET /api/v2/statistics
+Gateway -> Service : 获取统计数据
+Service -> Database : 执行统计查询
+Database --> Service : 返回统计数据
+Service --> Gateway : 返回统计结果
+Gateway --> Frontend : 返回JSON数据
+Frontend -> Frontend : 数据处理和格式化
+Frontend -> Frontend : 渲染图表组件
+Frontend --> User : 显示统计图表
+
+== 文件上传与处理 ==
+User -> Frontend : 选择PDF文件上传
+Frontend -> Frontend : 文件格式验证
+Frontend -> Gateway : POST /api/pdf/upload
+note right : 使用multipart/form-data格式
+Gateway -> Service : 调用PDF处理服务
+Service -> Service : 解析PDF文档
+Service -> Database : 存储解析结果
+Database --> Service : 返回存储状态
+Service --> Gateway : 返回处理结果
+Gateway --> Frontend : 返回解析数据
+Frontend -> Frontend : 显示解析结果
+Frontend --> User : 展示提取的消息定义
+
+== 实时数据流处理 ==
+User -> Frontend : 启动实时监控
+Frontend -> Gateway : WebSocket连接
+Gateway -> Service : 建立实时连接
+Service -> Database : 监听数据变化
+loop 实时数据推送
+    Database --> Service : 数据变化通知
+    Service --> Gateway : 推送数据更新
+    Gateway --> Frontend : WebSocket消息
+    Frontend -> Frontend : 更新界面数据
+    Frontend --> User : 实时显示更新
+end
+
+== 错误处理与用户反馈 ==
+alt 网络错误
+    Gateway --> Frontend : 返回错误状态码
+    Frontend -> Frontend : 显示错误提示
+    Frontend --> User : 提示重试或联系管理员
+else 数据验证错误
+    Service --> Gateway : 返回验证错误
+    Gateway --> Frontend : 返回错误详情
+    Frontend -> Frontend : 高亮错误字段
+    Frontend --> User : 显示具体错误信息
+else 权限不足
+    Gateway --> Frontend : 返回403状态码
+    Frontend -> Frontend : 跳转到权限页面
+    Frontend --> User : 提示权限不足
+end
+
+note over User, Database
+  整个交互流程采用RESTful API设计，
+  支持JSON数据格式，具备完整的错误
+  处理机制和用户反馈功能
+end note
+
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+!theme plain
+skinparam backgroundColor white
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  FontColor black
+}
+skinparam note {
+  BackgroundColor white
+  BorderColor black
+  FontColor black
+}
+
+title 自动化导入流程
+
+start
+
+:数据输入;
+note right: 支持PDF、XML、YAML等格式
+
+:格式检测;
+note right: 自动识别数据格式类型
+
+:适配器选择;
+note right: 根据格式选择对应处理模块
+
+:数据处理;
+note right: 解析、转换、验证
+
+:结果存储;
+note right: 统一数据模型输出
+
+stop
+
+@enduml

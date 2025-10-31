@@ -1,0 +1,36 @@
+@startuml 作战指挥员用例图
+!theme plain
+skinparam backgroundColor white
+skinparam actorStyle awesome
+
+title 作战指挥员用例图
+
+actor "作战指挥员" as Commander
+
+rectangle "统一文档处理与语义互操作平台" {
+    usecase "消息查询检索" as UC1
+    usecase "态势信息展示" as UC2
+    usecase "跨链协议映射" as UC3
+    usecase "实时数据监控" as UC4
+    usecase "决策支持分析" as UC5
+    usecase "报告生成导出" as UC6
+    usecase "历史数据回放" as UC7
+    usecase "告警信息处理" as UC8
+}
+
+Commander --> UC1 : 查询战术消息
+Commander --> UC2 : 查看战场态势
+Commander --> UC3 : 分析协议映射
+Commander --> UC4 : 监控实时数据
+Commander --> UC5 : 获取决策支持
+Commander --> UC6 : 生成作战报告
+Commander --> UC7 : 回放历史数据
+Commander --> UC8 : 处理告警信息
+
+note right of Commander
+  作战指挥员通过前端界面
+  快速获取战场态势信息，
+  用于辅助指挥决策
+end note
+
+@enduml

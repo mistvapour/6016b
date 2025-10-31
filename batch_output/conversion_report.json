@@ -1,0 +1,157 @@
+{
+  "total": 30,
+  "success": 24,
+  "failed": 6,
+  "details": [
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\admin_usecase.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\cdm_four_layer_model.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\commander_usecase.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\dataflow_interaction.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\developer_usecase.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\document_processing_pipeline.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\frontend_architecture.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\import_pipeline_simple.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\j_series_message_structure.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\microservices_architecture.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\microservices_research_evolution.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\microservices_research_evolution_final.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\microservices_research_evolution_simple.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\multi_protocol_support_system.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\semantic_interoperability.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\semantic_interop_architecture.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\semantic_interop_research_trends.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\semantic_interop_research_trends_final.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\semantic_interop_research_trends_simple.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\semantic_interop_system.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\tactical_datalink_research_status.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\tactical_datalink_research_status_final.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\tactical_datalink_research_status_simple.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\user_roles_usecase.puml",
+      "success": true,
+      "error": null
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\cdm_architecture.mmd",
+      "success": false,
+      "error": "转换失败"
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\data_model.mmd",
+      "success": false,
+      "error": "转换失败"
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\data_processing_flow.mmd",
+      "success": false,
+      "error": "转换失败"
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\import_pipeline_simple.mmd",
+      "success": false,
+      "error": "转换失败"
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\system_architecture.mmd",
+      "success": false,
+      "error": "转换失败"
+    },
+    {
+      "file": "华东师范大学硕_博_士论文LaTex模板_\\chapters\\fig-0\\system_architecture_simple.mmd",
+      "success": false,
+      "error": "转换失败"
+    }
+  ]
+}

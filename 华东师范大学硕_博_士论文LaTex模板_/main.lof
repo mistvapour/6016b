@@ -1,0 +1,34 @@
+\addvspace {10.0pt}
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces 战术数据链体系结构示意图}}{11}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces MIL-STD-6016 J系列消息结构图}}{13}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces 微服务架构发展时间线图}}{16}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces 语义互操作架构层次图}}{18}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces 文档自动化处理技术演进图}}{20}{figure.caption.12}%
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces CDM四层法架构图}}{24}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces 前端交互用例图（角色与功能关系）}}{26}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces 前端功能组件与服务接口关系图}}{27}{figure.caption.18}%
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces 系统总体架构分层图}}{31}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces 核心数据模型ER图}}{35}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces 多协议支持体系架构图}}{38}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces CDM四层法语义互操作模型图}}{39}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces 语义互操作系统组成图}}{40}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces 自动化导入流程}}{42}{figure.caption.25}%
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces 微服务部署与通信架构图}}{49}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces 分布式数据管理与存储架构图}}{50}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces 监控与容错系统架构图}}{51}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces 数据处理流水线架构图}}{67}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces 系统主页面界面}}{68}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces 搜索功能界面}}{69}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces 数据比较界面}}{70}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces PDF处理界面}}{70}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces 消息处理模块界面}}{71}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces 文件处理模块界面}}{72}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces 概念管理模块界面}}{73}{figure.caption.37}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces 映射管理模块界面}}{74}{figure.caption.38}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces 系统概览模块界面}}{75}{figure.caption.39}%
+\addvspace {10.0pt}
+\contentsfinish 

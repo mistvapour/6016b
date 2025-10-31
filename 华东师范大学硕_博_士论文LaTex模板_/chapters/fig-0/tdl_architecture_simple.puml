@@ -1,0 +1,105 @@
+@startuml
+!theme plain
+skinparam backgroundColor white
+skinparam component {
+    BackgroundColor white
+    BorderColor black
+    FontColor black
+}
+skinparam package {
+    BackgroundColor white
+    BorderColor black
+    FontColor black
+}
+skinparam note {
+    BackgroundColor white
+    BorderColor black
+    FontColor black
+}
+
+title 战术数据链体系结构示意图
+
+package "应用层" {
+    component "态势感知" as awareness
+    component "目标指示" as targeting
+    component "火力协调" as coordination
+    component "联合行动" as joint_ops
+}
+
+package "传输层" {
+    component "端到端传输" as transport
+    component "可靠性保证" as reliability
+}
+
+package "网络层" {
+    component "路由选择" as routing
+    component "网络拓扑" as topology
+}
+
+package "数据链路层" {
+    component "帧同步" as sync
+    component "错误检测" as error_check
+    component "流量控制" as flow_control
+}
+
+package "物理层" {
+    component "信号调制" as modulation
+    component "无线电传输" as radio
+    component "卫星链路" as satellite
+}
+
+' 连接关系
+awareness --> transport
+targeting --> transport
+coordination --> transport
+joint_ops --> transport
+
+transport --> routing
+reliability --> routing
+
+routing --> sync
+topology --> sync
+
+sync --> modulation
+error_check --> modulation
+flow_control --> modulation
+
+modulation --> radio
+modulation --> satellite
+
+note right of awareness
+态势感知应用
+实时信息共享
+end note
+
+note right of targeting
+目标指示应用
+精确打击协调
+end note
+
+note right of coordination
+火力协调应用
+多平台协同
+end note
+
+note right of transport
+端到端可靠传输
+数据完整性保证
+end note
+
+note right of routing
+智能路由选择
+网络拓扑管理
+end note
+
+note right of sync
+TDMA时分多址
+跳频扩频技术
+end note
+
+note right of modulation
+信号调制解调
+抗干扰传输
+end note
+
+@enduml
