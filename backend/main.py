@@ -56,6 +56,13 @@ except ImportError as e:
     print(f"Unified API模块导入失败: {e}")
     UNIFIED_API_AVAILABLE = False
 
+try:
+    from message_generation_api import include_message_generation_routes
+    MESSAGE_GENERATION_API_AVAILABLE = True
+except ImportError as e:
+    print(f"消息生成API模块导入失败: {e}")
+    MESSAGE_GENERATION_API_AVAILABLE = False
+
 # 创建FastAPI应用
 app = FastAPI(
     title="MIL-STD-6016 Mini API", 
@@ -678,6 +685,10 @@ if UNIFIED_API_AVAILABLE:
     include_unified_routes(app)
     print("✓ Unified API模块已加载")
 
+if MESSAGE_GENERATION_API_AVAILABLE:
+    include_message_generation_routes(app)
+    print("✓ 消息生成API模块已加载")
+
 # ---------- 启动信息 ----------
 if __name__ == "__main__":
     import uvicorn
@@ -689,4 +700,5 @@ if __name__ == "__main__":
     print(f"🧠 Semantic API: {'可用' if SEMANTIC_API_AVAILABLE else '不可用'}")
     print(f"📋 CDM API: {'可用' if CDM_API_AVAILABLE else '不可用'}")
     print(f"🔗 Unified API: {'可用' if UNIFIED_API_AVAILABLE else '不可用'}")
+    print(f"📦 消息生成API: {'可用' if MESSAGE_GENERATION_API_AVAILABLE else '不可用'}")
     uvicorn.run(app, host="127.0.0.1", port=8000)

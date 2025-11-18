@@ -2,7 +2,7 @@
 PDF处理API接口
 集成PDF处理功能到FastAPI应用
 """
-from fastapi import FastAPI, HTTPException, UploadFile, File, Form, Query
+from fastapi import FastAPI, APIRouter, HTTPException, UploadFile, File, Form, Query
 from fastapi.responses import JSONResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -17,17 +17,8 @@ from pdf_adapter.pdf_processor import PDFProcessor, process_pdf_file, batch_proc
 
 logger = logging.getLogger(__name__)
 
-# 创建PDF处理API
-pdf_app = FastAPI(title="PDF Processing API", version="1.0.0")
-
-# CORS配置
-pdf_app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# 创建PDF处理API路由器
+pdf_app = APIRouter(prefix="/api/pdf", tags=["PDF Processing"])
 
 # 请求模型
 class PDFProcessRequest(BaseModel):
@@ -51,7 +42,7 @@ class ProcessingResult(BaseModel):
     data: Optional[Dict[str, Any]] = None
     error: Optional[str] = None
 
-@pdf_app.post("/api/pdf/process", response_model=ProcessingResult)
+@pdf_app.post("/process", response_model=ProcessingResult)
 async def process_pdf(
     file: UploadFile = File(...),
     standard: str = Form("MIL-STD-6016"),
@@ -99,7 +90,7 @@ async def process_pdf(
         logger.error(f"Error processing PDF: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-@pdf_app.post("/api/pdf/batch-process", response_model=ProcessingResult)
+@pdf_app.post("/batch-process", response_model=ProcessingResult)
 async def batch_process_pdfs_endpoint(request: BatchProcessRequest):
     """
     批量处理PDF文件
@@ -132,7 +123,7 @@ async def batch_process_pdfs_endpoint(request: BatchProcessRequest):
         logger.error(f"Error in batch processing: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-@pdf_app.post("/api/pdf/validate", response_model=ProcessingResult)
+@pdf_app.post("/validate", response_model=ProcessingResult)
 async def validate_sim_data(request: ValidationRequest):
     """
     验证SIM数据
@@ -159,7 +150,7 @@ async def validate_sim_data(request: ValidationRequest):
         logger.error(f"Error validating SIM data: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-@pdf_app.get("/api/pdf/status/{task_id}")
+@pdf_app.get("/status/{task_id}")
 async def get_processing_status(task_id: str):
     """
     获取处理状态（用于异步处理）
@@ -172,7 +163,7 @@ async def get_processing_status(task_id: str):
         "message": "Processing completed"
     }
 
-@pdf_app.get("/api/pdf/download/{filename}")
+@pdf_app.get("/download/{filename}")
 async def download_file(filename: str):
     """
     下载生成的文件
@@ -194,7 +185,7 @@ async def download_file(filename: str):
         logger.error(f"Error downloading file {filename}: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-@pdf_app.get("/api/pdf/list-outputs")
+@pdf_app.get("/list-outputs")
 async def list_output_files(output_dir: Optional[str] = Query(None)):
     """
     列出输出文件
@@ -222,7 +213,7 @@ async def list_output_files(output_dir: Optional[str] = Query(None)):
         logger.error(f"Error listing output files: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-@pdf_app.get("/api/pdf/health")
+@pdf_app.get("/health")
 async def health_check():
     """
     健康检查
@@ -236,4 +227,4 @@ async def health_check():
 # 将PDF API集成到主应用
 def include_pdf_routes(app: FastAPI):
     """将PDF路由包含到主应用中"""
-    app.include_router(pdf_app, prefix="", tags=["PDF Processing"])
+    app.include_router(pdf_app)

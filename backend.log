@@ -1,0 +1,62 @@
+INFO:     Started server process [27188]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+⚠️  数据库不可用 (MySQL 未安装)，数据库功能将被禁用
+✓ 数据库模块已加载 (可用性: False)
+✓ PDF API模块已加载
+✓ MQTT API模块已加载
+✓ Universal API模块已加载
+✓ Semantic API模块已加载
+✓ CDM API模块已加载
+✓ Unified API模块已加载
+🚀 启动MIL-STD-6016 API服务器...
+📊 数据库状态: 不可用
+📄 PDF API: 可用
+📡 MQTT API: 可用
+🌐 Universal API: 可用
+🧠 Semantic API: 可用
+📋 CDM API: 可用
+🔗 Unified API: 可用
+INFO:     127.0.0.1:50313 - "GET /api/search?q=altitude HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50321 - "GET /api/pdf/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50327 - "GET /api/word/search?q=position HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50337 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50399 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50399 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50415 - "GET /api/search?q=altitude&fuzzy=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50415 - "GET /api/search?q=altitude&fuzzy=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50415 - "GET /api/search?q=altitude&fuzzy=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50415 - "GET /api/search?q=altitude&fuzzy=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50421 - "GET /api/search?q=altitude&fuzzy=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50421 - "GET /api/search?q=altitude&fuzzy=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50431 - "GET /api/search?q=altitude&j=J0&fuzzy=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50431 - "GET /api/search?q=altitude&j=J0&fuzzy=0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50591 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50591 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51346 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51346 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52711 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52711 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53582 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53582 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53611 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53611 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58201 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58201 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53310 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53310 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63308 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63310 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56000 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56002 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60091 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60091 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60130 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60130 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60171 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60171 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60217 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60217 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60239 - "GET /api/review/top HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60241 - "GET /api/review/top HTTP/1.1" 200 OK

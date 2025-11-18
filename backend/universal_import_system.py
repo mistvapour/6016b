@@ -14,7 +14,13 @@ import json
 import yaml
 
 # 格式检测
-import magic
+try:
+    import magic
+    MAGIC_AVAILABLE = True
+except ImportError:
+    MAGIC_AVAILABLE = False
+    magic = None
+
 import fitz  # PyMuPDF
 import xml.etree.ElementTree as ET
 import pandas as pd
@@ -663,21 +669,24 @@ class UniversalImportSystem:
             mime_type = mimetypes.guess_type(file_path)[0]
             
             # 如果mimetypes检测不到，使用python-magic
-            if not mime_type:
+            if not mime_type and MAGIC_AVAILABLE:
                 try:
                     mime_type = magic.from_file(file_path, mime=True)
                 except:
-                    # 回退到扩展名检测
-                    ext = Path(file_path).suffix.lower()
-                    mime_map = {
-                        '.pdf': 'application/pdf',
-                        '.xml': 'application/xml',
-                        '.json': 'application/json',
-                        '.csv': 'text/csv',
-                        '.yaml': 'application/x-yaml',
-                        '.yml': 'application/x-yaml'
-                    }
-                    mime_type = mime_map.get(ext, 'application/octet-stream')
+                    pass
+            
+            # 回退到扩展名检测
+            if not mime_type:
+                ext = Path(file_path).suffix.lower()
+                mime_map = {
+                    '.pdf': 'application/pdf',
+                    '.xml': 'application/xml',
+                    '.json': 'application/json',
+                    '.csv': 'text/csv',
+                    '.yaml': 'application/x-yaml',
+                    '.yml': 'application/x-yaml'
+                }
+                mime_type = mime_map.get(ext, 'application/octet-stream')
             
             return {
                 "file_path": file_path,

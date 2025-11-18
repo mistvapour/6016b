@@ -14,19 +14,40 @@ import logging
 import time
 
 # 导入现有模块
-from pdf_api import process_milstd6016_pdf, batch_process_pdfs
-from mqtt_api import process_mqtt_pdf
-from semantic_interop_system import InteroperabilityManager
-from cdm_system import CDMInteropSystem
-from universal_import_system import ImportOrchestrator
+try:
+    from pdf_adapter.pdf_processor import process_pdf_file, batch_process_pdfs
+    PDF_PROCESSOR_AVAILABLE = True
+except ImportError:
+    PDF_PROCESSOR_AVAILABLE = False
+
+try:
+    from mqtt_api import process_mqtt_pdf
+    MQTT_API_AVAILABLE = True
+except ImportError:
+    MQTT_API_AVAILABLE = False
+
+try:
+    from semantic_interop_system import InteroperabilityManager
+    semantic_manager = InteroperabilityManager()
+except ImportError:
+    semantic_manager = None
+
+try:
+    from cdm_system import CDMInteropSystem
+    cdm_system = CDMInteropSystem()
+except ImportError:
+    cdm_system = None
+
+try:
+    from universal_import_system import UniversalImportSystem
+    universal_system = UniversalImportSystem()
+except ImportError:
+    universal_system = None
 
 router = APIRouter(prefix="/api/v2", tags=["unified_processing"])
 logger = logging.getLogger(__name__)
 
-# 全局处理器实例
-semantic_manager = InteroperabilityManager()
-cdm_system = CDMInteropSystem()
-import_orchestrator = ImportOrchestrator()
+# 全局处理器实例（已在上面初始化）
 
 # 统一数据模型
 class ProtocolType(str, Enum):
@@ -201,16 +222,23 @@ async def process_file(
         
         # 根据文件类型选择处理方式
         if file_type.lower() == "pdf":
-            if standard == "MIL-STD-6016":
-                result = await process_milstd6016_pdf(file, processing_options)
-            elif standard == "MQTT":
+            if standard == "MIL-STD-6016" and PDF_PROCESSOR_AVAILABLE:
+                # 同步函数调用
+                import asyncio
+                result = await asyncio.to_thread(process_pdf_file, str(file.filename), processing_options)
+            elif standard == "MQTT" and MQTT_API_AVAILABLE:
                 result = await process_mqtt_pdf(file, processing_options)
-            else:
+            elif universal_system:
                 # 使用统一导入系统
-                result = await import_orchestrator.process_file(file, file_type, standard, processing_options)
+                result = universal_system.process_file(str(file.filename), **processing_options)
+            else:
+                raise HTTPException(status_code=501, detail="PDF处理功能暂不可用")
         else:
             # 使用统一导入系统处理其他格式
-            result = await import_orchestrator.process_file(file, file_type, standard, processing_options)
+            if universal_system:
+                result = universal_system.process_file(str(file.filename), **processing_options)
+            else:
+                raise HTTPException(status_code=501, detail="文件处理功能暂不可用")
         
         processing_time = time.time() - start_time
         
