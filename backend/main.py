@@ -5,63 +5,92 @@ from pydantic import BaseModel
 from typing import Optional
 import os, io, csv, logging, re
 
-# 数据库相关导入
+import sys
+
+# ---------- 数据库相关导入 ----------
+print(">>> 正在加载数据库模块...", file=sys.stderr)
 try:
     from db import call_proc, query, exec_sql
     DB_AVAILABLE = True
+    print("✅ 数据库模块加载成功", file=sys.stderr)
 except ImportError as e:
-    print(f"数据库模块导入失败: {e}")
+    print(f"❌ 数据库模块导入失败: {e}", file=sys.stderr)
     DB_AVAILABLE = False
 
-# API模块导入
+# ---------- API模块导入 ----------
+print(">>> 正在加载 PDF API 模块...", file=sys.stderr)
 try:
     from pdf_api import include_pdf_routes
     PDF_API_AVAILABLE = True
+    print("✅ PDF API模块加载成功", file=sys.stderr)
 except ImportError as e:
-    print(f"PDF API模块导入失败: {e}")
+    print(f"❌ PDF API模块导入失败: {e}", file=sys.stderr)
     PDF_API_AVAILABLE = False
 
+print(">>> 正在加载 MQTT API 模块...", file=sys.stderr)
 try:
     from mqtt_api import router as mqtt_router
     MQTT_API_AVAILABLE = True
+    print("✅ MQTT API模块加载成功", file=sys.stderr)
 except ImportError as e:
-    print(f"MQTT API模块导入失败: {e}")
+    print(f"❌ MQTT API模块导入失败: {e}", file=sys.stderr)
     MQTT_API_AVAILABLE = False
 
-try:
-    from universal_import_api import include_universal_routes
-    UNIVERSAL_API_AVAILABLE = True
-except ImportError as e:
-    print(f"Universal API模块导入失败: {e}")
-    UNIVERSAL_API_AVAILABLE = False
+# Universal API 模块导入（暂时禁用以避免 Python 3.13 致命错误）
+# TODO: 当解决 Python 3.13 兼容性问题后，恢复此模块
+print(">>> 正在加载 Universal API 模块...", file=sys.stderr)
+UNIVERSAL_API_AVAILABLE = False
+print("⚠️  Universal API模块已暂时禁用（Python 3.13 兼容性问题）", file=sys.stderr)
+print("   错误: TP_NUM_C_BUFS too small: 50 (致命错误，无法捕获)", file=sys.stderr)
+print("   建议: 使用 Python 3.11 或 3.12，或等待相关库更新", file=sys.stderr)
 
+# 注释掉的原始导入代码（如果 Python 版本降级后可以恢复）
+# try:
+#     from universal_import_api import include_universal_routes
+#     UNIVERSAL_API_AVAILABLE = True
+#     print("✅ Universal API模块加载成功", file=sys.stderr)
+# except Exception as e:
+#     error_type = type(e).__name__
+#     print(f"❌ Universal API模块导入失败: {error_type}: {e}", file=sys.stderr)
+#     UNIVERSAL_API_AVAILABLE = False
+
+print(">>> 正在加载 Semantic API 模块...", file=sys.stderr)
 try:
     from semantic_interop_api import include_semantic_routes
     SEMANTIC_API_AVAILABLE = True
+    print("✅ Semantic API模块加载成功", file=sys.stderr)
 except ImportError as e:
-    print(f"Semantic API模块导入失败: {e}")
+    print(f"❌ Semantic API模块导入失败: {e}", file=sys.stderr)
     SEMANTIC_API_AVAILABLE = False
 
+print(">>> 正在加载 CDM API 模块...", file=sys.stderr)
 try:
     from cdm_api import include_cdm_routes
     CDM_API_AVAILABLE = True
+    print("✅ CDM API模块加载成功", file=sys.stderr)
 except ImportError as e:
-    print(f"CDM API模块导入失败: {e}")
+    print(f"❌ CDM API模块导入失败: {e}", file=sys.stderr)
     CDM_API_AVAILABLE = False
 
+print(">>> 正在加载 Unified API 模块...", file=sys.stderr)
 try:
     from unified_api import include_unified_routes
     UNIFIED_API_AVAILABLE = True
+    print("✅ Unified API模块加载成功", file=sys.stderr)
 except ImportError as e:
-    print(f"Unified API模块导入失败: {e}")
+    print(f"❌ Unified API模块导入失败: {e}", file=sys.stderr)
     UNIFIED_API_AVAILABLE = False
 
+print(">>> 正在加载消息生成API模块...", file=sys.stderr)
 try:
     from message_generation_api import include_message_generation_routes
     MESSAGE_GENERATION_API_AVAILABLE = True
+    print("✅ 消息生成API模块加载成功", file=sys.stderr)
 except ImportError as e:
-    print(f"消息生成API模块导入失败: {e}")
+    print(f"❌ 消息生成API模块导入失败: {e}", file=sys.stderr)
     MESSAGE_GENERATION_API_AVAILABLE = False
+
+print(">>> 所有模块导入完成", file=sys.stderr)
 
 # 创建FastAPI应用
 app = FastAPI(
@@ -81,6 +110,18 @@ app.add_middleware(
 )
 
 logger = logging.getLogger("uvicorn.error")
+
+# ---------- 根路径 ----------
+@app.get("/")
+def root():
+    """根路径"""
+    return {
+        "name": "MIL-STD-6016 Mini API",
+        "version": "0.6.0",
+        "status": "running",
+        "docs": "/docs",
+        "health": "/api/health"
+    }
 
 # ---------- 数据模型 ----------
 class BindFieldBody(BaseModel):
@@ -670,8 +711,10 @@ if MQTT_API_AVAILABLE:
     print("✓ MQTT API模块已加载")
 
 if UNIVERSAL_API_AVAILABLE:
-    include_universal_routes(app)
+    # include_universal_routes(app)  # 暂时禁用，Python 3.13 兼容性问题
     print("✓ Universal API模块已加载")
+else:
+    print("⚠️  Universal API模块未加载（已禁用）")
 
 if SEMANTIC_API_AVAILABLE:
     include_semantic_routes(app)
@@ -692,7 +735,9 @@ if MESSAGE_GENERATION_API_AVAILABLE:
 # ---------- 启动信息 ----------
 if __name__ == "__main__":
     import uvicorn
-    print("🚀 启动MIL-STD-6016 API服务器...")
+    print("=" * 60)
+    print("🚀 启动 MIL-STD-6016 API 服务器")
+    print("=" * 60)
     print(f"📊 数据库状态: {'可用' if DB_AVAILABLE else '不可用'}")
     print(f"📄 PDF API: {'可用' if PDF_API_AVAILABLE else '不可用'}")
     print(f"📡 MQTT API: {'可用' if MQTT_API_AVAILABLE else '不可用'}")
@@ -701,4 +746,24 @@ if __name__ == "__main__":
     print(f"📋 CDM API: {'可用' if CDM_API_AVAILABLE else '不可用'}")
     print(f"🔗 Unified API: {'可用' if UNIFIED_API_AVAILABLE else '不可用'}")
     print(f"📦 消息生成API: {'可用' if MESSAGE_GENERATION_API_AVAILABLE else '不可用'}")
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    print("=" * 60)
+    print("🌐 服务地址: http://127.0.0.1:8000")
+    print("📚 API文档: http://127.0.0.1:8000/docs")
+    print("❤️  健康检查: http://127.0.0.1:8000/api/health")
+    print("=" * 60)
+    print()
+    
+    # Windows 下禁用 reload 以避免 Segmentation fault
+    # 注意：直接运行 python main.py 在 Windows 下可能导致 Segmentation fault
+    # 推荐使用: python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+    import os
+    is_windows = os.name == 'nt'
+    reload_enabled = not is_windows
+    
+    uvicorn.run(
+        app, 
+        host="127.0.0.1", 
+        port=8000, 
+        reload=reload_enabled,
+        log_level="info"
+    )

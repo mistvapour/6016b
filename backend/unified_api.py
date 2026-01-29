@@ -21,28 +21,49 @@ except ImportError:
     PDF_PROCESSOR_AVAILABLE = False
 
 try:
-    from mqtt_api import process_mqtt_pdf
+    from mqtt_api import router as mqtt_router, pdf_to_yaml
     MQTT_API_AVAILABLE = True
 except ImportError:
     MQTT_API_AVAILABLE = False
+    pdf_to_yaml = None
 
-try:
-    from semantic_interop_system import InteroperabilityManager
-    semantic_manager = InteroperabilityManager()
-except ImportError:
-    semantic_manager = None
+# 延迟初始化系统实例（避免导入时阻塞和 Python 3.13 兼容性问题）
+_semantic_manager = None
+_cdm_system = None
+_universal_system = None
 
-try:
-    from cdm_system import CDMInteropSystem
-    cdm_system = CDMInteropSystem()
-except ImportError:
-    cdm_system = None
+def get_semantic_manager():
+    """获取语义互操作系统实例（延迟初始化）"""
+    global _semantic_manager
+    if _semantic_manager is None:
+        try:
+            from semantic_interop_system import InteroperabilityManager
+            _semantic_manager = InteroperabilityManager()
+        except (ImportError, Exception):
+            _semantic_manager = None
+    return _semantic_manager
 
-try:
-    from universal_import_system import UniversalImportSystem
-    universal_system = UniversalImportSystem()
-except ImportError:
-    universal_system = None
+def get_cdm_system():
+    """获取CDM互操作系统实例（延迟初始化）"""
+    global _cdm_system
+    if _cdm_system is None:
+        try:
+            from cdm_system import CDMInteropSystem
+            _cdm_system = CDMInteropSystem()
+        except (ImportError, Exception):
+            _cdm_system = None
+    return _cdm_system
+
+def get_universal_system():
+    """获取统一导入系统实例（延迟初始化）"""
+    global _universal_system
+    if _universal_system is None:
+        try:
+            from universal_import_system import UniversalImportSystem
+            _universal_system = UniversalImportSystem()
+        except (ImportError, Exception):
+            _universal_system = None
+    return _universal_system
 
 router = APIRouter(prefix="/api/v2", tags=["unified_processing"])
 logger = logging.getLogger(__name__)
@@ -159,8 +180,13 @@ async def convert_message(request: ConversionRequest):
         start_time = time.time()
         
         # 根据源协议和目标协议选择处理方式
+        cdm_system = get_cdm_system()
+        semantic_manager = get_semantic_manager()
+        
         if request.source_message.protocol in [ProtocolType.MIL_STD_6016, ProtocolType.MAVLink, ProtocolType.MQTT]:
             # 使用CDM四层法处理
+            if cdm_system is None:
+                raise HTTPException(status_code=503, detail="CDM系统不可用")
             result = cdm_system.process_message(
                 source_message=request.source_message.data,
                 source_protocol=request.source_message.protocol.value,
@@ -169,9 +195,14 @@ async def convert_message(request: ConversionRequest):
             )
         else:
             # 使用语义互操作处理
+            if semantic_manager is None:
+                raise HTTPException(status_code=503, detail="语义互操作系统不可用")
+            # 将 ProtocolType 值转换为语义系统需要的格式
+            # 注意：这里可能需要根据实际的 MessageStandard 类型进行转换
+            source_standard_value = request.source_message.protocol.value
             result = semantic_manager.process_message_with_routing(
                 message=request.source_message.data,
-                source_standard=request.source_message.protocol.value
+                source_standard=source_standard_value  # type: ignore
             )
         
         processing_time = time.time() - start_time
@@ -203,6 +234,7 @@ async def convert_message(request: ConversionRequest):
         return ConversionResponse(
             success=False,
             processing_time=0.0,
+            confidence=0.0,
             errors=[str(e)]
         )
 
@@ -221,22 +253,34 @@ async def process_file(
         processing_options = json.loads(options) if options else {}
         
         # 根据文件类型选择处理方式
+        filename = file.filename or "uploaded_file"
+        universal_system = get_universal_system()
+        
+        # 确保 processing_options 是字典类型
+        if not isinstance(processing_options, dict):
+            processing_options = {}
+        
         if file_type.lower() == "pdf":
             if standard == "MIL-STD-6016" and PDF_PROCESSOR_AVAILABLE:
                 # 同步函数调用
                 import asyncio
-                result = await asyncio.to_thread(process_pdf_file, str(file.filename), processing_options)
-            elif standard == "MQTT" and MQTT_API_AVAILABLE:
-                result = await process_mqtt_pdf(file, processing_options)
+                result = await asyncio.to_thread(process_pdf_file, filename, processing_options)
+            elif standard == "MQTT" and MQTT_API_AVAILABLE and pdf_to_yaml:
+                # 使用 MQTT API 的 pdf_to_yaml 函数
+                output_dir_value = processing_options.get("output_dir")
+                output_dir_str: str = "mqtt_output"  # 默认值
+                if isinstance(output_dir_value, str):
+                    output_dir_str = output_dir_value
+                result = await pdf_to_yaml(file, output_dir=output_dir_str)
             elif universal_system:
                 # 使用统一导入系统
-                result = universal_system.process_file(str(file.filename), **processing_options)
+                result = universal_system.process_file(filename, **processing_options)
             else:
                 raise HTTPException(status_code=501, detail="PDF处理功能暂不可用")
         else:
             # 使用统一导入系统处理其他格式
             if universal_system:
-                result = universal_system.process_file(str(file.filename), **processing_options)
+                result = universal_system.process_file(filename, **processing_options)
             else:
                 raise HTTPException(status_code=501, detail="文件处理功能暂不可用")
         
@@ -310,28 +354,33 @@ async def get_concepts(
 ):
     """统一的概念管理接口"""
     try:
+        cdm_system = get_cdm_system()
+        semantic_manager = get_semantic_manager()
+        
         # 获取CDM概念
         cdm_concepts = []
-        for path, concept in cdm_system.cdm_registry.concepts.items():
-            cdm_concepts.append({
-                "path": concept.path,
-                "data_type": concept.data_type.value,
-                "unit": concept.unit.value if concept.unit else None,
-                "description": concept.description,
-                "source": "cdm"
-            })
+        if cdm_system and hasattr(cdm_system, 'cdm_registry') and cdm_system.cdm_registry:
+            for path, concept in cdm_system.cdm_registry.concepts.items():
+                cdm_concepts.append({
+                    "path": concept.path,
+                    "data_type": concept.data_type.value,
+                    "unit": concept.unit.value if concept.unit else None,
+                    "description": concept.description,
+                    "source": "cdm"
+                })
         
         # 获取语义字段
         semantic_fields = []
-        for field_id, field in semantic_manager.registry.semantic_fields.items():
-            if field_id.startswith("sem."):
-                semantic_fields.append({
-                    "path": field_id,
-                    "data_type": field.field_type.value,
-                    "unit": field.unit,
-                    "description": field.description,
-                    "source": "semantic"
-                })
+        if semantic_manager and hasattr(semantic_manager, 'registry') and semantic_manager.registry:
+            for field_id, field in semantic_manager.registry.semantic_fields.items():
+                if field_id.startswith("sem."):
+                    semantic_fields.append({
+                        "path": field_id,
+                        "data_type": field.field_type.value,
+                        "unit": field.unit,
+                        "description": field.description,
+                        "source": "semantic"
+                    })
         
         # 合并结果
         all_concepts = cdm_concepts + semantic_fields
@@ -364,28 +413,33 @@ async def get_mappings(
 ):
     """统一的映射管理接口"""
     try:
+        cdm_system = get_cdm_system()
+        semantic_manager = get_semantic_manager()
+        
         # 获取CDM映射
         cdm_mappings = []
-        for mapping_key, mapping in cdm_system.mapping_registry.mappings.items():
-            cdm_mappings.append({
-                "mapping_key": mapping_key,
-                "source_protocol": mapping.source_protocol,
-                "target_protocol": mapping.target_protocol,
-                "version": mapping.version,
-                "source": "cdm"
-            })
+        if cdm_system and hasattr(cdm_system, 'mapping_registry') and cdm_system.mapping_registry:
+            for mapping_key, mapping in cdm_system.mapping_registry.mappings.items():
+                cdm_mappings.append({
+                    "mapping_key": mapping_key,
+                    "source_protocol": mapping.source_protocol,
+                    "target_protocol": mapping.target_protocol,
+                    "version": mapping.version,
+                    "source": "cdm"
+                })
         
         # 获取语义映射
         semantic_mappings = []
-        for mapping_key, mappings in semantic_manager.registry.message_mappings.items():
-            for mapping in mappings:
-                semantic_mappings.append({
-                    "mapping_key": mapping_key,
-                    "source_protocol": mapping.source_standard.value,
-                    "target_protocol": mapping.target_standard.value,
-                    "version": "1.0",
-                    "source": "semantic"
-                })
+        if semantic_manager and hasattr(semantic_manager, 'registry') and semantic_manager.registry:
+            for mapping_key, mappings in semantic_manager.registry.message_mappings.items():
+                for mapping in mappings:
+                    semantic_mappings.append({
+                        "mapping_key": mapping_key,
+                        "source_protocol": mapping.source_standard.value,
+                        "target_protocol": mapping.target_standard.value,
+                        "version": "1.0",
+                        "source": "semantic"
+                    })
         
         # 合并结果
         all_mappings = cdm_mappings + semantic_mappings

@@ -1,0 +1,26 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/backend/.venv/Scripts/python.exe",
+  "python.venvPath": "${workspaceFolder}",
+  "python.venvFolders": [
+    "backend/.venv",
+    "venv"
+  ],
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/backend"
+  ],
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "basedpyright.analysis.venvPath": "${workspaceFolder}",
+  "basedpyright.analysis.venv": "backend/.venv",
+  "basedpyright.analysis.extraPaths": [
+    "${workspaceFolder}/backend/.venv/Lib/site-packages",
+    "${workspaceFolder}/backend"
+  ],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  }
+}

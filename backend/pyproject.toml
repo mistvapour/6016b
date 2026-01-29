@@ -1,0 +1,19 @@
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+pythonVersion = "3.8"
+typeCheckingMode = "basic"
+reportMissingImports = "warning"
+reportMissingTypeStubs = false
+
+exclude = [
+    "**/__pycache__",
+    "**/.venv",
+    "**/node_modules"
+]
+
+include = [
+    "."
+]
+
+

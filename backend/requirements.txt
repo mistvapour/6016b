@@ -1,4 +1,4 @@
-﻿# Web框架
+# Web框架
 fastapi==0.115.4
 uvicorn[standard]==0.30.6
 python-multipart==0.0.9
@@ -35,6 +35,9 @@ requests==2.31.0
 
 # 日志和工具
 loguru==0.7.2
+
+# 数据校验与模型
+pydantic>=2.0.0
 
 # 其他工具库
 jinja2==3.1.4

@@ -13,19 +13,35 @@ from pathlib import Path
 import logging
 import json
 
-from universal_import_system import UniversalImportSystem
+# 延迟导入 UniversalImportSystem（避免 Python 3.13 兼容性问题）
+# from universal_import_system import UniversalImportSystem  # 延迟导入
 
 router = APIRouter(prefix="/api/universal", tags=["universal_import"])
 logger = logging.getLogger(__name__)
 
-# 初始化统一导入系统
-universal_system = UniversalImportSystem()
+# 延迟初始化统一导入系统（避免导入时阻塞和兼容性问题）
+_universal_system = None
+
+def get_universal_system():
+    """获取统一导入系统实例（延迟初始化，延迟导入）"""
+    global _universal_system
+    if _universal_system is None:
+        try:
+            logger.info("正在导入 UniversalImportSystem...")
+            from universal_import_system import UniversalImportSystem
+            logger.info("正在初始化 UniversalImportSystem...")
+            _universal_system = UniversalImportSystem()
+            logger.info("UniversalImportSystem 初始化完成")
+        except Exception as e:
+            logger.error(f"UniversalImportSystem 初始化失败: {e}")
+            raise
+    return _universal_system
 
 @router.get("/status")
 async def get_system_status():
     """获取统一导入系统状态"""
     try:
-        status = universal_system.get_system_status()
+        status = get_universal_system().get_system_status()
         return JSONResponse(content=status)
     except Exception as e:
         logger.error(f"获取系统状态失败: {e}")
@@ -35,7 +51,7 @@ async def get_system_status():
 async def get_supported_formats():
     """获取支持的文件格式列表"""
     try:
-        formats = universal_system.get_supported_formats()
+        formats = get_universal_system().get_supported_formats()
         return {
             "success": True,
             "supported_formats": formats,
@@ -48,18 +64,20 @@ async def get_supported_formats():
 @router.post("/detect-format")
 async def detect_file_format(file: UploadFile = File(...)):
     """检测上传文件的格式和标准类型"""
+    temp_path = None
     try:
         # 保存临时文件
-        with tempfile.NamedTemporaryFile(delete=False, suffix=Path(file.filename).suffix) as temp_file:
+        file_suffix = Path(file.filename or "temp").suffix if file.filename else ""
+        with tempfile.NamedTemporaryFile(delete=False, suffix=file_suffix) as temp_file:
             shutil.copyfileobj(file.file, temp_file)
             temp_path = temp_file.name
 
         try:
             # 检测文件格式
-            format_info = universal_system.detect_file_format(temp_path)
+            format_info = get_universal_system().detect_file_format(temp_path)
             
             # 查找适配器
-            adapter = universal_system.find_adapter(temp_path, format_info["mime_type"])
+            adapter = get_universal_system().find_adapter(temp_path, format_info["mime_type"])
             
             if adapter:
                 # 检测标准类型
@@ -80,12 +98,13 @@ async def detect_file_format(file: UploadFile = File(...)):
                     "format_info": format_info,
                     "supported": False,
                     "message": f"不支持的文件格式: {format_info.get('mime_type', 'unknown')}",
-                    "supported_formats": universal_system.get_supported_formats()
+                    "supported_formats": get_universal_system().get_supported_formats()
                 }
                 
         finally:
             # 清理临时文件
-            os.unlink(temp_path)
+            if temp_path and os.path.exists(temp_path):
+                os.unlink(temp_path)
             
     except Exception as e:
         logger.error(f"文件格式检测失败: {e}")
@@ -102,12 +121,13 @@ async def process_single_file(
     """处理单个文件"""
     try:
         # 设置输出目录
+        filename = file.filename or "uploaded_file"
         if not output_dir:
-            output_dir = f"universal_output/{Path(file.filename).stem}"
+            output_dir = f"universal_output/{Path(filename).stem}"
         os.makedirs(output_dir, exist_ok=True)
         
         # 保存上传的文件
-        file_path = os.path.join(output_dir, file.filename)
+        file_path = os.path.join(output_dir, filename)
         with open(file_path, "wb") as f:
             shutil.copyfileobj(file.file, f)
         
@@ -120,7 +140,7 @@ async def process_single_file(
         }
         
         # 处理文件
-        result = universal_system.process_file(file_path, **kwargs)
+        result = get_universal_system().process_file(file_path, **kwargs)
         
         return {
             "success": result["success"],
@@ -150,7 +170,8 @@ async def process_batch_files(
         # 保存所有上传的文件
         file_paths = []
         for file in files:
-            file_path = os.path.join(output_dir, file.filename)
+            filename = file.filename or "uploaded_file"
+            file_path = os.path.join(output_dir, filename)
             with open(file_path, "wb") as f:
                 shutil.copyfileobj(file.file, f)
             file_paths.append(file_path)
@@ -164,7 +185,7 @@ async def process_batch_files(
         }
         
         # 批量处理
-        result = universal_system.process_files(file_paths, **kwargs)
+        result = get_universal_system().process_files(file_paths, **kwargs)
         
         return {
             "success": result["success"],
@@ -196,7 +217,8 @@ async def complete_import_pipeline(
         # 保存所有上传的文件
         file_paths = []
         for file in files:
-            file_path = os.path.join(output_dir, file.filename)
+            filename = file.filename or "uploaded_file"
+            file_path = os.path.join(output_dir, filename)
             with open(file_path, "wb") as f:
                 shutil.copyfileobj(file.file, f)
             file_paths.append(file_path)
@@ -210,7 +232,7 @@ async def complete_import_pipeline(
         }
         
         # 执行完整流水线
-        result = universal_system.complete_pipeline(
+        result = get_universal_system().complete_pipeline(
             file_paths, 
             import_to_db=import_to_db,
             dry_run=dry_run,
@@ -235,7 +257,7 @@ async def import_yaml_files(
 ):
     """导入YAML文件到数据库"""
     try:
-        result = universal_system.import_to_database(yaml_paths, dry_run)
+        result = get_universal_system().import_to_database(yaml_paths, dry_run)
         return {
             "success": result["success"],
             "result": result
@@ -260,7 +282,7 @@ async def process_directory(
         
         # 查找匹配的文件
         from glob import glob
-        pattern = os.path.join(directory_path, file_pattern)
+        pattern = os.path.join(directory_path, file_pattern or "*")
         file_paths = glob(pattern)
         
         if not file_paths:
@@ -276,7 +298,7 @@ async def process_directory(
         os.makedirs(output_dir, exist_ok=True)
         
         # 执行完整流水线
-        result = universal_system.complete_pipeline(
+        result = get_universal_system().complete_pipeline(
             file_paths,
             import_to_db=import_to_db,
             dry_run=dry_run,
@@ -438,7 +460,7 @@ async def auto_process_xml(
 async def health_check():
     """健康检查"""
     try:
-        status = universal_system.get_system_status()
+        status = get_universal_system().get_system_status()
         return {
             "status": "ok",
             "message": "统一多格式导入系统运行正常",
