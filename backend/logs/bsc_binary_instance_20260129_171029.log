@@ -1,0 +1,404 @@
+2026-01-29 17:10:29 [INFO] bsc.test_binary_instance [BSC-GEN][SelfRepair] 6016B 消息实例生成器批量测试启动；日志文件: C:\Users\Administrator\Documents\毕业论文\代码\前端\6016-app\backend\logs\bsc_binary_instance_20260129_171029.log
+2026-01-29 17:10:29 [INFO] bsc.test_binary_instance [BatchGen] 开始批量生成，count=100, total_bits=24
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=8F8402
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 1 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 1 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=FD2CDA
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 2 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 2 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=257060
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 3 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 3 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=EC949B
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 4 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 4 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=C2C8BA
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 5 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 5 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=19A1F3
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 6 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 6 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=5F94F7
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 7 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 7 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=C3F751
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 8 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 8 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=63FF86
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 9 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 9 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=5401E9
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 10 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 10 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=3EFFCD
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 11 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 11 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=9EFE7A
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 12 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 12 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=9F2F0C
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 13 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 13 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=E3EF2F
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 14 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 14 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=190DAB
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 15 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 15 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=52FF1E
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 16 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 16 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=1691B3
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 17 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 17 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=F9DE6C
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 18 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 18 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=2898B6
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 19 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 19 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=85736E
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 20 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 20 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=03FF74
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 21 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 21 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=F70FC8
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 22 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 22 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=5F6C7A
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 23 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 23 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=AAEAB2
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 24 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 24 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=9EB0BE
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 25 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 25 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=7D02A8
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 26 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 26 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=4EAF30
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 27 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 27 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=31FF74
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 28 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 28 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=51FFDC
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 29 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 29 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=18DDAF
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 30 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 30 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=32ECAA
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 31 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 31 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=C69B65
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 32 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 32 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=C984E7
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 33 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 33 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=6BAA6D
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 34 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 34 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=E991D4
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 35 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 35 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=27E48B
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 36 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 36 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=9C204A
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 37 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 37 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=455BAB
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 38 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 38 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=C1FF40
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 39 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 39 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=ABFF03
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 40 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 40 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=52EE49
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 41 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 41 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=A72689
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 42 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 42 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=29D669
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 43 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 43 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=D20EF0
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 44 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 44 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=3913C2
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 45 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 45 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=77FA71
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 46 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 46 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=3506AB
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 47 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 47 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=04FFC1
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 48 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 48 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=3CE8A3
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 49 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 49 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=3BFF77
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 50 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 50 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=16B1AE
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 51 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 51 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=EEACD3
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 52 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 52 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=E6FFB4
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 53 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 53 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=D3FFD5
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 54 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 54 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=A27D11
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 55 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 55 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=CA1899
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 56 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 56 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=D3FF0C
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 57 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 57 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=51C89B
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 58 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 58 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=B9FF06
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 59 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 59 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=3DEB0D
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 60 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 60 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=1BFF2B
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 61 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 61 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=F4FF04
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 62 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 62 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=B09020
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 63 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 63 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=91FFF8
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 64 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 64 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=5FFFE4
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 65 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 65 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=F3C5D4
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 66 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 66 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=595453
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 67 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 67 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=AC63B6
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 68 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 68 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=D244D5
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 69 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 69 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=876C22
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 70 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 70 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=A44B60
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 71 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 71 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=F45887
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 72 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 72 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=AEFF89
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 73 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 73 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=A9536B
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 74 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 74 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=1FE425
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 75 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 75 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=142D04
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 76 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 76 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=CBFF60
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 77 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 77 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=906DD0
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 78 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 78 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=12FFDB
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 79 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 79 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=ADEF52
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 80 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 80 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=0D07D4
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 81 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 81 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=33B390
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 82 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 82 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=FE2DBF
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 83 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 83 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=37FFB5
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 84 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 84 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=D0FF97
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 85 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 85 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=53FF99
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 86 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 86 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=28FCFF
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 87 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 87 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=04FFAC
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 88 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 88 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=92410A
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 89 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 89 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=C4FF59
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 90 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 90 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=FB161D
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 91 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 91 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=1A569C
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 92 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 92 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=3EFA20
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 93 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 93 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=8B8449
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 94 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 94 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=FB63CC
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 95 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 95 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=CED8CB
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 96 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 96 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=26793F
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 97 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 97 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=79277B
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 98 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 98 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=75FFB8
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 99 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 99 逻辑合规
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Constraint] 字段 Field_B condition=If Field_A > 0, then this field exists -> 生成
+2026-01-29 17:10:29 [DEBUG] bsc.binary_instance_generator [BSC-GEN][Output] 生成实例 位长=24 二进制长=24 hex=E405FA
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [PhysicalClosure] 实例 100 位长合格: 24
+2026-01-29 17:10:29 [DEBUG] bsc.test_binary_instance [LogicCompliance] 实例 100 逻辑合规
+2026-01-29 17:10:29 [INFO] bsc.test_binary_instance [Stats] 批量结束: 物理闭合合格=100/100 逻辑合规=100/100
+2026-01-29 17:10:29 [INFO] bsc.test_binary_instance [BSC-GEN][Export] 样例已导出: C:\Users\Administrator\Documents\毕业论文\代码\前端\6016-app\backend\logs\bsc_sample_instances_20260129_171029.json

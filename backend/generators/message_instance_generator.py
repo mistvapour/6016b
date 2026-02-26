@@ -11,7 +11,10 @@ import random
 import datetime
 from dataclasses import asdict
 
-from backend.schema.message_definition import MessageDefinition, MessageField, FieldConstraint
+try:
+    from schema.message_definition import MessageDefinition, MessageField, FieldConstraint
+except ImportError:
+    from backend.schema.message_definition import MessageDefinition, MessageField, FieldConstraint
 
 
 class GenerationMode(str, Enum):

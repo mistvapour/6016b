@@ -1,0 +1,61 @@
+{
+  "total_bits": 24,
+  "count": 5,
+  "samples": [
+    {
+      "index": 1,
+      "field_values": {
+        "Field_A": 143,
+        "Field_B": 132,
+        "Field_C": 2
+      },
+      "binary": "100011111000010000000010",
+      "hex": "8F8402",
+      "bit_length": 24
+    },
+    {
+      "index": 2,
+      "field_values": {
+        "Field_A": 253,
+        "Field_B": 44,
+        "Field_C": 218
+      },
+      "binary": "111111010010110011011010",
+      "hex": "FD2CDA",
+      "bit_length": 24
+    },
+    {
+      "index": 3,
+      "field_values": {
+        "Field_A": 37,
+        "Field_B": 112,
+        "Field_C": 96
+      },
+      "binary": "001001010111000001100000",
+      "hex": "257060",
+      "bit_length": 24
+    },
+    {
+      "index": 4,
+      "field_values": {
+        "Field_A": 236,
+        "Field_B": 148,
+        "Field_C": 155
+      },
+      "binary": "111011001001010010011011",
+      "hex": "EC949B",
+      "bit_length": 24
+    },
+    {
+      "index": 5,
+      "field_values": {
+        "Field_A": 194,
+        "Field_B": 200,
+        "Field_C": 186
+      },
+      "binary": "110000101100100010111010",
+      "hex": "C2C8BA",
+      "bit_length": 24
+    }
+  ]
+}

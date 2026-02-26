@@ -39,5 +39,9 @@ loguru==0.7.2
 # 数据校验与模型
 pydantic>=2.0.0
 
+# LLM（Agentic 解析）
+openai>=1.0.0
+anthropic>=0.18.0
+
 # 其他工具库
 jinja2==3.1.4
