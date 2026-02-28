@@ -9,10 +9,11 @@ python-dotenv==1.0.1
 # 数据库
 mysql-connector-python==9.0.0
 
-# PDF处理核心依赖
-PyMuPDF==1.23.14
+# PDF处理核心依赖（升级以支持 Python 3.13）
+PyMuPDF>=1.26.6
 pdfplumber==0.10.3
-camelot-py[cv]==0.10.1
+# camelot 的 [cv] 扩展依赖 pdftopng>=0.2.3，但 PyPI 只有 0.1.0，导致无法解析，改为基础版本即可
+camelot-py==0.10.1
 
 # 图像处理
 opencv-python==4.8.1.78
@@ -25,10 +26,10 @@ layoutparser==0.3.4
 # 计算机视觉（可选，安装较慢）
 # detectron2==0.6  # 注释掉，需要特殊安装
 
-# 数据处理
+# 数据处理（放宽版本以支持 Python 3.13）
 PyYAML==6.0.1
-numpy==1.24.3
-pandas==2.0.3
+numpy>=1.24.3
+pandas>=2.0.3
 
 # HTTP请求
 requests==2.31.0
